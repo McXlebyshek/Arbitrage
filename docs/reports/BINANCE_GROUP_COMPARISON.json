@@ -1,0 +1,144 @@
+{
+  "classification": "PUBLIC_CONCURRENT_BINANCE_GROUP_DIAGNOSTIC",
+  "elapsed_seconds": 180.46356259999993,
+  "warmup_seconds": 30,
+  "registry_version": "2026-11-05-twenty-assets-v3",
+  "results": {
+    "group20": {
+      "samples": 149,
+      "selected_sum": 2980,
+      "fresh_sum": 2980,
+      "max_fresh": 20,
+      "reconnects": 0,
+      "received_stale_updates": 0,
+      "stale_stream_reconnects": 0,
+      "updates": 6852,
+      "max_recent_source_lag_p95_ms": -63,
+      "recent_failures": [],
+      "windows": {
+        "30": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "60": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "90": {
+          "samples": 29,
+          "selected_sum": 580,
+          "fresh_sum": 580,
+          "fresh_fraction": 1.0
+        },
+        "120": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "150": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        }
+      },
+      "mean_sampled_fresh_fraction": 1.0
+    },
+    "group10": {
+      "samples": 149,
+      "selected_sum": 2980,
+      "fresh_sum": 2980,
+      "max_fresh": 20,
+      "reconnects": 0,
+      "received_stale_updates": 0,
+      "stale_stream_reconnects": 0,
+      "updates": 6825,
+      "max_recent_source_lag_p95_ms": 42,
+      "recent_failures": [],
+      "windows": {
+        "30": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "60": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "90": {
+          "samples": 29,
+          "selected_sum": 580,
+          "fresh_sum": 580,
+          "fresh_fraction": 1.0
+        },
+        "120": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "150": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        }
+      },
+      "mean_sampled_fresh_fraction": 1.0
+    },
+    "group5": {
+      "samples": 149,
+      "selected_sum": 2980,
+      "fresh_sum": 2980,
+      "max_fresh": 20,
+      "reconnects": 0,
+      "received_stale_updates": 0,
+      "stale_stream_reconnects": 0,
+      "updates": 6764,
+      "max_recent_source_lag_p95_ms": -48,
+      "recent_failures": [],
+      "windows": {
+        "30": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "60": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "90": {
+          "samples": 29,
+          "selected_sum": 580,
+          "fresh_sum": 580,
+          "fresh_fraction": 1.0
+        },
+        "120": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        },
+        "150": {
+          "samples": 30,
+          "selected_sum": 600,
+          "fresh_sum": 600,
+          "fresh_fraction": 1.0
+        }
+      },
+      "mean_sampled_fresh_fraction": 1.0
+    }
+  },
+  "interpretation": "Three pools, same 20 instruments and depth5@500ms, groups 20/10/5, strict freshness, no monitor SQLite workload. Multiple 30s windows; not proof of long-term stability."
+}

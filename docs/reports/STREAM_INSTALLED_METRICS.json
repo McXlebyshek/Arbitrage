@@ -1,0 +1,391 @@
+{
+  "classification": "ISOLATED_PUBLIC_MULTIPROCESS_PAPER_SOAK",
+  "state": "passed",
+  "requested_seconds": 60,
+  "started_at_ms": 1793903114512,
+  "port": 8776,
+  "synthetic_signals": false,
+  "real_orders": false,
+  "external_messages": false,
+  "rules_enabled": true,
+  "entry_driver": "rules_process",
+  "elapsed_seconds": 64.7,
+  "modes": {
+    "empty": 1,
+    "live": 29,
+    "archive": 1
+  },
+  "max_rows": 272,
+  "max_fresh": 272,
+  "confirmed_snapshots": 6,
+  "opened_position_id": null,
+  "entry_rejections": {},
+  "close_rejections": {},
+  "mark_states": {
+    "idle": 31
+  },
+  "funding_states": {
+    "idle": 31
+  },
+  "rule_states": {
+    "blocked": 2,
+    "ready": 29
+  },
+  "rule_actions": {},
+  "rule_blocks": {},
+  "errors": [],
+  "requests": {
+    "state": {
+      "count": 31,
+      "p95_ms": 24.261499998829095,
+      "max_ms": 511.68820000020787
+    },
+    "paper": {
+      "count": 31,
+      "p95_ms": 1.2289999995118706,
+      "max_ms": 2.681400001165457
+    },
+    "alerts": {
+      "count": 31,
+      "p95_ms": 11.750899999242392,
+      "max_ms": 25.231999999959953
+    }
+  },
+  "paper_workers_restarted_at_seconds": 30.99,
+  "orchestration_passed": true,
+  "stopped_archive_seen": true,
+  "integrity": {
+    "market": "ok"
+  },
+  "paper_path": "not_exercised_no_accepted_confirmed",
+  "rules_blocked_after_stop": true,
+  "paper_open_count": 0,
+  "paper_closed_count": 0,
+  "monitor_exit_code": 1,
+  "market_data_quality": "data_gaps_at_stop",
+  "monitor_report": {
+    "run_id": "891d013b-e678-457d-bd10-bc4f6afce11f",
+    "started_at_ms": 1793903114997,
+    "finished": true,
+    "config": {
+      "symbols": "REGISTERED",
+      "group_size": 20,
+      "max_connections": 8,
+      "market_refresh_seconds": 900,
+      "mexc_depth_limit": 20,
+      "interval": 2.0,
+      "duration": 60.0,
+      "economics_pairs": 3,
+      "gate_group_size": 5
+    },
+    "warmup_seconds": 60,
+    "observations": 29,
+    "max_spread_rows": 272,
+    "max_eligible_quotes": 96,
+    "peak_rss_bytes": 558546944,
+    "last_rss_bytes": 490700800,
+    "peak_publish_ms": 764.4282999990537,
+    "peak_loop_lag_ms": 357.9891999997926,
+    "finished_at_ms": 1793903175564,
+    "finish_reason": "duration_reached",
+    "exit_code": 1,
+    "shutdown_states": {
+      "binanceusdm": "stopped",
+      "bybit": "stopped",
+      "okx": "stopped",
+      "bitget": "stopped",
+      "gate": "stopped",
+      "mexc": "stopped"
+    },
+    "elapsed_seconds": 60.566812999999456,
+    "cpu_seconds": 14.734375,
+    "cpu_pct_one_core": 24.32747286868162,
+    "database_bytes": 12410880,
+    "database_growth_bytes": 12410880,
+    "publish_p95_ms_recent": 99.27499999866995,
+    "loop_lag_p95_ms_recent": 72.60590000078082,
+    "percentile_window_limit": 10000,
+    "exchanges": {
+      "binanceusdm": {
+        "observations": 29,
+        "steady_observations": 1,
+        "steady_streaming_observations": 1,
+        "steady_fresh_sum": 17,
+        "steady_selected_sum": 20,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 18,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 4,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [
+          "ConnectionError: WS closed: 1006; Cannot write to closing transport"
+        ],
+        "received_stale_updates": 4374,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          898
+        ],
+        "event_lag_p95_ms_recent_by_connection": [
+          898.0
+        ],
+        "source_to_event_p95_ms_recent_by_connection": [
+          1.0
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.85
+      },
+      "bybit": {
+        "observations": 29,
+        "steady_observations": 1,
+        "steady_streaming_observations": 1,
+        "steady_fresh_sum": 20,
+        "steady_selected_sum": 20,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          62
+        ],
+        "event_lag_p95_ms_recent_by_connection": [
+          null
+        ],
+        "source_to_event_p95_ms_recent_by_connection": [
+          null
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 1.0
+      },
+      "okx": {
+        "observations": 29,
+        "steady_observations": 1,
+        "steady_streaming_observations": 1,
+        "steady_fresh_sum": 20,
+        "steady_selected_sum": 20,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          359
+        ],
+        "event_lag_p95_ms_recent_by_connection": [
+          null
+        ],
+        "source_to_event_p95_ms_recent_by_connection": [
+          null
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 1.0
+      },
+      "bitget": {
+        "observations": 29,
+        "steady_observations": 1,
+        "steady_streaming_observations": 1,
+        "steady_fresh_sum": 19,
+        "steady_selected_sum": 20,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          87
+        ],
+        "event_lag_p95_ms_recent_by_connection": [
+          null
+        ],
+        "source_to_event_p95_ms_recent_by_connection": [
+          null
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.95
+      },
+      "gate": {
+        "observations": 29,
+        "steady_observations": 1,
+        "steady_streaming_observations": 0,
+        "steady_fresh_sum": 0,
+        "steady_selected_sum": 0,
+        "max_selected_markets": 0,
+        "max_received_quotes": 0,
+        "max_fresh_quotes": 0,
+        "max_connections": 0,
+        "metadata_generation": 0,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 1,
+        "recent_failures": [
+          "RequestTimeout: gate GET https://api.gateio.ws/api/v4/futures/usdt/contracts"
+        ],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [],
+        "event_lag_p95_ms_recent_by_connection": [],
+        "source_to_event_p95_ms_recent_by_connection": [],
+        "last_state": "loading_markets",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": null
+      },
+      "mexc": {
+        "observations": 29,
+        "steady_observations": 1,
+        "steady_streaming_observations": 1,
+        "steady_fresh_sum": 19,
+        "steady_selected_sum": 20,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 4,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 20,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 8,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          228,
+          301,
+          320,
+          345
+        ],
+        "event_lag_p95_ms_recent_by_connection": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "source_to_event_p95_ms_recent_by_connection": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.95
+      }
+    },
+    "steady_cpu_pct_one_core": 5.777277717178443,
+    "rss_at_warmup_bytes": 490700800
+  },
+  "database_bytes": {
+    "market": 12410880
+  },
+  "final_worker_status": {
+    "mark": {
+      "classification": "paper_watch_status",
+      "generated_at_ms": 1793903177746,
+      "state": "idle",
+      "positions": [],
+      "execution_verified": false,
+      "opens_positions": false,
+      "closes_positions": false,
+      "collection": {
+        "state": "absent",
+        "skipped": [],
+        "open_count": 0,
+        "limit": 10
+      }
+    },
+    "funding": {
+      "classification": "paper_funding_watch_status",
+      "generated_at_ms": 1793903145925,
+      "positions": [],
+      "requests": 0,
+      "network_enabled": false,
+      "execution_verified": false,
+      "opens_positions": false,
+      "closes_positions": false,
+      "selection": {
+        "ids": [],
+        "cursor": 0,
+        "open_count": 0,
+        "closed_count": 0,
+        "omitted_open": 0,
+        "state": "absent"
+      },
+      "state": "idle",
+      "cursor": 0,
+      "next_network_ms": 0
+    },
+    "rules": {
+      "classification": "paper_rules_status",
+      "generated_at_ms": 1793903177955,
+      "state": "blocked",
+      "mode": "apply",
+      "policy": {
+        "min_entry_usdt": "1",
+        "take_profit_usdt": "5",
+        "stop_loss_usdt": "20",
+        "max_hold_seconds": 28800,
+        "cooldown_seconds": 300,
+        "max_positions": 1
+      },
+      "decisions": [],
+      "execution_verified": false,
+      "real_orders": false,
+      "error": "economic_snapshot_unavailable"
+    }
+  },
+  "persisted_evidence": {
+    "economics_statuses": {
+      "blocked": 30,
+      "scenario_estimated": 48
+    },
+    "economics_reasons": {
+      "awaiting_depth": 16,
+      "volume_24h_unknown": 8,
+      "depth_time_skew": 6
+    },
+    "signal_states": {
+      "rejected": 52,
+      "pending": 16,
+      "confirmed": 10
+    },
+    "signal_event_kinds": {
+      "appeared": 16,
+      "confirmed": 5,
+      "ended": 16,
+      "lost": 2,
+      "qualifying": 9,
+      "reason_changed": 17
+    },
+    "conditional_scenario_min_usdt": -1.0896188663226,
+    "conditional_scenario_max_usdt": 0.3110480539225
+  }
+}

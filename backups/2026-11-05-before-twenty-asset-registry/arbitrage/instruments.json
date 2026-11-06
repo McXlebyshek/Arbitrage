@@ -1,0 +1,485 @@
+{
+  "version": "2026-11-03-ten-assets-v2",
+  "bindings": [
+    {
+      "exchange": "binanceusdm",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "BTC-USDT-SWAP",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "okx",
+      "id": "ETH-USDT-SWAP",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "okx",
+      "id": "SOL-USDT-SWAP",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "DOGE-USDT-SWAP",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1000.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "XRP-USDT-SWAP",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "ADA-USDT-SWAP",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "AVAX-USDT-SWAP",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "DOT-USDT-SWAP",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "LINK-USDT-SWAP",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "LTC-USDT-SWAP",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "ADA_USDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "AVAX_USDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "BTC_USDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.0001"
+    },
+    {
+      "exchange": "gate",
+      "id": "DOGE_USDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "DOT_USDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "ETH_USDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "gate",
+      "id": "LINK_USDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "LTC_USDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "gate",
+      "id": "SOL_USDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "XRP_USDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "BTC_USDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.0001"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ETH_USDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "SOL_USDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "XRP_USDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "LINK_USDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "DOGE_USDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ADA_USDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "AVAX_USDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "DOT_USDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "LTC_USDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "0.01"
+    }
+  ]
+}

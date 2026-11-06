@@ -1,0 +1,8 @@
+{
+  "min_entry_usdt": "1",
+  "take_profit_usdt": "5",
+  "stop_loss_usdt": "20",
+  "max_hold_seconds": 28800,
+  "cooldown_seconds": 300,
+  "max_positions": 1
+}

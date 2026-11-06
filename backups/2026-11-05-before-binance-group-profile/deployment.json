@@ -1,0 +1,112 @@
+[
+  {
+    "file": "arbitrage\\__main__.py",
+    "previously_existed": true,
+    "sha256": "F9322913CEE5807E89AA7835CADB554ACDDB933EEF937359827981DC258716F1"
+  },
+  {
+    "file": "arbitrage\\live.py",
+    "previously_existed": true,
+    "sha256": "CB1FC659A651507D03B089574AC7129E37C9A939D1A66C3D4D88E95C31334D1A"
+  },
+  {
+    "file": "arbitrage\\pools.py",
+    "previously_existed": true,
+    "sha256": "D88290CBF65463267B3F3CEAAA0628A0D6930169784737A4E4D0B07494931B92"
+  },
+  {
+    "file": "validate_paper_live.py",
+    "previously_existed": true,
+    "sha256": "449B9307131F7ACE1894463233AE2B7798E296958254159A0A52F2921FD6981A"
+  },
+  {
+    "file": "validate_stream_groups.py",
+    "previously_existed": true,
+    "sha256": "48A54020BF08AA4E2A99E1C5262FB8715FB1915C266E3E1D309C0801A977BF6E"
+  },
+  {
+    "file": "validate_binance_groups.py",
+    "previously_existed": false,
+    "sha256": "8CCD7AE9A23B9A116EE2A573CBFE82A6A954A2EA0160CBFCDE8B2BEA22DD2F29"
+  },
+  {
+    "file": "validate_freshness_windows.py",
+    "previously_existed": false,
+    "sha256": "34E18F3BB083BAF8D69F7F9FD4E6C0552D97473148CB17F1B0D7F94D48948E07"
+  },
+  {
+    "file": "tests\\test_diagnostics.py",
+    "previously_existed": true,
+    "sha256": "8910E9C11BDBBBAD9D802A2F9EEF5C5B63D5743CB1EBBB08DB54AF8597A96C96"
+  },
+  {
+    "file": "tests\\test_binance_partial.py",
+    "previously_existed": true,
+    "sha256": "61E5D5288FE89FA5B28E0BAC5FDB2E87A4FE26174C76E1D3BBD7B745F9C06D65"
+  },
+  {
+    "file": "tests\\test_freshness_windows.py",
+    "previously_existed": false,
+    "sha256": "423B2E03F00749A1D29AA85E66CF2C21A6A58F9E833E2F8F648312B6158FC9C9"
+  },
+  {
+    "file": "pyproject.toml",
+    "previously_existed": true,
+    "sha256": "AA04289ED0C795C550617636929989FC485614641B92E0D475127E612A7DCBD8"
+  },
+  {
+    "file": "README.md",
+    "previously_existed": true,
+    "sha256": "1C85E5E225D567210412B012FF2EDCC26E9E0D0602834E1269BC7799802B043D"
+  },
+  {
+    "file": "docs\\ROADMAP.md",
+    "previously_existed": true,
+    "sha256": "22F62610305B06BBCF5A4340AD60981A85735D5960A882D437A1E52E9E5585D5"
+  },
+  {
+    "file": "docs\\DIAGNOSTICS.md",
+    "previously_existed": true,
+    "sha256": "CEF69905EA08421CFF6A29628A1EF13A642D7E7792A07AEEB0E0C2D27D82C0CC"
+  },
+  {
+    "file": "docs\\WEBSOCKET.md",
+    "previously_existed": true,
+    "sha256": "A4A15A6EF94AF38159EE1928DBEFF794A1132DC6975774DAD67219975B105B84"
+  },
+  {
+    "file": "docs\\PAPER_LIVE_VALIDATION.md",
+    "previously_existed": true,
+    "sha256": "7674BD130CFF02213EA748923061BF796B61FAB425F1C4CAE790E1D338648EF5"
+  },
+  {
+    "file": "docs\\BINANCE_FEEDS.md",
+    "previously_existed": true,
+    "sha256": "6C4ED8779B81EEE727FF7DF249BCE2DB1CA9BBDC90D745C7BFCCCF27CFBBAA44"
+  },
+  {
+    "file": "docs\\BINANCE_GROUPS.md",
+    "previously_existed": false,
+    "sha256": "6CBDE0980181400DFF04E1AC0C0114F1C851DF95CFD6E3AD3BC473C1FEA7A993"
+  },
+  {
+    "file": "docs\\reports\\BINANCE_GROUPS_CHECK.md",
+    "previously_existed": false,
+    "sha256": "45345CFC502D666FD65CE24D67AEE404E9E92582F485B23B6E9DA27ABEFD155A"
+  },
+  {
+    "file": "docs\\reports\\BINANCE_GROUP_COMPARISON.json",
+    "previously_existed": false,
+    "sha256": "5AD4C160CBA0E4FCC4B8F798ACA208373D928217E5E08F170CDABABFAB907C3C"
+  },
+  {
+    "file": "docs\\reports\\BINANCE_GROUP_LONG_METRICS.json",
+    "previously_existed": false,
+    "sha256": "4569B443CB4B1DD6420BFB6FE3DC1E1D7C7ABC633DBBF6D3B3B65106E34A8991"
+  },
+  {
+    "file": "docs\\reports\\BINANCE_GROUP_LONG_WINDOWS.json",
+    "previously_existed": false,
+    "sha256": "646A2346E194F4A1D299112B5EDE5CBD09E0938ABDE0739DC71E93EC88A9F336"
+  }
+]

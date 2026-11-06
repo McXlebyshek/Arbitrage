@@ -1,0 +1,12 @@
+{
+  "source": "data\\ui-live.sqlite3",
+  "snapshots": 61,
+  "max_directions": 300,
+  "chart_buckets": 1070,
+  "save_p95_ms": 27.2969999932684,
+  "save_max_ms": 32.598999998299405,
+  "query_day_median_ms": 6.406000014976598,
+  "query_day_max_ms": 6.5562000090721995,
+  "integrity": "ok",
+  "note": "Offline replay: timings include raw/economic saves and rollups; not network or a 24h live test"
+}

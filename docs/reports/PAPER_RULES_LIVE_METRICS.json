@@ -1,0 +1,311 @@
+{
+  "classification": "ISOLATED_PUBLIC_MULTIPROCESS_PAPER_SOAK",
+  "state": "passed",
+  "requested_seconds": 300,
+  "started_at_ms": 1793900988968,
+  "port": 8776,
+  "synthetic_signals": false,
+  "real_orders": false,
+  "external_messages": false,
+  "rules_enabled": true,
+  "entry_driver": "rules_process",
+  "elapsed_seconds": 306.86,
+  "modes": {
+    "live": 147,
+    "archive": 2
+  },
+  "max_rows": 300,
+  "max_fresh": 300,
+  "confirmed_snapshots": 0,
+  "opened_position_id": null,
+  "entry_rejections": {},
+  "close_rejections": {},
+  "mark_states": {
+    "idle": 149
+  },
+  "funding_states": {
+    "idle": 149
+  },
+  "rule_states": {
+    "blocked": 2,
+    "ready": 147
+  },
+  "rule_actions": {},
+  "rule_blocks": {},
+  "errors": [],
+  "requests": {
+    "state": {
+      "count": 149,
+      "p95_ms": 29.974299999594223,
+      "max_ms": 1015.8052999995562
+    },
+    "paper": {
+      "count": 149,
+      "p95_ms": 1.147500001025037,
+      "max_ms": 1.7339000005449634
+    },
+    "alerts": {
+      "count": 149,
+      "p95_ms": 4.204599999866332,
+      "max_ms": 8.781999998973333
+    }
+  },
+  "paper_workers_restarted_at_seconds": 150.1,
+  "orchestration_passed": true,
+  "stopped_archive_seen": true,
+  "integrity": {
+    "market": "ok"
+  },
+  "paper_path": "not_exercised_no_accepted_confirmed",
+  "rules_blocked_after_stop": true,
+  "paper_open_count": 0,
+  "paper_closed_count": 0,
+  "monitor_exit_code": 0,
+  "market_data_quality": "complete_at_stop",
+  "monitor_report": {
+    "run_id": "7b057f78-8575-4ea3-bca1-4f11393fd77b",
+    "started_at_ms": 1793900989460,
+    "finished": true,
+    "config": {
+      "symbols": "REGISTERED",
+      "group_size": 20,
+      "max_connections": 8,
+      "market_refresh_seconds": 900,
+      "mexc_depth_limit": 20,
+      "interval": 2.0,
+      "duration": 300.0,
+      "economics_pairs": 3
+    },
+    "warmup_seconds": 60,
+    "observations": 145,
+    "max_spread_rows": 300,
+    "max_eligible_quotes": 60,
+    "peak_rss_bytes": 585875456,
+    "last_rss_bytes": 523726848,
+    "peak_publish_ms": 763.289700000314,
+    "peak_loop_lag_ms": 260.3406999987783,
+    "finished_at_ms": 1793901290085,
+    "finish_reason": "duration_reached",
+    "exit_code": 0,
+    "shutdown_states": {
+      "binanceusdm": "stopped",
+      "bybit": "stopped",
+      "okx": "stopped",
+      "bitget": "stopped",
+      "gate": "stopped",
+      "mexc": "stopped"
+    },
+    "elapsed_seconds": 300.6242656000013,
+    "cpu_seconds": 99.625,
+    "cpu_pct_one_core": 33.139374095821346,
+    "database_bytes": 70156288,
+    "database_growth_bytes": 70156288,
+    "publish_p95_ms_recent": 114.17429999892192,
+    "loop_lag_p95_ms_recent": 1.7695000005915063,
+    "percentile_window_limit": 10000,
+    "exchanges": {
+      "binanceusdm": {
+        "observations": 145,
+        "steady_observations": 116,
+        "steady_streaming_observations": 116,
+        "steady_fresh_sum": 1160,
+        "steady_selected_sum": 1160,
+        "max_selected_markets": 10,
+        "max_received_quotes": 10,
+        "max_fresh_quotes": 10,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 1.0
+      },
+      "bybit": {
+        "observations": 145,
+        "steady_observations": 116,
+        "steady_streaming_observations": 116,
+        "steady_fresh_sum": 1160,
+        "steady_selected_sum": 1160,
+        "max_selected_markets": 10,
+        "max_received_quotes": 10,
+        "max_fresh_quotes": 10,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 1.0
+      },
+      "okx": {
+        "observations": 145,
+        "steady_observations": 116,
+        "steady_streaming_observations": 116,
+        "steady_fresh_sum": 1160,
+        "steady_selected_sum": 1160,
+        "max_selected_markets": 10,
+        "max_received_quotes": 10,
+        "max_fresh_quotes": 10,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 1.0
+      },
+      "bitget": {
+        "observations": 145,
+        "steady_observations": 116,
+        "steady_streaming_observations": 116,
+        "steady_fresh_sum": 1154,
+        "steady_selected_sum": 1160,
+        "max_selected_markets": 10,
+        "max_received_quotes": 10,
+        "max_fresh_quotes": 10,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.9948275862068966
+      },
+      "gate": {
+        "observations": 145,
+        "steady_observations": 116,
+        "steady_streaming_observations": 116,
+        "steady_fresh_sum": 1126,
+        "steady_selected_sum": 1160,
+        "max_selected_markets": 10,
+        "max_received_quotes": 10,
+        "max_fresh_quotes": 10,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.9706896551724138
+      },
+      "mexc": {
+        "observations": 145,
+        "steady_observations": 116,
+        "steady_streaming_observations": 116,
+        "steady_fresh_sum": 1159,
+        "steady_selected_sum": 1160,
+        "max_selected_markets": 10,
+        "max_received_quotes": 10,
+        "max_fresh_quotes": 10,
+        "max_connections": 2,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 10,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.9991379310344828
+      }
+    },
+    "steady_cpu_pct_one_core": 31.966057836854745,
+    "rss_at_warmup_bytes": 516321280
+  },
+  "database_bytes": {
+    "market": 70156288
+  },
+  "final_worker_status": {
+    "mark": {
+      "classification": "paper_watch_status",
+      "generated_at_ms": 1793901295431,
+      "state": "idle",
+      "positions": [],
+      "execution_verified": false,
+      "opens_positions": false,
+      "closes_positions": false,
+      "collection": {
+        "state": "absent",
+        "skipped": [],
+        "open_count": 0,
+        "limit": 10
+      }
+    },
+    "funding": {
+      "classification": "paper_funding_watch_status",
+      "generated_at_ms": 1793901259525,
+      "positions": [],
+      "requests": 0,
+      "network_enabled": false,
+      "execution_verified": false,
+      "opens_positions": false,
+      "closes_positions": false,
+      "selection": {
+        "ids": [],
+        "cursor": 0,
+        "open_count": 0,
+        "closed_count": 0,
+        "omitted_open": 0,
+        "state": "absent"
+      },
+      "state": "idle",
+      "cursor": 0,
+      "next_network_ms": 0
+    },
+    "rules": {
+      "classification": "paper_rules_status",
+      "generated_at_ms": 1793901294600,
+      "state": "blocked",
+      "mode": "apply",
+      "policy": {
+        "min_entry_usdt": "1",
+        "take_profit_usdt": "5",
+        "stop_loss_usdt": "20",
+        "max_hold_seconds": 28800,
+        "cooldown_seconds": 300,
+        "max_positions": 1
+      },
+      "decisions": [],
+      "execution_verified": false,
+      "real_orders": false,
+      "error": "economic_snapshot_unavailable"
+    }
+  },
+  "persisted_evidence": {
+    "economics_statuses": {
+      "blocked": 151,
+      "scenario_estimated": 278
+    },
+    "economics_reasons": {
+      "awaiting_depth": 58,
+      "volume_24h_unknown": 9,
+      "depth_time_skew": 84
+    },
+    "signal_states": {
+      "rejected": 429
+    },
+    "signal_event_kinds": {
+      "appeared": 55,
+      "ended": 55,
+      "reason_changed": 161
+    },
+    "conditional_scenario_min_usdt": -0.961278517584,
+    "conditional_scenario_max_usdt": -0.07125077724
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "classification": "ARTIFICIAL_OFFLINE_CHECK_NOT_MARKET_RESULT",
+  "events": 3,
+  "missing_prices_net_pnl_usdt": null,
+  "expected_funding_usdt": "1.028352",
+  "observed_funding_usdt": "1.028352",
+  "expected_net_pnl_usdt": "8.928864",
+  "observed_net_pnl_usdt": "8.92886400",
+  "idempotent": true,
+  "source_database_unchanged": true,
+  "price_evidence_verified": false,
+  "passed": true
+}

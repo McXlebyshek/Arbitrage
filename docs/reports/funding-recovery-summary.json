@@ -1,0 +1,84 @@
+{
+  "funding_contracts": 60,
+  "funding_events": 5790,
+  "funding_integrity": "ok",
+  "history_requests": 60,
+  "coverage": {
+    "7": {
+      "regular_observed_coverage": 60
+    },
+    "30": {
+      "regular_observed_coverage": 60
+    }
+  },
+  "offline_summary_matches": true,
+  "by_exchange": {
+    "binanceusdm": {
+      "contracts": 10,
+      "events": 930
+    },
+    "bitget": {
+      "contracts": 10,
+      "events": 1000
+    },
+    "bybit": {
+      "contracts": 10,
+      "events": 930
+    },
+    "gate": {
+      "contracts": 10,
+      "events": 930
+    },
+    "mexc": {
+      "contracts": 10,
+      "events": 1000
+    },
+    "okx": {
+      "contracts": 10,
+      "events": 1000
+    }
+  },
+  "crash_recovery": {
+    "synthetic_controlled_data": true,
+    "market_claim": false,
+    "child_exit_code": 23,
+    "competitor_exit_code": 5,
+    "prior_state": "confirmed",
+    "recovered_state": "pending",
+    "confirmations_after_restart": 1,
+    "abandoned_run_state": "interrupted",
+    "recovery_events": [
+      {
+        "event_id": "recovery:e169abc4-b72f-40f1-b432-f25f41c2423b",
+        "run_id": "7c107dc5-eb3e-4397-ae70-f06a827cca0e",
+        "episode_id": "e169abc4-b72f-40f1-b432-f25f41c2423b",
+        "pair_id": "synthetic|long|short",
+        "timestamp_ms": 1793779831649,
+        "kind": "ended",
+        "from_state": "confirmed",
+        "to_state": "ended",
+        "reasons": [
+          "previous_session_interrupted"
+        ],
+        "confirmations": 0,
+        "conditional_net_usdt": null,
+        "recovered_by_run_id": "168dbb21-ffe2-46a1-ba75-0247032e2e48",
+        "last_event_at_ms": 1793779828347,
+        "termination_time_known": false
+      }
+    ],
+    "integrity": "ok"
+  },
+  "live_monitor": {
+    "elapsed_seconds": 62.227929099986795,
+    "exit_code": 0,
+    "monitor_runs": [
+      [
+        "9c99213b-927a-408f-8025-f9c91c276dad",
+        "stopped"
+      ]
+    ],
+    "publish_p95_ms": 41.50520000257529,
+    "recent_failures": {}
+  }
+}

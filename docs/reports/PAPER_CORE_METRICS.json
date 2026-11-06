@@ -1,0 +1,13 @@
+{
+  "classification": "ARTIFICIAL_OFFLINE_CHECK_NOT_MARKET_RESULT",
+  "base_quantity": "4.944",
+  "entry_fees_usdt": "0.4993440",
+  "exit_fees_usdt": "0.49934400",
+  "expected_pnl_before_funding_usdt": "7.900512",
+  "observed_pnl_before_funding_usdt": "7.90051200",
+  "net_pnl_usdt": null,
+  "funding_status": "not_accounted",
+  "open_count": 0,
+  "closed_count": 1,
+  "passed": true
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "documentation_handoff",
+  "version": "0.38.0",
+  "created_at": "2026-11-05T21:40:00.4759605+02:00",
+  "files": [
+    {
+      "path": "docs/HANDOFF_2026-11-05.md",
+      "previous_sha256": null,
+      "installed_sha256": "1032CFD62D531F88516B8CDA0F7B5FEE5FA82715061BFCE9262E03E9CB0359A5"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "previous_sha256": "5571B739C277F5AC750A35115BAE2202452A85313F4F05B4F7ACCDF338AE5A27",
+      "installed_sha256": "E0C6D657F3EEE6CE185216D8E312C2A1A68B44C7998E6536B46CEEC947CF46E5"
+    }
+  ]
+}

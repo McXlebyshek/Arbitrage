@@ -1,0 +1,965 @@
+{
+  "version": "2026-11-05-twenty-assets-v3",
+  "bindings": [
+    {
+      "exchange": "binanceusdm",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "BTC-USDT-SWAP",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "okx",
+      "id": "ETH-USDT-SWAP",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "okx",
+      "id": "SOL-USDT-SWAP",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "DOGE-USDT-SWAP",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1000.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "XRP-USDT-SWAP",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "ADA-USDT-SWAP",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "AVAX-USDT-SWAP",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "DOT-USDT-SWAP",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "LINK-USDT-SWAP",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "LTC-USDT-SWAP",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "ADA_USDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "AVAX_USDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "BTC_USDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.0001"
+    },
+    {
+      "exchange": "gate",
+      "id": "DOGE_USDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "DOT_USDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "ETH_USDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "gate",
+      "id": "LINK_USDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "LTC_USDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "gate",
+      "id": "SOL_USDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "XRP_USDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "BTC_USDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.0001"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ETH_USDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "SOL_USDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "XRP_USDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "LINK_USDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "DOGE_USDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ADA_USDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "AVAX_USDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "DOT_USDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "LTC_USDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "BNBUSDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "BCHUSDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "TRXUSDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ATOMUSDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "NEARUSDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "UNIUSDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "AAVEUSDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "SUIUSDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ARBUSDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "OPUSDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "BNBUSDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "BCHUSDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "TRXUSDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ATOMUSDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "NEARUSDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "UNIUSDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "AAVEUSDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "SUIUSDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ARBUSDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "OPUSDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "BNB-USDT-SWAP",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "okx",
+      "id": "BCH-USDT-SWAP",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "okx",
+      "id": "TRX-USDT-SWAP",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "1000.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "ATOM-USDT-SWAP",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "NEAR-USDT-SWAP",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "UNI-USDT-SWAP",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "AAVE-USDT-SWAP",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "okx",
+      "id": "SUI-USDT-SWAP",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "ARB-USDT-SWAP",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "OP-USDT-SWAP",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "BNBUSDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "BCHUSDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "TRXUSDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ATOMUSDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "NEARUSDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "UNIUSDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "AAVEUSDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "SUIUSDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ARBUSDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "OPUSDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "BNB_USDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "0.001"
+    },
+    {
+      "exchange": "gate",
+      "id": "BCH_USDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "gate",
+      "id": "TRX_USDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "ATOM_USDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "NEAR_USDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "UNI_USDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "AAVE_USDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "gate",
+      "id": "SUI_USDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "ARB_USDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "OP_USDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "BNB_USDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "BCH_USDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "TRX_USDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ATOM_USDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "NEAR_USDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "UNI_USDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "AAVE_USDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "SUI_USDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ARB_USDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "OP_USDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    }
+  ]
+}

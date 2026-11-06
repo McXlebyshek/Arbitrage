@@ -1,0 +1,32 @@
+{
+  "six-exchange-90s": {
+    "frames": 47,
+    "status_observations": {
+      "blocked": 79,
+      "scenario_estimated": 53
+    },
+    "reason_observations": {
+      "awaiting_depth": 18,
+      "volume_24h_unknown": 14,
+      "depth_stale": 37,
+      "depth_time_skew": 10
+    },
+    "distinct_scenario_pairs": 5,
+    "shutdown_state": "stopped",
+    "current_rows_after_shutdown": 0
+  },
+  "okx-binance-45s": {
+    "frames": 25,
+    "status_observations": {
+      "blocked": 8,
+      "scenario_estimated": 58
+    },
+    "reason_observations": {
+      "awaiting_depth": 4,
+      "volume_24h_unknown": 4
+    },
+    "distinct_scenario_pairs": 4,
+    "shutdown_state": "stopped",
+    "current_rows_after_shutdown": 0
+  }
+}

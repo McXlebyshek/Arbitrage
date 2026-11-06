@@ -1,0 +1,7 @@
+{
+  "events": ["opened", "closed"],
+  "min_net_usdt": 0,
+  "max_age_seconds": 60,
+  "max_attempts": 5,
+  "poll_seconds": 2
+}

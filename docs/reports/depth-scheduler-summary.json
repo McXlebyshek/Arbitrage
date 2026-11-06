@@ -1,0 +1,513 @@
+{
+  "baseline_0_7": {
+    "report": {
+      "run_id": "03a4ee19-6d06-41ca-a568-bcda5b253db0",
+      "started_at_ms": 1793745474916,
+      "finished": true,
+      "config": {
+        "symbols": "REGISTERED",
+        "group_size": 20,
+        "max_connections": 8,
+        "market_refresh_seconds": 900,
+        "mexc_depth_limit": 20,
+        "interval": 3.0,
+        "duration": 150.0,
+        "economics_pairs": 3
+      },
+      "warmup_seconds": 60,
+      "observations": 51,
+      "max_spread_rows": 284,
+      "max_eligible_quotes": 60,
+      "peak_rss_bytes": 438509568,
+      "last_rss_bytes": 436387840,
+      "peak_publish_ms": 712.2986000031233,
+      "peak_loop_lag_ms": 1.9442000048002228,
+      "finished_at_ms": 1793745627570,
+      "finish_reason": "duration_reached",
+      "exit_code": 1,
+      "shutdown_states": {
+        "binanceusdm": "stopped",
+        "bybit": "stopped",
+        "okx": "stopped",
+        "bitget": "stopped",
+        "gate": "stopped",
+        "mexc": "stopped"
+      },
+      "elapsed_seconds": 152.65221030000248,
+      "cpu_seconds": 18.953125,
+      "cpu_pct_one_core": 12.415886388249493,
+      "database_bytes": 18952192,
+      "database_growth_bytes": 18952192,
+      "publish_p95_ms_recent": 35.84769999724813,
+      "loop_lag_p95_ms_recent": 1.540999990538694,
+      "percentile_window_limit": 10000,
+      "exchanges": {
+        "binanceusdm": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 310,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 1.0
+        },
+        "bybit": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 307,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9903225806451613
+        },
+        "okx": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 308,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9935483870967742
+        },
+        "bitget": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 286,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9225806451612903
+        },
+        "gate": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 275,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.8870967741935484
+        },
+        "mexc": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 301,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 2,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 10,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9709677419354839
+        }
+      },
+      "steady_cpu_pct_one_core": 9.482652133563684,
+      "rss_at_warmup_bytes": 438439936
+    },
+    "active_snapshots": 51,
+    "evaluated_rows": 149,
+    "statuses": {
+      "blocked": 106,
+      "scenario_estimated": 43
+    },
+    "reasons": {
+      "awaiting_depth": 17,
+      "volume_24h_unknown": 4,
+      "depth_time_skew": 28,
+      "depth_stale": 57
+    },
+    "time_block_fraction": 0.5704697986577181,
+    "assets": [
+      "bitcoin",
+      "cardano",
+      "chainlink",
+      "dogecoin",
+      "polkadot",
+      "solana",
+      "xrp"
+    ],
+    "depth_age_ms_by_venue": {
+      "binanceusdm": {
+        "samples": 6,
+        "median": 1042.0,
+        "p90": 1225
+      },
+      "okx": {
+        "samples": 62,
+        "median": 1290.5,
+        "p90": 12133
+      },
+      "bitget": {
+        "samples": 31,
+        "median": 979,
+        "p90": 20905
+      },
+      "mexc": {
+        "samples": 84,
+        "median": 2260.5,
+        "p90": 10509
+      },
+      "bybit": {
+        "samples": 36,
+        "median": 964.0,
+        "p90": 12141
+      }
+    },
+    "last_funding_coverage": {
+      "binanceusdm": {
+        "requested": 10,
+        "cached": 10,
+        "fresh": 10
+      },
+      "bybit": {
+        "requested": 10,
+        "cached": 10,
+        "fresh": 10
+      },
+      "okx": {
+        "requested": 10,
+        "cached": 10,
+        "fresh": 10
+      },
+      "bitget": {
+        "requested": 10,
+        "cached": 10,
+        "fresh": 10
+      },
+      "gate": {
+        "requested": 10,
+        "cached": 10,
+        "fresh": 10
+      },
+      "mexc": {
+        "requested": 10,
+        "cached": 10,
+        "fresh": 10
+      }
+    },
+    "observed_errors": []
+  },
+  "independent_workers_0_8": {
+    "report": {
+      "run_id": "24dca89d-5dfa-4f79-9b92-42e7e7f10b7c",
+      "started_at_ms": 1793746110188,
+      "finished": true,
+      "config": {
+        "symbols": "REGISTERED",
+        "group_size": 20,
+        "max_connections": 8,
+        "market_refresh_seconds": 900,
+        "mexc_depth_limit": 20,
+        "interval": 3.0,
+        "duration": 150.0,
+        "economics_pairs": 3
+      },
+      "warmup_seconds": 60,
+      "observations": 51,
+      "max_spread_rows": 262,
+      "max_eligible_quotes": 60,
+      "peak_rss_bytes": 438636544,
+      "last_rss_bytes": 437497856,
+      "peak_publish_ms": 705.2882000134559,
+      "peak_loop_lag_ms": 1.8330000020796433,
+      "finished_at_ms": 1793746262684,
+      "finish_reason": "duration_reached",
+      "exit_code": 1,
+      "shutdown_states": {
+        "binanceusdm": "stopped",
+        "bybit": "stopped",
+        "okx": "stopped",
+        "bitget": "stopped",
+        "gate": "stopped",
+        "mexc": "stopped"
+      },
+      "elapsed_seconds": 152.49538480000047,
+      "cpu_seconds": 18.5,
+      "cpu_pct_one_core": 12.131514684370922,
+      "database_bytes": 17637376,
+      "database_growth_bytes": 17637376,
+      "publish_p95_ms_recent": 33.032199993613176,
+      "loop_lag_p95_ms_recent": 1.38899999728892,
+      "percentile_window_limit": 10000,
+      "exchanges": {
+        "binanceusdm": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 310,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 1.0
+        },
+        "bybit": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 300,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.967741935483871
+        },
+        "okx": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 303,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9774193548387097
+        },
+        "bitget": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 257,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.8290322580645161
+        },
+        "gate": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 246,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.7935483870967742
+        },
+        "mexc": {
+          "observations": 51,
+          "steady_observations": 31,
+          "steady_streaming_observations": 31,
+          "steady_fresh_sum": 284,
+          "steady_selected_sum": 310,
+          "max_selected_markets": 10,
+          "max_received_quotes": 10,
+          "max_fresh_quotes": 10,
+          "max_connections": 2,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 13,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9161290322580645
+        }
+      },
+      "steady_cpu_pct_one_core": 9.32216595612658,
+      "rss_at_warmup_bytes": 437895168
+    },
+    "active_snapshots": 51,
+    "evaluated_rows": 150,
+    "statuses": {
+      "blocked": 105,
+      "scenario_estimated": 45
+    },
+    "reasons": {
+      "awaiting_depth": 59,
+      "volume_24h_unknown": 8,
+      "depth_time_skew": 33,
+      "depth_stale": 5
+    },
+    "time_block_fraction": 0.25333333333333335,
+    "assets": [
+      "avalanche",
+      "chainlink",
+      "dogecoin",
+      "polkadot",
+      "solana",
+      "xrp"
+    ],
+    "depth_age_ms_by_venue": {
+      "binanceusdm": {
+        "samples": 19,
+        "median": 161,
+        "p90": 452
+      },
+      "okx": {
+        "samples": 44,
+        "median": 177.5,
+        "p90": 551
+      },
+      "bybit": {
+        "samples": 17,
+        "median": 347,
+        "p90": 607
+      },
+      "mexc": {
+        "samples": 72,
+        "median": 1197.0,
+        "p90": 2406
+      },
+      "bitget": {
+        "samples": 15,
+        "median": 184,
+        "p90": 233
+      },
+      "gate": {
+        "samples": 3,
+        "median": 412,
+        "p90": 412
+      }
+    },
+    "last_funding_coverage": {
+      "binanceusdm": {
+        "requested": 10,
+        "cached": 10,
+        "with_24h_history": 10,
+        "fresh": 10
+      },
+      "bybit": {
+        "requested": 10,
+        "cached": 10,
+        "with_24h_history": 10,
+        "fresh": 10
+      },
+      "okx": {
+        "requested": 10,
+        "cached": 10,
+        "with_24h_history": 10,
+        "fresh": 10
+      },
+      "bitget": {
+        "requested": 10,
+        "cached": 10,
+        "with_24h_history": 10,
+        "fresh": 10
+      },
+      "gate": {
+        "requested": 10,
+        "cached": 10,
+        "with_24h_history": 10,
+        "fresh": 10
+      },
+      "mexc": {
+        "requested": 10,
+        "cached": 10,
+        "with_24h_history": 10,
+        "fresh": 10
+      }
+    },
+    "observed_errors": []
+  },
+  "limitations": "Sequential live runs with different markets/candidates; not a controlled benchmark. The main run precedes addition of error backoff; it observed no errors. The final deployed version is checked separately."
+}

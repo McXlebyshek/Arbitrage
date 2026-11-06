@@ -1,0 +1,959 @@
+{
+  "run": {
+    "classification": "ISOLATED_PUBLIC_MULTIPROCESS_PAPER_SOAK",
+    "state": "passed",
+    "requested_seconds": 300,
+    "started_at_ms": 1793917728629,
+    "port": 8777,
+    "synthetic_signals": false,
+    "real_orders": false,
+    "external_messages": false,
+    "rules_enabled": true,
+    "entry_driver": "rules_process",
+    "elapsed_seconds": 306.38,
+    "modes": {
+      "empty": 1,
+      "live": 146,
+      "archive": 1
+    },
+    "max_rows": 598,
+    "max_fresh": 598,
+    "confirmed_snapshots": 103,
+    "opened_position_id": null,
+    "entry_rejections": {},
+    "close_rejections": {},
+    "mark_states": {
+      "idle": 148
+    },
+    "funding_states": {
+      "idle": 148
+    },
+    "rule_states": {
+      "blocked": 2,
+      "ready": 146
+    },
+    "rule_actions": {},
+    "rule_blocks": {},
+    "errors": [],
+    "requests": {
+      "state": {
+        "count": 148,
+        "p95_ms": 40.68910000023607,
+        "max_ms": 506.4478999993298
+      },
+      "paper": {
+        "count": 148,
+        "p95_ms": 1.6376000003219815,
+        "max_ms": 3.165199999784818
+      },
+      "alerts": {
+        "count": 148,
+        "p95_ms": 4.134500000873231,
+        "max_ms": 6.441600000471226
+      }
+    },
+    "paper_workers_restarted_at_seconds": 150.54,
+    "orchestration_passed": true,
+    "stopped_archive_seen": true,
+    "integrity": {
+      "market": "ok"
+    },
+    "paper_path": "not_exercised_no_accepted_confirmed",
+    "rules_blocked_after_stop": true,
+    "paper_open_count": 0,
+    "paper_closed_count": 0,
+    "monitor_exit_code": 1,
+    "market_data_quality": "data_gaps_at_stop",
+    "monitor_report": {
+      "run_id": "6f15e2cf-76ae-4a64-abe8-ea6d09769894",
+      "started_at_ms": 1793917729181,
+      "finished": true,
+      "config": {
+        "symbols": "REGISTERED",
+        "group_size": 20,
+        "max_connections": 8,
+        "market_refresh_seconds": 900,
+        "mexc_depth_limit": 20,
+        "interval": 2.0,
+        "duration": 300.0,
+        "economics_pairs": 3,
+        "gate_group_size": 5,
+        "binance_group_size": 20,
+        "binance_stream": "depth5@500ms",
+        "gate_stream": "obu",
+        "gate_decimal_sizes": true
+      },
+      "warmup_seconds": 60,
+      "observations": 144,
+      "max_spread_rows": 598,
+      "max_eligible_quotes": 120,
+      "peak_rss_bytes": 548102144,
+      "last_rss_bytes": 442429440,
+      "peak_publish_ms": 736.9916000006924,
+      "peak_loop_lag_ms": 128.40979999964475,
+      "finished_at_ms": 1793918030502,
+      "finish_reason": "duration_reached",
+      "exit_code": 1,
+      "shutdown_states": {
+        "binanceusdm": "stopped",
+        "bybit": "stopped",
+        "okx": "stopped",
+        "bitget": "stopped",
+        "gate": "stopped",
+        "mexc": "stopped"
+      },
+      "elapsed_seconds": 301.32465820000107,
+      "cpu_seconds": 62.859375,
+      "cpu_pct_one_core": 20.861012628537605,
+      "database_bytes": 127819776,
+      "database_growth_bytes": 127819776,
+      "publish_p95_ms_recent": 106.89769999953569,
+      "loop_lag_p95_ms_recent": 1.4645999999629566,
+      "percentile_window_limit": 10000,
+      "exchanges": {
+        "binanceusdm": {
+          "observations": 144,
+          "steady_observations": 115,
+          "steady_streaming_observations": 115,
+          "steady_fresh_sum": 2300,
+          "steady_selected_sum": 2300,
+          "max_selected_markets": 20,
+          "max_received_quotes": 20,
+          "max_fresh_quotes": 20,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "received_stale_updates": 0,
+          "out_of_order_updates": 0,
+          "stale_stream_reconnects": 0,
+          "fractional_size_updates": 0,
+          "source_lag_p95_ms_recent_by_connection": [
+            66
+          ],
+          "event_lag_p95_ms_recent_by_connection": [
+            -55.0
+          ],
+          "source_to_event_p95_ms_recent_by_connection": [
+            122.0
+          ],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 1.0
+        },
+        "bybit": {
+          "observations": 144,
+          "steady_observations": 115,
+          "steady_streaming_observations": 115,
+          "steady_fresh_sum": 2283,
+          "steady_selected_sum": 2300,
+          "max_selected_markets": 20,
+          "max_received_quotes": 20,
+          "max_fresh_quotes": 20,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "received_stale_updates": 0,
+          "out_of_order_updates": 0,
+          "stale_stream_reconnects": 0,
+          "fractional_size_updates": 0,
+          "source_lag_p95_ms_recent_by_connection": [
+            -84
+          ],
+          "event_lag_p95_ms_recent_by_connection": [
+            null
+          ],
+          "source_to_event_p95_ms_recent_by_connection": [
+            null
+          ],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9926086956521739
+        },
+        "okx": {
+          "observations": 144,
+          "steady_observations": 115,
+          "steady_streaming_observations": 115,
+          "steady_fresh_sum": 2282,
+          "steady_selected_sum": 2300,
+          "max_selected_markets": 20,
+          "max_received_quotes": 20,
+          "max_fresh_quotes": 20,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "received_stale_updates": 0,
+          "out_of_order_updates": 0,
+          "stale_stream_reconnects": 0,
+          "fractional_size_updates": 0,
+          "source_lag_p95_ms_recent_by_connection": [
+            -62
+          ],
+          "event_lag_p95_ms_recent_by_connection": [
+            null
+          ],
+          "source_to_event_p95_ms_recent_by_connection": [
+            null
+          ],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9921739130434782
+        },
+        "bitget": {
+          "observations": 144,
+          "steady_observations": 115,
+          "steady_streaming_observations": 115,
+          "steady_fresh_sum": 2226,
+          "steady_selected_sum": 2300,
+          "max_selected_markets": 20,
+          "max_received_quotes": 20,
+          "max_fresh_quotes": 20,
+          "max_connections": 1,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 0,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "received_stale_updates": 0,
+          "out_of_order_updates": 0,
+          "stale_stream_reconnects": 0,
+          "fractional_size_updates": 0,
+          "source_lag_p95_ms_recent_by_connection": [
+            -44
+          ],
+          "event_lag_p95_ms_recent_by_connection": [
+            null
+          ],
+          "source_to_event_p95_ms_recent_by_connection": [
+            null
+          ],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9678260869565217
+        },
+        "gate": {
+          "observations": 144,
+          "steady_observations": 115,
+          "steady_streaming_observations": 115,
+          "steady_fresh_sum": 2300,
+          "steady_selected_sum": 2300,
+          "max_selected_markets": 20,
+          "max_received_quotes": 20,
+          "max_fresh_quotes": 20,
+          "max_connections": 4,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 20,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "received_stale_updates": 0,
+          "out_of_order_updates": 0,
+          "stale_stream_reconnects": 0,
+          "fractional_size_updates": 1000,
+          "source_lag_p95_ms_recent_by_connection": [
+            -57,
+            -63,
+            -63,
+            -63
+          ],
+          "event_lag_p95_ms_recent_by_connection": [
+            -63.0,
+            -64.0,
+            -64.0,
+            -64.0
+          ],
+          "source_to_event_p95_ms_recent_by_connection": [
+            4.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 1.0
+        },
+        "mexc": {
+          "observations": 144,
+          "steady_observations": 115,
+          "steady_streaming_observations": 115,
+          "steady_fresh_sum": 2221,
+          "steady_selected_sum": 2300,
+          "max_selected_markets": 20,
+          "max_received_quotes": 20,
+          "max_fresh_quotes": 20,
+          "max_connections": 4,
+          "metadata_generation": 1,
+          "reconnects": 0,
+          "book_resyncs": 21,
+          "group_restarts": 0,
+          "metadata_failures": 0,
+          "recent_failures": [],
+          "received_stale_updates": 7,
+          "out_of_order_updates": 0,
+          "stale_stream_reconnects": 0,
+          "fractional_size_updates": 0,
+          "source_lag_p95_ms_recent_by_connection": [
+            156,
+            139,
+            154,
+            153
+          ],
+          "event_lag_p95_ms_recent_by_connection": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "source_to_event_p95_ms_recent_by_connection": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "last_state": "streaming",
+          "last_omitted_markets": 0,
+          "mean_sampled_fresh_fraction": 0.9656521739130435
+        }
+      },
+      "steady_cpu_pct_one_core": 19.248954713839865,
+      "rss_at_warmup_bytes": 443768832
+    },
+    "database_bytes": {
+      "market": 127819776
+    },
+    "final_worker_status": {
+      "mark": {
+        "classification": "paper_watch_status",
+        "generated_at_ms": 1793918033522,
+        "state": "idle",
+        "positions": [],
+        "execution_verified": false,
+        "opens_positions": false,
+        "closes_positions": false,
+        "collection": {
+          "state": "absent",
+          "skipped": [],
+          "open_count": 0,
+          "limit": 10
+        }
+      },
+      "funding": {
+        "classification": "paper_funding_watch_status",
+        "generated_at_ms": 1793917999627,
+        "positions": [],
+        "requests": 0,
+        "network_enabled": false,
+        "execution_verified": false,
+        "opens_positions": false,
+        "closes_positions": false,
+        "selection": {
+          "ids": [],
+          "cursor": 0,
+          "open_count": 0,
+          "closed_count": 0,
+          "omitted_open": 0,
+          "state": "absent"
+        },
+        "state": "idle",
+        "cursor": 0,
+        "next_network_ms": 0
+      },
+      "rules": {
+        "classification": "paper_rules_status",
+        "generated_at_ms": 1793918033223,
+        "state": "blocked",
+        "mode": "apply",
+        "policy": {
+          "min_entry_usdt": "1",
+          "take_profit_usdt": "5",
+          "stop_loss_usdt": "20",
+          "max_hold_seconds": 28800,
+          "cooldown_seconds": 300,
+          "max_positions": 1
+        },
+        "decisions": [],
+        "execution_verified": false,
+        "real_orders": false,
+        "error": "economic_snapshot_unavailable"
+      }
+    },
+    "persisted_evidence": {
+      "economics_statuses": {
+        "blocked": 110,
+        "scenario_estimated": 316
+      },
+      "economics_reasons": {
+        "awaiting_depth": 73,
+        "volume_24h_unknown": 8,
+        "depth_time_skew": 27,
+        "depth_stale": 2
+      },
+      "signal_states": {
+        "rejected": 134,
+        "pending": 120,
+        "confirmed": 172
+      },
+      "signal_event_kinds": {
+        "appeared": 73,
+        "confirmed": 41,
+        "ended": 73,
+        "lost": 21,
+        "qualifying": 67,
+        "reason_changed": 16
+      },
+      "conditional_scenario_min_usdt": -0.845294664750025,
+      "conditional_scenario_max_usdt": 0.36515127167376876
+    }
+  },
+  "windows": {
+    "classification": "READ_ONLY_SAMPLED_FRESHNESS_WINDOWS",
+    "run_id": "6f15e2cf-76ae-4a64-abe8-ea6d09769894",
+    "source_finished": true,
+    "window_seconds": 60,
+    "warmup_seconds": 60,
+    "exchanges": {
+      "binanceusdm": {
+        "peak_selected_markets": 20,
+        "windows": [
+          {
+            "start_seconds": 60,
+            "end_seconds": 120,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 560,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917790786,
+            "last_sample_ms": 1793917847430,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 120,
+            "end_seconds": 180,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 580,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917849536,
+            "last_sample_ms": 1793917908384,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 180,
+            "end_seconds": 240,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 560,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917910486,
+            "last_sample_ms": 1793917967162,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 240,
+            "end_seconds": 300,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 580,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917969327,
+            "last_sample_ms": 1793918028025,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 300,
+            "end_seconds": 360,
+            "samples": 1,
+            "selected_sum": 20,
+            "fresh_sum": 20,
+            "streaming_samples": 1,
+            "first_sample_ms": 1793918030129,
+            "last_sample_ms": 1793918030129,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": false
+          }
+        ],
+        "min_window_fresh_fraction_of_peak_capacity": 1.0,
+        "min_complete_window_fresh_fraction_of_peak_capacity": 1.0
+      },
+      "bybit": {
+        "peak_selected_markets": 20,
+        "windows": [
+          {
+            "start_seconds": 60,
+            "end_seconds": 120,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 556,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917790787,
+            "last_sample_ms": 1793917847431,
+            "fresh_fraction_of_selected": 0.9928571428571429,
+            "fresh_fraction_of_peak_capacity": 0.9928571428571429,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 120,
+            "end_seconds": 180,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 575,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917849537,
+            "last_sample_ms": 1793917908385,
+            "fresh_fraction_of_selected": 0.9913793103448276,
+            "fresh_fraction_of_peak_capacity": 0.9913793103448276,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 180,
+            "end_seconds": 240,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 555,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917910487,
+            "last_sample_ms": 1793917967163,
+            "fresh_fraction_of_selected": 0.9910714285714286,
+            "fresh_fraction_of_peak_capacity": 0.9910714285714286,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 240,
+            "end_seconds": 300,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 577,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917969328,
+            "last_sample_ms": 1793918028026,
+            "fresh_fraction_of_selected": 0.9948275862068966,
+            "fresh_fraction_of_peak_capacity": 0.9948275862068966,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 300,
+            "end_seconds": 360,
+            "samples": 1,
+            "selected_sum": 20,
+            "fresh_sum": 20,
+            "streaming_samples": 1,
+            "first_sample_ms": 1793918030130,
+            "last_sample_ms": 1793918030130,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": false
+          }
+        ],
+        "min_window_fresh_fraction_of_peak_capacity": 0.9910714285714286,
+        "min_complete_window_fresh_fraction_of_peak_capacity": 0.9910714285714286
+      },
+      "okx": {
+        "peak_selected_markets": 20,
+        "windows": [
+          {
+            "start_seconds": 60,
+            "end_seconds": 120,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 558,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917790787,
+            "last_sample_ms": 1793917847431,
+            "fresh_fraction_of_selected": 0.9964285714285714,
+            "fresh_fraction_of_peak_capacity": 0.9964285714285714,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 120,
+            "end_seconds": 180,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 575,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917849538,
+            "last_sample_ms": 1793917908386,
+            "fresh_fraction_of_selected": 0.9913793103448276,
+            "fresh_fraction_of_peak_capacity": 0.9913793103448276,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 180,
+            "end_seconds": 240,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 555,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917910487,
+            "last_sample_ms": 1793917967164,
+            "fresh_fraction_of_selected": 0.9910714285714286,
+            "fresh_fraction_of_peak_capacity": 0.9910714285714286,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 240,
+            "end_seconds": 300,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 574,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917969329,
+            "last_sample_ms": 1793918028026,
+            "fresh_fraction_of_selected": 0.9896551724137931,
+            "fresh_fraction_of_peak_capacity": 0.9896551724137931,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 300,
+            "end_seconds": 360,
+            "samples": 1,
+            "selected_sum": 20,
+            "fresh_sum": 20,
+            "streaming_samples": 1,
+            "first_sample_ms": 1793918030131,
+            "last_sample_ms": 1793918030131,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": false
+          }
+        ],
+        "min_window_fresh_fraction_of_peak_capacity": 0.9896551724137931,
+        "min_complete_window_fresh_fraction_of_peak_capacity": 0.9896551724137931
+      },
+      "bitget": {
+        "peak_selected_markets": 20,
+        "windows": [
+          {
+            "start_seconds": 60,
+            "end_seconds": 120,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 537,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917790788,
+            "last_sample_ms": 1793917847432,
+            "fresh_fraction_of_selected": 0.9589285714285715,
+            "fresh_fraction_of_peak_capacity": 0.9589285714285715,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 120,
+            "end_seconds": 180,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 572,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917849538,
+            "last_sample_ms": 1793917908386,
+            "fresh_fraction_of_selected": 0.9862068965517241,
+            "fresh_fraction_of_peak_capacity": 0.9862068965517241,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 180,
+            "end_seconds": 240,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 544,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917910488,
+            "last_sample_ms": 1793917967164,
+            "fresh_fraction_of_selected": 0.9714285714285714,
+            "fresh_fraction_of_peak_capacity": 0.9714285714285714,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 240,
+            "end_seconds": 300,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 555,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917969329,
+            "last_sample_ms": 1793918028026,
+            "fresh_fraction_of_selected": 0.9568965517241379,
+            "fresh_fraction_of_peak_capacity": 0.9568965517241379,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 300,
+            "end_seconds": 360,
+            "samples": 1,
+            "selected_sum": 20,
+            "fresh_sum": 18,
+            "streaming_samples": 1,
+            "first_sample_ms": 1793918030131,
+            "last_sample_ms": 1793918030131,
+            "fresh_fraction_of_selected": 0.9,
+            "fresh_fraction_of_peak_capacity": 0.9,
+            "streaming_fraction": 1.0,
+            "complete_time_window": false
+          }
+        ],
+        "min_window_fresh_fraction_of_peak_capacity": 0.9,
+        "min_complete_window_fresh_fraction_of_peak_capacity": 0.9568965517241379
+      },
+      "gate": {
+        "peak_selected_markets": 20,
+        "windows": [
+          {
+            "start_seconds": 60,
+            "end_seconds": 120,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 560,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917790788,
+            "last_sample_ms": 1793917847432,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 120,
+            "end_seconds": 180,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 580,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917849539,
+            "last_sample_ms": 1793917908387,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 180,
+            "end_seconds": 240,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 560,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917910488,
+            "last_sample_ms": 1793917967165,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 240,
+            "end_seconds": 300,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 580,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917969330,
+            "last_sample_ms": 1793918028027,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 300,
+            "end_seconds": 360,
+            "samples": 1,
+            "selected_sum": 20,
+            "fresh_sum": 20,
+            "streaming_samples": 1,
+            "first_sample_ms": 1793918030132,
+            "last_sample_ms": 1793918030132,
+            "fresh_fraction_of_selected": 1.0,
+            "fresh_fraction_of_peak_capacity": 1.0,
+            "streaming_fraction": 1.0,
+            "complete_time_window": false
+          }
+        ],
+        "min_window_fresh_fraction_of_peak_capacity": 1.0,
+        "min_complete_window_fresh_fraction_of_peak_capacity": 1.0
+      },
+      "mexc": {
+        "peak_selected_markets": 20,
+        "windows": [
+          {
+            "start_seconds": 60,
+            "end_seconds": 120,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 540,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917790791,
+            "last_sample_ms": 1793917847434,
+            "fresh_fraction_of_selected": 0.9642857142857143,
+            "fresh_fraction_of_peak_capacity": 0.9642857142857143,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 120,
+            "end_seconds": 180,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 572,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917849541,
+            "last_sample_ms": 1793917908389,
+            "fresh_fraction_of_selected": 0.9862068965517241,
+            "fresh_fraction_of_peak_capacity": 0.9862068965517241,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 180,
+            "end_seconds": 240,
+            "samples": 28,
+            "selected_sum": 560,
+            "fresh_sum": 535,
+            "streaming_samples": 28,
+            "first_sample_ms": 1793917910491,
+            "last_sample_ms": 1793917967168,
+            "fresh_fraction_of_selected": 0.9553571428571429,
+            "fresh_fraction_of_peak_capacity": 0.9553571428571429,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 240,
+            "end_seconds": 300,
+            "samples": 29,
+            "selected_sum": 580,
+            "fresh_sum": 556,
+            "streaming_samples": 29,
+            "first_sample_ms": 1793917969332,
+            "last_sample_ms": 1793918028029,
+            "fresh_fraction_of_selected": 0.9586206896551724,
+            "fresh_fraction_of_peak_capacity": 0.9586206896551724,
+            "streaming_fraction": 1.0,
+            "complete_time_window": true
+          },
+          {
+            "start_seconds": 300,
+            "end_seconds": 360,
+            "samples": 1,
+            "selected_sum": 20,
+            "fresh_sum": 18,
+            "streaming_samples": 1,
+            "first_sample_ms": 1793918030134,
+            "last_sample_ms": 1793918030134,
+            "fresh_fraction_of_selected": 0.9,
+            "fresh_fraction_of_peak_capacity": 0.9,
+            "streaming_fraction": 1.0,
+            "complete_time_window": false
+          }
+        ],
+        "min_window_fresh_fraction_of_peak_capacity": 0.9,
+        "min_complete_window_fresh_fraction_of_peak_capacity": 0.9553571428571429
+      }
+    },
+    "interpretation": "Snapshots after warmup, stopped excluded. Ratios use selected counts or observed peak capacity; not continuous uptime. Empty windows omitted, no-data/zero-capacity is null."
+  },
+  "gate_per_symbol": {
+    "AAVE_USDT": {
+      "ok": 115
+    },
+    "ADA_USDT": {
+      "ok": 115
+    },
+    "ARB_USDT": {
+      "ok": 115
+    },
+    "ATOM_USDT": {
+      "ok": 115
+    },
+    "AVAX_USDT": {
+      "ok": 115
+    },
+    "BCH_USDT": {
+      "ok": 115
+    },
+    "BNB_USDT": {
+      "ok": 115
+    },
+    "BTC_USDT": {
+      "ok": 115
+    },
+    "DOGE_USDT": {
+      "ok": 115
+    },
+    "DOT_USDT": {
+      "ok": 115
+    },
+    "ETH_USDT": {
+      "ok": 115
+    },
+    "LINK_USDT": {
+      "ok": 115
+    },
+    "LTC_USDT": {
+      "ok": 115
+    },
+    "NEAR_USDT": {
+      "ok": 115
+    },
+    "OP_USDT": {
+      "ok": 115
+    },
+    "SOL_USDT": {
+      "ok": 115
+    },
+    "SUI_USDT": {
+      "ok": 115
+    },
+    "TRX_USDT": {
+      "ok": 115
+    },
+    "UNI_USDT": {
+      "ok": 115
+    },
+    "XRP_USDT": {
+      "ok": 115
+    }
+  },
+  "gate_quote_sources": {
+    "ws_depth_verified": 2300
+  },
+  "baseline_run_id": "cd4c6600-fdd6-4473-8b06-ea9614c8cd10"
+}

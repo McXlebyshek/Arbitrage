@@ -1,0 +1,353 @@
+{
+  "classification": "ISOLATED_PUBLIC_MULTIPROCESS_PAPER_SOAK",
+  "state": "passed",
+  "requested_seconds": 180,
+  "started_at_ms": 1793902484473,
+  "port": 8776,
+  "synthetic_signals": false,
+  "real_orders": false,
+  "external_messages": false,
+  "rules_enabled": true,
+  "entry_driver": "rules_process",
+  "elapsed_seconds": 185.56,
+  "modes": {
+    "live": 89,
+    "archive": 1
+  },
+  "max_rows": 384,
+  "max_fresh": 384,
+  "confirmed_snapshots": 31,
+  "opened_position_id": null,
+  "entry_rejections": {},
+  "close_rejections": {},
+  "mark_states": {
+    "idle": 90
+  },
+  "funding_states": {
+    "idle": 90
+  },
+  "rule_states": {
+    "blocked": 2,
+    "ready": 88
+  },
+  "rule_actions": {},
+  "rule_blocks": {},
+  "errors": [],
+  "requests": {
+    "state": {
+      "count": 90,
+      "p95_ms": 24.782099999356433,
+      "max_ms": 1014.2403999998351
+    },
+    "paper": {
+      "count": 90,
+      "p95_ms": 1.3462999995681457,
+      "max_ms": 2.4408000008406816
+    },
+    "alerts": {
+      "count": 90,
+      "p95_ms": 3.744800000276882,
+      "max_ms": 7.43510000029346
+    }
+  },
+  "paper_workers_restarted_at_seconds": 90.63,
+  "orchestration_passed": true,
+  "stopped_archive_seen": true,
+  "integrity": {
+    "market": "ok"
+  },
+  "paper_path": "not_exercised_no_accepted_confirmed",
+  "rules_blocked_after_stop": true,
+  "paper_open_count": 0,
+  "paper_closed_count": 0,
+  "monitor_exit_code": 1,
+  "market_data_quality": "data_gaps_at_stop",
+  "monitor_report": {
+    "run_id": "766944ed-eba4-4eb6-8d6c-7326c8d046eb",
+    "started_at_ms": 1793902485055,
+    "finished": true,
+    "config": {
+      "symbols": "REGISTERED",
+      "group_size": 20,
+      "max_connections": 8,
+      "market_refresh_seconds": 900,
+      "mexc_depth_limit": 20,
+      "interval": 2.0,
+      "duration": 180.0,
+      "economics_pairs": 3
+    },
+    "warmup_seconds": 60,
+    "observations": 88,
+    "max_spread_rows": 384,
+    "max_eligible_quotes": 100,
+    "peak_rss_bytes": 569065472,
+    "last_rss_bytes": 445173760,
+    "peak_publish_ms": 858.9711999993597,
+    "peak_loop_lag_ms": 103.57859999930952,
+    "finished_at_ms": 1793902665844,
+    "finish_reason": "duration_reached",
+    "exit_code": 1,
+    "shutdown_states": {
+      "binanceusdm": "stopped",
+      "bybit": "stopped",
+      "okx": "stopped",
+      "bitget": "stopped",
+      "gate": "stopped",
+      "mexc": "stopped"
+    },
+    "elapsed_seconds": 180.78911699999844,
+    "cpu_seconds": 37.921875,
+    "cpu_pct_one_core": 20.975750990586633,
+    "database_bytes": 41455616,
+    "database_growth_bytes": 41455616,
+    "publish_p95_ms_recent": 68.02690000040457,
+    "loop_lag_p95_ms_recent": 2.0036999994772486,
+    "percentile_window_limit": 10000,
+    "exchanges": {
+      "binanceusdm": {
+        "observations": 88,
+        "steady_observations": 59,
+        "steady_streaming_observations": 15,
+        "steady_fresh_sum": 62,
+        "steady_selected_sum": 1180,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 8,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [
+          "ConnectionError: WS closed: 1006; Cannot write to closing transport"
+        ],
+        "received_stale_updates": 10384,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          8470
+        ],
+        "last_state": "ready",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.05254237288135593
+      },
+      "bybit": {
+        "observations": 88,
+        "steady_observations": 59,
+        "steady_streaming_observations": 59,
+        "steady_fresh_sum": 1180,
+        "steady_selected_sum": 1180,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          -121
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 1.0
+      },
+      "okx": {
+        "observations": 88,
+        "steady_observations": 59,
+        "steady_streaming_observations": 59,
+        "steady_fresh_sum": 1177,
+        "steady_selected_sum": 1180,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          159
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.997457627118644
+      },
+      "bitget": {
+        "observations": 88,
+        "steady_observations": 59,
+        "steady_streaming_observations": 59,
+        "steady_fresh_sum": 1167,
+        "steady_selected_sum": 1180,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          364
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.9889830508474576
+      },
+      "gate": {
+        "observations": 88,
+        "steady_observations": 59,
+        "steady_streaming_observations": 20,
+        "steady_fresh_sum": 97,
+        "steady_selected_sum": 420,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 2,
+        "recent_failures": [
+          "RequestTimeout: gate GET https://api.gateio.ws/api/v4/futures/usdt/contracts"
+        ],
+        "received_stale_updates": 3578,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          16156
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.23095238095238096
+      },
+      "mexc": {
+        "observations": 88,
+        "steady_observations": 59,
+        "steady_streaming_observations": 59,
+        "steady_fresh_sum": 1162,
+        "steady_selected_sum": 1180,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 4,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 20,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 5,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          451,
+          358,
+          382,
+          51
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.9847457627118644
+      }
+    },
+    "steady_cpu_pct_one_core": 17.857354219297772,
+    "rss_at_warmup_bytes": 499294208
+  },
+  "database_bytes": {
+    "market": 41455616
+  },
+  "final_worker_status": {
+    "mark": {
+      "classification": "paper_watch_status",
+      "generated_at_ms": 1793902669428,
+      "state": "idle",
+      "positions": [],
+      "execution_verified": false,
+      "opens_positions": false,
+      "closes_positions": false,
+      "collection": {
+        "state": "absent",
+        "skipped": [],
+        "open_count": 0,
+        "limit": 10
+      }
+    },
+    "funding": {
+      "classification": "paper_funding_watch_status",
+      "generated_at_ms": 1793902635544,
+      "positions": [],
+      "requests": 0,
+      "network_enabled": false,
+      "execution_verified": false,
+      "opens_positions": false,
+      "closes_positions": false,
+      "selection": {
+        "ids": [],
+        "cursor": 0,
+        "open_count": 0,
+        "closed_count": 0,
+        "omitted_open": 0,
+        "state": "absent"
+      },
+      "state": "idle",
+      "cursor": 0,
+      "next_network_ms": 0
+    },
+    "rules": {
+      "classification": "paper_rules_status",
+      "generated_at_ms": 1793902668004,
+      "state": "blocked",
+      "mode": "apply",
+      "policy": {
+        "min_entry_usdt": "1",
+        "take_profit_usdt": "5",
+        "stop_loss_usdt": "20",
+        "max_hold_seconds": 28800,
+        "cooldown_seconds": 300,
+        "max_positions": 1
+      },
+      "decisions": [],
+      "execution_verified": false,
+      "real_orders": false,
+      "error": "economic_snapshot_unavailable"
+    }
+  },
+  "persisted_evidence": {
+    "economics_statuses": {
+      "blocked": 103,
+      "scenario_estimated": 155
+    },
+    "economics_reasons": {
+      "awaiting_depth": 40,
+      "volume_24h_unknown": 8,
+      "depth_time_skew": 55
+    },
+    "signal_states": {
+      "rejected": 138,
+      "pending": 78,
+      "confirmed": 42
+    },
+    "signal_event_kinds": {
+      "appeared": 36,
+      "confirmed": 18,
+      "ended": 36,
+      "lost": 35,
+      "qualifying": 49,
+      "reason_changed": 29
+    },
+    "conditional_scenario_min_usdt": -1.29874023,
+    "conditional_scenario_max_usdt": 0.341499406664
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "start_ms": 1793919622227,
+  "duration": 180,
+  "warmup": 20,
+  "channels": {
+    "incremental:rs.sub.depth": 3,
+    "full:rs.sub.depth.full": 3,
+    "incremental:push.depth": 1259,
+    "full:push.depth.full": 861,
+    "seed:None": 3,
+    "incremental:pong": 11,
+    "full:pong": 11
+  },
+  "symbols": {
+    "TRX_USDT": {
+      "counts": {
+        "full_frames": 149,
+        "incremental_frames": 212,
+        "samples": 160,
+        "full_fresh": 138,
+        "incremental_fresh": 135,
+        "full_only": 6,
+        "incremental_only": 3,
+        "neither": 19,
+        "full_only_same_version": 6
+      },
+      "unique_versions": {
+        "full": 149,
+        "incremental": 210
+      },
+      "matched_versions": 92,
+      "matches": {
+        "equal_prices": 92,
+        "equal_prices_sizes": 92,
+        "equal_source_time": 0
+      },
+      "mismatches": [],
+      "time_keys": {
+        "full.data.cts": 149,
+        "incremental.data.cts": 212
+      },
+      "examples": {
+        "full": {
+          "version": 7331060520,
+          "stamp": 1793919623385,
+          "received": 1793919623280,
+          "fields": [
+            "asks",
+            "bids",
+            "cts",
+            "version"
+          ],
+          "top": [
+            "0.31816",
+            "0.31817",
+            "1563",
+            "9338"
+          ]
+        },
+        "incremental": {
+          "version": 7331060522,
+          "stamp": 1793919623456,
+          "received": 1793919623401,
+          "fields": [
+            "asks",
+            "begin",
+            "bids",
+            "cts",
+            "end",
+            "version"
+          ],
+          "top": [
+            "0.31816",
+            "0.31817",
+            "1563",
+            "9338"
+          ]
+        }
+      },
+      "full_only_examples": [
+        {
+          "sample_ms": 1793919647227,
+          "full_version": 7331061106,
+          "incremental_version": 7331061106,
+          "full_source_ms": 1793919645272,
+          "incremental_source_ms": 1793919644248
+        },
+        {
+          "sample_ms": 1793919748227,
+          "full_version": 7331063839,
+          "incremental_version": 7331063839,
+          "full_source_ms": 1793919745520,
+          "incremental_source_ms": 1793919745022
+        },
+        {
+          "sample_ms": 1793919753227,
+          "full_version": 7331064041,
+          "incremental_version": 7331064041,
+          "full_source_ms": 1793919750638,
+          "incremental_source_ms": 1793919749754
+        },
+        {
+          "sample_ms": 1793919757227,
+          "full_version": 7331064121,
+          "incremental_version": 7331064121,
+          "full_source_ms": 1793919754556,
+          "incremental_source_ms": 1793919754086
+        },
+        {
+          "sample_ms": 1793919763227,
+          "full_version": 7331064321,
+          "incremental_version": 7331064321,
+          "full_source_ms": 1793919760671,
+          "incremental_source_ms": 1793919759612
+        }
+      ],
+      "full_minus_incremental_ms": {
+        "min": 4,
+        "median": 343.5,
+        "max": 1196,
+        "positive": 92,
+        "pairs": 92
+      }
+    },
+    "XRP_USDT": {
+      "counts": {
+        "full_frames": 509,
+        "incremental_frames": 753,
+        "samples": 160,
+        "full_fresh": 160,
+        "incremental_fresh": 160,
+        "full_only": 0,
+        "incremental_only": 0,
+        "neither": 0
+      },
+      "unique_versions": {
+        "full": 509,
+        "incremental": 749
+      },
+      "matched_versions": 132,
+      "matches": {
+        "equal_prices": 132,
+        "equal_prices_sizes": 132,
+        "equal_source_time": 0
+      },
+      "mismatches": [],
+      "time_keys": {
+        "full.data.cts": 509,
+        "incremental.data.cts": 753
+      },
+      "examples": {
+        "full": {
+          "version": 8223919690,
+          "stamp": 1793919623072,
+          "received": 1793919622980,
+          "fields": [
+            "asks",
+            "bids",
+            "cts",
+            "version"
+          ],
+          "top": [
+            "1.2161",
+            "1.2163",
+            "62161",
+            "131450"
+          ]
+        },
+        "incremental": {
+          "version": 8223919701,
+          "stamp": 1793919623906,
+          "received": 1793919623851,
+          "fields": [
+            "asks",
+            "begin",
+            "bids",
+            "cts",
+            "end",
+            "version"
+          ],
+          "top": [
+            "1.2161",
+            "1.2162",
+            "62161",
+            "104"
+          ]
+        }
+      },
+      "full_only_examples": [],
+      "full_minus_incremental_ms": {
+        "min": 1,
+        "median": 142.0,
+        "max": 929,
+        "positive": 132,
+        "pairs": 132
+      }
+    }
+  }
+}

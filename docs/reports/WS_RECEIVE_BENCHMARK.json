@@ -1,0 +1,14 @@
+{
+  "classification": "SYNTHETIC_BUFFERED_RECEIVE_SCHEDULER_NOT_NETWORK_LATENCY",
+  "frames_per_trial": 50000,
+  "wait_for_ms": [
+    112.67899999984365,
+    114.11020000014105
+  ],
+  "inline_timeout_ms": [
+    105.14419999890379,
+    102.62409999995725
+  ],
+  "ratio_min_wait_for_to_max_inline": 1.0716615847666198,
+  "interpretation": "Only wrapper/scheduler overhead. Python 3.14 wait_for with positive timeout already awaits inline; no Task-per-frame conclusion."
+}

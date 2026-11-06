@@ -1,0 +1,67 @@
+[
+  {
+    "file": "arbitrage\\paper.py",
+    "previously_existed": true,
+    "sha256": "C6E56D85C27D71372F69976F0C706A9EE26BB62CC18A387D61EF4A03480FB5E1"
+  },
+  {
+    "file": "arbitrage\\paper_rules.py",
+    "previously_existed": false,
+    "sha256": "264C13372E7CB6AE4890527A57B7A654E83BE911F531BA8168DCD7634E787862"
+  },
+  {
+    "file": "tests\\test_paper_rules.py",
+    "previously_existed": false,
+    "sha256": "618A7DB193EC7A555D9F276E0575BCA8E1E82C431A749CF161C9037871391FBC"
+  },
+  {
+    "file": "validate_paper_rules.py",
+    "previously_existed": false,
+    "sha256": "763FF20419D9A2D0C7E76E9D23B84E73E2B3BF4DCAB6B53C4417481546E96D2E"
+  },
+  {
+    "file": "Start-Paper-Rules.cmd",
+    "previously_existed": false,
+    "sha256": "F3C337C3ED2B96E95C993C5F463FFA25AAED0C0B0D94CBF43BBE5698A9F478DD"
+  },
+  {
+    "file": "paper-rules.example.json",
+    "previously_existed": false,
+    "sha256": "2E8CA65A50762EB748C2CFF1AA1A545AE8BF48EB96D62AF5623F0911B298FC8C"
+  },
+  {
+    "file": "pyproject.toml",
+    "previously_existed": true,
+    "sha256": "3A7A761777570B167AFDEE85DA57AD5B75F4213FE6B3A507CFB2B5BE40BFF821"
+  },
+  {
+    "file": "README.md",
+    "previously_existed": true,
+    "sha256": "D308FDF1AE9CEE49D56A0C8CCE44D9C48E8DB1C642BE4B913A3F511D369E49FC"
+  },
+  {
+    "file": "docs\\ROADMAP.md",
+    "previously_existed": true,
+    "sha256": "E65C66BE62318E124A04C3CCD2DC8E4C677E5A3C016CAE279A26609403978B75"
+  },
+  {
+    "file": "docs\\PAPER.md",
+    "previously_existed": true,
+    "sha256": "5B0B529F8F71BCB28D3C9A716D6C504B74D3551C7B1FE4B2054638DC277CCC62"
+  },
+  {
+    "file": "docs\\PAPER_RULES.md",
+    "previously_existed": false,
+    "sha256": "AEAD4CF7A9D35262FFB97B5911C4592D31BC26F46D1525CA6F137DCD3FA92818"
+  },
+  {
+    "file": "docs\\reports\\PAPER_RULES_CHECK.md",
+    "previously_existed": false,
+    "sha256": "B1D6419621C6F5DE2BB2FF8F101D1463EE07DCA85B8896F6DFDA6C90396770CC"
+  },
+  {
+    "file": "docs\\reports\\PAPER_RULES_METRICS.json",
+    "previously_existed": false,
+    "sha256": "533D5A923194A841D1CA54F4C17F51830C7C768E34B5D6AC202B4239B95B3084"
+  }
+]

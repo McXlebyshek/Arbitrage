@@ -1,0 +1,722 @@
+{
+  "generated_at_ms": 1793744405380,
+  "registry_version": "2026-11-03-ten-assets-v2",
+  "row": {
+    "id": "ethereum|binanceusdm:ETHUSDT|okx:ETH-USDT-SWAP",
+    "status": "scenario_estimated",
+    "reasons": [],
+    "net_pnl_usdt": null,
+    "execution_verified": false,
+    "classification": "conditional_economics",
+    "asset": "ethereum",
+    "long_exchange": "binanceusdm",
+    "short_exchange": "okx",
+    "long_symbol": "ETHUSDT",
+    "short_symbol": "ETH-USDT-SWAP",
+    "base_quantity": 0.217,
+    "long_contracts": 0.217,
+    "short_contracts": 2.17,
+    "common_base_step": 0.001,
+    "entry_budget_used_usdt": 995.822412375,
+    "entry_notional_usdt": 995.32475,
+    "entry_fee_estimate_usdt": 0.497662375,
+    "four_fee_convergence_estimate_usdt": 0.99532475,
+    "fee_rates": {
+      "long": 0.0005,
+      "short": 0.0005
+    },
+    "fee_sources": {
+      "long": "public_ccxt_metadata_estimate",
+      "short": "public_ccxt_metadata_estimate"
+    },
+    "account_fees_verified": false,
+    "extra_cost_assumption_usdt": 0.0,
+    "gross_entry_edge_usdt": 0.05425,
+    "close_now_net_before_funding_usdt": -0.99966475,
+    "convergence_net_before_funding_usdt": -0.94107475,
+    "break_even_exit_edge_usdt_per_unit": 4.33675,
+    "exit_assumption": "equal_future_exit_prices_without_exit_depth_or_extra_slippage",
+    "exit_reference_price_usdt": 2293.375,
+    "hold_hours": 8,
+    "depth_source_times": {
+      "long": 1793744403802,
+      "short": 1793744403858
+    },
+    "fills": {
+      "long_entry": {
+        "price": 2293.25,
+        "value": 497.63525,
+        "impact": 0.0
+      },
+      "short_entry": {
+        "price": 2293.5,
+        "value": 497.6895,
+        "impact": 0.0
+      },
+      "long_exit_now": {
+        "price": 2293.24,
+        "value": 497.63308,
+        "impact": 0.0
+      },
+      "short_exit_now": {
+        "price": 2293.51,
+        "value": 497.69167,
+        "impact": 0.0
+      }
+    },
+    "funding_inputs": {
+      "long": {
+        "rate": 0.0001,
+        "funding_timestamp_ms": 1793750400000,
+        "interval_ms": 28800000,
+        "interval_source": "inferred_from_history",
+        "received_at_ms": 1793744365605,
+        "history_received_at_ms": 1793744365930,
+        "history_24h_covered": true,
+        "history": [
+          {
+            "timestamp": 1793577600005,
+            "rate": 1.316e-05
+          },
+          {
+            "timestamp": 1793606400001,
+            "rate": -4.4e-06
+          },
+          {
+            "timestamp": 1793635200000,
+            "rate": 2.419e-05
+          },
+          {
+            "timestamp": 1793664000002,
+            "rate": 0.0001
+          },
+          {
+            "timestamp": 1793692800001,
+            "rate": 0.0001
+          },
+          {
+            "timestamp": 1793721600001,
+            "rate": 0.0001
+          }
+        ]
+      },
+      "short": {
+        "rate": 0.0001,
+        "funding_timestamp_ms": 1793750400000,
+        "interval_ms": 28800000,
+        "interval_source": "public_funding_interval",
+        "received_at_ms": 1793744366483,
+        "history_received_at_ms": 1793744366825,
+        "history_24h_covered": true,
+        "history": [
+          {
+            "timestamp": 1793577600000,
+            "rate": 1.15184132647e-05
+          },
+          {
+            "timestamp": 1793606400000,
+            "rate": 4.91621859821e-05
+          },
+          {
+            "timestamp": 1793635200000,
+            "rate": 9.75426584514e-05
+          },
+          {
+            "timestamp": 1793664000000,
+            "rate": 0.0001
+          },
+          {
+            "timestamp": 1793692800000,
+            "rate": 7.99585223233e-05
+          },
+          {
+            "timestamp": 1793721600000,
+            "rate": 0.0001
+          }
+        ]
+      }
+    },
+    "volume_filter_min_usdt": 1000000,
+    "funding_events": [
+      {
+        "timestamp": 1793750400000,
+        "side": "long",
+        "assumed_rate": 0.0001,
+        "cashflow_usdt": -0.0497634165
+      },
+      {
+        "timestamp": 1793750400000,
+        "side": "short",
+        "assumed_rate": 0.0001,
+        "cashflow_usdt": 0.0497690585
+      }
+    ],
+    "funding_scenario_usdt": 5.642e-06,
+    "convergence_net_scenario_usdt": -0.941069108,
+    "funding_assumption": "constant_current_rate_interval_and_midpoint_not_actual_cashflows"
+  },
+  "inputs": [
+    {
+      "exchange": "binanceusdm",
+      "native_id": "ETHUSDT",
+      "market": {
+        "id": "ETHUSDT",
+        "symbol": "ETH/USDT:USDT",
+        "base": "ETH",
+        "quote": "USDT",
+        "settle": "USDT",
+        "active": true,
+        "swap": true,
+        "linear": true,
+        "contractSize": 1.0,
+        "precision": {
+          "amount": 0.001,
+          "price": 0.01,
+          "base": 1e-08,
+          "quote": 1e-08
+        },
+        "limits": {
+          "leverage": {
+            "min": null,
+            "max": null
+          },
+          "amount": {
+            "min": 0.001,
+            "max": 10000.0
+          },
+          "price": {
+            "min": 39.86,
+            "max": 306177.0
+          },
+          "cost": {
+            "min": 20.0,
+            "max": null
+          },
+          "market": {
+            "min": 0.001,
+            "max": 2000.0
+          }
+        },
+        "taker": 0.0005,
+        "percentage": true,
+        "info": {}
+      },
+      "precision_mode": 4,
+      "book": {
+        "symbol": "ETH/USDT:USDT",
+        "bids": [
+          [
+            2293.24,
+            59.505
+          ],
+          [
+            2293.23,
+            10.024
+          ],
+          [
+            2293.22,
+            0.081
+          ],
+          [
+            2293.2,
+            0.672
+          ],
+          [
+            2293.19,
+            0.281
+          ],
+          [
+            2293.18,
+            0.085
+          ],
+          [
+            2293.17,
+            0.036
+          ],
+          [
+            2293.16,
+            0.409
+          ],
+          [
+            2293.15,
+            0.029
+          ],
+          [
+            2293.14,
+            4.902
+          ],
+          [
+            2293.13,
+            0.037
+          ],
+          [
+            2293.12,
+            0.269
+          ],
+          [
+            2293.11,
+            2.953
+          ],
+          [
+            2293.1,
+            1.243
+          ],
+          [
+            2293.09,
+            15.108
+          ],
+          [
+            2293.08,
+            0.018
+          ],
+          [
+            2293.07,
+            1.345
+          ],
+          [
+            2293.06,
+            1.175
+          ],
+          [
+            2293.05,
+            0.41
+          ],
+          [
+            2293.04,
+            2.19
+          ]
+        ],
+        "asks": [
+          [
+            2293.25,
+            232.494
+          ],
+          [
+            2293.26,
+            4.42
+          ],
+          [
+            2293.27,
+            9.978
+          ],
+          [
+            2293.28,
+            1.091
+          ],
+          [
+            2293.29,
+            2.038
+          ],
+          [
+            2293.3,
+            0.039
+          ],
+          [
+            2293.31,
+            1.091
+          ],
+          [
+            2293.33,
+            0.023
+          ],
+          [
+            2293.34,
+            7.861
+          ],
+          [
+            2293.35,
+            7.529
+          ],
+          [
+            2293.36,
+            1.109
+          ],
+          [
+            2293.37,
+            1.194
+          ],
+          [
+            2293.38,
+            6.215
+          ],
+          [
+            2293.39,
+            30.282
+          ],
+          [
+            2293.4,
+            2.376
+          ],
+          [
+            2293.41,
+            2.153
+          ],
+          [
+            2293.42,
+            15.839
+          ],
+          [
+            2293.43,
+            8.793
+          ],
+          [
+            2293.44,
+            0.113
+          ],
+          [
+            2293.45,
+            5.582
+          ]
+        ],
+        "timestamp": 1793744403802,
+        "datetime": "2026-11-03T22:20:03.802Z",
+        "nonce": 12004762471461
+      },
+      "received_at_ms": 1793744403798,
+      "funding": {
+        "rate": 0.0001,
+        "funding_timestamp_ms": 1793750400000,
+        "interval_ms": 28800000,
+        "interval_source": "inferred_from_history",
+        "received_at_ms": 1793744365605,
+        "history_received_at_ms": 1793744365930,
+        "history_24h_covered": true,
+        "history": [
+          {
+            "timestamp": 1793577600005,
+            "rate": 1.316e-05
+          },
+          {
+            "timestamp": 1793606400001,
+            "rate": -4.4e-06
+          },
+          {
+            "timestamp": 1793635200000,
+            "rate": 2.419e-05
+          },
+          {
+            "timestamp": 1793664000002,
+            "rate": 0.0001
+          },
+          {
+            "timestamp": 1793692800001,
+            "rate": 0.0001
+          },
+          {
+            "timestamp": 1793721600001,
+            "rate": 0.0001
+          }
+        ]
+      },
+      "liquidity": {
+        "quote_volume_24h_usdt": 5502193323.02,
+        "source": "public_quote_volume_24h",
+        "received_at_ms": 1793744366252
+      }
+    },
+    {
+      "exchange": "okx",
+      "native_id": "ETH-USDT-SWAP",
+      "market": {
+        "id": "ETH-USDT-SWAP",
+        "symbol": "ETH/USDT:USDT",
+        "base": "ETH",
+        "quote": "USDT",
+        "settle": "USDT",
+        "active": true,
+        "swap": true,
+        "linear": true,
+        "contractSize": 0.1,
+        "precision": {
+          "amount": 0.01,
+          "price": 0.01
+        },
+        "limits": {
+          "leverage": {
+            "min": 1.0,
+            "max": 100.0
+          },
+          "amount": {
+            "min": 0.01,
+            "max": 100000000.0
+          },
+          "price": {
+            "min": null,
+            "max": null
+          },
+          "cost": {
+            "min": null,
+            "max": null
+          }
+        },
+        "taker": 0.0005,
+        "percentage": null,
+        "info": {}
+      },
+      "precision_mode": 4,
+      "book": {
+        "symbol": "ETH/USDT:USDT",
+        "bids": [
+          [
+            2293.5,
+            737.89,
+            0
+          ],
+          [
+            2293.49,
+            0.02,
+            0
+          ],
+          [
+            2293.48,
+            0.01,
+            0
+          ],
+          [
+            2293.44,
+            0.01,
+            0
+          ],
+          [
+            2293.43,
+            0.01,
+            0
+          ],
+          [
+            2293.41,
+            0.01,
+            0
+          ],
+          [
+            2293.4,
+            0.31,
+            0
+          ],
+          [
+            2293.39,
+            0.04,
+            0
+          ],
+          [
+            2293.38,
+            16.17,
+            0
+          ],
+          [
+            2293.37,
+            0.03,
+            0
+          ],
+          [
+            2293.36,
+            26.22,
+            0
+          ],
+          [
+            2293.35,
+            8.75,
+            0
+          ],
+          [
+            2293.34,
+            95.86,
+            0
+          ],
+          [
+            2293.33,
+            0.03,
+            0
+          ],
+          [
+            2293.32,
+            251.26,
+            0
+          ],
+          [
+            2293.31,
+            0.01,
+            0
+          ],
+          [
+            2293.3,
+            0.04,
+            0
+          ],
+          [
+            2293.29,
+            0.02,
+            0
+          ],
+          [
+            2293.28,
+            124.55,
+            0
+          ],
+          [
+            2293.27,
+            1.01,
+            0
+          ]
+        ],
+        "asks": [
+          [
+            2293.51,
+            4765.79,
+            0
+          ],
+          [
+            2293.52,
+            385.94,
+            0
+          ],
+          [
+            2293.53,
+            648.69,
+            0
+          ],
+          [
+            2293.54,
+            250.01,
+            0
+          ],
+          [
+            2293.55,
+            250.45,
+            0
+          ],
+          [
+            2293.56,
+            0.03,
+            0
+          ],
+          [
+            2293.57,
+            150.03,
+            0
+          ],
+          [
+            2293.58,
+            215.97,
+            0
+          ],
+          [
+            2293.59,
+            429.39,
+            0
+          ],
+          [
+            2293.6,
+            10.39,
+            0
+          ],
+          [
+            2293.61,
+            0.01,
+            0
+          ],
+          [
+            2293.62,
+            8.73,
+            0
+          ],
+          [
+            2293.63,
+            99.64,
+            0
+          ],
+          [
+            2293.64,
+            602.53,
+            0
+          ],
+          [
+            2293.65,
+            7.77,
+            0
+          ],
+          [
+            2293.66,
+            1101.35,
+            0
+          ],
+          [
+            2293.67,
+            0.01,
+            0
+          ],
+          [
+            2293.68,
+            0.14,
+            0
+          ],
+          [
+            2293.69,
+            9.61,
+            0
+          ],
+          [
+            2293.7,
+            150.02,
+            0
+          ]
+        ],
+        "timestamp": 1793744403858,
+        "datetime": "2026-11-03T22:20:03.858Z",
+        "nonce": null
+      },
+      "received_at_ms": 1793744403838,
+      "funding": {
+        "rate": 0.0001,
+        "funding_timestamp_ms": 1793750400000,
+        "interval_ms": 28800000,
+        "interval_source": "public_funding_interval",
+        "received_at_ms": 1793744366483,
+        "history_received_at_ms": 1793744366825,
+        "history_24h_covered": true,
+        "history": [
+          {
+            "timestamp": 1793577600000,
+            "rate": 1.15184132647e-05
+          },
+          {
+            "timestamp": 1793606400000,
+            "rate": 4.91621859821e-05
+          },
+          {
+            "timestamp": 1793635200000,
+            "rate": 9.75426584514e-05
+          },
+          {
+            "timestamp": 1793664000000,
+            "rate": 0.0001
+          },
+          {
+            "timestamp": 1793692800000,
+            "rate": 7.99585223233e-05
+          },
+          {
+            "timestamp": 1793721600000,
+            "rate": 0.0001
+          }
+        ]
+      },
+      "liquidity": {
+        "quote_volume_24h_usdt": 4420093542.93004,
+        "source": "okx_1h_quote_volume_lower_bound",
+        "received_at_ms": 1793744367676
+      }
+    }
+  ],
+  "policy": {
+    "capital_usdt": 1000,
+    "hold_hours": 8,
+    "max_impact_pct": 0.1,
+    "min_budget_utilization": 0.9,
+    "extra_cost_usdt": 0,
+    "fee_overrides": {},
+    "max_skew_ms": 1000,
+    "min_volume_usdt": 1000000
+  },
+  "replay_checked": true,
+  "net_pnl_usdt": null
+}

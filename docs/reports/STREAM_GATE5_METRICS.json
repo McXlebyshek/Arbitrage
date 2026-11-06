@@ -1,0 +1,355 @@
+{
+  "classification": "ISOLATED_PUBLIC_MULTIPROCESS_PAPER_SOAK",
+  "state": "passed",
+  "requested_seconds": 120,
+  "started_at_ms": 1793902839865,
+  "port": 8776,
+  "synthetic_signals": false,
+  "real_orders": false,
+  "external_messages": false,
+  "rules_enabled": true,
+  "entry_driver": "rules_process",
+  "elapsed_seconds": 126.67,
+  "modes": {
+    "live": 60,
+    "archive": 1
+  },
+  "max_rows": 412,
+  "max_fresh": 410,
+  "confirmed_snapshots": 13,
+  "opened_position_id": null,
+  "entry_rejections": {},
+  "close_rejections": {},
+  "mark_states": {
+    "idle": 61
+  },
+  "funding_states": {
+    "idle": 61
+  },
+  "rule_states": {
+    "blocked": 2,
+    "ready": 59
+  },
+  "rule_actions": {},
+  "rule_blocks": {},
+  "errors": [],
+  "requests": {
+    "state": {
+      "count": 61,
+      "p95_ms": 30.498000000079628,
+      "max_ms": 1018.7722999999096
+    },
+    "paper": {
+      "count": 61,
+      "p95_ms": 1.4180000016494887,
+      "max_ms": 4.793200001586229
+    },
+    "alerts": {
+      "count": 61,
+      "p95_ms": 3.9931000010255957,
+      "max_ms": 4.2934000011882745
+    }
+  },
+  "paper_workers_restarted_at_seconds": 62.03,
+  "orchestration_passed": true,
+  "stopped_archive_seen": true,
+  "integrity": {
+    "market": "ok"
+  },
+  "paper_path": "not_exercised_no_accepted_confirmed",
+  "rules_blocked_after_stop": true,
+  "paper_open_count": 0,
+  "paper_closed_count": 0,
+  "monitor_exit_code": 1,
+  "market_data_quality": "data_gaps_at_stop",
+  "monitor_report": {
+    "run_id": "8a96878e-edbc-4845-a5d5-a04c2666fa94",
+    "started_at_ms": 1793902840371,
+    "finished": true,
+    "config": {
+      "symbols": "REGISTERED",
+      "group_size": 20,
+      "max_connections": 8,
+      "market_refresh_seconds": 900,
+      "mexc_depth_limit": 20,
+      "interval": 2.0,
+      "duration": 120.0,
+      "economics_pairs": 3,
+      "gate_group_size": 5
+    },
+    "warmup_seconds": 60,
+    "observations": 59,
+    "max_spread_rows": 412,
+    "max_eligible_quotes": 116,
+    "peak_rss_bytes": 589037568,
+    "last_rss_bytes": 519012352,
+    "peak_publish_ms": 774.8253000008845,
+    "peak_loop_lag_ms": 26.23940000012226,
+    "finished_at_ms": 1793902961285,
+    "finish_reason": "duration_reached",
+    "exit_code": 1,
+    "shutdown_states": {
+      "binanceusdm": "stopped",
+      "bybit": "stopped",
+      "okx": "stopped",
+      "bitget": "stopped",
+      "gate": "stopped",
+      "mexc": "stopped"
+    },
+    "elapsed_seconds": 120.91360410000016,
+    "cpu_seconds": 27.734375,
+    "cpu_pct_one_core": 22.93734870152627,
+    "database_bytes": 34328576,
+    "database_growth_bytes": 34328576,
+    "publish_p95_ms_recent": 80.09970000057365,
+    "loop_lag_p95_ms_recent": 2.694599999813363,
+    "percentile_window_limit": 10000,
+    "exchanges": {
+      "binanceusdm": {
+        "observations": 59,
+        "steady_observations": 30,
+        "steady_streaming_observations": 5,
+        "steady_fresh_sum": 38,
+        "steady_selected_sum": 600,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 6,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [
+          "ConnectionError: WS closed: 1006; Cannot write to closing transport"
+        ],
+        "received_stale_updates": 5257,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          3497
+        ],
+        "last_state": "ready",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.06333333333333334
+      },
+      "bybit": {
+        "observations": 59,
+        "steady_observations": 30,
+        "steady_streaming_observations": 30,
+        "steady_fresh_sum": 599,
+        "steady_selected_sum": 600,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          -213
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.9983333333333333
+      },
+      "okx": {
+        "observations": 59,
+        "steady_observations": 30,
+        "steady_streaming_observations": 30,
+        "steady_fresh_sum": 597,
+        "steady_selected_sum": 600,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          114
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.995
+      },
+      "bitget": {
+        "observations": 59,
+        "steady_observations": 30,
+        "steady_streaming_observations": 30,
+        "steady_fresh_sum": 590,
+        "steady_selected_sum": 600,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 1,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          186
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.9833333333333333
+      },
+      "gate": {
+        "observations": 59,
+        "steady_observations": 30,
+        "steady_streaming_observations": 30,
+        "steady_fresh_sum": 567,
+        "steady_selected_sum": 600,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 4,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 0,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 0,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          252,
+          197,
+          1521,
+          445
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.945
+      },
+      "mexc": {
+        "observations": 59,
+        "steady_observations": 30,
+        "steady_streaming_observations": 30,
+        "steady_fresh_sum": 592,
+        "steady_selected_sum": 600,
+        "max_selected_markets": 20,
+        "max_received_quotes": 20,
+        "max_fresh_quotes": 20,
+        "max_connections": 4,
+        "metadata_generation": 1,
+        "reconnects": 0,
+        "book_resyncs": 21,
+        "group_restarts": 0,
+        "metadata_failures": 0,
+        "recent_failures": [],
+        "received_stale_updates": 1,
+        "out_of_order_updates": 0,
+        "source_lag_p95_ms_recent_by_connection": [
+          379,
+          19,
+          362,
+          40
+        ],
+        "last_state": "streaming",
+        "last_omitted_markets": 0,
+        "mean_sampled_fresh_fraction": 0.9866666666666667
+      }
+    },
+    "steady_cpu_pct_one_core": 19.27304640093066,
+    "rss_at_warmup_bytes": 511844352
+  },
+  "database_bytes": {
+    "market": 34328576
+  },
+  "final_worker_status": {
+    "mark": {
+      "classification": "paper_watch_status",
+      "generated_at_ms": 1793902966186,
+      "state": "idle",
+      "positions": [],
+      "execution_verified": false,
+      "opens_positions": false,
+      "closes_positions": false,
+      "collection": {
+        "state": "absent",
+        "skipped": [],
+        "open_count": 0,
+        "limit": 10
+      }
+    },
+    "funding": {
+      "classification": "paper_funding_watch_status",
+      "generated_at_ms": 1793902962379,
+      "positions": [],
+      "requests": 0,
+      "network_enabled": false,
+      "execution_verified": false,
+      "opens_positions": false,
+      "closes_positions": false,
+      "selection": {
+        "ids": [],
+        "cursor": 0,
+        "open_count": 0,
+        "closed_count": 0,
+        "omitted_open": 0,
+        "state": "absent"
+      },
+      "state": "idle",
+      "cursor": 0,
+      "next_network_ms": 0
+    },
+    "rules": {
+      "classification": "paper_rules_status",
+      "generated_at_ms": 1793902964760,
+      "state": "blocked",
+      "mode": "apply",
+      "policy": {
+        "min_entry_usdt": "1",
+        "take_profit_usdt": "5",
+        "stop_loss_usdt": "20",
+        "max_hold_seconds": 28800,
+        "cooldown_seconds": 300,
+        "max_positions": 1
+      },
+      "decisions": [],
+      "execution_verified": false,
+      "real_orders": false,
+      "error": "economic_snapshot_unavailable"
+    }
+  },
+  "persisted_evidence": {
+    "economics_statuses": {
+      "blocked": 81,
+      "scenario_estimated": 90
+    },
+    "economics_reasons": {
+      "awaiting_depth": 19,
+      "volume_24h_unknown": 12,
+      "depth_time_skew": 50
+    },
+    "signal_states": {
+      "rejected": 93,
+      "pending": 58,
+      "confirmed": 20
+    },
+    "signal_event_kinds": {
+      "appeared": 19,
+      "confirmed": 11,
+      "ended": 19,
+      "lost": 32,
+      "qualifying": 38,
+      "reason_changed": 14
+    },
+    "conditional_scenario_min_usdt": -1.1553285493204,
+    "conditional_scenario_max_usdt": 0.434941710467
+  }
+}

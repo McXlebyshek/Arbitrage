@@ -1,0 +1,575 @@
+{
+  "classification": "PUBLIC_GATE_DECIMAL_SIZE_COMPARISON",
+  "elapsed_seconds": 120.7122159999999,
+  "warmup_seconds": 20,
+  "group_size": 5,
+  "results": {
+    "legacy_integer": {
+      "samples": 100,
+      "fresh_sum": 1911,
+      "selected_sum": 2000,
+      "quality_counts": {
+        "ok": 1911,
+        "missing_bid_ask": 23,
+        "stale": 66
+      },
+      "by_symbol": {
+        "AAVE_USDT": {
+          "ok": 100
+        },
+        "ADA_USDT": {
+          "ok": 100
+        },
+        "ARB_USDT": {
+          "ok": 100
+        },
+        "ATOM_USDT": {
+          "ok": 89,
+          "stale": 11
+        },
+        "AVAX_USDT": {
+          "ok": 100
+        },
+        "BCH_USDT": {
+          "ok": 100
+        },
+        "BNB_USDT": {
+          "ok": 99,
+          "stale": 1
+        },
+        "BTC_USDT": {
+          "ok": 100
+        },
+        "DOGE_USDT": {
+          "ok": 100
+        },
+        "DOT_USDT": {
+          "ok": 100
+        },
+        "ETH_USDT": {
+          "ok": 96,
+          "missing_bid_ask": 4
+        },
+        "LINK_USDT": {
+          "ok": 99,
+          "stale": 1
+        },
+        "LTC_USDT": {
+          "ok": 99,
+          "stale": 1
+        },
+        "NEAR_USDT": {
+          "ok": 100
+        },
+        "OP_USDT": {
+          "ok": 95,
+          "stale": 5
+        },
+        "SOL_USDT": {
+          "ok": 99,
+          "missing_bid_ask": 1
+        },
+        "SUI_USDT": {
+          "ok": 100
+        },
+        "TRX_USDT": {
+          "ok": 53,
+          "stale": 47
+        },
+        "UNI_USDT": {
+          "ok": 100
+        },
+        "XRP_USDT": {
+          "ok": 82,
+          "missing_bid_ask": 18
+        }
+      },
+      "reconnects": 0,
+      "fractional_size_updates": 0,
+      "mean_sampled_fresh_fraction": 0.9555
+    },
+    "decimal": {
+      "samples": 100,
+      "fresh_sum": 1935,
+      "selected_sum": 2000,
+      "quality_counts": {
+        "ok": 1935,
+        "stale": 65
+      },
+      "by_symbol": {
+        "AAVE_USDT": {
+          "ok": 100
+        },
+        "ADA_USDT": {
+          "ok": 100
+        },
+        "ARB_USDT": {
+          "ok": 100
+        },
+        "ATOM_USDT": {
+          "ok": 89,
+          "stale": 11
+        },
+        "AVAX_USDT": {
+          "ok": 100
+        },
+        "BCH_USDT": {
+          "ok": 100
+        },
+        "BNB_USDT": {
+          "ok": 99,
+          "stale": 1
+        },
+        "BTC_USDT": {
+          "ok": 100
+        },
+        "DOGE_USDT": {
+          "ok": 100
+        },
+        "DOT_USDT": {
+          "ok": 100
+        },
+        "ETH_USDT": {
+          "ok": 100
+        },
+        "LINK_USDT": {
+          "ok": 99,
+          "stale": 1
+        },
+        "LTC_USDT": {
+          "ok": 99,
+          "stale": 1
+        },
+        "NEAR_USDT": {
+          "ok": 100
+        },
+        "OP_USDT": {
+          "ok": 95,
+          "stale": 5
+        },
+        "SOL_USDT": {
+          "ok": 100
+        },
+        "SUI_USDT": {
+          "ok": 100
+        },
+        "TRX_USDT": {
+          "ok": 54,
+          "stale": 46
+        },
+        "UNI_USDT": {
+          "ok": 100
+        },
+        "XRP_USDT": {
+          "ok": 100
+        }
+      },
+      "reconnects": 0,
+      "fractional_size_updates": 490,
+      "mean_sampled_fresh_fraction": 0.9675
+    }
+  },
+  "matched_rounding_evidence": [
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362973622",
+      "timestamp_ms": 1793906111566,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": 0,
+        "A": 95
+      },
+      "decimal": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": "0.2",
+        "A": "95.4"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974503",
+      "timestamp_ms": 1793906115204,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": 0,
+        "A": 40
+      },
+      "decimal": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": "0.2",
+        "A": "40.5"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974513",
+      "timestamp_ms": 1793906115226,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": 0,
+        "A": 45
+      },
+      "decimal": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": "0.2",
+        "A": "45.5"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974514",
+      "timestamp_ms": 1793906115228,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": 0,
+        "A": 40
+      },
+      "decimal": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": "0.2",
+        "A": "40.5"
+      }
+    },
+    {
+      "symbol": "SOL_USDT",
+      "update_id": "44321928210",
+      "timestamp_ms": 1793906115326,
+      "recovered_fields": [
+        "A"
+      ],
+      "legacy": {
+        "b": "89.71",
+        "a": "89.72",
+        "B": 222,
+        "A": 0
+      },
+      "decimal": {
+        "b": "89.71",
+        "a": "89.72",
+        "B": "222.9",
+        "A": "0.4"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974534",
+      "timestamp_ms": 1793906115331,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2346",
+        "a": "1.2348",
+        "B": 0,
+        "A": 92
+      },
+      "decimal": {
+        "b": "1.2346",
+        "a": "1.2348",
+        "B": "0.2",
+        "A": "92.7"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974588",
+      "timestamp_ms": 1793906115385,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": 0,
+        "A": 128
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": "0.2",
+        "A": "128.2"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974599",
+      "timestamp_ms": 1793906115466,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": 0,
+        "A": 90
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": "0.2",
+        "A": "90.8"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974811",
+      "timestamp_ms": 1793906115864,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2348",
+        "a": "1.2349",
+        "B": 0,
+        "A": 82
+      },
+      "decimal": {
+        "b": "1.2348",
+        "a": "1.2349",
+        "B": "0.2",
+        "A": "82"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974872",
+      "timestamp_ms": 1793906115951,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2349",
+        "B": 0,
+        "A": 51
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2349",
+        "B": "0.2",
+        "A": "51.2"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974886",
+      "timestamp_ms": 1793906115962,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2349",
+        "B": 0,
+        "A": 51
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2349",
+        "B": "0.2",
+        "A": "51.2"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974897",
+      "timestamp_ms": 1793906115978,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2349",
+        "B": 0,
+        "A": 41
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2349",
+        "B": "0.2",
+        "A": "41.5"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974904",
+      "timestamp_ms": 1793906116020,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2349",
+        "B": 0,
+        "A": 50
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2349",
+        "B": "0.2",
+        "A": "50.9"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974921",
+      "timestamp_ms": 1793906116072,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": 0,
+        "A": 9
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": "0.2",
+        "A": "9.4"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974923",
+      "timestamp_ms": 1793906116076,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": 0,
+        "A": 49
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": "0.2",
+        "A": "49.9"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362974928",
+      "timestamp_ms": 1793906116118,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": 0,
+        "A": 9
+      },
+      "decimal": {
+        "b": "1.2347",
+        "a": "1.2348",
+        "B": "0.2",
+        "A": "9.4"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362975056",
+      "timestamp_ms": 1793906116802,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": 0,
+        "A": 40
+      },
+      "decimal": {
+        "b": "1.2346",
+        "a": "1.2347",
+        "B": "0.2",
+        "A": "40.5"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362975978",
+      "timestamp_ms": 1793906118864,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2344",
+        "a": "1.2345",
+        "B": 0,
+        "A": 155
+      },
+      "decimal": {
+        "b": "1.2344",
+        "a": "1.2345",
+        "B": "0.1",
+        "A": "155.5"
+      }
+    },
+    {
+      "symbol": "ETH_USDT",
+      "update_id": "113472099445",
+      "timestamp_ms": 1793906118921,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "2256.95",
+        "a": "2256.96",
+        "B": 0,
+        "A": 1702
+      },
+      "decimal": {
+        "b": "2256.95",
+        "a": "2256.96",
+        "B": "0.1",
+        "A": "1702.7"
+      }
+    },
+    {
+      "symbol": "XRP_USDT",
+      "update_id": "28362976147",
+      "timestamp_ms": 1793906118937,
+      "recovered_fields": [
+        "B"
+      ],
+      "legacy": {
+        "b": "1.2342",
+        "a": "1.2343",
+        "B": 0,
+        "A": 121
+      },
+      "decimal": {
+        "b": "1.2342",
+        "a": "1.2343",
+        "B": "0.2",
+        "A": "121.5"
+      }
+    }
+  ],
+  "interpretation": "Same instruments and concurrent sockets. Wire evidence matches symbol/u/t/prices; sampled quality is not uptime."
+}

@@ -1,0 +1,22 @@
+{
+  "classification": "ARTIFICIAL_OFFLINE_RULES_CHECK_NOT_MARKET_RESULT",
+  "passed": true,
+  "no_network": true,
+  "real_orders": false,
+  "preview_did_not_create_ledger": true,
+  "duplicate_process_blocked": true,
+  "event_counts": {
+    "closed": 1,
+    "opened": 1
+  },
+  "sqlite_integrity": "ok",
+  "expected_pnl_before_funding_usdt": "7.900512",
+  "observed_pnl_before_funding_usdt": "7.90051200",
+  "net_pnl_usdt": null,
+  "close_reason": {
+    "basis": "pnl_before_funding_usdt",
+    "owner": "paper_rules_v1",
+    "reason": "take_profit_before_funding"
+  },
+  "note": "Artificial timestamps shifted to wall clock to test live guards; not market observations."
+}

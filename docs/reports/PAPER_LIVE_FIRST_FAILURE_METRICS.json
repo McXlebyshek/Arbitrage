@@ -1,0 +1,45 @@
+{
+  "classification": "ISOLATED_PUBLIC_MULTIPROCESS_PAPER_SOAK",
+  "state": "failed",
+  "requested_seconds": 300,
+  "started_at_ms": 1793898987817,
+  "port": 8776,
+  "synthetic_signals": false,
+  "real_orders": false,
+  "external_messages": false,
+  "elapsed_seconds": 108.28,
+  "modes": {
+    "live": 53
+  },
+  "max_rows": 300,
+  "max_fresh": 300,
+  "confirmed_snapshots": 0,
+  "opened_position_id": null,
+  "entry_rejections": {},
+  "close_rejections": {},
+  "mark_states": {
+    "idle": 53
+  },
+  "funding_states": {
+    "idle": 53
+  },
+  "errors": [],
+  "requests": {
+    "state": {
+      "count": 53,
+      "p95_ms": 26.136600001336774,
+      "max_ms": 514.0492999998969
+    },
+    "paper": {
+      "count": 53,
+      "p95_ms": 0.981099999989965,
+      "max_ms": 2.674700001080055
+    },
+    "alerts": {
+      "count": 53,
+      "p95_ms": 3.107399999862537,
+      "max_ms": 7.384599999568309
+    }
+  },
+  "fatal_error": "RuntimeError: mark exited unexpectedly"
+}

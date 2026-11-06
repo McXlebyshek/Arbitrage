@@ -1,0 +1,37 @@
+[
+  {
+    "file": "validate_mexc_freshness.py",
+    "before": null,
+    "after": "AD190BC6F48188D3D938C77AD1675670F104E1E30F39A0847E04F633202E5716"
+  },
+  {
+    "file": "validate_mexc_cadence.py",
+    "before": null,
+    "after": "CE5F473BC39CFDB213B26F1AA8E243633673DFBC161C6A9192F71CC3D739931E"
+  },
+  {
+    "file": "tests/test_mexc_freshness_analysis.py",
+    "before": null,
+    "after": "3C05E3BD54119C69C7535771577436FB2F8BBDE50D3113D8D158B262E4932DC3"
+  },
+  {
+    "file": "docs/reports/OBU_EXTENDED_20261106.json",
+    "before": null,
+    "after": "542FB41B979B2C3E6F796420E0D0ABD9D51968BAEE7A7D39B742AC232C969212"
+  },
+  {
+    "file": "docs/reports/MEXC_WIRE_EXTENDED_20261106.json",
+    "before": null,
+    "after": "AEEA7A2769324444FDE1FC122771617A4BB3519EEE21E574A19A285D7109DBF0"
+  },
+  {
+    "file": "docs/reports/OBU_EXTENDED_CHECK.md",
+    "before": null,
+    "after": "53E3B3804365B450A4BA2A8E59E951044DF7D323D055FAA4476D254A70A46D9B"
+  },
+  {
+    "file": "docs/ROADMAP.md",
+    "before": "30C9DABEFBE931124989BAF46D19163F4E0385C8CBE525C96E0DBF494E896674",
+    "after": "BBA68CB6E7E6A82D9DB4EF8C75A6682F875E2256ED2AA621C34E54434B331FA3"
+  }
+]
