@@ -211,6 +211,8 @@ class Monitor:
             if venue in SPOT_CLIENTS:
                 self.sources[venue, 'spot'] = Source(venue, 'spot', budget, clock)
         self.snapshot = dict(state='starting', markets={}, venues={}, valuations={}, generatedAt=None)
+        self.snapshot_run_id = uuid4().hex
+        self.snapshot_response = (orjson.dumps(self.snapshot), self.snapshot_etag(self.snapshot))
         self.cycle_ms = None
         self.instruments = {}
         self.catalog_descriptors = {}
@@ -226,6 +228,15 @@ class Monitor:
         self.futures_feeds = {
             venue: FuturesBookFeed(venue, self.clear_futures_pairs, self.clocks[venue]) for venue in PILOT_VENUES
         } if futures_ws and all((venue, 'swap') in self.sources for venue in PILOT_VENUES) else {}
+
+    def snapshot_etag(self, snapshot):
+        return f'W/"{self.snapshot_run_id}-{snapshot["generatedAt"]}"'
+
+    async def publish_snapshot(self, snapshot):
+        body = await asyncio.to_thread(orjson.dumps, snapshot)
+        self.snapshot = snapshot
+        self.snapshot_response = (body, self.snapshot_etag(snapshot))
+        self.notify_quotes_changed()
 
     def clear_futures_pairs(self):
         if self.futures_pairs:
@@ -619,17 +630,17 @@ class Monitor:
                                        for venue in PILOT_VENUES)
                     await self.refresh_futures_feeds(session, markets, now, refresh=inputs_ready)
                     now = now_ms()
-                self.snapshot = dict(
+                snapshot = dict(
                     state='ready' if all(s.get('state') == 'ok' for s in statuses.values()) else 'partial',
                     venues=statuses, markets=markets, valuations=self.asset_metrics.snapshot(now), generatedAt=now,
                     expectedIntervalMs=INTERVAL * 1000,
                 )
-                self.cycle_ms = round((monotonic() - started) * 1000, 1)
-                self.notify_quotes_changed()
-                if self.futures_feeds:
-                    self.update_futures_pairs(markets, now)
                 if pybobo_depth is not None:
-                    self.snapshot['pyboboDepth'] = pybobo_depth
+                    snapshot['pyboboDepth'] = pybobo_depth
+                await self.publish_snapshot(snapshot)
+                self.cycle_ms = round((monotonic() - started) * 1000, 1)
+                if self.futures_feeds:
+                    self.update_futures_pairs(markets, now_ms())
                 if self.early_pair is not None:
                     self.set_early_pair(None)
                 self.details = {key: item for key, item in self.details.items() if item['refreshAfter'] > now}
@@ -749,9 +760,6 @@ def create_app(monitor, *, collect=True, open_url=None):
     app.on_response_prepare.append(protect_response)
     depth = {}
     depth_pending = {}
-    snapshot_object = snapshot_body = snapshot_etag = None
-    snapshot_lock = asyncio.Lock()
-    run_id = uuid4().hex
 
     async def lifecycle(_app):
         task = asyncio.create_task(monitor.run()) if collect else None
@@ -783,15 +791,7 @@ def create_app(monitor, *, collect=True, open_url=None):
         return response
 
     async def snapshot(_request):
-        nonlocal snapshot_object, snapshot_body, snapshot_etag
-        # Published snapshots are replaced as a whole by the collector.
-        if monitor.snapshot is not snapshot_object:
-            async with snapshot_lock:
-                current = monitor.snapshot
-                if current is not snapshot_object:
-                    snapshot_body = await asyncio.to_thread(orjson.dumps, current)
-                    snapshot_etag = f'W/"{run_id}-{current["generatedAt"]}"'
-                    snapshot_object = current
+        snapshot_body, snapshot_etag = monitor.snapshot_response
         headers = {'Cache-Control': 'no-store', 'ETag': snapshot_etag}
         candidates = _request.headers.get('If-None-Match', '').split(',')
         if any(tag.strip() in ('*', snapshot_etag, snapshot_etag[2:]) for tag in candidates):

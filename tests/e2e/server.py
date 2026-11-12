@@ -16,7 +16,7 @@ async def main():
     now = snapshot['generatedAt']
     module.now_ms = lambda: now
     monitor = module.Monitor([], Path('unused.sqlite3'))
-    monitor.snapshot = snapshot
+    await monitor.publish_snapshot(snapshot)
     monitor.detail = AsyncMock(return_value=dict(errors={}, totals={}, events=[], refreshAfter=now + 60000))
     monitor.history.read = lambda *_: []
     monitor.registry.match = lambda venue, kind, market: dict(asset=market['symbol'].split('.')[0], price_units=1)
@@ -37,8 +37,7 @@ async def main():
 
     async def publish(_request):
         monitor.futures_pairs = []
-        monitor.snapshot = dict(monitor.snapshot, generatedAt=now + 1)
-        monitor.notify_quotes_changed()
+        await monitor.publish_snapshot(dict(monitor.snapshot, generatedAt=now + 1))
         return web.json_response({'ok': True})
 
     async def stop(_request):
