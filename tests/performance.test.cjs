@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const {readFileSync} = require('node:fs');
 const {NOW, snapshot, quotes} = require('./fixtures/performance.cjs');
+const thresholds = require('./fixtures/thresholds.cjs');
 const liveCode = readFileSync('frontend/live.js', 'utf8');
 
 function model(demoMode = false) {
@@ -10,6 +11,7 @@ function model(demoMode = false) {
   const context = vm.createContext({location: {protocol: 'http:', search: demoMode ? '?demo=1' : ''}, URLSearchParams,
     demo: {exchanges: {}}, Date: class extends Date {static now() {return now;}}});
   const api = vm.runInContext(liveCode + '\n({live,updateLive,setEarlyPair,setFuturesQuotes,rebuildPairs,refreshQuotePairs,selectPairs})', context);
+  api.live.config = thresholds;
   return {...api, context, time: at => {now = at;}};
 }
 function comparable(api) {

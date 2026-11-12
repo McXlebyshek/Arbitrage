@@ -827,7 +827,8 @@ const actions = {
   links: () => showDialog('Площадки и источники', isDemo ?
     `<div class="check-grid">${exchanges.map(exchange => `<span>${badge(exchange)} ${exchange}</span>`).join('')}</div>` :
     `<ul>${Object.entries(live.venues).map(([name, status]) => {
-      const stale = status.batchReceivedAt && Date.now() - status.batchReceivedAt > 60000;
+      const stale = status.batchReceivedAt &&
+        Date.now() - status.batchReceivedAt > (live.config?.quoteMaxAgeMs ?? Infinity);
       return `<li>${esc(name)} · ${stale ? '<span class="unavailable">котировки устарели</span>' :
         status.state === 'ok' ? 'подключено' : esc(status.error ?? 'ожидание')}</li>`;
     }).join('')}</ul>`),

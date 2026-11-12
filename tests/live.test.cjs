@@ -2,11 +2,13 @@ const {test} = require('node:test');
 const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const {readFileSync} = require('node:fs');
+const defaultConfig = require('./fixtures/thresholds.cjs');
 const {live, makePair, aprAfterFees, enrichLeg, depthValue, slipValue, setEarlyPair, setFuturesQuotes, updateLive, rebuildPairs} = vm.runInNewContext(
   readFileSync('frontend/live.js', 'utf8') + '\n({live, makePair, aprAfterFees, enrichLeg, depthValue, slipValue, setEarlyPair, setFuturesQuotes, updateLive, rebuildPairs})',
   {location: {protocol: 'http:', search: ''}, URLSearchParams, demo: {exchanges: {}}},
 );
 const now = 1800000000000;
+live.config = defaultConfig;
 const long = {id: 'a', exchange: 'A', type: 'swap', quote: 'USDT', asset: 'btc',
   bid: 99, ask: 100, sourceAt: now, receivedAt: now, rate: 0, hours: 8, totals: {1: 0}};
 const short = {...long, id: 'b', exchange: 'B', bid: 101, ask: 102, rate: 0.02, hours: 4, totals: {1: 0.07}};
@@ -52,6 +54,23 @@ test('blocks incompatible and stale prices, while preserving unknown funding as 
   assert.equal(makePair('BTC', long, short, now + 60001).entry, null);
   assert.equal(makePair('BTC', long, {...short, sourceAt: now - 1501}, now).entry, null);
   assert.equal(makePair('BTC', long, {...short, rate: null}, now).funding, null);
+});
+
+test('uses the market thresholds supplied by the snapshot config', () => {
+  const at = Date.now();
+  const config = {quoteMaxAgeMs: 100, sourceTimeSkewMs: 5, receiptTimeSkewMs: 10,
+    bookMaxAgeMs: 20, maxPriceRatio: 1.05, futureClockToleranceMs: 0};
+  updateLive({generatedAt: at, config, markets: {}});
+  assert.equal(live.config, config);
+  const timed = makePair('BTC', {...long, sourceAt: at - 10, receivedAt: at},
+    {...short, sourceAt: at - 16, receivedAt: at}, at);
+  assert.equal(timed.quality, 'skew');
+  const receipt = makePair('BTC', {...long, sourceAt: null, receivedAt: at},
+    {...short, sourceAt: null, receivedAt: at - 11}, at);
+  assert.equal(receipt.quality, 'skew');
+  assert.equal(makePair('BTC', {...long, sourceAt: at - 101, receivedAt: at - 101}, short, at).quality, 'stale');
+  assert.equal(makePair('BTC', {...long, bid: 100, ask: 100}, {...short, bid: 106, ask: 106}, at), null);
+  live.config = defaultConfig;
 });
 
 test('keeps locally confirmed quiet WebSocket quotes despite old or skewed exchange timestamps', () => {

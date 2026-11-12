@@ -7,8 +7,7 @@ from pathlib import Path
 import re
 import time
 
-
-MAX_AGE = 60_000
+from .thresholds import FUTURE_CLOCK_TOLERANCE_MS, QUOTE_MAX_AGE_MS
 
 
 def now_ms():
@@ -113,5 +112,5 @@ class Registry:
         return cls(json.loads((path or Path(__file__).with_name("instruments.json")).read_text(encoding="utf-8")))
 
 
-def fresh(stamp, now, max_age=MAX_AGE):
-    return stamp is not None and -1000 <= now - stamp <= max_age
+def fresh(stamp, now, max_age=QUOTE_MAX_AGE_MS):
+    return stamp is not None and -FUTURE_CLOCK_TOLERANCE_MS <= now - stamp <= max_age

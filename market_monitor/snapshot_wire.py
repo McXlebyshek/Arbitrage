@@ -2,6 +2,7 @@
 
 import orjson
 
+from .thresholds import PUBLIC_CONFIG
 
 STATIC_FIELDS = ('exchange', 'type', 'quote', 'symbol', 'asset', 'size', 'networks', 'nativeBase', 'priceUnits')
 
@@ -20,5 +21,5 @@ def encode_compact(snapshot, previous_metadata, current_version, next_version):
     changed = metadata != previous_metadata
     version = next_version if changed else current_version
     body = orjson.dumps(dict(snapshot, markets=groups, metaVersion=version))
-    metadata_body = orjson.dumps(dict(version=version, markets=metadata)) if changed else None
+    metadata_body = orjson.dumps(dict(version=version, config=PUBLIC_CONFIG, markets=metadata)) if changed else None
     return body, version, metadata if changed else previous_metadata, metadata_body

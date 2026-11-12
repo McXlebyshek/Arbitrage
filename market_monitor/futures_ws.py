@@ -11,12 +11,12 @@ import aiohttp
 
 from .futures_ws_protocols import PROTOCOLS
 from .market import fresh, now_ms
+from .thresholds import FUTURES_QUOTE_CONFIRMATION_AGE_MS
 from .ws_reconnect import CONNECT_TIMEOUT, ReconnectingFeed
 
 
 MEXC_URL = PROTOCOLS['mexc'].url
 KUCOIN_TOKEN_URL = 'https://api-futures.kucoin.com/api/v1/bullet-public'
-QUOTE_CONFIRMATION_AGE = 90_000
 CONNECTION_ACTIVITY_AGE = 45_000
 QUIET_SYMBOL_AGE = 30_000
 QUIET_REST_VENUES = frozenset({'binanceusdm', 'gate'})
@@ -194,9 +194,9 @@ class FuturesBookFeed(ReconnectingFeed):
     def quote(self, symbol, now):
         quote = self.quotes.get(symbol)
         if (quote is not None and symbol in self._subscriptions and self.active(now)
-                and fresh(quote['confirmedAt'], now, QUOTE_CONFIRMATION_AGE)):
+                and fresh(quote['confirmedAt'], now, FUTURES_QUOTE_CONFIRMATION_AGE_MS)):
             return dict(quote, validUntil=min(
-                quote['confirmedAt'] + QUOTE_CONFIRMATION_AGE,
+                quote['confirmedAt'] + FUTURES_QUOTE_CONFIRMATION_AGE_MS,
                 self.last_message_at + CONNECTION_ACTIVITY_AGE,
             ))
         return None

@@ -10,6 +10,7 @@ from time import monotonic
 
 from .funding_history import DAY
 from .market import fresh
+from .thresholds import MAX_PRICE_RATIO
 
 
 MINUTE_MS = 60_000
@@ -19,7 +20,6 @@ DOWNSAMPLE_MS = 5 * MINUTE_MS
 MAINTENANCE_MS = 10 * MINUTE_MS
 COMPACTION_BATCH_MS = 60 * MINUTE_MS
 VACUUM_PAGES = 256
-MAX_PRICE_RATIO = 2
 
 
 def eligible_legs(markets, now, compatible_assets):

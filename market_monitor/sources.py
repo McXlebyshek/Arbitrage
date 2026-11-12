@@ -7,8 +7,9 @@ import aiohttp
 import ccxt.async_support as ccxt
 
 from .funding_history import DAY
-from .market import MAX_AGE, decimal, fresh, is_target, now_ms, numeric
+from .market import decimal, fresh, is_target, now_ms, numeric
 from .rest_budget import guard
+from .thresholds import QUOTE_MAX_AGE_MS
 from .usdc import EXTENDED_INFO, EdgeXPublic, ExtendedPublic
 from .whitebit import WhitebitBookTicker
 
@@ -175,7 +176,7 @@ class Source:
             self.funding, self.schedule, self.volume, self.currencies = {}, None, {}, {}
             status = dict(status, state='error', contracts=0, error=status.get('error') or 'market catalog expired')
         self.catalog_status[venue] = status or dict(state='loading', contracts=0)
-        interval = CATALOG_REFRESH_MS if venue in self.catalogs and status.get('state') != 'stale' else MAX_AGE
+        interval = CATALOG_REFRESH_MS if venue in self.catalogs and status.get('state') != 'stale' else QUOTE_MAX_AGE_MS
         if self.catalog_client is not None and self.catalog_task is None and (not self.updated or now - self.updated >= interval):
             self.catalog_task = asyncio.create_task(self.catalog())
 
@@ -274,7 +275,7 @@ class Source:
                 return
             async with asyncio.TaskGroup() as tasks:
                 tasks.create_task(self.swap_tickers(venue, tickers_ready))
-                if venue in CYCLE_FUNDING_VENUES or now - self.funding_at >= MAX_AGE:
+                if venue in CYCLE_FUNDING_VENUES or now - self.funding_at >= QUOTE_MAX_AGE_MS:
                     self.funding_at = now
                     self.start_aux(tasks, venue)
         finally:
@@ -394,7 +395,7 @@ class Source:
         except Exception as exc:
             LOG.exception('%s turnover: unexpected failure', self.venue)
             self.turnover_error = f'{type(exc).__name__}: {exc}'[:300]
-            self.turnover_due = now_ms() + MAX_AGE
+            self.turnover_due = now_ms() + QUOTE_MAX_AGE_MS
 
     async def refresh_bulk_turnover(self):
         catalog = self.catalogs.get(self.venue, {})
@@ -418,7 +419,7 @@ class Source:
             self.volume = updated
         except (aiohttp.ClientError, ccxt.BaseError, TimeoutError, ValueError) as exc:
             LOG.warning('%s turnover: %s %s', self.venue, type(exc).__name__, str(exc)[:200])
-            self.turnover_due = now_ms() + MAX_AGE
+            self.turnover_due = now_ms() + QUOTE_MAX_AGE_MS
             return f'{type(exc).__name__}: {exc}'[:300]
 
     async def refresh_okx_turnover(self, end):

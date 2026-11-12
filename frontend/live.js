@@ -5,19 +5,23 @@ const live = {
   },
   markets: {}, valuations: {}, pairs: [], pairIndex: new Map(), details: new Map(), books: new Map(),
   pairSlots: new Map(), quoteOverrides: new Map(), baselineLength: 0, baselineDeadline: 0, baselineAt: 0,
-  generatedAt: null, futuresQuotes: null, earlyPair: null, earlyBaseAt: 0, nextDataChange: Infinity, state: 'starting', venues: {}, error: false,
+  generatedAt: null, config: null, futuresQuotes: null, earlyPair: null, earlyBaseAt: 0, nextDataChange: Infinity,
+  state: 'starting', venues: {}, error: false,
   priceAnomalies: 0,
 };
 for (const venue of ['Arcus', 'Robinlighter']) delete live.exchanges[venue];
 
-const QUOTE_MAX_AGE = 60000;
-const MAX_PRICE_RATIO = 2;
+function threshold(name) {
+  const value = live.config?.[name];
+  return Number.isFinite(value) ? value : Infinity;
+}
 
 function currentQuote(leg, now) {
-  const fresh = stamp => Number.isFinite(stamp) && now - stamp >= -1000 && now - stamp <= QUOTE_MAX_AGE;
+  const fresh = stamp => Number.isFinite(stamp) && now - stamp >= -threshold('futureClockToleranceMs') &&
+    now - stamp <= threshold('quoteMaxAgeMs');
   if (leg.quoteSource === 'ws' || leg.quoteSource === 'rest') {
     return Number.isFinite(leg.confirmedAt) && Number.isFinite(leg.validUntil) &&
-      now >= leg.confirmedAt - 1000 && now <= leg.validUntil;
+      now >= leg.confirmedAt - threshold('futureClockToleranceMs') && now <= leg.validUntil;
   }
   return fresh(leg.receivedAt) && (leg.sourceAt === null || fresh(leg.sourceAt));
 }
@@ -29,9 +33,9 @@ function spreadQuality(long, short, now) {
     return 'receipt';
   }
   if (long.sourceAt !== null && short.sourceAt !== null) {
-    return Math.abs(long.sourceAt - short.sourceAt) <= 1500 ? 'timed' : 'skew';
+    return Math.abs(long.sourceAt - short.sourceAt) <= threshold('sourceTimeSkewMs') ? 'timed' : 'skew';
   }
-  return Math.abs(long.receivedAt - short.receivedAt) <= 3000 ? 'receipt' : 'skew';
+  return Math.abs(long.receivedAt - short.receivedAt) <= threshold('receiptTimeSkewMs') ? 'receipt' : 'skew';
 }
 
 function openSpread(longAsk, shortBid) {
@@ -62,7 +66,7 @@ function makePair(coin, long, short, now, onPriceAnomaly) {
   if (priceUnits !== (short.priceUnits ?? 1) ||
       ((priceUnits !== 1 || long.nativeBase || short.nativeBase) && !verified)) return null;
   const knownPrices = [long.bid ?? long.last, short.bid ?? short.last];
-  if (knownPrices.every(price => price > 0) && Math.max(...knownPrices) / Math.min(...knownPrices) > MAX_PRICE_RATIO) {
+  if (knownPrices.every(price => price > 0) && Math.max(...knownPrices) / Math.min(...knownPrices) > threshold('maxPriceRatio')) {
     onPriceAnomaly?.();
     return null;
   }
@@ -83,7 +87,7 @@ function makePair(coin, long, short, now, onPriceAnomaly) {
     funding, apr: funding === null ? null : funding * 1095, delta: delta(1), delta3: delta(3), delta7: delta(7),
     quality, timestampSuspect: Boolean(long.suspect || short.suspect ||
       Number.isFinite(long.changedAt) && Number.isFinite(short.changedAt) &&
-      Math.abs(long.changedAt - short.changedAt) > 1500),
+      Math.abs(long.changedAt - short.changedAt) > threshold('sourceTimeSkewMs')),
     verified, cap: valuation?.cap ?? null, fdv: valuation?.fdv ?? null,
     valuationAt: valuation?.updatedAt ?? null,
   };
@@ -110,7 +114,8 @@ function enrichLeg(leg, now, snapshotStale = false) {
 
 function updateLive(snapshot) {
   const {markets, valuations = {}, generatedAt, state, venues} = snapshot;
-  Object.assign(live, {generatedAt, state, venues, valuations, error: false, markets: {}});
+  Object.assign(live, {generatedAt, state, venues, valuations, config: snapshot.config ?? live.config,
+    error: false, markets: {}});
   live.rawMarkets = markets;
   if (live.earlyPair && generatedAt > live.earlyPair.baseAt) live.earlyPair = null;
   rebuildPairs();
@@ -141,7 +146,7 @@ function setFuturesQuotes(event) {
 
 function rebuildPairs() {
   const now = Date.now();
-  const snapshotExpires = live.generatedAt ? live.generatedAt + 60000 : Infinity;
+  const snapshotExpires = live.generatedAt ? live.generatedAt + threshold('quoteMaxAgeMs') : Infinity;
   const snapshotStale = now >= snapshotExpires;
   live.nextDataChange = snapshotStale ? Infinity : snapshotExpires;
   for (const {expiresAt} of Object.values(live.valuations)) {
@@ -158,12 +163,13 @@ function rebuildPairs() {
     const legs = values.map(leg => {
       const enriched = enrichLeg(leg, now, snapshotStale);
       const quoteExpires = enriched.bid > 0 && enriched.ask > 0
-        ? Math.min(enriched.sourceAt ?? Infinity, enriched.receivedAt) + QUOTE_MAX_AGE + 1 : null;
+        ? Math.min(enriched.sourceAt ?? Infinity, enriched.receivedAt) + threshold('quoteMaxAgeMs') + 1 : null;
       for (const deadline of [quoteExpires, enriched.next, live.details.get(leg.id)?.refreshAfter]) {
         if (deadline > now) live.nextDataChange = Math.min(live.nextDataChange, deadline);
       }
       // A browser clock behind the source can make a future quote usable later.
-      const validAfter = Math.max(leg.sourceAt ?? -Infinity, leg.receivedAt ?? -Infinity) - 1000;
+      const validAfter = Math.max(leg.sourceAt ?? -Infinity, leg.receivedAt ?? -Infinity) -
+        threshold('futureClockToleranceMs');
       if (validAfter > now) live.nextDataChange = Math.min(live.nextDataChange, validAfter);
       return enriched;
     });
@@ -277,8 +283,8 @@ async function marketRequest(leg, resource) {
 
 function levelsFor(leg, short) {
   const book = live.books.get(leg.id);
-  if (!book || Date.now() - book.receivedAt > 3000 ||
-      (book.sourceAt !== null && Date.now() - book.sourceAt > 3000)) return [];
+  if (!book || Date.now() - book.receivedAt > threshold('bookMaxAgeMs') ||
+      (book.sourceAt !== null && Date.now() - book.sourceAt > threshold('bookMaxAgeMs'))) return [];
   return short ? book.bids : book.asks;
 }
 

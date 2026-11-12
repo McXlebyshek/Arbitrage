@@ -6,9 +6,10 @@ import aiohttp
 from aiohttp import web
 from aiohttp.test_utils import TestServer
 
-from market_monitor.futures_ws import CONNECTION_ACTIVITY_AGE, QUIET_SYMBOL_AGE, QUOTE_CONFIRMATION_AGE, FuturesBookFeed
+from market_monitor.futures_ws import CONNECTION_ACTIVITY_AGE, QUIET_SYMBOL_AGE, FuturesBookFeed
 from market_monitor.futures_ws_protocols import PROTOCOLS
 from market_monitor.market import now_ms
+from market_monitor.thresholds import FUTURES_QUOTE_CONFIRMATION_AGE_MS
 
 
 STAMP = 1_796_370_000_000
@@ -136,7 +137,7 @@ class PublicBookAdapterTests(unittest.TestCase):
         self.assertIsNone(feed.quote(symbol, after_transport_expiry))
         feed.heartbeat_received(after_transport_expiry)
         self.assertEqual(feed.quote(symbol, after_transport_expiry)['confirmedAt'], STAMP)
-        after_confirmation_expiry = STAMP + QUOTE_CONFIRMATION_AGE + 1
+        after_confirmation_expiry = STAMP + FUTURES_QUOTE_CONFIRMATION_AGE_MS + 1
         feed.heartbeat_received(after_confirmation_expiry)
         self.assertIsNone(feed.quote(symbol, after_confirmation_expiry))
 

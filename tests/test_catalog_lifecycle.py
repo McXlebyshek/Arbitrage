@@ -6,7 +6,7 @@ from unittest.mock import AsyncMock, Mock, patch
 import ccxt.async_support as ccxt
 
 from market_monitor.asset_metrics import AssetMetrics, REFRESH_SECONDS, RETRY_SECONDS
-from market_monitor.market import MAX_AGE
+from market_monitor.thresholds import QUOTE_MAX_AGE_MS
 from market_monitor.sources import CATALOG_MAX_AGE_MS, CATALOG_REFRESH_MS, Source, public_client_config
 
 
@@ -111,7 +111,7 @@ class CatalogLifecycleTests(unittest.IsolatedAsyncioTestCase):
             await source.collect()
 
             source.catalog_client.load_markets.side_effect = None
-            at += MAX_AGE
+            at += QUOTE_MAX_AGE_MS
             await source.collect()
             await source.catalog_task
             await source.collect()

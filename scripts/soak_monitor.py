@@ -11,6 +11,7 @@ from time import monotonic
 from aiohttp import ClientError, ClientSession, ClientTimeout, web
 
 from monitor import Monitor, VENUES, compatible_assets, create_app, fresh, now_ms
+from market_monitor.thresholds import MAX_PRICE_RATIO, SOURCE_TIME_SKEW_MS
 
 
 def coverage(snapshot, now):
@@ -22,8 +23,8 @@ def coverage(snapshot, now):
                 continue
             eligible += 1
             if (all(leg['bid'] and leg['ask'] and fresh(leg['sourceAt'], now) and fresh(leg['receivedAt'], now)
-                    for leg in (a, b)) and abs(a['sourceAt'] - b['sourceAt']) <= 1500 and
-                    max(a['bid'], b['bid']) / min(a['bid'], b['bid']) <= 2):
+                    for leg in (a, b)) and abs(a['sourceAt'] - b['sourceAt']) <= SOURCE_TIME_SKEW_MS and
+                    max(a['bid'], b['bid']) / min(a['bid'], b['bid']) <= MAX_PRICE_RATIO):
                 timed += 1
     return dict(eligiblePairs=eligible, timedPairs=timed, timedShare=timed / eligible if eligible else None)
 
@@ -61,8 +62,8 @@ def futures_shadow_coverage(monitor, now):
                 and all(fresh(leg.get('sourceAt'), now) and fresh(leg.get('receivedAt'), now)
                         for leg in (left, right))
                 and left['sourceAt'] is not None and right['sourceAt'] is not None
-                and abs(left['sourceAt'] - right['sourceAt']) <= 1500
-                and max(prices) / min(prices) <= 2
+                and abs(left['sourceAt'] - right['sourceAt']) <= SOURCE_TIME_SKEW_MS
+                and max(prices) / min(prices) <= MAX_PRICE_RATIO
             )
             if not rest_available and not ws.get('pureWs') and not ws.get('wsWithRest'):
                 continue

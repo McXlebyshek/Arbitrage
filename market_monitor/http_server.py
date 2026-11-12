@@ -14,6 +14,7 @@ import orjson
 from .contract_details import contract_limits
 from .market import decimal, fresh, positive
 from .pair_economics import estimate_pair, normalized_book
+from .thresholds import BOOK_MAX_AGE_MS
 
 
 LOG = logging.getLogger(__name__)
@@ -178,8 +179,8 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
             raise web.HTTPServiceUnavailable(text='Каталог инструмента обновляется')
         cached_instrument, cached = depth.get(key, (None, None))
         now = now_ms()
-        if (cached and cached_instrument == expected and fresh(cached['receivedAt'], now, 3000)
-                and (cached['sourceAt'] is None or fresh(cached['sourceAt'], now, 3000))):
+        if (cached and cached_instrument == expected and fresh(cached['receivedAt'], now, BOOK_MAX_AGE_MS)
+                and (cached['sourceAt'] is None or fresh(cached['sourceAt'], now, BOOK_MAX_AGE_MS))):
             return cached
         task = depth_pending.get(key)
         if task is None:
@@ -213,7 +214,8 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
             raise web.HTTPServiceUnavailable(text='Публичный стакан временно недоступен') from exc
         if not monitor.current_instrument(key, expected):
             raise web.HTTPServiceUnavailable(text='Каталог инструмента обновляется')
-        depth_copy = {item: value for item, value in depth.items() if fresh(value[1]['receivedAt'], now_ms(), 3000)}
+        depth_copy = {item: value for item, value in depth.items()
+                      if fresh(value[1]['receivedAt'], now_ms(), BOOK_MAX_AGE_MS)}
         depth.clear()
         depth.update(depth_copy)
         depth[key] = (expected, result)
@@ -267,7 +269,7 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
                 estimate = estimate_pair(instruments, books, budget, (Decimal(0), Decimal(0)), now_ms(),
                                          require_full_entry=True)
                 long_ask, short_bid = estimate['entry']
-                expires_at = min(book[field] for book in books for field in ('sourceAt', 'receivedAt')) + 3000
+                expires_at = min(book[field] for book in books for field in ('sourceAt', 'receivedAt')) + BOOK_MAX_AGE_MS
                 return dict(spread=200 * (short_bid - long_ask) / (short_bid + long_ask), expiresAt=expires_at)
             except web.HTTPException as exc:
                 return dict(error=exc.text)

@@ -9,6 +9,7 @@ from aiohttp import web
 import orjson
 
 from monitor import Monitor, create_app
+from market_monitor.thresholds import PUBLIC_CONFIG
 
 
 NOW = 1_800_000_000_000
@@ -135,6 +136,7 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
             third = await snapshot(request)
             self.assertEqual(dumps.call_count, 2)
         self.assertEqual(json.loads(third.body)['generatedAt'], NOW)
+        self.assertEqual(json.loads(third.body)['config'], PUBLIC_CONFIG)
         self.assertEqual(third.headers['Cache-Control'], 'no-store')
         self.assertEqual(third.content_type, 'application/json')
 
@@ -168,6 +170,8 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
         version = first['metaVersion']
         fields = json.loads((await meta(SimpleNamespace(query={'version': version}))).body)
         self.assertEqual(fields['markets']['fixture'], {'symbol': leg['symbol'], 'exchange': leg['exchange']})
+        self.assertEqual(first['config'], PUBLIC_CONFIG)
+        self.assertEqual(fields['config'], PUBLIC_CONFIG)
         self.assertEqual((await publish(bid=101))['metaVersion'], version)
         self.assertNotEqual((await publish(exchange='Other'))['metaVersion'], version)
         self.assertEqual((await meta(SimpleNamespace(query={'version': version}))).status, 200)

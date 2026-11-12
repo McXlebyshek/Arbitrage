@@ -7,12 +7,13 @@ from .contract_details import contract_limits
 from .economics import EconomicBlock, amount_step, check_limits, common_step, fill
 from .market import decimal, fresh, numeric, positive
 from .sources import VENUES, Source
+from .thresholds import BOOK_MAX_AGE_MS, SOURCE_TIME_SKEW_MS
 
 
 def normalized_book(book: dict[str, Any], size: float, received: int, *, clock=None) -> dict[str, Any]:
     raw_stamp = numeric(book.get('timestamp'))
     stamp = clock.correct(raw_stamp) if clock is not None else raw_stamp
-    if stamp is not None and not fresh(stamp, received, 3000):
+    if stamp is not None and not fresh(stamp, received, BOOK_MAX_AGE_MS):
         raise ValueError('стакан просрочен')
     sides = {}
     for side in ('bids', 'asks'):
@@ -34,7 +35,8 @@ def estimate_pair(instruments: list[tuple[Source, dict[str, Any]]], books: list[
                   budget: Decimal, fees: tuple[Decimal, Decimal] | list[Decimal], now: int, *,
                   require_full_entry: bool = False) -> dict[str, Any]:
     stamps = [book['sourceAt'] for book in books]
-    if not all(fresh(stamp, now, 3000) for stamp in stamps) or abs(stamps[0] - stamps[1]) > 1500:
+    if (not all(fresh(stamp, now, BOOK_MAX_AGE_MS) for stamp in stamps)
+            or abs(stamps[0] - stamps[1]) > SOURCE_TIME_SKEW_MS):
         raise EconomicBlock('Нужны синхронные стаканы с биржевым временем')
     sides = [{side: [(decimal(price), decimal(size)) for price, size in book[side]]
               for side in ('asks', 'bids')} for book in books]

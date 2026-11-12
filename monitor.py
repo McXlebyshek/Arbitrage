@@ -29,6 +29,8 @@ from market_monitor.pair_economics import estimate_pair as estimate_pair, normal
 from market_monitor.rest_budget import RestBudget
 from market_monitor.snapshot_wire import encode_compact
 from market_monitor.sources import CYCLE_FUNDING_VENUES, SPOT_CLIENTS, VENUES, Source
+from market_monitor.thresholds import (BOOK_MAX_AGE_MS, EARLY_QUOTE_MAX_AGE_MS, PUBLIC_CONFIG,
+                                       RECEIPT_TIME_SKEW_MS, SOURCE_TIME_SKEW_MS)
 
 
 ROOT = Path(__file__).resolve().parent
@@ -38,7 +40,6 @@ DETAIL_TTL_MS = 300_000
 DETAIL_RETRY_MS = 15_000
 BINANCE_DEPTH_LIMIT = 4
 EARLY_BINANCE_SOURCES = (('binanceusdm', 'swap'), ('kucoinfutures', 'swap'))
-EARLY_QUOTE_MAX_AGE = 3000
 FUTURES_WS_LIMIT = 30
 FUTURES_WS_HYSTERESIS = 10
 FUTURES_WS_REFRESH = 180_000
@@ -92,12 +93,14 @@ def binance_depth_candidates(markets):
                      and other['bid'] and other['ask'] and compatible_assets(leg, other)]
             from_depth = leg.get('quoteSource') == 'depth'
             if not from_depth and leg['bid'] and leg['ask'] and any(
-                abs(leg['sourceAt'] - peer['sourceAt']) <= 1500 if leg['sourceAt'] is not None and peer['sourceAt'] is not None
-                else abs(leg['receivedAt'] - peer['receivedAt']) <= 3000 for peer in peers
+                abs(leg['sourceAt'] - peer['sourceAt']) <= SOURCE_TIME_SKEW_MS
+                if leg['sourceAt'] is not None and peer['sourceAt'] is not None
+                else abs(leg['receivedAt'] - peer['receivedAt']) <= RECEIPT_TIME_SKEW_MS for peer in peers
             ):
                 continue
             newer = [peer for peer in peers if peer['sourceAt'] is not None and
-                     (from_depth or not leg['bid'] or (leg['sourceAt'] is not None and peer['sourceAt'] - leg['sourceAt'] > 1500))]
+                     (from_depth or not leg['bid'] or (leg['sourceAt'] is not None
+                                                       and peer['sourceAt'] - leg['sourceAt'] > SOURCE_TIME_SKEW_MS))]
             if newer:
                 yield leg, newer
 
@@ -115,7 +118,8 @@ class Monitor:
             self.sources[venue, 'swap'] = Source(venue, 'swap', budget, clock=clock)
             if venue in SPOT_CLIENTS:
                 self.sources[venue, 'spot'] = Source(venue, 'spot', budget, clock=clock)
-        self.snapshot = dict(state='starting', markets={}, venues={}, valuations={}, generatedAt=None)
+        self.snapshot = dict(state='starting', markets={}, venues={}, valuations={}, generatedAt=None,
+                             config=PUBLIC_CONFIG)
         self.snapshot_run = uuid4().hex
         self.snapshot_revision = 0
         self.encoded_snapshot = None
@@ -355,7 +359,7 @@ class Monitor:
                 if expires_at > now:
                     changed_a, changed_b = first.get('changedAt'), second.get('changedAt')
                     suspect = (changed_a is not None and changed_b is not None
-                               and abs(changed_a - changed_b) > 1500)
+                               and abs(changed_a - changed_b) > SOURCE_TIME_SKEW_MS)
                     pair_legs = [dict(a, **first), dict(b, **second)]
                     pairs.append(dict(coin=coin, expiresAt=expires_at, timestampSuspect=suspect,
                                       legs=pair_legs))
@@ -397,6 +401,7 @@ class Monitor:
         self.encoded_snapshot = snapshot, body, etag
 
     async def publish_snapshot(self, snapshot):
+        snapshot = dict(snapshot, config=PUBLIC_CONFIG)
         body, version, metadata, metadata_body = await asyncio.to_thread(
             encode_compact, snapshot, self.snapshot_metadata, self.metadata_version,
             f'{self.snapshot_run}-{self.snapshot_revision + 1}',
@@ -589,7 +594,7 @@ class Monitor:
             peer = peers[0]
             if (leg['quote'] != 'USDT' or not leg['asset'] or leg['asset'] != peer['asset']
                     or any(l['id'] not in self.instruments for l in (leg, peer))
-                    or not fresh(peer['sourceAt'], ready, EARLY_QUOTE_MAX_AGE)):
+                    or not fresh(peer['sourceAt'], ready, EARLY_QUOTE_MAX_AGE_MS)):
                 continue
             if any(source.catalogs.get(source.venue, {}).get(market['symbol'], {}).get('id') != market['id']
                    for source, market in (self.instruments[l['id']] for l in (leg, peer))):
@@ -606,12 +611,12 @@ class Monitor:
         now = now_ms()
         if quote is not None:
             stamps = [q[field] for q in (quote, peer) for field in ('sourceAt', 'receivedAt')]
-            if all(fresh(stamp, now, EARLY_QUOTE_MAX_AGE) for stamp in stamps):
+            if all(fresh(stamp, now, EARLY_QUOTE_MAX_AGE_MS) for stamp in stamps):
                 early_legs = [dict(leg), peer]
                 if self.apply_binance_depth({'early': early_legs}, quotes, now):
                     self.set_early_pair(dict(
                         baseAt=self.snapshot['generatedAt'], coin=key.split('.')[2],
-                        expiresAt=min(stamps) + EARLY_QUOTE_MAX_AGE,
+                        expiresAt=min(stamps) + EARLY_QUOTE_MAX_AGE_MS,
                         legs=early_legs,
                     ))
         quotes.update(await self.binance_depth_quotes(reserved=key))
@@ -622,9 +627,10 @@ class Monitor:
         applied = 0
         for leg, peers in binance_depth_candidates(markets):
             quote = quotes.get(leg['id'])
-            if (quote and fresh(quote['receivedAt'], now, 3000) and fresh(quote['sourceAt'], now, 3000)
+            if (quote and fresh(quote['receivedAt'], now, BOOK_MAX_AGE_MS)
+                    and fresh(quote['sourceAt'], now, BOOK_MAX_AGE_MS)
                     and (leg['sourceAt'] is None or quote['sourceAt'] > leg['sourceAt'])
-                    and any(abs(quote['sourceAt'] - peer['sourceAt']) <= 1500 for peer in peers)):
+                    and any(abs(quote['sourceAt'] - peer['sourceAt']) <= SOURCE_TIME_SKEW_MS for peer in peers)):
                 leg.update(quote)
                 applied += 1
         return applied
@@ -639,7 +645,7 @@ class Monitor:
                or leg['sourceAt'] is None for leg in legs) or not compatible_assets(*legs):
             return None
         bulk_skew = abs(legs[0]['sourceAt'] - legs[1]['sourceAt'])
-        if bulk_skew <= 1500:
+        if bulk_skew <= SOURCE_TIME_SKEW_MS:
             return dict(state='bulk_aligned', bulkSkewMs=bulk_skew)
 
         async def read(key):
@@ -657,11 +663,11 @@ class Monitor:
 
         books = await asyncio.gather(*(read(key) for key in PYBOBO_DEPTH_KEYS))
         now = now_ms()
-        if any(book is None or not fresh(book['sourceAt'], now, 3000)
-               or not fresh(book['receivedAt'], now, 3000) for book in books):
+        if any(book is None or not fresh(book['sourceAt'], now, BOOK_MAX_AGE_MS)
+               or not fresh(book['receivedAt'], now, BOOK_MAX_AGE_MS) for book in books):
             return dict(state='unavailable', bulkSkewMs=bulk_skew)
         depth_skew = abs(books[0]['sourceAt'] - books[1]['sourceAt'])
-        if depth_skew > 1500:
+        if depth_skew > SOURCE_TIME_SKEW_MS:
             return dict(state='depth_skew', bulkSkewMs=bulk_skew, depthSkewMs=depth_skew)
         for leg, book in zip(legs, books):
             leg.update(bid=book['bids'][0][0], ask=book['asks'][0][0], sourceAt=book['sourceAt'],

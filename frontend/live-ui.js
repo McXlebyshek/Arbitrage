@@ -4,7 +4,7 @@ function updateFeedLabel() {
   if (!label || !timer) return;
   const age = live.generatedAt ? Math.max(0, Math.floor((Date.now() - live.generatedAt) / 1000)) : null;
   label.textContent = isDemo ? '● Демоданные' : live.error ? 'Сервер недоступен' :
-    age === null ? 'Загрузка API' : age > 60 ? 'Снимок устарел' :
+    age === null ? 'Загрузка API' : age * 1000 > (live.config?.quoteMaxAgeMs ?? Infinity) ? 'Снимок устарел' :
       live.state === 'partial' ? 'Часть источников недоступна' : '● Публичные API';
   timer.textContent = isDemo ? countdown + ' с' : age === null ? '—' : age + ' с назад';
   if (!isDemo && live.generatedAt && snapshotInterval) {
@@ -40,7 +40,7 @@ async function expandSnapshot(snapshot) {
     if (!fields) throw new Error('Инструмент отсутствует в каталоге снимка');
     return {...fields, ...leg};
   })]));
-  return {...snapshot, markets};
+  return {...snapshot, markets, config: snapshot.config ?? marketMetadata.config};
 }
 
 async function refreshMarkets(queueIfBusy = false) {
@@ -77,7 +77,8 @@ async function refreshMarkets(queueIfBusy = false) {
     }
     if (activePair && [activePair.long, activePair.short].some(leg => {
       const detail = live.details.get(leg.id);
-      return !detail || Date.now() >= Math.min(detail.refreshAfter, detail.loadedAt + 60000);
+      return !detail || Date.now() >= Math.min(detail.refreshAfter,
+        detail.loadedAt + (live.config?.quoteMaxAgeMs ?? Infinity));
     })) {
       loadPairDetails(activePair);
     }
@@ -279,7 +280,7 @@ function expireLiveData() {
   const now = Date.now();
   let expired = false;
   for (const [key, book] of live.books) {
-    if (now - (book.sourceAt ?? book.receivedAt) > 3000) {
+    if (now - (book.sourceAt ?? book.receivedAt) > (live.config?.bookMaxAgeMs ?? Infinity)) {
       live.books.delete(key);
       expired = true;
     }
