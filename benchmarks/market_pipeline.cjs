@@ -90,6 +90,20 @@ async function measureBrowser(url) {
       }
       return samples.slice(warmups);
     }, {iterations, warmups});
+    const large = await page.evaluate(({iterations, warmups}) => {
+      const samples = [];
+      shownRows = 800;
+      renderTable();
+      const renderedRows = document.querySelectorAll('#market-table [data-pair-row]').length;
+      for (let i = 0; i < iterations + warmups; i++) {
+        const started = performance.now();
+        renderTable();
+        samples.push(performance.now() - started);
+      }
+      shownRows = 80;
+      renderTable();
+      return {renderedRows, samples: samples.slice(warmups)};
+    }, {iterations, warmups});
     const e2e = await page.evaluate(async ({iterations, warmups}) => {
       const samples = [];
       for (let i = 0; i < iterations + warmups; i++) {
@@ -104,7 +118,8 @@ async function measureBrowser(url) {
       }
       return samples.slice(warmups);
     }, {iterations, warmups});
-    return {version: await browser.version(), tableRenderMs: stats(render), publicationToTableMs: stats(e2e)};
+    return {version: await browser.version(), tableRenderMs: stats(render), largeTableMs: stats(large.samples),
+      largeRenderedRows: large.renderedRows, publicationToTableMs: stats(e2e)};
   } finally {
     await browser.close();
   }
