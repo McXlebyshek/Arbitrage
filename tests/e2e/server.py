@@ -24,7 +24,7 @@ async def main():
             source = SimpleNamespace(venue='test', kind=leg['type'], public_book=AsyncMock(
                 return_value=dict(timestamp=now, bids=[[100, 10]], asks=[[101, 10]])))
             monitor.instruments[leg['id']] = source, dict(symbol=leg['id'], quote=leg['quote'], contractSize=1)
-    monitor.futures_feeds = {'test': SimpleNamespace(close=AsyncMock(), reconnects=0)}
+    monitor.futures_feeds = {'test': SimpleNamespace(close=AsyncMock(), reconnects=0, symbols=())}
     app = module.create_app(monitor, collect=False, clock=lambda: now)
     stopped = asyncio.Event()
 

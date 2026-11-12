@@ -26,6 +26,7 @@ from market_monitor.http_api import create_app
 from market_monitor.market import MAX_AGE, Registry, compatible_assets, fresh, now_ms, numeric
 from market_monitor.rest_budget import RestBudget
 from market_monitor.snapshot import SnapshotBuilder
+from market_monitor.unified_ws import UnifiedBookFeed, WIDE_VENUES
 from market_monitor.wire import encode_compact
 from market_monitor.sources import CYCLE_FUNDING_VENUES, SPOT_CLIENTS, VENUES, Source
 
@@ -122,6 +123,11 @@ class Monitor:
         self.futures_feeds = {
             venue: FuturesBookFeed(venue, self.clear_futures_pairs, self.clocks[venue]) for venue in PILOT_VENUES
         } if futures_ws and all((venue, 'swap') in self.sources for venue in PILOT_VENUES) else {}
+        self.wide_futures_feeds = {
+            venue: UnifiedBookFeed(self.sources[venue, 'swap'], self.clear_futures_pairs)
+            for venue in WIDE_VENUES if (venue, 'swap') in self.sources
+        } if futures_ws else {}
+        self.wide_refresh_at = 0
 
     def snapshot_etag(self, snapshot):
         return f'W/"{self.snapshot_run_id}-{snapshot["generatedAt"]}"'
@@ -181,6 +187,72 @@ class Monitor:
                 feed.symbols = symbols
             feed.start(session, symbols)
 
+    def wide_futures_symbols(self, venue, markets):
+        ranked = []
+        exchange = VENUES[venue]
+        for legs in markets.values():
+            for leg in legs:
+                if leg['exchange'] != exchange or leg['type'] != 'swap' or leg['volume'] is None:
+                    continue
+                instrument = self.instruments.get(leg['id'])
+                if instrument is not None:
+                    ranked.append((-leg['volume'], not bool(leg['asset']), instrument[1]['symbol']))
+        ranked.sort()
+        return frozenset(symbol for _, _, symbol in ranked[:FUTURES_WS_LIMIT])
+
+    async def refresh_wide_futures(self, session, markets, now):
+        changed_catalog = any(feed.catalog is not feed.source.catalogs.get(venue)
+                              for venue, feed in self.wide_futures_feeds.items())
+        if now < self.wide_refresh_at and not changed_catalog:
+            return
+        all_full = True
+        for venue, feed in self.wide_futures_feeds.items():
+            symbols = self.wide_futures_symbols(venue, markets)
+            all_full &= len(symbols) == FUTURES_WS_LIMIT
+            if feed.symbols != symbols or feed.catalog is not feed.source.catalogs.get(venue):
+                await feed.close()
+                feed.symbols = symbols
+            feed.start(session, symbols)
+        self.wide_refresh_at = now + (FUTURES_WS_REFRESH if all_full else INTERVAL * 1000)
+
+    def wide_futures_pairs(self, markets, now):
+        if not self.wide_futures_feeds:
+            return []
+        pairs = []
+        for coin, legs in markets.items():
+            quoted = []
+            for leg in legs:
+                if leg['type'] != 'swap':
+                    continue
+                instrument = self.instruments.get(leg['id'])
+                if instrument is None:
+                    continue
+                source, market = instrument
+                if leg.get('symbol') != market['symbol']:
+                    continue
+                wide = source.venue in self.wide_futures_feeds
+                feed = self.wide_futures_feeds.get(source.venue) or self.futures_feeds.get(source.venue)
+                if feed is None:
+                    continue
+                quote = feed.quote(market['symbol'] if wide else market['id'], now)
+                if quote is not None:
+                    quoted.append((leg, quote, wide))
+            for i, (left, a, left_wide) in enumerate(quoted):
+                for right, b, right_wide in quoted[i + 1:]:
+                    if (not (left_wide or right_wide) or left['exchange'] == right['exchange']
+                            or left['quote'] != right['quote'] or not compatible_assets(left, right)
+                            or abs(a['sourceAt'] - b['sourceAt']) > 1500):
+                        continue
+                    expires_at = min(a['sourceAt'], b['sourceAt'], a['receivedAt'], b['receivedAt']) + QUOTE_AGE
+                    if expires_at > now:
+                        pairs.append(dict(coin=coin, expiresAt=expires_at, legs=[dict(left, **a), dict(right, **b)]))
+        return pairs
+
+    async def run_wide_futures(self):
+        while True:
+            await asyncio.sleep(.5)
+            self.update_futures_pairs(self.snapshot['markets'], now_ms())
+
     def update_futures_pairs(self, markets, now):
         pairs = []
         for coin, symbols in self.futures_contracts.items():
@@ -189,6 +261,8 @@ class Monitor:
             if any(item is None or item[1]['id'] != symbol for item, symbol in zip(instruments, symbols)):
                 continue
             by_id = {leg['id']: leg for leg in markets.get(coin, ())}
+            if any(key not in by_id for key in ids):
+                continue
             legs = [by_id[key] for key in ids]
             quotes = [self.futures_feeds[venue].quote(symbol, now)
                       for venue, symbol in zip(PILOT_VENUES, symbols)]
@@ -200,8 +274,10 @@ class Monitor:
             if expires_at > now:
                 pairs.append(dict(coin=coin, expiresAt=expires_at,
                                   legs=[dict(leg, **quote) for leg, quote in zip(legs, quotes)]))
-        self.futures_pairs = pairs
-        self.notify_quotes_changed()
+        pairs.extend(self.wide_futures_pairs(markets, now))
+        if pairs != self.futures_pairs:
+            self.futures_pairs = pairs
+            self.notify_quotes_changed()
 
     def set_early_pair(self, pair):
         self.early_pair = pair
@@ -379,19 +455,25 @@ class Monitor:
                 turnoverError=source.turnover_error,
             )
         budgets = {venue: source.budget for (venue, kind), source in self.sources.items()}
+        streams = self.futures_feeds | self.wide_futures_feeds
         return dict(
             state=self.snapshot['state'], generatedAt=self.snapshot['generatedAt'], cycleMs=self.cycle_ms,
             snapshotMarketsMs=self.snapshot_markets_ms, sources=venues, rest={venue: dict(requests=budget.requests, rateLimits=budget.rate_limits)
                                   for venue, budget in budgets.items()},
             clocks={venue: dict(offsetMs=offset, warning=offset is not None and abs(offset) > 500)
                     for venue, clock in self.clocks.items() if (offset := clock.estimate(now)) is not None},
-            reconnects={venue: feed.reconnects for venue, feed in self.futures_feeds.items()},
+            reconnects={venue: feed.reconnects for venue, feed in streams.items()},
+            streams={venue: dict(subscribed=len(feed.symbols),
+                                 fresh=sum(feed.quote(symbol, now) is not None for symbol in feed.symbols))
+                     for venue, feed in streams.items()},
         )
 
     async def run(self):
         last_slot = None
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=15)) as session, asyncio.TaskGroup() as tasks:
             tasks.create_task(self.run_asset_metrics(session))
+            if self.wide_futures_feeds:
+                tasks.create_task(self.run_wide_futures())
             for source in self.sources.values():
                 source.open(session)
             while True:
@@ -433,6 +515,8 @@ class Monitor:
                                        for venue in PILOT_VENUES)
                     await self.refresh_futures_feeds(session, markets, now, refresh=inputs_ready)
                     now = now_ms()
+                if self.wide_futures_feeds:
+                    await self.refresh_wide_futures(session, markets, now)
                 snapshot = dict(
                     state='ready' if all(s.get('state') == 'ok' for s in statuses.values()) else 'partial',
                     venues=statuses, markets=markets, valuations=self.asset_metrics.snapshot(now), generatedAt=now,
@@ -442,7 +526,7 @@ class Monitor:
                     snapshot['pyboboDepth'] = pybobo_depth
                 await self.publish_snapshot(snapshot)
                 self.cycle_ms = round((monotonic() - started) * 1000, 1)
-                if self.futures_feeds:
+                if self.futures_feeds or self.wide_futures_feeds:
                     self.update_futures_pairs(markets, now_ms())
                 if self.early_pair is not None:
                     self.set_early_pair(None)
@@ -536,7 +620,8 @@ class Monitor:
             return {'indexComposition': None, 'indexUnavailable': True}
 
     async def close(self):
-        await asyncio.gather(*(feed.close() for feed in self.futures_feeds.values()))
+        await asyncio.gather(*(feed.close() for feed in
+                               (self.futures_feeds | self.wide_futures_feeds).values()))
         for task in self.pending.values():
             task.cancel()
         await asyncio.gather(*self.pending.values(), return_exceptions=True)
@@ -549,7 +634,7 @@ def main():
     parser.add_argument('--port', type=int, default=8780)
     parser.add_argument('--venues', nargs='+', choices=VENUES, default=tuple(VENUES))
     parser.add_argument('--history', type=Path, default=ROOT / 'data' / 'monitor.sqlite3')
-    parser.add_argument('--futures-ws', action='store_true', help='Pilot MEXC and KuCoin futures book streams')
+    parser.add_argument('--futures-ws', action='store_true', help='Public futures top-of-book streams, up to 30 markets per venue')
     parser.add_argument('--open', action='store_true', help='Open the screener in the default browser')
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')

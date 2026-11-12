@@ -113,7 +113,7 @@ def create_app(monitor, *, collect=True, open_url=None, clock=now_ms):
                 if generated != sent_snapshot:
                     frames += f'event: snapshot-ready\ndata: {json.dumps(dict(generatedAt=generated))}\n\n'
                     sent_snapshot = generated
-                if monitor.futures_feeds:
+                if monitor.futures_feeds or monitor.wide_futures_feeds:
                     now = clock()
                     event = dict(baseAt=monitor.snapshot['generatedAt'],
                                  pairs=[pair for pair in monitor.futures_pairs if pair['expiresAt'] > now])
