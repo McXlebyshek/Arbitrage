@@ -121,6 +121,7 @@ class Monitor:
         self.metadata_packets = {}
         self.cycle_started = None
         self.cycle_duration_ms = None
+        self.collection_failed = False
         self.source_duration_ms = {}
         self.instruments = {}
         self.catalog_descriptors = {}
@@ -508,6 +509,7 @@ class Monitor:
 
     async def run(self):
         last_slot = None
+        retry_delay = 1
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=15)) as session, asyncio.TaskGroup() as tasks:
             tasks.create_task(self.asset_metrics.run(session))
             for source in self.sources.values():
@@ -515,66 +517,84 @@ class Monitor:
             while True:
                 started = monotonic()
                 self.cycle_started = started
-                source_durations = {}
+                previous_snapshot, previous_instruments = self.snapshot, self.instruments
+                try:
+                    last_slot = await self._collect_cycle(session, started, last_slot)
+                except Exception:
+                    if self.snapshot is previous_snapshot:
+                        self.instruments = previous_instruments
+                    self.collection_failed = True
+                    delay = retry_delay
+                    retry_delay = min(INTERVAL, retry_delay * 2)
+                    LOG.exception('Market collection cycle failed, retrying in %s s', delay)
+                else:
+                    self.collection_failed = False
+                    retry_delay = 1
+                    delay = max(1, INTERVAL - (monotonic() - started))
+                finally:
+                    self.cycle_started = None
+                await asyncio.sleep(delay)
 
-                async def collect_source(key, source):
-                    source_started = monotonic()
-                    try:
-                        await source.collect(tickers_ready.get(key))
-                    finally:
-                        source_durations[key] = round((monotonic() - source_started) * 1000)
+    async def _collect_cycle(self, session, started, last_slot):
+        source_durations = {}
+        tickers_ready = ({key: asyncio.Event() for key in EARLY_BINANCE_SOURCES}
+                         if self.snapshot['generatedAt'] and all(key in self.sources for key in EARLY_BINANCE_SOURCES)
+                         else {})
 
-                tickers_ready = ({key: asyncio.Event() for key in EARLY_BINANCE_SOURCES}
-                                 if self.snapshot['generatedAt'] and all(key in self.sources for key in EARLY_BINANCE_SOURCES)
-                                 else {})
-                *outcomes, quotes = await asyncio.gather(
-                    *(collect_source(key, source) for key, source in self.sources.items()),
-                    self.binance_cycle_depth(tickers_ready), return_exceptions=True)
-                statuses = {}
-                for ((venue, kind), source), outcome in zip(self.sources.items(), outcomes):
-                    status = source.status()
-                    status['batchReceivedAt'] = source.batches.get(venue, {}).get('received_at_ms')
-                    if isinstance(outcome, Exception):
-                        LOG.warning('%s %s: %s', venue, kind, str(outcome)[:250])
-                        status = {**status, 'state': 'error', 'error': str(outcome)[:250]}
-                    statuses[f'{VENUES[venue]} · {kind}'] = status
-                now = now_ms()
-                markets = self.snapshot_markets(now)
-                pybobo_depth = await self.recheck_pybobo(markets)
-                now = now_ms()
-                if isinstance(quotes, Exception):
-                    LOG.warning('Binance depth refresh: %s', str(quotes)[:200])
-                elif quotes:
-                    applied = self.apply_binance_depth(markets, quotes, now)
-                    statuses['Binance · swap'] = {**statuses['Binance · swap'], 'depth_refreshed': applied}
-                if self.futures_feeds:
-                    ready = {venue for venue in self.futures_feeds
-                             if statuses[f'{VENUES[venue]} · swap'].get('state') == 'ok'}
-                    await self.refresh_futures_feeds(session, markets, now, refresh=bool(ready), ready_venues=ready)
-                    now = now_ms()
-                next_snapshot = dict(
-                    state='ready' if all(s.get('state') == 'ok' for s in statuses.values()) else 'partial',
-                    venues=statuses, markets=markets, valuations=self.asset_metrics.snapshot(now), generatedAt=now,
-                )
-                if pybobo_depth is not None:
-                    next_snapshot['pyboboDepth'] = pybobo_depth
-                await self.publish_snapshot(next_snapshot)
-                self.source_duration_ms = source_durations
-                self.cycle_duration_ms = round((monotonic() - started) * 1000)
-                if self.futures_feeds:
-                    self.update_futures_pairs(markets, now)
-                if self.early_pair is not None:
-                    self.set_early_pair(None)
-                self.details = {key: item for key, item in self.details.items()
-                                if item[1]['refreshAfter'] > now and self.instruments.get(key) == item[0]}
-                if now // 60_000 != last_slot and markets:
-                    try:
-                        await self.history.write(eligible_legs(markets, now, compatible_assets), now)
-                        last_slot = now // 60_000
-                    except (sqlite3.Error, OSError):
-                        LOG.exception('Unable to store market history')
-                self.cycle_started = None
-                await asyncio.sleep(max(1, INTERVAL - (monotonic() - started)))
+        async def collect_source(key, source):
+            source_started = monotonic()
+            try:
+                await source.collect(tickers_ready.get(key))
+            finally:
+                source_durations[key] = round((monotonic() - source_started) * 1000)
+
+        *outcomes, quotes = await asyncio.gather(
+            *(collect_source(key, source) for key, source in self.sources.items()),
+            self.binance_cycle_depth(tickers_ready), return_exceptions=True)
+        statuses = {}
+        for ((venue, kind), source), outcome in zip(self.sources.items(), outcomes):
+            status = source.status()
+            status['batchReceivedAt'] = source.batches.get(venue, {}).get('received_at_ms')
+            if isinstance(outcome, Exception):
+                LOG.warning('%s %s: %s', venue, kind, str(outcome)[:250])
+                status = {**status, 'state': 'error', 'error': str(outcome)[:250]}
+            statuses[f'{VENUES[venue]} · {kind}'] = status
+        now = now_ms()
+        markets = self.snapshot_markets(now)
+        pybobo_depth = await self.recheck_pybobo(markets)
+        now = now_ms()
+        if isinstance(quotes, Exception):
+            LOG.warning('Binance depth refresh: %s', str(quotes)[:200])
+        elif quotes:
+            applied = self.apply_binance_depth(markets, quotes, now)
+            statuses['Binance · swap'] = {**statuses['Binance · swap'], 'depth_refreshed': applied}
+        if self.futures_feeds:
+            ready = {venue for venue in self.futures_feeds
+                     if statuses[f'{VENUES[venue]} · swap'].get('state') == 'ok'}
+            await self.refresh_futures_feeds(session, markets, now, refresh=bool(ready), ready_venues=ready)
+            now = now_ms()
+        next_snapshot = dict(
+            state='ready' if all(s.get('state') == 'ok' for s in statuses.values()) else 'partial',
+            venues=statuses, markets=markets, valuations=self.asset_metrics.snapshot(now), generatedAt=now,
+        )
+        if pybobo_depth is not None:
+            next_snapshot['pyboboDepth'] = pybobo_depth
+        await self.publish_snapshot(next_snapshot)
+        self.source_duration_ms = source_durations
+        self.cycle_duration_ms = round((monotonic() - started) * 1000)
+        if self.futures_feeds:
+            self.update_futures_pairs(markets, now)
+        if self.early_pair is not None:
+            self.set_early_pair(None)
+        self.details = {key: item for key, item in self.details.items()
+                        if item[1]['refreshAfter'] > now and self.instruments.get(key) == item[0]}
+        if now // 60_000 != last_slot and markets:
+            try:
+                await self.history.write(eligible_legs(markets, now, compatible_assets), now)
+                last_slot = now // 60_000
+            except (sqlite3.Error, OSError):
+                LOG.exception('Unable to store market history')
+        return last_slot
 
     def health(self, now):
         def age(stamp):
@@ -596,9 +616,13 @@ class Monitor:
         whitebit_spot = self.sources.get(('whitebit', 'spot'))
         if whitebit_spot and whitebit_spot.book_ticker:
             streams['whitebit_spot'] = whitebit_spot.book_ticker
+        snapshot_age = age(self.snapshot['generatedAt'])
+        state = 'error' if self.collection_failed else self.snapshot['state']
+        if snapshot_age is not None and snapshot_age > 3 * INTERVAL * 1000:
+            state = 'stalled'
         return dict(
-            state=self.snapshot['state'], generatedAt=self.snapshot['generatedAt'],
-            snapshotAgeMs=age(self.snapshot['generatedAt']), cycleDurationMs=self.cycle_duration_ms,
+            state=state, generatedAt=self.snapshot['generatedAt'],
+            snapshotAgeMs=snapshot_age, cycleDurationMs=self.cycle_duration_ms,
             activeCycleMs=(round((monotonic() - self.cycle_started) * 1000)
                            if self.cycle_started is not None else None),
             sources=sources, rest=rest,

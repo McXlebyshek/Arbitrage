@@ -4,7 +4,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from types import SimpleNamespace
 import unittest
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, Mock, patch
 
 from monitor import (History, Monitor, complete_history, detail_refresh_after, estimate_pair,
                      compatible_assets, funding_fields, normalized_book, valid_market)
@@ -248,6 +248,53 @@ class MonitorTests(unittest.TestCase):
             samples = history.read('x', NOW + 2000)
             self.assertEqual(len(samples), 1)
             self.assertEqual(samples[0][3:5], (1, 2))
+
+
+class MonitorRunRecoveryTests(unittest.IsolatedAsyncioTestCase):
+    async def test_unexpected_cycle_error_is_reported_and_next_cycle_recovers(self):
+        monitor = Monitor((), Path('unused.sqlite3'))
+        monitor.snapshot = dict(state='ready', generatedAt=NOW, markets={'old': []}, venues={})
+        failed = asyncio.Event()
+        published = asyncio.Event()
+
+        def snapshot_markets(*_args, **_kwargs):
+            if not failed.is_set():
+                failed.set()
+                raise KeyError('injected snapshot failure')
+            return {}
+
+        monitor.snapshot_markets = Mock(side_effect=snapshot_markets)
+        publish = monitor.publish_snapshot
+
+        async def publish_and_signal(snapshot):
+            await publish(snapshot)
+            published.set()
+
+        monitor.publish_snapshot = publish_and_signal
+        with self.assertLogs('monitor', level='ERROR') as logs:
+            task = asyncio.create_task(monitor.run())
+            try:
+                await asyncio.wait_for(failed.wait(), 2)
+                await asyncio.sleep(.05)
+                health = monitor.health(NOW + 100)
+                self.assertEqual(health['state'], 'error')
+                self.assertEqual(monitor.snapshot['generatedAt'], NOW)
+                self.assertIsNone(health['activeCycleMs'])
+                self.assertIn('injected snapshot failure', '\n'.join(logs.output))
+
+                await asyncio.wait_for(published.wait(), 4)
+                self.assertEqual(monitor.health(monitor.snapshot['generatedAt'])['state'], 'ready')
+                self.assertNotEqual(monitor.snapshot['generatedAt'], NOW)
+            finally:
+                task.cancel()
+                with self.assertRaises(asyncio.CancelledError):
+                    await task
+
+    def test_health_reports_stalled_snapshot_after_three_intervals(self):
+        monitor = Monitor((), Path('unused.sqlite3'))
+        monitor.snapshot = dict(state='ready', generatedAt=NOW, markets={}, venues={})
+        self.assertEqual(monitor.health(NOW + 3 * 15_000)['state'], 'ready')
+        self.assertEqual(monitor.health(NOW + 3 * 15_000 + 1)['state'], 'stalled')
 
 
 class TurnoverTests(unittest.IsolatedAsyncioTestCase):

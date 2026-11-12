@@ -44,6 +44,19 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
 
     async def lifecycle(_app):
         task = asyncio.create_task(monitor.run()) if collect else None
+        if task is not None:
+            def monitor_finished(done):
+                if done.cancelled():
+                    return
+                monitor.collection_failed = True
+                error = done.exception()
+                if error is None:
+                    LOG.error('Monitor collection task stopped unexpectedly')
+                else:
+                    LOG.error('Monitor collection task crashed',
+                              exc_info=(type(error), error, error.__traceback__))
+
+            task.add_done_callback(monitor_finished)
         browser_task = None
         if open_url:
             async def open_browser():

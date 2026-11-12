@@ -1,6 +1,7 @@
 import asyncio
 from pathlib import Path
 import unittest
+from unittest.mock import AsyncMock
 
 from aiohttp.test_utils import TestClient, TestServer
 
@@ -8,6 +9,22 @@ from monitor import Monitor, create_app
 
 
 class LocalHttpTests(unittest.IsolatedAsyncioTestCase):
+    async def test_lifecycle_reports_unexpected_collection_task_exit(self):
+        monitor = Monitor((), Path('unused.sqlite3'))
+        monitor.run = AsyncMock(side_effect=RuntimeError('injected startup failure'))
+
+        with self.assertLogs('market_monitor.http_server', level='ERROR') as logs:
+            async with TestClient(TestServer(create_app(monitor))) as client:
+                for _ in range(10):
+                    if monitor.collection_failed:
+                        break
+                    await asyncio.sleep(0)
+                response = await client.get('/api/health')
+                self.assertEqual((await response.json())['state'], 'error')
+                self.assertTrue(monitor.collection_failed)
+
+        self.assertIn('Monitor collection task crashed', '\n'.join(logs.output))
+
     async def test_publication_notifies_stream_without_an_early_quote(self):
         monitor = Monitor((), Path('unused.sqlite3'))
         async with TestClient(TestServer(create_app(monitor, collect=False))) as client:
