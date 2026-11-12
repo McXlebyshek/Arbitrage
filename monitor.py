@@ -26,6 +26,7 @@ from market_monitor.http_api import create_app
 from market_monitor.market import MAX_AGE, Registry, compatible_assets, fresh, now_ms, numeric
 from market_monitor.rest_budget import RestBudget
 from market_monitor.snapshot import SnapshotBuilder
+from market_monitor.wire import encode_compact
 from market_monitor.sources import CYCLE_FUNDING_VENUES, SPOT_CLIENTS, VENUES, Source
 
 
@@ -104,6 +105,9 @@ class Monitor:
         self.snapshot = dict(state='starting', markets={}, venues={}, valuations={}, generatedAt=None)
         self.snapshot_run_id = uuid4().hex
         self.snapshot_response = (orjson.dumps(self.snapshot), self.snapshot_etag(self.snapshot))
+        self.compact_snapshot_response = None
+        self.market_metadata = {}
+        self.current_metadata = None
         self.cycle_ms = None
         self.instruments = {}
         self.snapshot_builder = SnapshotBuilder(self.sources, self.clocks, self.registry, self.cached_detail)
@@ -123,10 +127,22 @@ class Monitor:
         return f'W/"{self.snapshot_run_id}-{snapshot["generatedAt"]}"'
 
     async def publish_snapshot(self, snapshot):
-        body = await asyncio.to_thread(orjson.dumps, snapshot)
+        body, compact, metadata = await asyncio.to_thread(self.encode_snapshot, snapshot)
+        tag = self.snapshot_etag(snapshot)
         self.snapshot = snapshot
-        self.snapshot_response = (body, self.snapshot_etag(snapshot))
+        self.snapshot_response = body, tag
+        self.compact_snapshot_response = (compact, tag[:-1] + '-compact"') if compact is not None else None
+        if metadata is not None:
+            self.current_metadata = metadata
+            self.market_metadata[metadata.version] = metadata.body
+            if len(self.market_metadata) > 2:
+                self.market_metadata.pop(next(iter(self.market_metadata)))
         self.notify_quotes_changed()
+
+    def encode_snapshot(self, snapshot):
+        body = orjson.dumps(snapshot)
+        compact, metadata = encode_compact(snapshot, self.current_metadata)
+        return body, compact, metadata
 
     def clear_futures_pairs(self):
         if self.futures_pairs:

@@ -23,6 +23,36 @@ function updateFeedLabel() {
 let refreshQueued = false;
 let marketEtag = null;
 
+let marketMetadata;
+
+async function expandSnapshot(snapshot) {
+  if (!snapshot.metaVersion) return snapshot;
+  if (marketMetadata?.version !== snapshot.metaVersion) {
+    const response = await fetch('/api/meta/' + encodeURIComponent(snapshot.metaVersion), {signal: AbortSignal.timeout(8000)});
+    if (!response.ok) throw new Error(response.statusText);
+    const metadata = await response.json();
+    if (metadata.version !== snapshot.metaVersion) throw new Error('Market catalog changed');
+    const {records, staticFields, ...schema} = metadata;
+    const staticLegs = records.map(record => Object.fromEntries(staticFields.map((key, i) => [key, record[i]])));
+    marketMetadata = {...schema, staticLegs};
+  }
+  const {groups, staticLegs, dynamicFields} = marketMetadata;
+  if (staticLegs.length !== snapshot.marketRows.length) throw new Error('Market catalog size changed');
+  let index = 0;
+  const markets = Object.create(null);
+  for (const [coin, count] of groups) {
+    const legs = [];
+    for (let i = 0; i < count; i++, index++) {
+      const leg = {...staticLegs[index]};
+      const update = snapshot.marketRows[index];
+      for (let j = 0; j < dynamicFields.length; j++) leg[dynamicFields[j]] = update[j];
+      legs.push(leg);
+    }
+    markets[coin] = legs;
+  }
+  return {...snapshot, markets};
+}
+
 async function refreshMarkets(queueIfBusy = false) {
   if (refreshing) {
     if (queueIfBusy === true) refreshQueued = true;
@@ -30,12 +60,23 @@ async function refreshMarkets(queueIfBusy = false) {
   }
   refreshing = true;
   try {
-    const response = await fetch('/api/markets', {signal: AbortSignal.timeout(8000),
+    const response = await fetch('/api/markets?compact=1', {signal: AbortSignal.timeout(8000),
       headers: marketEtag ? {'If-None-Match': marketEtag} : {}});
     if (response.status === 304) live.error = false;
     else {
       if (!response.ok) throw new Error(response.statusText);
-      const snapshot = await response.json();
+      let snapshot = await response.json();
+      let etag = response.headers.get('ETag');
+      if (snapshot.metaVersion) {
+        try {
+          snapshot = await expandSnapshot(snapshot);
+        } catch {
+          const full = await fetch('/api/markets', {signal: AbortSignal.timeout(8000)});
+          if (!full.ok) throw new Error(full.statusText);
+          snapshot = await full.json();
+          etag = null;
+        }
+      }
       const changed = snapshot.generatedAt !== live.generatedAt || live.error;
       if (changed) {
         updateLive(snapshot);
@@ -53,7 +94,7 @@ async function refreshMarkets(queueIfBusy = false) {
           } else renderTable();
         }
       }
-      marketEtag = response.headers.get('ETag');
+      marketEtag = etag;
     }
     if (activePair && [activePair.long, activePair.short].some(leg => {
       const detail = live.details.get(leg.id);

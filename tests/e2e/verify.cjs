@@ -17,6 +17,7 @@ for (const legs of Object.values(data.markets)) for (const leg of legs) leg.exch
   const child = spawn(python, ['-B', join(__dirname, 'server.py'), fixture], {windowsHide: true});
   let browser, url;
   const errors = [], statuses = [];
+  let metadataRequests = 0;
   child.stderr.on('data', data => process.stderr.write(data));
   try {
     const port = await new Promise((resolve, reject) => {
@@ -28,7 +29,11 @@ for (const legs of Object.values(data.markets)) for (const leg of legs) leg.exch
     const page = await browser.newPage({viewport: {width: 1440, height: 960}});
     await page.addInitScript(now => {window.testNow = now; Date.now = () => window.testNow;}, NOW);
     page.on('pageerror', error => errors.push(error.message));
-    page.on('response', response => {if (response.url() === url + '/api/markets') statuses.push(response.status());});
+    page.on('response', response => {
+      const path = new URL(response.url()).pathname;
+      if (path === '/api/markets') statuses.push(response.status());
+      if (path.startsWith('/api/meta/')) metadataRequests++;
+    });
     const home = await page.goto(url + '/#/arbitrage?mode=spread&sort=entry');
     assert.equal(home.headers()['x-content-type-options'], 'nosniff');
     assert.match(home.headers()['content-security-policy'], /default-src 'self'/);
@@ -77,6 +82,7 @@ for (const legs of Object.values(data.markets)) for (const leg of legs) leg.exch
     const mobileOverflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
     assert.equal(mobileOverflow, false);
     assert.deepEqual(errors, []);
+    assert.equal(metadataRequests, 1);
     const report = {synthetic: true, browser: await browser.version(), initial, statuses,
       preservedUnchangedPair: true, sorting: true, search: true, card: true,
       fundingExpiry: true, mobileOverflow, errors};

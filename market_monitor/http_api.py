@@ -65,13 +65,23 @@ def create_app(monitor, *, collect=True, open_url=None, clock=now_ms):
         return response
 
     async def snapshot(_request):
-        snapshot_body, snapshot_etag = monitor.snapshot_response
+        representation = monitor.compact_snapshot_response if _request.query.get('compact') == '1' else None
+        snapshot_body, snapshot_etag = representation or monitor.snapshot_response
         headers = {'Cache-Control': 'no-store', 'ETag': snapshot_etag}
         candidates = _request.headers.get('If-None-Match', '').split(',')
         if any(tag.strip() in ('*', snapshot_etag, snapshot_etag[2:]) for tag in candidates):
             return web.Response(status=304, headers=headers)
         response = web.Response(body=snapshot_body, content_type='application/json',
                                 headers=headers)
+        response.enable_compression()
+        return response
+
+    async def market_metadata(request):
+        body = monitor.market_metadata.get(request.match_info['version'])
+        if body is None:
+            raise web.HTTPNotFound(text='Версия каталога уже недоступна')
+        response = web.Response(body=body, content_type='application/json',
+                                headers={'Cache-Control': 'private, max-age=86400, immutable'})
         response.enable_compression()
         return response
 
@@ -232,6 +242,7 @@ def create_app(monitor, *, collect=True, open_url=None, clock=now_ms):
     app.cleanup_ctx.append(lifecycle)
     app.on_shutdown.append(stop_streams)
     app.router.add_get('/api/markets', snapshot)
+    app.router.add_get('/api/meta/{version}', market_metadata)
     app.router.add_get('/api/health', health)
     app.router.add_post('/api/history/watch', history_watch)
     app.router.add_get('/api/markets/early', early_quotes)

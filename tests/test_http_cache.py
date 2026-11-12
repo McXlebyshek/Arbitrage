@@ -107,7 +107,7 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
     async def test_snapshot_serialized_at_publication_and_reused_by_http(self):
         snapshot = self.handler('/api/markets')
         with patch('monitor.orjson.dumps', wraps=orjson.dumps) as dumps:
-            request = SimpleNamespace(headers={})
+            request = SimpleNamespace(query={}, headers={})
             first = await snapshot(request)
             second = await snapshot(request)
             self.assertEqual(first.body, second.body)
@@ -123,7 +123,7 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_old_snapshot_and_etag_are_available_until_serialization_completes(self):
         snapshot = self.handler('/api/markets')
-        first = await snapshot(SimpleNamespace(headers={}))
+        first = await snapshot(SimpleNamespace(query={}, headers={}))
         previous_signal = self.monitor.early_pair_changed
         entered, release = Event(), Event()
 
@@ -139,29 +139,29 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
             publishing = asyncio.create_task(self.monitor.publish_snapshot(dict(self.monitor.snapshot, generatedAt=NOW)))
             try:
                 self.assertTrue(await asyncio.to_thread(entered.wait, 2))
-                old = await snapshot(SimpleNamespace(headers={}))
+                old = await snapshot(SimpleNamespace(query={}, headers={}))
                 self.assertEqual(old.body, first.body)
                 self.assertEqual(old.headers['ETag'], first.headers['ETag'])
                 self.assertFalse(previous_signal.is_set())
             finally:
                 release.set()
                 await publishing
-        new = await snapshot(SimpleNamespace(headers={}))
+        new = await snapshot(SimpleNamespace(query={}, headers={}))
         self.assertNotEqual(new.headers['ETag'], first.headers['ETag'])
         self.assertEqual(json.loads(new.body)['generatedAt'], NOW)
         self.assertTrue(previous_signal.is_set())
 
     async def test_conditional_snapshot_omits_body_until_publication_changes(self):
         snapshot = self.handler('/api/markets')
-        first = await snapshot(SimpleNamespace(headers={}))
+        first = await snapshot(SimpleNamespace(query={}, headers={}))
         tag = first.headers['ETag']
         for value in (tag, tag[2:], '"other", ' + tag, '*'):
-            response = await snapshot(SimpleNamespace(headers={'If-None-Match': value}))
+            response = await snapshot(SimpleNamespace(query={}, headers={'If-None-Match': value}))
             self.assertEqual(response.status, 304)
             self.assertIsNone(response.body)
             self.assertEqual(response.headers['ETag'], tag)
         await self.monitor.publish_snapshot(dict(self.monitor.snapshot, generatedAt=NOW))
-        response = await snapshot(SimpleNamespace(headers={'If-None-Match': tag}))
+        response = await snapshot(SimpleNamespace(query={}, headers={'If-None-Match': tag}))
         self.assertEqual(response.status, 200)
         self.assertNotEqual(response.headers['ETag'], tag)
         self.assertEqual(json.loads(response.body)['generatedAt'], NOW)
