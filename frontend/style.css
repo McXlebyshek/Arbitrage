@@ -114,7 +114,7 @@ select.control { padding-right: 8px; }
 .feed-timer { display: inline-flex; align-items: center; gap: 4px; font-variant-numeric: tabular-nums; min-width: 44px; }
 .search-strip { display: flex; align-items: center; gap: 9px; padding: 6px 8px; margin-bottom: 9px; max-width: 440px; background: var(--input); border: 1px solid var(--border); border-radius: 5px; color: var(--muted); }
 .search-strip input { flex: 1; min-width: 60px; border: none; background: transparent; }
-.market-table { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
+.market-table { overflow-x: auto; overflow-anchor: none; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
 table { width: 100%; min-width: 1130px; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
 .coin-col { width: 10.4%; }.pair-col { width: 16.3%; }.fund-col { width: 16%; }.delta-col { width: 8.6%; }.apr-col { width: 10%; }
 .spread-col { width: 8.9%; }.entry-col { width: 10.3%; }.status-col { width: 6.5%; }.liq-col { width: 6%; }.slip-col { width: 7%; }
@@ -140,6 +140,7 @@ thead th:nth-last-child(-n+2) { padding-inline: 5px; }
 tbody td { height: 64px; font-size: 13px; }
 tbody tr:hover { background: var(--surface-hover); }
 .compact tbody td { height: 49px; padding-top: 4px; padding-bottom: 4px; }
+.market-table tbody .market-spacer td { padding: 0; border: 0; }
 .coin-cell { position: relative; }
 .coin-cell a { font-weight: 750; }
 .star { color: var(--blue); margin-left: 4px; font-size: 11px; }

@@ -66,6 +66,18 @@ for (const legs of Object.values(data.markets)) for (const leg of legs) leg.exch
     // Exercise native UI sorting and grouped/expanded routes.
     await page.locator('[data-action="sort"][data-key="entry"]').click();
     assert.equal(await page.evaluate(() => state.direction), 'asc');
+    await page.evaluate(() => {shownRows = 200; renderTable();});
+    assert.ok(await page.locator('#market-table [data-pair-row]').count() < 60);
+    const firstLink = page.locator('#market-table [data-pair-row] a').first();
+    await firstLink.focus();
+    await page.evaluate(() => {
+      window.focusedBeforeScroll = document.activeElement;
+      const bodyTop = document.querySelector('#market-table tbody').getBoundingClientRect().top + scrollY;
+      window.scrollTo(0, bodyTop + 64 * 100);
+    });
+    await page.waitForFunction(() => Boolean(document.querySelector('#market-table [aria-rowindex="102"]')));
+    assert.equal(await page.evaluate(() => document.activeElement === window.focusedBeforeScroll), true);
+    await page.evaluate(() => {shownRows = 80; window.scrollTo(0, 0); renderTable();});
     await page.evaluate(() => {location.hash = '/arbitrage?mode=spread&coin=TEST0001';});
     await page.waitForFunction(() => state.query === 'TEST0001');
     assert.match(await page.locator('#result-count').innerText(), /1$/);

@@ -298,9 +298,9 @@ function executableCell(pair) {
   return `<span class="metric-chip ${current ? tones(result.executableSpread) : 'neutral'}"${
     current && result.reason ? ` title="${esc(result.reason)}"` : ''}>${current ? pct(result.executableSpread, 3) : '—'}</span>`;
 }
-function row([pair, more]) {
+function row([pair, more], position) {
   const {id, coin, long, short, delta, apr, funding, entry} = pair;
-  return `<tr data-pair-row="${esc(id)}" data-coin-row="${esc(coin)}">
+  return `<tr aria-rowindex="${position + 2}" data-pair-row="${esc(id)}" data-coin-row="${esc(coin)}">
     <td class="coin-cell"><a href="${esc(routeHref(id))}">${esc(coin)}</a>${favorites.has(coin) ? '<span class="star" title="В избранном">★</span>' : ''}
       ${more ? button('+' + more, 'expand', 'plain expand', `data-coin="${esc(coin)}" aria-label="Другие связки ${esc(coin)}"`) : ''}</td>
     <td><div class="legs">${exchangeLine(long, false, id)}${exchangeLine(short, true, id)}</div></td>
@@ -321,16 +321,36 @@ function sortHeader(key, label, title = '') {
   return `<th scope="col"${active ? ` aria-sort="${state.direction === 'desc' ? 'descending' : 'ascending'}"` : ''}>
     ${button(`${label} <span class="sort-arrow ${active ? 'sorted' : ''}">${active ? state.direction === 'asc' ? '▴' : '▾' : '▿'}</span>`, 'sort', 'plain sort', `data-key="${key}" title="${title || label}"`)}</th>`;
 }
-function renderTable() {
-  const rows = visiblePairs();
+let tableRows;
+let renderedWindow;
+let tableScrollFrame = null;
+
+function refreshTableWindow() {
+  if (!renderedWindow?.height || tableScrollFrame !== null) return;
+  tableScrollFrame = requestAnimationFrame(() => {
+    tableScrollFrame = null;
+    if (document.querySelector('#market-table')) renderTable(true);
+  });
+}
+window.addEventListener('scroll', refreshTableWindow, {passive: true});
+window.addEventListener('resize', refreshTableWindow);
+
+function renderTable(fromScroll = false) {
   const table = document.querySelector('#market-table');
+  if (!table) return;
+  const rows = fromScroll && tableRows ? tableRows : visiblePairs();
+  const window = marketTableWindow.calculate(table, rows, shownRows, layout === 'compact');
+  if (fromScroll && renderedWindow && window.height === renderedWindow.height &&
+      window.ranges.toString() === renderedWindow.ranges.toString()) return;
+  renderedWindow = window;
+  tableRows = rows;
   const scroll = [table.scrollLeft, table.scrollTop];
   const focused = table.contains(document.activeElement) ? document.activeElement : null;
   const columns = Object.keys(columnLabels);
   const emptyMessage = isDemo || (live.generatedAt && !live.error) ? 'Связки не найдены' :
     live.error ? 'Сервер данных недоступен' : 'Загружаем публичные данные';
   const template = document.createElement('template');
-  template.innerHTML = `<table class="${layout === 'compact' ? 'compact' : ''}">
+  template.innerHTML = `<table aria-rowcount="${window.count + 1}" class="${layout === 'compact' ? 'compact' : ''}">
     <colgroup><col class="coin-col"><col class="pair-col"><col class="fund-col"><col class="delta-col"><col class="apr-col">
       <col class="spread-col"><col class="entry-col"><col class="status-col"><col class="liq-col"><col class="slip-col">${isDemo ? '' : '<col class="entry-col"><col class="apr-col">'}</colgroup>
     <thead><tr><th scope="col" class="coin-head"><div>${button('Монета', 'sort', 'plain', 'data-key="coin"')}
@@ -347,7 +367,7 @@ function renderTable() {
       ${isDemo ? '' : `<th scope="col">${button('Спред по глубине', 'executable', 'plain',
         'title="Проверить первые две строки на выбранный номинал каждой ноги"')}</th>
         ${sortHeader('aprNet', 'APR после комиссий', `Экстраполяция на год с учётом четырёх taker-комиссий за период ${aprCosts.days} дн.`) }`}</tr></thead>
-    <tbody>${rows.length ? rows.slice(0, shownRows).map(row).join('') : `<tr><td colspan="${isDemo ? 10 : 12}" class="empty"><strong>${emptyMessage}</strong><p>${live.error && !isDemo ? 'Запустите Start-UI.cmd или повторите обновление.' : 'Измените условия поиска или сбросьте фильтры.'}</p>${button('Сбросить фильтры', 'reset', 'control')}</td></tr>`}</tbody>
+    <tbody>${rows.length ? marketTableWindow.markup(window, rows, isDemo ? 10 : 12, row) : `<tr><td colspan="${isDemo ? 10 : 12}" class="empty"><strong>${emptyMessage}</strong><p>${live.error && !isDemo ? 'Запустите Start-UI.cmd или повторите обновление.' : 'Измените условия поиска или сбросьте фильтры.'}</p>${button('Сбросить фильтры', 'reset', 'control')}</td></tr>`}</tbody>
     </table>`;
   const nextTable = template.content.firstElementChild;
   const currentTable = table.firstElementChild;
@@ -355,6 +375,7 @@ function renderTable() {
     table.append(nextTable);
   } else {
     currentTable.className = nextTable.className;
+    currentTable.setAttribute('aria-rowcount', window.count + 1);
     for (const section of ['colgroup', 'thead']) {
       const current = currentTable.querySelector(section);
       const next = nextTable.querySelector(section);
@@ -363,12 +384,15 @@ function renderTable() {
       if (!current.isEqualNode(next)) current.replaceWith(next);
     }
     const body = currentTable.tBodies[0];
-    const existing = new Map([...body.rows].map(row => [row.dataset.pairRow, row]));
+    const rowKey = row => row.dataset.pairRow ?? (row.dataset.windowSpacer === undefined
+      ? null : 'spacer:' + row.dataset.windowSpacer);
+    const existing = new Map([...body.rows].map(row => [rowKey(row), row]));
     let cursor = body.firstElementChild;
     for (const incoming of [...nextTable.tBodies[0].rows]) {
-      const id = incoming.dataset.pairRow;
+      const id = rowKey(incoming);
       const previous = id ? existing.get(id) : null;
       if (previous) {
+        if (incoming.hasAttribute('aria-rowindex')) previous.setAttribute('aria-rowindex', incoming.getAttribute('aria-rowindex'));
         for (const [index, cell] of [...incoming.cells].entries()) {
           const oldCell = previous.cells[index];
           oldCell.hidden = false;
@@ -399,7 +423,7 @@ function renderTable() {
       [...table.querySelectorAll('[data-coin-row]')].find(row => row.dataset.coinRow === oldCoin)?.querySelector('.coin-cell a');
     (focused.isConnected ? focused : replacement || sameCoin || table).focus({preventScroll: true});
   }
-  document.querySelector('#result-count').innerHTML = `Связок · ${rows.length}${rows.length > shownRows
+  if (!fromScroll) document.querySelector('#result-count').innerHTML = `Связок · ${rows.length}${rows.length > shownRows
     ? ' · ' + button('Показать ещё', 'more', 'plain') : ''}`;
 }
 let searchOpen = Boolean(state.query);
