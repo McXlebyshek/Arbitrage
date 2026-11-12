@@ -1,0 +1,990 @@
+{
+  "capturedAt": "2026-11-12T10:37:39.304888+00:00",
+  "responses": {
+    "edgex_catalog": {
+      "url": "https://edgex-prod-v2.edgex.exchange/api/v2/public/meta/getMetaData",
+      "body": {
+        "data": {
+          "contractList": [
+            {
+              "baseCoinId": "1001",
+              "contractId": "30000001",
+              "contractName": "BTCUSDC",
+              "defaultLeverage": "10",
+              "defaultMakerFeeRate": "0.0004",
+              "defaultTakerFeeRate": "0.00045",
+              "displayDigitMerge": "0.1,1,5,10",
+              "displayHotIcon": true,
+              "displayMaxLeverage": "100",
+              "displayMinLeverage": "1",
+              "displayNewIcon": false,
+              "enableBoosterCredit": true,
+              "enableDisplay": true,
+              "enableOpenPosition": true,
+              "enableTrade": true,
+              "fundingImpactMarginNotional": "10",
+              "fundingInterestRate": "0.0003",
+              "fundingMaxRate": "0.002",
+              "fundingMinRate": "-0.002",
+              "fundingQuoteImpactMarginNotional": "10",
+              "fundingRateIntervalMin": "240",
+              "isFx": false,
+              "isStock": false,
+              "liquidateFeeRate": "0.01",
+              "matchServerName": "edgex-match-server",
+              "maxMarketPositionSize": "40",
+              "maxOrderBuyPriceRatio": "0.05",
+              "maxOrderSize": "100",
+              "maxPositionSize": "300",
+              "minOrderSellPriceRatio": "0.05",
+              "minOrderSize": "0.001",
+              "openSizeReduceRatio": "0.99",
+              "oraclePriceQuorum": "1",
+              "oraclePriceSignedAssetIds": [
+                "BTCUSD",
+                "BTCUSD",
+                "BTCUSD",
+                "BTCUSD",
+                "BTCUSD"
+              ],
+              "oraclePriceSigners": [
+                "0xb91C675E0c0Ecfd4c16f97B110376C3C224061d8",
+                "0xF024A9AA110798e5CD0d698FBA6523113Eaa7FB2",
+                "0x51aa9e9C781F85a2C0636A835EB80114c4553098",
+                "0xF2e72022EB19352f488526E835c4b17248Aa6c03",
+                "0xb50cbeba205ddb685db2497eaea07f31a18a53ad"
+              ],
+              "quoteCoinId": "1000",
+              "resolution": "10000000000",
+              "riskTierList": [
+                {
+                  "maintenanceMarginRate": "0.005",
+                  "maxLeverage": "100",
+                  "positionValueUpperBound": "1000000",
+                  "risk": "21474836",
+                  "tier": 1,
+                  "upperBound": "4294967296000000000000"
+                },
+                {
+                  "maintenanceMarginRate": "0.0067",
+                  "maxLeverage": "75",
+                  "positionValueUpperBound": "3000000",
+                  "risk": "28776280",
+                  "tier": 2,
+                  "upperBound": "12884901888000000000000"
+                },
+                {
+                  "maintenanceMarginRate": "0.01",
+                  "maxLeverage": "50",
+                  "positionValueUpperBound": "5000000",
+                  "risk": "42949672",
+                  "tier": 3,
+                  "upperBound": "21474836480000000000000"
+                },
+                {
+                  "maintenanceMarginRate": "0.02",
+                  "maxLeverage": "25",
+                  "positionValueUpperBound": "20000000",
+                  "risk": "85899345",
+                  "tier": 4,
+                  "upperBound": "85899345920000000000000"
+                },
+                {
+                  "maintenanceMarginRate": "0.025",
+                  "maxLeverage": "20",
+                  "positionValueUpperBound": "30000000",
+                  "risk": "107374182",
+                  "tier": 5,
+                  "upperBound": "128849018880000000000000"
+                },
+                {
+                  "maintenanceMarginRate": "0.05",
+                  "maxLeverage": "10",
+                  "positionValueUpperBound": "40000000",
+                  "risk": "214748364",
+                  "tier": 6,
+                  "upperBound": "171798691840000000000000"
+                },
+                {
+                  "maintenanceMarginRate": "0.0625",
+                  "maxLeverage": "8",
+                  "positionValueUpperBound": "50000000",
+                  "risk": "268435456",
+                  "tier": 7,
+                  "upperBound": "214748364800000000000000"
+                },
+                {
+                  "maintenanceMarginRate": "0.0833",
+                  "maxLeverage": "6",
+                  "positionValueUpperBound": "79228162514264337593543",
+                  "risk": "357770775",
+                  "tier": 8,
+                  "upperBound": "340282366920938463463374607431768211455"
+                }
+              ],
+              "stepSize": "0.001",
+              "syntheticAssetId": "0x425443322d31300000000000000000",
+              "tickSize": "0.1",
+              "tpslSpreadProtectionThreshold": "0.05"
+            }
+          ],
+          "coinList": [
+            {
+              "assetId": "0x2ce625e94458d39dd0bf3b45a843544dd4a14b8169045a3a3d15aa564b936c5",
+              "coinId": "1000",
+              "coinName": "USDC",
+              "iconUrl": "https://static.edgex.exchange/icons/coin/USDC.png",
+              "resolution": "0xf4240",
+              "showStepSize": "0.0001",
+              "stepSize": "0.000001"
+            },
+            {
+              "assetId": null,
+              "coinId": "1001",
+              "coinName": "BTC",
+              "iconUrl": "https://static.edgex.exchange/icons/coin/BTC.png",
+              "resolution": null,
+              "showStepSize": "0.001",
+              "stepSize": "0.001"
+            }
+          ]
+        }
+      }
+    },
+    "extended_assets": {
+      "url": "https://api.starknet.extended.exchange/api/v1/info/assets",
+      "body": {
+        "status": "OK",
+        "data": [
+          {
+            "id": 1,
+            "name": "USD",
+            "symbol": "USD",
+            "description": "USD",
+            "precision": 6,
+            "isActive": true,
+            "isCollateral": true,
+            "starkexId": "0x1",
+            "starkexResolution": 1000000,
+            "l1Id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "l1Resolution": 1000000,
+            "version": 5,
+            "createdAt": 1752829532673,
+            "type": "SPOT",
+            "canBeUsedAsCollateral": true,
+            "riskFactors": [],
+            "availableForTradeFactors": [],
+            "isVaultShare": false,
+            "uiName": "USD",
+            "arcAddress": "0x3600000000000000000000000000000000000000"
+          }
+        ]
+      }
+    },
+    "extended_markets": {
+      "url": "https://api.starknet.extended.exchange/api/v1/info/markets",
+      "body": {
+        "status": "OK",
+        "data": [
+          {
+            "name": "BTC-USD",
+            "type": "PERPETUAL",
+            "uiName": "BTC-USD",
+            "category": "Crypto",
+            "subCategory": "L1",
+            "assetName": "BTC",
+            "assetPrecision": 5,
+            "collateralAssetName": "USD",
+            "collateralAssetPrecision": 6,
+            "description": "Bitcoin",
+            "active": true,
+            "isRfq": false,
+            "isOffHours": false,
+            "status": "ACTIVE",
+            "tradingHours": "CONTINUOUS",
+            "marketStats": {
+              "dailyVolume": "45158507.689260",
+              "dailyVolumeBase": "610.80684",
+              "dailyPriceChange": "-469",
+              "dailyPriceChangePercentage": "-0.0063",
+              "dailyLow": "73173",
+              "dailyHigh": "74696",
+              "lastPrice": "73493",
+              "askPrice": "73471",
+              "bidPrice": "73470",
+              "markPrice": "73444.755141999994",
+              "indexPrice": "73476.54572210001",
+              "fundingRate": "0.000013",
+              "nextFundingRate": 1794481200000,
+              "openInterest": "29153943.894240",
+              "openInterestBase": "398.07600",
+              "deleverageLevels": {
+                "shortPositions": [
+                  {
+                    "level": 1,
+                    "rankingLowerBound": "-118.0736"
+                  },
+                  {
+                    "level": 2,
+                    "rankingLowerBound": "0.0000"
+                  },
+                  {
+                    "level": 3,
+                    "rankingLowerBound": "0.0006"
+                  },
+                  {
+                    "level": 4,
+                    "rankingLowerBound": "0.0034"
+                  }
+                ],
+                "longPositions": [
+                  {
+                    "level": 1,
+                    "rankingLowerBound": "-61772.1501"
+                  },
+                  {
+                    "level": 2,
+                    "rankingLowerBound": "-2.2689"
+                  },
+                  {
+                    "level": 3,
+                    "rankingLowerBound": "-0.0686"
+                  },
+                  {
+                    "level": 4,
+                    "rankingLowerBound": "-0.0011"
+                  }
+                ]
+              }
+            },
+            "tradingConfig": {
+              "minOrderSize": "0.0001",
+              "minOrderSizeChange": "0.00001",
+              "minPriceChange": "1",
+              "maxMarketOrderValue": "3000000",
+              "maxLimitOrderValue": "15000000",
+              "maxPositionValue": "60000000",
+              "maxLeverage": "50.00",
+              "hourlyFundingRateCap": "0.25",
+              "openInterestLimit": "0",
+              "maxNumOrders": "200",
+              "limitPriceCap": "0.05",
+              "limitPriceFloor": "0.05",
+              "riskFactorConfig": [
+                {
+                  "upperBound": "4000000",
+                  "riskFactor": "0.02",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "8000000",
+                  "riskFactor": "0.04",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "12000000",
+                  "riskFactor": "0.06",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "16000000",
+                  "riskFactor": "0.08",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "20000000",
+                  "riskFactor": "0.1",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "24000000",
+                  "riskFactor": "0.12",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "28000000",
+                  "riskFactor": "0.14",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "32000000",
+                  "riskFactor": "0.16",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "36000000",
+                  "riskFactor": "0.18",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "40000000",
+                  "riskFactor": "0.2",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "44000000",
+                  "riskFactor": "0.22",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "48000000",
+                  "riskFactor": "0.24",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "52000000",
+                  "riskFactor": "0.26",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "56000000",
+                  "riskFactor": "0.28",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "60000000",
+                  "riskFactor": "0.3",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "64000000",
+                  "riskFactor": "0.32",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "68000000",
+                  "riskFactor": "0.34",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "72000000",
+                  "riskFactor": "0.36",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "76000000",
+                  "riskFactor": "0.38",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "80000000",
+                  "riskFactor": "0.4",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "84000000",
+                  "riskFactor": "0.42",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "88000000",
+                  "riskFactor": "0.44",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "92000000",
+                  "riskFactor": "0.46",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "96000000",
+                  "riskFactor": "0.48",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "100000000",
+                  "riskFactor": "0.5",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "104000000",
+                  "riskFactor": "0.52",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "108000000",
+                  "riskFactor": "0.54",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "112000000",
+                  "riskFactor": "0.56",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "116000000",
+                  "riskFactor": "0.58",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "120000000",
+                  "riskFactor": "0.6",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "124000000",
+                  "riskFactor": "0.62",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "128000000",
+                  "riskFactor": "0.64",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "132000000",
+                  "riskFactor": "0.66",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "136000000",
+                  "riskFactor": "0.68",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "140000000",
+                  "riskFactor": "0.7",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "144000000",
+                  "riskFactor": "0.72",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "148000000",
+                  "riskFactor": "0.74",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "152000000",
+                  "riskFactor": "0.76",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "156000000",
+                  "riskFactor": "0.78",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "160000000",
+                  "riskFactor": "0.8",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "164000000",
+                  "riskFactor": "0.82",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "168000000",
+                  "riskFactor": "0.84",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "172000000",
+                  "riskFactor": "0.86",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "176000000",
+                  "riskFactor": "0.88",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "180000000",
+                  "riskFactor": "0.9",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "184000000",
+                  "riskFactor": "0.92",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "188000000",
+                  "riskFactor": "0.94",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "192000000",
+                  "riskFactor": "0.96",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "196000000",
+                  "riskFactor": "0.98",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "200000000",
+                  "riskFactor": "1",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "1000000000",
+                  "riskFactor": "1",
+                  "isAvailableForUsers": false
+                }
+              ],
+              "uPnlWithdrawable": true,
+              "postWithdrawalMarginFactor": "0.1"
+            },
+            "l2Config": {
+              "type": "STARKX",
+              "collateralId": "0x1",
+              "syntheticId": "0x4254432d3600000000000000000000",
+              "syntheticResolution": 1000000,
+              "collateralResolution": 1000000
+            },
+            "visibleOnUi": true,
+            "referenceMarket": "null",
+            "createdAt": 1752829532673
+          },
+          {
+            "name": "SHOP-USD",
+            "type": "PERPETUAL",
+            "uiName": "SHOP-USD",
+            "category": "RWA",
+            "subCategory": "Equity",
+            "assetName": "SHOP",
+            "assetPrecision": 2,
+            "collateralAssetName": "USD",
+            "collateralAssetPrecision": 6,
+            "description": "Shopify",
+            "active": true,
+            "isRfq": true,
+            "isOffHours": false,
+            "status": "ACTIVE",
+            "tradingHours": "NO_OVERNIGHT",
+            "marketStats": {
+              "dailyVolume": "0.000000",
+              "dailyVolumeBase": "0.00",
+              "dailyPriceChange": "0",
+              "dailyPriceChangePercentage": "0",
+              "dailyLow": "0",
+              "dailyHigh": "0",
+              "lastPrice": "145.438",
+              "askPrice": "147.994",
+              "bidPrice": "147.3",
+              "markPrice": "147.548599999999",
+              "indexPrice": "147.548599999999",
+              "fundingRate": "0.000005",
+              "nextFundingRate": 1794481200000,
+              "openInterest": "375.122440",
+              "openInterestBase": "2.54",
+              "deleverageLevels": {
+                "shortPositions": [
+                  {
+                    "level": 1,
+                    "rankingLowerBound": "0.0000"
+                  }
+                ],
+                "longPositions": [
+                  {
+                    "level": 1,
+                    "rankingLowerBound": "0"
+                  }
+                ]
+              }
+            },
+            "tradingConfig": {
+              "minOrderSize": "0.1",
+              "minOrderSizeChange": "0.01",
+              "minPriceChange": "0.001",
+              "maxMarketOrderValue": "50000",
+              "maxLimitOrderValue": "200000",
+              "maxPositionValue": "250000",
+              "maxLeverage": "10.00",
+              "hourlyFundingRateCap": "1",
+              "openInterestLimit": "500000",
+              "maxNumOrders": "200",
+              "limitPriceCap": "0.1",
+              "limitPriceFloor": "0.1",
+              "riskFactorConfig": [
+                {
+                  "upperBound": "250000",
+                  "riskFactor": "0.1",
+                  "isAvailableForUsers": true
+                },
+                {
+                  "upperBound": "500000",
+                  "riskFactor": "0.2",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "750000",
+                  "riskFactor": "0.3",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "1000000",
+                  "riskFactor": "0.4",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "1250000",
+                  "riskFactor": "0.5",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "1500000",
+                  "riskFactor": "0.6",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "1750000",
+                  "riskFactor": "0.7",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "2000000",
+                  "riskFactor": "0.8",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "2250000",
+                  "riskFactor": "0.9",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "2500000",
+                  "riskFactor": "1",
+                  "isAvailableForUsers": false
+                },
+                {
+                  "upperBound": "1000000000",
+                  "riskFactor": "1",
+                  "isAvailableForUsers": false
+                }
+              ],
+              "uPnlWithdrawable": false,
+              "postWithdrawalMarginFactor": "0"
+            },
+            "l2Config": {
+              "type": "STARKX",
+              "collateralId": "0x1",
+              "syntheticId": "0x53484f502d33000000000000000000",
+              "syntheticResolution": 1000,
+              "collateralResolution": 1000000
+            },
+            "visibleOnUi": true,
+            "referenceMarket": "us_equity",
+            "createdAt": 1785349134165
+          }
+        ]
+      }
+    },
+    "bybit_ticker": {
+      "url": "https://api.bybit.com/v5/market/tickers?category=linear&symbol=BTCUSDT",
+      "body": {
+        "retCode": 0,
+        "retMsg": "OK",
+        "result": {
+          "category": "linear",
+          "list": [
+            {
+              "symbol": "BTCUSDT",
+              "lastPrice": "73526.40",
+              "indexPrice": "73561.31",
+              "markPrice": "73530.89",
+              "prevPrice24h": "74055.00",
+              "price24hPcnt": "-0.007137",
+              "highPrice24h": "74783.50",
+              "lowPrice24h": "73205.80",
+              "prevPrice1h": "73407.90",
+              "openInterest": "69205.282",
+              "openInterestValue": "5088725978.16",
+              "singleOpenInterest": "34602.641",
+              "singleOpenInterestValue": "2544362989.08",
+              "turnover24h": "3566484956.7496",
+              "volume24h": "48197.1630",
+              "fundingRate": "0.00005548",
+              "nextFundingTime": "1794499200000",
+              "predictedDeliveryPrice": "",
+              "basisRate": "",
+              "deliveryFeeRate": "",
+              "deliveryTime": "0",
+              "ask1Size": "2.174",
+              "bid1Price": "73526.30",
+              "ask1Price": "73526.40",
+              "bid1Size": "5.298",
+              "basis": "",
+              "preOpenPrice": "",
+              "preQty": "",
+              "curPreListingPhase": "",
+              "fundingIntervalHour": "8",
+              "basisRateYear": "",
+              "fundingCap": "0.00333"
+            }
+          ]
+        },
+        "retExtInfo": {},
+        "time": 1794479857929
+      }
+    },
+    "bybit_funding_history": {
+      "url": "https://api.bybit.com/v5/market/funding/history?category=linear&symbol=BTCUSDT&limit=5",
+      "body": {
+        "retCode": 0,
+        "retMsg": "OK",
+        "result": {
+          "category": "linear",
+          "list": [
+            {
+              "symbol": "BTCUSDT",
+              "fundingRate": "0.00005768",
+              "fundingRateTimestamp": "1794470400000"
+            },
+            {
+              "symbol": "BTCUSDT",
+              "fundingRate": "0.00005439",
+              "fundingRateTimestamp": "1794441600000"
+            },
+            {
+              "symbol": "BTCUSDT",
+              "fundingRate": "0.00005307",
+              "fundingRateTimestamp": "1794412800000"
+            },
+            {
+              "symbol": "BTCUSDT",
+              "fundingRate": "0.00009946",
+              "fundingRateTimestamp": "1794384000000"
+            },
+            {
+              "symbol": "BTCUSDT",
+              "fundingRate": "0.0001",
+              "fundingRateTimestamp": "1794355200000"
+            }
+          ]
+        },
+        "retExtInfo": {},
+        "time": 1794479857904
+      }
+    },
+    "okx_funding_history": {
+      "url": "https://www.okx.com/api/v5/public/funding-rate-history?instId=BTC-USDT-SWAP&limit=5",
+      "body": {
+        "code": "0",
+        "data": [
+          {
+            "formulaType": "withRate",
+            "fundingRate": "0.0000924114251855",
+            "fundingTime": "1794470400000",
+            "instId": "BTC-USDT-SWAP",
+            "instType": "SWAP",
+            "method": "current_period",
+            "realizedRate": "0.0000924114251855"
+          },
+          {
+            "formulaType": "withRate",
+            "fundingRate": "0.0000610331387262",
+            "fundingTime": "1794441600000",
+            "instId": "BTC-USDT-SWAP",
+            "instType": "SWAP",
+            "method": "current_period",
+            "realizedRate": "0.0000610331387262"
+          },
+          {
+            "formulaType": "withRate",
+            "fundingRate": "0.0000463066109924",
+            "fundingTime": "1794412800000",
+            "instId": "BTC-USDT-SWAP",
+            "instType": "SWAP",
+            "method": "current_period",
+            "realizedRate": "0.0000463066109924"
+          },
+          {
+            "formulaType": "withRate",
+            "fundingRate": "0.0000937768718932",
+            "fundingTime": "1794384000000",
+            "instId": "BTC-USDT-SWAP",
+            "instType": "SWAP",
+            "method": "current_period",
+            "realizedRate": "0.0000937768718932"
+          },
+          {
+            "formulaType": "withRate",
+            "fundingRate": "0.0001",
+            "fundingTime": "1794355200000",
+            "instId": "BTC-USDT-SWAP",
+            "instType": "SWAP",
+            "method": "current_period",
+            "realizedRate": "0.0001"
+          }
+        ],
+        "msg": ""
+      }
+    },
+    "binance_funding_history": {
+      "url": "https://fapi.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT&limit=5",
+      "body": [
+        {
+          "symbol": "BTCUSDT",
+          "fundingTime": 1794355200002,
+          "fundingRate": "0.00007999",
+          "markPrice": "73768.25210645",
+          "rateType": "Regular"
+        },
+        {
+          "symbol": "BTCUSDT",
+          "fundingTime": 1794384000000,
+          "fundingRate": "0.00008011",
+          "markPrice": "74064.70000000",
+          "rateType": "Regular"
+        },
+        {
+          "symbol": "BTCUSDT",
+          "fundingTime": 1794412800000,
+          "fundingRate": "0.00006639",
+          "markPrice": "73953.10014243",
+          "rateType": "Regular"
+        },
+        {
+          "symbol": "BTCUSDT",
+          "fundingTime": 1794441600000,
+          "fundingRate": "0.00003453",
+          "markPrice": "73979.90000000",
+          "rateType": "Regular"
+        },
+        {
+          "symbol": "BTCUSDT",
+          "fundingTime": 1794470400001,
+          "fundingRate": "0.00006220",
+          "markPrice": "73622.85292354",
+          "rateType": "Regular"
+        }
+      ]
+    },
+    "bybit_prelaunch": {
+      "url": "https://api.bybit.com/v5/market/instruments-info?category=linear&status=PreLaunch&limit=5",
+      "body": {
+        "retCode": 0,
+        "retMsg": "OK",
+        "result": {
+          "category": "linear",
+          "list": [
+            {
+              "symbol": "ANTHROPICUSDT",
+              "contractType": "LinearPerpetual",
+              "status": "PreLaunch",
+              "baseCoin": "ANTHROPIC",
+              "quoteCoin": "USDT",
+              "launchTime": "1783934824000",
+              "deliveryTime": "0",
+              "deliveryFeeRate": "",
+              "priceScale": "2",
+              "leverageFilter": {
+                "minLeverage": "1",
+                "maxLeverage": "25.00",
+                "leverageStep": "0.01"
+              },
+              "priceFilter": {
+                "minPrice": "0.01",
+                "maxPrice": "199999.98",
+                "tickSize": "0.01"
+              },
+              "lotSizeFilter": {
+                "maxOrderQty": "124.000",
+                "minOrderQty": "0.001",
+                "qtyStep": "0.001",
+                "postOnlyMaxOrderQty": "124.000",
+                "maxMktOrderQty": "31.000",
+                "minNotionalValue": "5"
+              },
+              "unifiedMarginTrade": true,
+              "fundingInterval": 480,
+              "settleCoin": "USDT",
+              "copyTrading": "none",
+              "upperFundingRate": "0.02",
+              "lowerFundingRate": "-0.02",
+              "isPreListing": true,
+              "preListingInfo": {
+                "curAuctionPhase": "ContinuousTrading",
+                "phases": [
+                  {
+                    "phase": "CallAuction",
+                    "startTime": "946684800000",
+                    "endTime": "946684800000"
+                  },
+                  {
+                    "phase": "CallAuctionNoCancel",
+                    "startTime": "946684800000",
+                    "endTime": "946684800000"
+                  },
+                  {
+                    "phase": "CrossMatching",
+                    "startTime": "946684800000",
+                    "endTime": "946684800000"
+                  },
+                  {
+                    "phase": "ContinuousTrading",
+                    "startTime": "946684800000",
+                    "endTime": ""
+                  }
+                ],
+                "auctionFeeInfo": {
+                  "auctionFeeRate": "0",
+                  "takerFeeRate": "0.00055",
+                  "makerFeeRate": "0.0002"
+                },
+                "skipCallAuction": true
+              },
+              "riskParameters": {
+                "priceLimitRatioX": "0.03",
+                "priceLimitRatioY": "0.05"
+              },
+              "displayName": "ANTHROPICUSDT",
+              "symbolType": "stock",
+              "forbidUplWithdrawal": false,
+              "symbolId": 2755,
+              "fullName": "Anthropic",
+              "marketRegion": "US",
+              "underlyingTicker": "ANTHROPIC",
+              "tags": []
+            }
+          ],
+          "nextPageCursor": "first%3DANTHROPICUSDT%26last%3DOPENAIUSDT"
+        },
+        "retExtInfo": {},
+        "time": 1794479857897
+      }
+    },
+    "okx_open_interest": {
+      "url": "https://www.okx.com/api/v5/public/open-interest?instType=SWAP&instId=BTC-USDT-SWAP",
+      "body": {
+        "code": "0",
+        "data": [
+          {
+            "instId": "BTC-USDT-SWAP",
+            "instType": "SWAP",
+            "oi": "3571277.81000001482",
+            "oiCcy": "35712.7781000001482",
+            "oiUsd": "2625957002.41520089713118",
+            "ts": "1794479857956"
+          }
+        ],
+        "msg": ""
+      }
+    },
+    "whitebit_book_ticker": {
+      "url": "wss://api.whitebit.com/ws",
+      "body": {
+        "method": "bookTicker_update",
+        "params": [
+          [
+            1794479847.851666,
+            1794479858.197068,
+            "BTC_USDT",
+            15684322633,
+            "73558.78",
+            "0.014237",
+            "73558.79",
+            "0.014375"
+          ]
+        ],
+        "id": null
+      }
+    }
+  }
+}
