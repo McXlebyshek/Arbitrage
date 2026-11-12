@@ -1,0 +1,17 @@
+{
+  "archiveRows": 570159,
+  "archiveOIRows": 40320,
+  "archivedMinutes": 60,
+  "replayHours": 24,
+  "sampledGroups": 120,
+  "inputObservations": 1651152,
+  "rows": 581281,
+  "oiRows": 47298,
+  "bytesAfterCheckpoint": 51523584,
+  "peakDatabaseAndWalBytes": 63904216,
+  "medianRecordMs": 59.649,
+  "p95RecordMs": 148.368,
+  "archiveSha256": "0639f78100eb53b203aa26c1c8ef7f7dd96b8429d661fe1e39b7481f2e891f65",
+  "revision": "60e6d9c4d4b1c9aa40e8c7458c67d3e204b5bddd",
+  "sqlite": "3.50.4"
+}
