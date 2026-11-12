@@ -1,0 +1,510 @@
+{
+  "capturedAt": 1794392274312,
+  "bindings": [
+    {
+      "binding": {
+        "exchange": "whitebit",
+        "kind": "swap",
+        "id": "CYBER_PERP",
+        "asset": "cyberconnect",
+        "base": "CYBER",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/cyberconnect",
+      "symbol": "CYBER/USDT:USDT",
+      "fields": {
+        "stock": "CYBER",
+        "name": "CYBER_PERP",
+        "type": "futures"
+      },
+      "marketSource": "https://whitebit.com/trade/CYBER-PERP"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "POD_USDT",
+        "asset": "dolphin-2",
+        "base": "POD",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/dolphin-2",
+      "symbol": "POD/USDT:USDT",
+      "fields": {
+        "name": "POD_USDT",
+        "type": "direct",
+        "status": "trading"
+      },
+      "marketSource": "https://www.gate.com/announcements/article/102080"
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "PODUSDT",
+        "asset": "dolphin-2",
+        "base": "POD",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/dolphin-2",
+      "symbol": "POD/USDT:USDT",
+      "fields": {
+        "symbol": "PODUSDT",
+        "baseAsset": "POD",
+        "name": "",
+        "contractType": "PERPETUAL",
+        "status": "TRADING",
+        "deliveryDate": 4133404800000
+      },
+      "marketSource": "https://www.asterdex.com/en/futures/v1/PODUSDT"
+    },
+    {
+      "binding": {
+        "exchange": "whitebit",
+        "kind": "swap",
+        "id": "AXL_PERP",
+        "asset": "axelar",
+        "base": "AXL",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/axelar",
+      "symbol": "AXL/USDT:USDT",
+      "fields": {
+        "stock": "AXL",
+        "name": "AXL_PERP",
+        "type": "futures"
+      },
+      "marketSource": "https://whitebit.com/trade/AXL_PERP"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "AXLUSDT",
+        "asset": "axelar",
+        "base": "AXL",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/axelar",
+      "symbol": "AXL/USDT:USDT",
+      "fields": {
+        "symbol": "AXLUSDT",
+        "baseCoin": "AXL",
+        "fullName": "Axelar",
+        "contractType": "LinearPerpetual",
+        "status": "Trading",
+        "isPreListing": false
+      }
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "AXLUSDT",
+        "asset": "axelar",
+        "base": "AXL",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/axelar",
+      "symbol": "AXL/USDT:USDT",
+      "fields": {
+        "symbol": "AXLUSDT",
+        "baseAsset": "AXL",
+        "contractType": "PERPETUAL",
+        "status": "TRADING",
+        "deliveryDate": 4133404800000
+      },
+      "marketSource": "https://www.binance.com/en/support/announcement/detail/4ec6916d881444c0949ab906352043cc"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "AXLUSDT",
+        "asset": "axelar",
+        "base": "AXL",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/axelar",
+      "symbol": "AXL/USDT:USDT",
+      "fields": {
+        "symbol": "AXLUSDT",
+        "baseCoin": "AXL",
+        "symbolStatus": "normal"
+      }
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "AXL_USDT",
+        "asset": "axelar",
+        "base": "AXL",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/axelar",
+      "symbol": "AXL/USDT:USDT",
+      "fields": {
+        "symbol": "AXL_USDT",
+        "baseCoin": "AXL",
+        "type": 1
+      }
+    },
+    {
+      "binding": {
+        "exchange": "whitebit",
+        "kind": "swap",
+        "id": "MEW_PERP",
+        "asset": "cat-in-a-dogs-world",
+        "base": "MEW",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/mew",
+      "symbol": "MEW/USDT:USDT",
+      "fields": {
+        "stock": "MEW",
+        "name": "MEW_PERP",
+        "type": "futures"
+      },
+      "marketSource": "https://whitebit.com/trade/MEW_PERP"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "MEWUSDT",
+        "asset": "cat-in-a-dogs-world",
+        "base": "MEW",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/mew",
+      "symbol": "MEW/USDT:USDT",
+      "fields": {
+        "symbol": "MEWUSDT",
+        "baseCoin": "MEW",
+        "fullName": "cat in a dogs world",
+        "contractType": "LinearPerpetual",
+        "status": "Trading",
+        "isPreListing": false
+      }
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "MEWUSDT",
+        "asset": "cat-in-a-dogs-world",
+        "base": "MEW",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/mew",
+      "symbol": "MEW/USDT:USDT",
+      "fields": {
+        "symbol": "MEWUSDT",
+        "baseAsset": "MEW",
+        "contractType": "PERPETUAL",
+        "status": "TRADING",
+        "deliveryDate": 4133404800000
+      }
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "MEWUSDT",
+        "asset": "cat-in-a-dogs-world",
+        "base": "MEW",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/mew",
+      "symbol": "MEW/USDT:USDT",
+      "fields": {
+        "symbol": "MEWUSDT",
+        "baseCoin": "MEW",
+        "symbolStatus": "normal"
+      }
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "MEW_USDT",
+        "asset": "cat-in-a-dogs-world",
+        "base": "MEW",
+        "quote": "USDT",
+        "contract_size": "1000.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/mew",
+      "symbol": "MEW/USDT:USDT",
+      "fields": {
+        "symbol": "MEW_USDT",
+        "baseCoin": "MEW",
+        "type": 1
+      }
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "MEWUSDTM",
+        "asset": "cat-in-a-dogs-world",
+        "base": "MEW",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/mew",
+      "symbol": "MEW/USDT:USDT",
+      "fields": {
+        "symbol": "MEWUSDTM",
+        "type": "FFWCSX",
+        "status": "Open"
+      }
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "NEX_USDT",
+        "asset": "nexus-4",
+        "base": "NEX",
+        "quote": "USDT",
+        "contract_size": "100000.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/nexus-4",
+      "symbol": "NEX/USDT:USDT",
+      "fields": {
+        "symbol": "NEX_USDT",
+        "baseCoin": "NEX",
+        "type": 1
+      },
+      "marketSource": "https://contract.mexc.com/exchange?symbol=NEX_USDT"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "NEXUSDTM",
+        "asset": "nexus-4",
+        "base": "NEX",
+        "quote": "USDT",
+        "contract_size": "100000.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/nexus-4",
+      "symbol": "NEX/USDT:USDT",
+      "fields": {
+        "symbol": "NEXUSDTM",
+        "type": "FFWCSX",
+        "status": "Open"
+      },
+      "marketSource": "https://futures.kucoin.com/trade/NEXUSDTM"
+    }
+  ],
+  "nexusQueries": {
+    "bitget-instruments": {
+      "url": "https://api.bitget.com/api/v2/mix/market/contracts?productType=USDT-FUTURES&symbol=10000NEXUSDT",
+      "status": 400,
+      "data": {
+        "code": "40309",
+        "msg": "The symbol has been removed",
+        "requestTime": 1794392269132,
+        "data": null
+      }
+    },
+    "bitget-uta": {
+      "url": "https://api.bitget.com/api/v3/market/instruments?category=USDT-FUTURES&symbol=10000NEXUSDT",
+      "status": 400,
+      "data": {
+        "code": "40309",
+        "msg": "The symbol has been removed",
+        "requestTime": 1794392269125,
+        "data": null
+      }
+    },
+    "bitget-quote": {
+      "url": "https://api.bitget.com/api/v2/mix/market/ticker?productType=USDT-FUTURES&symbol=10000NEXUSDT",
+      "status": 400,
+      "data": {
+        "code": "40309",
+        "msg": "The symbol has been removed",
+        "requestTime": 1794392269112,
+        "data": null
+      }
+    },
+    "bitget-depth": {
+      "url": "https://api.bitget.com/api/v2/mix/market/merge-depth?productType=USDT-FUTURES&symbol=10000NEXUSDT&limit=5",
+      "status": 400,
+      "data": {
+        "code": "40309",
+        "msg": "The symbol has been removed",
+        "requestTime": 1794392269112,
+        "data": null
+      }
+    },
+    "bybit-instruments": {
+      "url": "https://api.bybit.com/v5/market/instruments-info?category=linear&symbol=10000NEXUSDT",
+      "status": 200,
+      "data": {
+        "retCode": 0,
+        "retMsg": "OK",
+        "result": {
+          "category": "linear",
+          "list": [
+            {
+              "symbol": "10000NEXUSDT",
+              "contractType": "LinearPerpetual",
+              "status": "Trading",
+              "baseCoin": "10000NEX",
+              "quoteCoin": "USDT",
+              "launchTime": "1779350242000",
+              "deliveryTime": "0",
+              "deliveryFeeRate": "",
+              "priceScale": "5",
+              "leverageFilter": {
+                "minLeverage": "1",
+                "maxLeverage": "10.00",
+                "leverageStep": "0.01"
+              },
+              "priceFilter": {
+                "minPrice": "0.00001",
+                "maxPrice": "199.99998",
+                "tickSize": "0.00001"
+              },
+              "lotSizeFilter": {
+                "maxOrderQty": "3600000",
+                "minOrderQty": "10",
+                "qtyStep": "10",
+                "postOnlyMaxOrderQty": "3600000",
+                "maxMktOrderQty": "1800000",
+                "minNotionalValue": "5"
+              },
+              "unifiedMarginTrade": true,
+              "fundingInterval": 240,
+              "settleCoin": "USDT",
+              "copyTrading": "none",
+              "upperFundingRate": "0.025",
+              "lowerFundingRate": "-0.025",
+              "isPreListing": false,
+              "preListingInfo": null,
+              "riskParameters": {
+                "priceLimitRatioX": "0.1",
+                "priceLimitRatioY": "0.2"
+              },
+              "displayName": "10000NEXUSDT",
+              "symbolType": "",
+              "forbidUplWithdrawal": true,
+              "symbolId": 2677,
+              "fullName": "",
+              "marketRegion": "",
+              "underlyingTicker": "",
+              "tags": [
+                "ST"
+              ]
+            }
+          ],
+          "nextPageCursor": ""
+        },
+        "retExtInfo": {},
+        "time": 1794392269020
+      }
+    },
+    "bybit-quote": {
+      "url": "https://api.bybit.com/v5/market/tickers?category=linear&symbol=10000NEXUSDT",
+      "status": 200,
+      "data": {
+        "retCode": 0,
+        "retMsg": "OK",
+        "result": {
+          "category": "linear",
+          "list": [
+            {
+              "symbol": "10000NEXUSDT",
+              "lastPrice": "0.00573",
+              "indexPrice": "0.00577",
+              "markPrice": "0.00573",
+              "prevPrice24h": "0.00609",
+              "price24hPcnt": "-0.059113",
+              "highPrice24h": "0.00609",
+              "lowPrice24h": "0.00567",
+              "prevPrice1h": "0.00575",
+              "openInterest": "20167860",
+              "openInterestValue": "115561.84",
+              "singleOpenInterest": "10083930",
+              "singleOpenInterestValue": "57780.92",
+              "turnover24h": "30470.3428",
+              "volume24h": "5228890.0000",
+              "fundingRate": "-0.0007382",
+              "nextFundingTime": "1794398400000",
+              "predictedDeliveryPrice": "",
+              "basisRate": "",
+              "deliveryFeeRate": "",
+              "deliveryTime": "0",
+              "ask1Size": "13890",
+              "bid1Price": "0.00572",
+              "ask1Price": "0.00574",
+              "bid1Size": "20440",
+              "basis": "",
+              "preOpenPrice": "",
+              "preQty": "",
+              "curPreListingPhase": "",
+              "fundingIntervalHour": "4",
+              "basisRateYear": "",
+              "fundingCap": "0.025"
+            }
+          ]
+        },
+        "retExtInfo": {},
+        "time": 1794392269017
+      }
+    }
+  },
+  "podIndex": {
+    "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/POD_USDT",
+    "status": 200,
+    "data": {
+      "index": "POD_USDT",
+      "time": 1794392254000,
+      "constituents": [
+        {
+          "exchange": "Huobi",
+          "symbols": [
+            "POD_USDT"
+          ],
+          "price": "0.4",
+          "weight": "1"
+        }
+      ]
+    }
+  },
+  "historicalListings": {
+    "bitget": "https://www.bitget.com/support/articles/12560603884273",
+    "bybit": "https://announcements.bybitglobal.com/en/article/new-listing-10000nexusdt-perpetual-contract-with-up-to-10x-leverage-blt562c7af955f6f932/"
+  }
+}

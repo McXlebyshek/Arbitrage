@@ -1,0 +1,115 @@
+{
+  "at": 1794409810820,
+  "catalogs": [
+    [
+      "binanceusdm",
+      "swap",
+      {
+        "state": "ok",
+        "checked_at_ms": 1794409809149,
+        "contracts": 756,
+        "error": null
+      },
+      [
+        {
+          "id": "ZESTUSDT",
+          "symbol": "ZEST/USDT:USDT",
+          "base": "ZEST",
+          "quote": "USDT",
+          "settle": "USDT",
+          "active": true,
+          "linear": true,
+          "contractSize": 1.0,
+          "allowed": true
+        }
+      ]
+    ],
+    [
+      "binanceusdm",
+      "spot",
+      {
+        "state": "ok",
+        "checked_at_ms": 1794409809602,
+        "contracts": 0,
+        "error": null
+      },
+      []
+    ],
+    [
+      "kucoinfutures",
+      "swap",
+      {
+        "state": "ok",
+        "checked_at_ms": 1794409810503,
+        "contracts": 712,
+        "error": null
+      },
+      [
+        {
+          "id": "ZESTUSDTM",
+          "symbol": "ZEST/USDT:USDT",
+          "base": "ZEST",
+          "quote": "USDT",
+          "settle": "USDT",
+          "active": true,
+          "linear": true,
+          "contractSize": 10.0,
+          "allowed": true
+        }
+      ]
+    ],
+    [
+      "kucoinfutures",
+      "spot",
+      {
+        "state": "ok",
+        "checked_at_ms": 1794409810568,
+        "contracts": 0,
+        "error": null
+      },
+      [
+        {
+          "id": "ZEST-USDT",
+          "symbol": "ZEST/USDT",
+          "base": "ZEST",
+          "quote": "USDT",
+          "settle": null,
+          "active": true,
+          "linear": null,
+          "contractSize": null,
+          "allowed": true
+        }
+      ]
+    ]
+  ],
+  "coingecko": {
+    "url": "https://api.coingecko.com/api/v3/coins/zest-protocol?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false",
+    "status": 200,
+    "id": "zest-protocol",
+    "platforms": {
+      "binance-smart-chain": "0x5506599c722389a60580b5213ea1da60d64754a1",
+      "ethereum": "0xf326c8c9a691319f6330e27aa4a39f2d22c88dc5",
+      "base": "0x7297968ffb753dd12e4f6b1f18d9865c76707fc2",
+      "stacks": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.zest-token"
+    },
+    "tickers": [
+      {
+        "base": "ZEST",
+        "target": "USDT",
+        "trade_url": "https://www.kucoin.com/trade/ZEST-USDT",
+        "is_stale": false,
+        "is_anomaly": false,
+        "venue": "kucoin"
+      }
+    ],
+    "marketData": {
+      "market_cap": 16051741,
+      "fully_diluted_valuation": 109943430
+    }
+  },
+  "sources": [
+    "https://www.binance.com/en/support/announcement/detail/61e41ce0e4b74dc7a794cc6bf9c57d38",
+    "https://www.kucoin.com/announcement/th-kucoin-futures-new-listing-zestusdt-perpetual-contract-with-up-to-10x-leverage",
+    "https://docs.zestprotocol.com/zest-token"
+  ]
+}

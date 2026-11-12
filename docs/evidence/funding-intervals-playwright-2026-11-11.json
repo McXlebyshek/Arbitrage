@@ -1,0 +1,273 @@
+{
+  "compare": {
+    "generatedAt": 1794398075196,
+    "state": {
+      "capMin": "1",
+      "mode": "spread",
+      "sort": "entry",
+      "direction": "desc",
+      "group": true,
+      "expand": "",
+      "categories": [
+        "crypto"
+      ],
+      "exchanges": [
+        "Aster",
+        "Binance",
+        "Bitget",
+        "Bybit",
+        "EdgeX",
+        "Extended",
+        "Gate",
+        "HTX",
+        "KuCoin",
+        "MEXC",
+        "OKX",
+        "WhiteBIT"
+      ],
+      "quotes": [
+        "USDT"
+      ],
+      "query": "",
+      "operator": "gte",
+      "favorites": false,
+      "uainvest": false
+    },
+    "venues": {
+      "Binance · swap": {
+        "state": "ok",
+        "received_at_ms": 1794398072505,
+        "returned": 804,
+        "with_bid_ask": 804,
+        "error": null,
+        "depth_refreshed": 0
+      },
+      "Binance · spot": {
+        "state": "ok"
+      },
+      "Bybit · swap": {
+        "state": "ok",
+        "received_at_ms": 1794398073278,
+        "returned": 938,
+        "with_bid_ask": 938,
+        "error": null
+      },
+      "Bybit · spot": {
+        "state": "ok"
+      },
+      "Bitget · swap": {
+        "state": "ok",
+        "received_at_ms": 1794398072558,
+        "returned": 884,
+        "with_bid_ask": 884,
+        "error": null
+      },
+      "Bitget · spot": {
+        "state": "ok"
+      },
+      "Gate · swap": {
+        "state": "ok",
+        "received_at_ms": 1794398073988,
+        "returned": 1082,
+        "with_bid_ask": 1082,
+        "error": null
+      },
+      "Gate · spot": {
+        "state": "ok"
+      },
+      "MEXC · swap": {
+        "state": "ok",
+        "received_at_ms": 1794398072609,
+        "returned": 1212,
+        "with_bid_ask": 1204,
+        "error": null
+      },
+      "MEXC · spot": {
+        "state": "ok"
+      },
+      "KuCoin · swap": {
+        "state": "ok",
+        "received_at_ms": 1794398072796,
+        "returned": 722,
+        "with_bid_ask": 722,
+        "error": null,
+        "feed": "uta"
+      },
+      "KuCoin · spot": {
+        "state": "ok"
+      }
+    },
+    "hash": "#/arbitrage?mode=spread&sort=entry&quotes=USDT&capMin=1&different=1",
+    "counts": {
+      "groups": 56,
+      "equal": 54,
+      "unequal": 2,
+      "oldDifferentGroups": 6
+    },
+    "sameCoin": "POWER",
+    "equal": [
+      {
+        "coin": "INIT",
+        "long": "gate.swap.INIT.USDT",
+        "short": "bybit.swap.INIT.USDT",
+        "hours": [
+          1,
+          1
+        ],
+        "entry": 6.9718195145789315,
+        "cap": 42.076808
+      },
+      {
+        "coin": "ESPORTS",
+        "long": "bybit.swap.ESPORTS.USDT",
+        "short": "kucoinfutures.swap.ESPORTS.USDT",
+        "hours": [
+          4,
+          4
+        ],
+        "entry": 0.5583472920156303,
+        "cap": 1.357043
+      },
+      {
+        "coin": "ARIA",
+        "long": "gate.swap.ARIA.USDT",
+        "short": "kucoinfutures.swap.ARIA.USDT",
+        "hours": [
+          4,
+          4
+        ],
+        "entry": 0.5315277190012562,
+        "cap": 53.959685
+      }
+    ],
+    "unequal": [
+      {
+        "coin": "1000CAT",
+        "long": "bitget.swap.1000CAT.USDT",
+        "short": "bybit.swap.1000CAT.USDT",
+        "hours": [
+          4,
+          1
+        ],
+        "entry": 2.5119617224880475,
+        "cap": 12.698553
+      },
+      {
+        "coin": "BLUR",
+        "long": "binanceusdm.swap.BLUR.USDT",
+        "short": "bybit.swap.BLUR.USDT",
+        "hours": [
+          4,
+          8
+        ],
+        "entry": 0.044739393035573755,
+        "cap": 19.684732
+      }
+    ]
+  },
+  "expanded": [
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "8 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "8 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "8 ч"
+    ],
+    [
+      "4 ч",
+      "8 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "8 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "8 ч"
+    ],
+    [
+      "8 ч",
+      "4 ч"
+    ],
+    [
+      "8 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "8 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "8 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ],
+    [
+      "4 ч",
+      "4 ч"
+    ]
+  ],
+  "funding": {
+    "same": 53,
+    "different": 5,
+    "allNormalized": true
+  },
+  "checkboxRemoved": true,
+  "restored": {
+    "hash": "#/arbitrage?capMin=1&mode=spread&sort=entry&quotes=USDT",
+    "mode": "spread",
+    "capMin": "1",
+    "quotes": [
+      "USDT"
+    ],
+    "hasDifferent": false
+  }
+}

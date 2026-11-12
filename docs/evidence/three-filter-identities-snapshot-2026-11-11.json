@@ -1,0 +1,4703 @@
+{
+  "diff": 383,
+  "local": {
+    "stamp": 1794393709383,
+    "at": 1794393709906,
+    "current": [
+      [
+        "INIT",
+        "gate.swap.INIT.USDT",
+        "bybit.swap.INIT.USDT",
+        3.8958490989097294,
+        44.666932,
+        203.737991,
+        -10046.74764
+      ],
+      [
+        "1000CAT",
+        "bitget.swap.1000CAT.USDT",
+        "bybit.swap.1000CAT.USDT",
+        2.399520095980797,
+        12.667961,
+        13.673086,
+        -64.60499999999999
+      ],
+      [
+        "AXL",
+        "whitebit.swap.AXL.USDT",
+        "bybit.swap.AXL.USDT",
+        1.2012850956837542,
+        44.982319,
+        45.173943,
+        0
+      ],
+      [
+        "UP",
+        "okx.swap.UP.USDT",
+        "aster.swap.UP.USDT",
+        1.1090573012939011,
+        29.062985,
+        134.550914,
+        438.6785335119534
+      ],
+      [
+        "BEAM",
+        "whitebit.swap.BEAM.USDT",
+        "bybit.swap.BEAM.USDT",
+        1.0964476498848588,
+        217.4386,
+        248.42351,
+        31.857930000000003
+      ],
+      [
+        "POD",
+        "gate.swap.POD.USDT",
+        "aster.swap.POD.USDT",
+        1.0409273716583902,
+        37.47747,
+        223.574783,
+        0
+      ],
+      [
+        "AXIS",
+        "aster.swap.AXIS.USDT",
+        "bybit.swap.AXIS.USDT",
+        0.9587727708533086,
+        17.47364,
+        105.900851,
+        0
+      ],
+      [
+        "MEW",
+        "whitebit.swap.MEW.USDT",
+        "binanceusdm.swap.MEW.USDT",
+        0.878734622144102,
+        30.486182,
+        30.486182,
+        0
+      ],
+      [
+        "CYBER",
+        "whitebit.swap.CYBER.USDT",
+        "bybit.swap.CYBER.USDT",
+        0.8349146110056849,
+        16.281505,
+        26.658331,
+        -584.3839800000001
+      ],
+      [
+        "RSR",
+        "whitebit.swap.RSR.USDT",
+        "bybit.swap.RSR.USDT",
+        0.7588286798326623,
+        96.996542,
+        155.062542,
+        0
+      ],
+      [
+        "HAJIMI",
+        "bybit.swap.HAJIMI.USDT",
+        "gate.swap.HAJIMI.USDT",
+        0.670118793786165,
+        16.268939,
+        16.268939,
+        0
+      ],
+      [
+        "BLUR",
+        "whitebit.swap.BLUR.USDT",
+        "bybit.swap.BLUR.USDT",
+        0.6486160343917284,
+        19.452647,
+        19.917939,
+        0
+      ],
+      [
+        "TRIA",
+        "bitget.swap.TRIA.USDT",
+        "whitebit.swap.TRIA.USDT",
+        0.6379585326953731,
+        5.368112,
+        24.879206,
+        0
+      ],
+      [
+        "POWER",
+        "kucoinfutures.swap.POWER.USDT",
+        "bitget.swap.POWER.USDT",
+        0.5571030640668574,
+        13.145719,
+        62.598664,
+        79.93500000000002
+      ],
+      [
+        "CHIP",
+        "whitebit.swap.CHIP.USDT",
+        "bybit.swap.CHIP.USDT",
+        0.5543578688019698,
+        65.229663,
+        326.148315,
+        0
+      ],
+      [
+        "ARIA",
+        "bybit.swap.ARIA.USDT",
+        "bitget.swap.ARIA.USDT",
+        0.5273613870326953,
+        47.063781,
+        257.179132,
+        75.38856
+      ],
+      [
+        "BULLA",
+        "mexc.swap.BULLA.USDT",
+        "gate.swap.BULLA.USDT",
+        0.5259697567389889,
+        24.059821,
+        60.466939,
+        657.4379999999999
+      ],
+      [
+        "STX",
+        "whitebit.swap.STX.USDT",
+        "okx.swap.STX.USDT",
+        0.5025125628140673,
+        599.99353,
+        599.99353,
+        0
+      ],
+      [
+        "GUA",
+        "aster.swap.GUA.USDT",
+        "kucoinfutures.swap.GUA.USDT",
+        0.4976892996800489,
+        1.260035,
+        28.000768,
+        -96.84837000000002
+      ],
+      [
+        "BTW",
+        "bitget.swap.BTW.USDT",
+        "bybit.swap.BTW.USDT",
+        0.4135888144718825,
+        1627.474393,
+        10808.127829,
+        -110.99358
+      ],
+      [
+        "ESPORTS",
+        "binanceusdm.swap.ESPORTS.USDT",
+        "gate.swap.ESPORTS.USDT",
+        0.3419934910916187,
+        1.410351,
+        8.361765,
+        -148.30242
+      ],
+      [
+        "GRAM",
+        "okx.swap.GRAM.USDT",
+        "aster.swap.GRAM.USDT",
+        0.3305785123966945,
+        3448.413553,
+        6379.55389,
+        114.63583626120722
+      ],
+      [
+        "ONE",
+        "gate.swap.ONE.USDT",
+        "okx.swap.ONE.USDT",
+        0.22082223809832915,
+        22.95267,
+        22.952673,
+        187.3545
+      ],
+      [
+        "AERO",
+        "bybit.swap.AERO.USDT",
+        "bitget.swap.AERO.USDT",
+        0.21945866861740654,
+        158.979639,
+        1098.364262,
+        123.07800000000002
+      ],
+      [
+        "NOM",
+        "gate.swap.NOM.USDT",
+        "bybit.swap.NOM.USDT",
+        0.21074815595363292,
+        4.123803,
+        10.408624,
+        0
+      ],
+      [
+        "NEAR",
+        "bybit.swap.NEAR.USDT",
+        "mexc.swap.NEAR.USDT",
+        0.1645187825610031,
+        4797.589655,
+        4797.589728,
+        0
+      ],
+      [
+        "SAFE",
+        "bybit.swap.SAFE.USDT",
+        "binanceusdm.swap.SAFE.USDT",
+        0.1607901688296787,
+        69.031872,
+        87.299204,
+        0
+      ],
+      [
+        "JCT",
+        "kucoinfutures.swap.JCT.USDT",
+        "bybit.swap.JCT.USDT",
+        0.15752345729744546,
+        67.471873,
+        293.517085,
+        0
+      ],
+      [
+        "AKE",
+        "bybit.swap.AKE.USDT",
+        "okx.swap.AKE.USDT",
+        0.15723270440251952,
+        57.993297,
+        254.398406,
+        0
+      ],
+      [
+        "Q",
+        "gate.swap.Q.USDT",
+        "binanceusdm.swap.Q.USDT",
+        0.12721634730063122,
+        124.482138,
+        252.368442,
+        51.465
+      ],
+      [
+        "BNB",
+        "bitget.swap.BNB.USDT",
+        "binanceusdm.swap.BNB.USDT",
+        0.1188598261124686,
+        89606.729713,
+        89606.729713,
+        -7.395630000000001
+      ],
+      [
+        "HUMA",
+        "okx.swap.HUMA.USDT",
+        "bybit.swap.HUMA.USDT",
+        0.11435105774729935,
+        15.207649,
+        87.736436,
+        291.3265662155304
+      ],
+      [
+        "ATOM",
+        "okx.swap.ATOM.USDT",
+        "gate.swap.ATOM.USDT",
+        0.07029876977153687,
+        768.046494,
+        768.046494,
+        21.10678811637435
+      ],
+      [
+        "RENDER",
+        "bybit.swap.RENDER.USDT",
+        "binanceusdm.swap.RENDER.USDT",
+        0.062169723344724266,
+        862.008746,
+        908.95856,
+        32.832480000000004
+      ],
+      [
+        "INJ",
+        "bybit.swap.INJ.USDT",
+        "binanceusdm.swap.INJ.USDT",
+        0.0500187570338822,
+        804.092156,
+        804.092156,
+        23.217285
+      ],
+      [
+        "DASH",
+        "gate.swap.DASH.USDT",
+        "bybit.swap.DASH.USDT",
+        0.04556846662108913,
+        568.912638,
+        568.914873,
+        52.2315
+      ],
+      [
+        "ARB",
+        "bybit.swap.ARB.USDT",
+        "binanceusdm.swap.ARB.USDT",
+        0.044029310941275435,
+        1100.902532,
+        1597.33627,
+        11.424135000000001
+      ],
+      [
+        "TRX",
+        "bitget.swap.TRX.USDT",
+        "binanceusdm.swap.TRX.USDT",
+        0.037805992249756934,
+        30174.113959,
+        30174.547895,
+        20.536725
+      ],
+      [
+        "AVAX",
+        "bybit.swap.AVAX.USDT",
+        "binanceusdm.swap.AVAX.USDT",
+        0.034472852628556316,
+        3886.151372,
+        4104.073236,
+        -5.136645
+      ],
+      [
+        "UNI",
+        "bitget.swap.UNI.USDT",
+        "okx.swap.UNI.USDT",
+        0.030802402587398425,
+        3955.161627,
+        5765.939649,
+        -1.0410314017674
+      ],
+      [
+        "HBAR",
+        "bybit.swap.HBAR.USDT",
+        "gate.swap.HBAR.USDT",
+        0.030339805825252007,
+        2923.611871,
+        3297.767026,
+        19.44063
+      ],
+      [
+        "OP",
+        "bybit.swap.OP.USDT",
+        "gate.swap.OP.USDT",
+        0.029980512666768846,
+        229.523653,
+        430.333955,
+        -27.2655
+      ],
+      [
+        "BCH",
+        "bitget.swap.BCH.USDT",
+        "bybit.swap.BCH.USDT",
+        0.02601456815815724,
+        4645.643374,
+        4645.641209,
+        6.4605
+      ],
+      [
+        "NIGHT",
+        "bybit.swap.NIGHT.USDT",
+        "okx.swap.NIGHT.USDT",
+        0.020291064040857322,
+        737.958683,
+        1066.452849,
+        -11.841315097860301
+      ],
+      [
+        "APT",
+        "bybit.swap.APT.USDT",
+        "okx.swap.APT.USDT",
+        0.017398869073508304,
+        509.621515,
+        698.145328,
+        0
+      ],
+      [
+        "AAVE",
+        "mexc.swap.AAVE.USDT",
+        "bybit.swap.AAVE.USDT",
+        0.01613944480310703,
+        1924.363708,
+        1994.061947,
+        7.336499999999999
+      ],
+      [
+        "DOGE",
+        "okx.swap.DOGE.USDT",
+        "binanceusdm.swap.DOGE.USDT",
+        0.014644504649644872,
+        10717.446725,
+        10717.532218,
+        3.76141006072785
+      ],
+      [
+        "SOL",
+        "bitget.swap.SOL.USDT",
+        "bybit.swap.SOL.USDT",
+        0.014307175048287258,
+        49687.704865,
+        53549.371396,
+        11.265359999999998
+      ],
+      [
+        "FIL",
+        "bybit.swap.FIL.USDT",
+        "bitget.swap.FIL.USDT",
+        0.01302677001238846,
+        650.05642,
+        1504.019167,
+        -6.0225
+      ],
+      [
+        "SUI",
+        "bybit.swap.SUI.USDT",
+        "binanceusdm.swap.SUI.USDT",
+        0.012028628134959883,
+        3448.776421,
+        8332.302823,
+        -12.216915
+      ],
+      [
+        "DOT",
+        "bybit.swap.DOT.USDT",
+        "okx.swap.DOT.USDT",
+        0.011682925404520006,
+        1465.486724,
+        1465.486724,
+        -1.4357442338046007
+      ],
+      [
+        "VVV",
+        "gate.swap.VVV.USDT",
+        "okx.swap.VVV.USDT",
+        0.01049593282604274,
+        936.894148,
+        1555.270548,
+        10.293000000000001
+      ],
+      [
+        "XRP",
+        "okx.swap.XRP.USDT",
+        "binanceusdm.swap.XRP.USDT",
+        0.009401588868517744,
+        67696.301595,
+        106565.109886,
+        0
+      ],
+      [
+        "BTC",
+        "okx.swap.BTC.USDT",
+        "binanceusdm.swap.BTC.USDT",
+        0.008781392634302958,
+        1488913.420575,
+        1488913.420575,
+        -0.4974822716615999
+      ],
+      [
+        "ETH",
+        "gate.swap.ETH.USDT",
+        "binanceusdm.swap.ETH.USDT",
+        0.007278285236002811,
+        252012.961228,
+        252012.961228,
+        -3.8565899999999997
+      ],
+      [
+        "XLM",
+        "binanceusdm.swap.XLM.USDT",
+        "okx.swap.XLM.USDT",
+        0.00673922566295936,
+        5275.904967,
+        7457.346164,
+        5.3728298930547
+      ],
+      [
+        "LTC",
+        "bitget.swap.LTC.USDT",
+        "binanceusdm.swap.LTC.USDT",
+        0,
+        3974.216851,
+        3974.235684,
+        -3.8533050000000006
+      ],
+      [
+        "LINK",
+        "bitget.swap.LINK.USDT",
+        "binanceusdm.swap.LINK.USDT",
+        0,
+        7989.716461,
+        10418.878228,
+        -1.545044999999999
+      ],
+      [
+        "ADA",
+        "okx.swap.ADA.USDT",
+        "binanceusdm.swap.ADA.USDT",
+        0,
+        6652.758679,
+        7969.085627,
+        6.3617556286524
+      ],
+      [
+        "ICP",
+        "okx.swap.ICP.USDT",
+        "binanceusdm.swap.ICP.USDT",
+        0,
+        1416.135697,
+        1416.135751,
+        18.417950829680997
+      ],
+      [
+        "SEI",
+        "okx.swap.SEI.USDT",
+        "binanceusdm.swap.SEI.USDT",
+        0,
+        297.245298,
+        441.453413,
+        9.3678349998018
+      ],
+      [
+        "PONS",
+        "okx.swap.PONS.USDT",
+        "gate.swap.PONS.USDT",
+        0,
+        103.46384,
+        103.46384,
+        0
+      ],
+      [
+        "MERL",
+        "okx.swap.MERL.USDT",
+        "bybit.swap.MERL.USDT",
+        -0.03288932741325306,
+        43.491461,
+        63.87701,
+        -66.73696500000001
+      ],
+      [
+        "COMP",
+        "bybit.swap.COMP.USDT",
+        "binanceusdm.swap.COMP.USDT",
+        -0.04993757802747348,
+        200.857198,
+        200.857198,
+        38.59437
+      ]
+    ],
+    "prior": [
+      [
+        "INIT",
+        "gate.swap.INIT.USDT",
+        "bybit.swap.INIT.USDT",
+        3.8958490989097294,
+        44.666932,
+        203.737991,
+        -10046.74764
+      ],
+      [
+        "1000CAT",
+        "bitget.swap.1000CAT.USDT",
+        "bybit.swap.1000CAT.USDT",
+        2.399520095980797,
+        12.667961,
+        13.673086,
+        -64.60499999999999
+      ],
+      [
+        "AXL",
+        "whitebit.swap.AXL.USDT",
+        "bybit.swap.AXL.USDT",
+        1.2012850956837542,
+        44.982319,
+        45.173943,
+        0
+      ],
+      [
+        "UP",
+        "okx.swap.UP.USDT",
+        "aster.swap.UP.USDT",
+        1.1090573012939011,
+        29.062985,
+        134.550914,
+        438.6785335119534
+      ],
+      [
+        "BEAM",
+        "whitebit.swap.BEAM.USDT",
+        "bybit.swap.BEAM.USDT",
+        1.0964476498848588,
+        217.4386,
+        248.42351,
+        31.857930000000003
+      ],
+      [
+        "POD",
+        "gate.swap.POD.USDT",
+        "aster.swap.POD.USDT",
+        1.0409273716583902,
+        37.47747,
+        223.574783,
+        0
+      ],
+      [
+        "AXIS",
+        "aster.swap.AXIS.USDT",
+        "bybit.swap.AXIS.USDT",
+        0.9587727708533086,
+        17.47364,
+        105.900851,
+        0
+      ],
+      [
+        "MEW",
+        "whitebit.swap.MEW.USDT",
+        "binanceusdm.swap.MEW.USDT",
+        0.878734622144102,
+        30.486182,
+        30.486182,
+        0
+      ],
+      [
+        "CYBER",
+        "whitebit.swap.CYBER.USDT",
+        "bybit.swap.CYBER.USDT",
+        0.8349146110056849,
+        16.281505,
+        26.658331,
+        -584.3839800000001
+      ],
+      [
+        "RSR",
+        "whitebit.swap.RSR.USDT",
+        "bybit.swap.RSR.USDT",
+        0.7588286798326623,
+        96.996542,
+        155.062542,
+        0
+      ],
+      [
+        "HAJIMI",
+        "bybit.swap.HAJIMI.USDT",
+        "gate.swap.HAJIMI.USDT",
+        0.670118793786165,
+        16.268939,
+        16.268939,
+        0
+      ],
+      [
+        "BLUR",
+        "whitebit.swap.BLUR.USDT",
+        "bybit.swap.BLUR.USDT",
+        0.6486160343917284,
+        19.452647,
+        19.917939,
+        0
+      ],
+      [
+        "TRIA",
+        "bitget.swap.TRIA.USDT",
+        "whitebit.swap.TRIA.USDT",
+        0.6379585326953731,
+        5.368112,
+        24.879206,
+        0
+      ],
+      [
+        "CHIP",
+        "whitebit.swap.CHIP.USDT",
+        "bybit.swap.CHIP.USDT",
+        0.5543578688019698,
+        65.229663,
+        326.148315,
+        0
+      ],
+      [
+        "ARIA",
+        "bybit.swap.ARIA.USDT",
+        "bitget.swap.ARIA.USDT",
+        0.5273613870326953,
+        47.063781,
+        257.179132,
+        75.38856
+      ],
+      [
+        "BULLA",
+        "mexc.swap.BULLA.USDT",
+        "gate.swap.BULLA.USDT",
+        0.5259697567389889,
+        24.059821,
+        60.466939,
+        657.4379999999999
+      ],
+      [
+        "STX",
+        "whitebit.swap.STX.USDT",
+        "okx.swap.STX.USDT",
+        0.5025125628140673,
+        599.99353,
+        599.99353,
+        0
+      ],
+      [
+        "BTW",
+        "bitget.swap.BTW.USDT",
+        "bybit.swap.BTW.USDT",
+        0.4135888144718825,
+        1627.474393,
+        10808.127829,
+        -110.99358
+      ],
+      [
+        "GRAM",
+        "okx.swap.GRAM.USDT",
+        "aster.swap.GRAM.USDT",
+        0.3305785123966945,
+        3448.413553,
+        6379.55389,
+        114.63583626120722
+      ],
+      [
+        "ONE",
+        "gate.swap.ONE.USDT",
+        "okx.swap.ONE.USDT",
+        0.22082223809832915,
+        22.95267,
+        22.952673,
+        187.3545
+      ],
+      [
+        "AERO",
+        "bybit.swap.AERO.USDT",
+        "bitget.swap.AERO.USDT",
+        0.21945866861740654,
+        158.979639,
+        1098.364262,
+        123.07800000000002
+      ],
+      [
+        "NEAR",
+        "bybit.swap.NEAR.USDT",
+        "mexc.swap.NEAR.USDT",
+        0.1645187825610031,
+        4797.589655,
+        4797.589728,
+        0
+      ],
+      [
+        "SAFE",
+        "bybit.swap.SAFE.USDT",
+        "binanceusdm.swap.SAFE.USDT",
+        0.1607901688296787,
+        69.031872,
+        87.299204,
+        0
+      ],
+      [
+        "JCT",
+        "kucoinfutures.swap.JCT.USDT",
+        "bybit.swap.JCT.USDT",
+        0.15752345729744546,
+        67.471873,
+        293.517085,
+        0
+      ],
+      [
+        "AKE",
+        "bybit.swap.AKE.USDT",
+        "okx.swap.AKE.USDT",
+        0.15723270440251952,
+        57.993297,
+        254.398406,
+        0
+      ],
+      [
+        "Q",
+        "gate.swap.Q.USDT",
+        "binanceusdm.swap.Q.USDT",
+        0.12721634730063122,
+        124.482138,
+        252.368442,
+        51.465
+      ],
+      [
+        "BNB",
+        "bitget.swap.BNB.USDT",
+        "binanceusdm.swap.BNB.USDT",
+        0.1188598261124686,
+        89606.729713,
+        89606.729713,
+        -7.395630000000001
+      ],
+      [
+        "HUMA",
+        "okx.swap.HUMA.USDT",
+        "bybit.swap.HUMA.USDT",
+        0.11435105774729935,
+        15.207649,
+        87.736436,
+        291.3265662155304
+      ],
+      [
+        "ATOM",
+        "okx.swap.ATOM.USDT",
+        "gate.swap.ATOM.USDT",
+        0.07029876977153687,
+        768.046494,
+        768.046494,
+        21.10678811637435
+      ],
+      [
+        "RENDER",
+        "bybit.swap.RENDER.USDT",
+        "binanceusdm.swap.RENDER.USDT",
+        0.062169723344724266,
+        862.008746,
+        908.95856,
+        32.832480000000004
+      ],
+      [
+        "INJ",
+        "bybit.swap.INJ.USDT",
+        "binanceusdm.swap.INJ.USDT",
+        0.0500187570338822,
+        804.092156,
+        804.092156,
+        23.217285
+      ],
+      [
+        "DASH",
+        "gate.swap.DASH.USDT",
+        "bybit.swap.DASH.USDT",
+        0.04556846662108913,
+        568.912638,
+        568.914873,
+        52.2315
+      ],
+      [
+        "ARB",
+        "bybit.swap.ARB.USDT",
+        "binanceusdm.swap.ARB.USDT",
+        0.044029310941275435,
+        1100.902532,
+        1597.33627,
+        11.424135000000001
+      ],
+      [
+        "TRX",
+        "bitget.swap.TRX.USDT",
+        "binanceusdm.swap.TRX.USDT",
+        0.037805992249756934,
+        30174.113959,
+        30174.547895,
+        20.536725
+      ],
+      [
+        "AVAX",
+        "bybit.swap.AVAX.USDT",
+        "binanceusdm.swap.AVAX.USDT",
+        0.034472852628556316,
+        3886.151372,
+        4104.073236,
+        -5.136645
+      ],
+      [
+        "UNI",
+        "bitget.swap.UNI.USDT",
+        "okx.swap.UNI.USDT",
+        0.030802402587398425,
+        3955.161627,
+        5765.939649,
+        -1.0410314017674
+      ],
+      [
+        "HBAR",
+        "bybit.swap.HBAR.USDT",
+        "gate.swap.HBAR.USDT",
+        0.030339805825252007,
+        2923.611871,
+        3297.767026,
+        19.44063
+      ],
+      [
+        "OP",
+        "bybit.swap.OP.USDT",
+        "gate.swap.OP.USDT",
+        0.029980512666768846,
+        229.523653,
+        430.333955,
+        -27.2655
+      ],
+      [
+        "BCH",
+        "bitget.swap.BCH.USDT",
+        "bybit.swap.BCH.USDT",
+        0.02601456815815724,
+        4645.643374,
+        4645.641209,
+        6.4605
+      ],
+      [
+        "NIGHT",
+        "bybit.swap.NIGHT.USDT",
+        "okx.swap.NIGHT.USDT",
+        0.020291064040857322,
+        737.958683,
+        1066.452849,
+        -11.841315097860301
+      ],
+      [
+        "APT",
+        "bybit.swap.APT.USDT",
+        "okx.swap.APT.USDT",
+        0.017398869073508304,
+        509.621515,
+        698.145328,
+        0
+      ],
+      [
+        "AAVE",
+        "mexc.swap.AAVE.USDT",
+        "bybit.swap.AAVE.USDT",
+        0.01613944480310703,
+        1924.363708,
+        1994.061947,
+        7.336499999999999
+      ],
+      [
+        "DOGE",
+        "okx.swap.DOGE.USDT",
+        "binanceusdm.swap.DOGE.USDT",
+        0.014644504649644872,
+        10717.446725,
+        10717.532218,
+        3.76141006072785
+      ],
+      [
+        "SOL",
+        "bitget.swap.SOL.USDT",
+        "bybit.swap.SOL.USDT",
+        0.014307175048287258,
+        49687.704865,
+        53549.371396,
+        11.265359999999998
+      ],
+      [
+        "FIL",
+        "bybit.swap.FIL.USDT",
+        "bitget.swap.FIL.USDT",
+        0.01302677001238846,
+        650.05642,
+        1504.019167,
+        -6.0225
+      ],
+      [
+        "SUI",
+        "bybit.swap.SUI.USDT",
+        "binanceusdm.swap.SUI.USDT",
+        0.012028628134959883,
+        3448.776421,
+        8332.302823,
+        -12.216915
+      ],
+      [
+        "DOT",
+        "bybit.swap.DOT.USDT",
+        "okx.swap.DOT.USDT",
+        0.011682925404520006,
+        1465.486724,
+        1465.486724,
+        -1.4357442338046007
+      ],
+      [
+        "VVV",
+        "gate.swap.VVV.USDT",
+        "okx.swap.VVV.USDT",
+        0.01049593282604274,
+        936.894148,
+        1555.270548,
+        10.293000000000001
+      ],
+      [
+        "XRP",
+        "okx.swap.XRP.USDT",
+        "binanceusdm.swap.XRP.USDT",
+        0.009401588868517744,
+        67696.301595,
+        106565.109886,
+        0
+      ],
+      [
+        "BTC",
+        "okx.swap.BTC.USDT",
+        "binanceusdm.swap.BTC.USDT",
+        0.008781392634302958,
+        1488913.420575,
+        1488913.420575,
+        -0.4974822716615999
+      ],
+      [
+        "ETH",
+        "gate.swap.ETH.USDT",
+        "binanceusdm.swap.ETH.USDT",
+        0.007278285236002811,
+        252012.961228,
+        252012.961228,
+        -3.8565899999999997
+      ],
+      [
+        "XLM",
+        "binanceusdm.swap.XLM.USDT",
+        "okx.swap.XLM.USDT",
+        0.00673922566295936,
+        5275.904967,
+        7457.346164,
+        5.3728298930547
+      ],
+      [
+        "LTC",
+        "bitget.swap.LTC.USDT",
+        "binanceusdm.swap.LTC.USDT",
+        0,
+        3974.216851,
+        3974.235684,
+        -3.8533050000000006
+      ],
+      [
+        "LINK",
+        "bitget.swap.LINK.USDT",
+        "binanceusdm.swap.LINK.USDT",
+        0,
+        7989.716461,
+        10418.878228,
+        -1.545044999999999
+      ],
+      [
+        "ADA",
+        "okx.swap.ADA.USDT",
+        "binanceusdm.swap.ADA.USDT",
+        0,
+        6652.758679,
+        7969.085627,
+        6.3617556286524
+      ],
+      [
+        "ICP",
+        "okx.swap.ICP.USDT",
+        "binanceusdm.swap.ICP.USDT",
+        0,
+        1416.135697,
+        1416.135751,
+        18.417950829680997
+      ],
+      [
+        "SEI",
+        "okx.swap.SEI.USDT",
+        "binanceusdm.swap.SEI.USDT",
+        0,
+        297.245298,
+        441.453413,
+        9.3678349998018
+      ],
+      [
+        "PONS",
+        "okx.swap.PONS.USDT",
+        "gate.swap.PONS.USDT",
+        0,
+        103.46384,
+        103.46384,
+        0
+      ],
+      [
+        "MERL",
+        "okx.swap.MERL.USDT",
+        "bybit.swap.MERL.USDT",
+        -0.03288932741325306,
+        43.491461,
+        63.87701,
+        -66.73696500000001
+      ],
+      [
+        "COMP",
+        "bybit.swap.COMP.USDT",
+        "binanceusdm.swap.COMP.USDT",
+        -0.04993757802747348,
+        200.857198,
+        200.857198,
+        38.59437
+      ]
+    ],
+    "modeled": [
+      [
+        "INIT",
+        "gate.swap.INIT.USDT",
+        "bybit.swap.INIT.USDT",
+        3.8958490989097294,
+        44.666932,
+        203.737991,
+        -10046.74764
+      ],
+      [
+        "1000CAT",
+        "bitget.swap.1000CAT.USDT",
+        "bybit.swap.1000CAT.USDT",
+        2.399520095980797,
+        12.667961,
+        13.673086,
+        -64.60499999999999
+      ],
+      [
+        "AXL",
+        "whitebit.swap.AXL.USDT",
+        "bybit.swap.AXL.USDT",
+        1.2012850956837542,
+        44.982319,
+        45.173943,
+        0
+      ],
+      [
+        "UP",
+        "okx.swap.UP.USDT",
+        "aster.swap.UP.USDT",
+        1.1090573012939011,
+        29.062985,
+        134.550914,
+        438.6785335119534
+      ],
+      [
+        "BEAM",
+        "whitebit.swap.BEAM.USDT",
+        "bybit.swap.BEAM.USDT",
+        1.0964476498848588,
+        217.4386,
+        248.42351,
+        31.857930000000003
+      ],
+      [
+        "POD",
+        "gate.swap.POD.USDT",
+        "aster.swap.POD.USDT",
+        1.0409273716583902,
+        37.47747,
+        223.574783,
+        0
+      ],
+      [
+        "AXIS",
+        "aster.swap.AXIS.USDT",
+        "bybit.swap.AXIS.USDT",
+        0.9587727708533086,
+        17.47364,
+        105.900851,
+        0
+      ],
+      [
+        "MEW",
+        "whitebit.swap.MEW.USDT",
+        "binanceusdm.swap.MEW.USDT",
+        0.878734622144102,
+        30.486182,
+        30.486182,
+        0
+      ],
+      [
+        "CYBER",
+        "whitebit.swap.CYBER.USDT",
+        "bybit.swap.CYBER.USDT",
+        0.8349146110056849,
+        16.281505,
+        26.658331,
+        -584.3839800000001
+      ],
+      [
+        "RSR",
+        "whitebit.swap.RSR.USDT",
+        "bybit.swap.RSR.USDT",
+        0.7588286798326623,
+        96.996542,
+        155.062542,
+        0
+      ],
+      [
+        "HAJIMI",
+        "bybit.swap.HAJIMI.USDT",
+        "gate.swap.HAJIMI.USDT",
+        0.670118793786165,
+        16.268939,
+        16.268939,
+        0
+      ],
+      [
+        "BLUR",
+        "whitebit.swap.BLUR.USDT",
+        "bybit.swap.BLUR.USDT",
+        0.6486160343917284,
+        19.452647,
+        19.917939,
+        0
+      ],
+      [
+        "TRIA",
+        "bitget.swap.TRIA.USDT",
+        "whitebit.swap.TRIA.USDT",
+        0.6379585326953731,
+        5.368112,
+        24.879206,
+        0
+      ],
+      [
+        "POWER",
+        "kucoinfutures.swap.POWER.USDT",
+        "bitget.swap.POWER.USDT",
+        0.5571030640668574,
+        13.145719,
+        62.598664,
+        79.93500000000002
+      ],
+      [
+        "CHIP",
+        "whitebit.swap.CHIP.USDT",
+        "bybit.swap.CHIP.USDT",
+        0.5543578688019698,
+        65.229663,
+        326.148315,
+        0
+      ],
+      [
+        "ARIA",
+        "bybit.swap.ARIA.USDT",
+        "bitget.swap.ARIA.USDT",
+        0.5273613870326953,
+        47.063781,
+        257.179132,
+        75.38856
+      ],
+      [
+        "BULLA",
+        "mexc.swap.BULLA.USDT",
+        "gate.swap.BULLA.USDT",
+        0.5259697567389889,
+        24.059821,
+        60.466939,
+        657.4379999999999
+      ],
+      [
+        "STX",
+        "whitebit.swap.STX.USDT",
+        "okx.swap.STX.USDT",
+        0.5025125628140673,
+        599.99353,
+        599.99353,
+        0
+      ],
+      [
+        "GRAM",
+        "okx.swap.GRAM.USDT",
+        "aster.swap.GRAM.USDT",
+        0.3305785123966945,
+        3448.413553,
+        6379.55389,
+        114.63583626120722
+      ],
+      [
+        "ONE",
+        "gate.swap.ONE.USDT",
+        "okx.swap.ONE.USDT",
+        0.22082223809832915,
+        22.95267,
+        22.952673,
+        187.3545
+      ],
+      [
+        "AERO",
+        "bybit.swap.AERO.USDT",
+        "bitget.swap.AERO.USDT",
+        0.21945866861740654,
+        158.979639,
+        1098.364262,
+        123.07800000000002
+      ],
+      [
+        "NOM",
+        "gate.swap.NOM.USDT",
+        "kucoinfutures.swap.NOM.USDT",
+        0.21074815595363292,
+        4.123803,
+        10.408624,
+        111.69
+      ],
+      [
+        "GUA",
+        "binanceusdm.swap.GUA.USDT",
+        "gate.swap.GUA.USDT",
+        0.142500890630573,
+        1.260035,
+        28.000768,
+        296.70995999999997
+      ],
+      [
+        "Q",
+        "gate.swap.Q.USDT",
+        "binanceusdm.swap.Q.USDT",
+        0.12721634730063122,
+        124.482138,
+        252.368442,
+        51.465
+      ],
+      [
+        "HUMA",
+        "okx.swap.HUMA.USDT",
+        "bybit.swap.HUMA.USDT",
+        0.11435105774729935,
+        15.207649,
+        87.736436,
+        291.3265662155304
+      ],
+      [
+        "DASH",
+        "gate.swap.DASH.USDT",
+        "bybit.swap.DASH.USDT",
+        0.04556846662108913,
+        568.912638,
+        568.914873,
+        52.2315
+      ],
+      [
+        "BTW",
+        "binanceusdm.swap.BTW.USDT",
+        "gate.swap.BTW.USDT",
+        0.036599113519169196,
+        1627.474393,
+        10808.127829,
+        82.07462999999997
+      ],
+      [
+        "SAFE",
+        "bybit.swap.SAFE.USDT",
+        "gate.swap.SAFE.USDT",
+        -0.09199632014719036,
+        69.031872,
+        87.299204,
+        76.431
+      ],
+      [
+        "MERL",
+        "bybit.swap.MERL.USDT",
+        "okx.swap.MERL.USDT",
+        -0.16444663706626528,
+        43.491461,
+        63.87701,
+        66.73696500000001
+      ],
+      [
+        "ESPORTS",
+        "bybit.swap.ESPORTS.USDT",
+        "aster.swap.ESPORTS.USDT",
+        -0.1765614654601676,
+        1.410351,
+        8.361765,
+        174.40721999999997
+      ]
+    ],
+    "exact": [
+      {
+        "group": "CASHCAT",
+        "pair": null,
+        "legs": [
+          [
+            "gate.swap.CASHCAT.USDT",
+            "CASHCAT/USDT:USDT",
+            null,
+            0.06162,
+            0.06156,
+            null,
+            1794393706322,
+            1.083194
+          ],
+          null
+        ]
+      },
+      {
+        "group": "MYX",
+        "pair": null,
+        "legs": [
+          [
+            "kucoinfutures.swap.MYX.USDT",
+            "MYX/USDT:USDT",
+            null,
+            0.04736,
+            0.04727,
+            1794393706718,
+            1794393706739,
+            0.5665335032000001
+          ],
+          null
+        ]
+      },
+      {
+        "group": "10000NEX",
+        "pair": null,
+        "legs": [
+          null,
+          null
+        ]
+      },
+      {
+        "group": "RAVE",
+        "pair": null,
+        "legs": [
+          [
+            "kucoinfutures.swap.RAVE.USDT",
+            "RAVE/USDT:USDT",
+            null,
+            0.12849,
+            0.12833,
+            1794393706718,
+            1794393706739,
+            1.8028137286
+          ],
+          null
+        ]
+      },
+      {
+        "group": "BP",
+        "pair": null,
+        "legs": [
+          null,
+          null
+        ]
+      },
+      {
+        "group": "BOME",
+        "pair": null,
+        "legs": [
+          [
+            "binanceusdm.swap.BOME.USDT",
+            "BOME/USDT:USDT",
+            null,
+            0.0006134,
+            0.0006133,
+            1794393703363,
+            1794393706371,
+            7.7800126920943
+          ],
+          null
+        ]
+      },
+      {
+        "group": "INIT",
+        "pair": [
+          3.8958490989097294,
+          "receipt",
+          44.666932,
+          203.737991,
+          -10046.74764,
+          true
+        ],
+        "legs": [
+          [
+            "gate.swap.INIT.USDT",
+            "INIT/USDT:USDT",
+            "initia",
+            0.17492,
+            0.17487,
+            null,
+            1794393706322,
+            77.721376
+          ],
+          [
+            "bybit.swap.INIT.USDT",
+            "INIT/USDT:USDT",
+            "initia",
+            0.18195,
+            0.18187,
+            null,
+            1794393706490,
+            327.4921089359
+          ]
+        ]
+      },
+      {
+        "group": "1000CAT",
+        "pair": [
+          2.399520095980797,
+          "receipt",
+          12.667961,
+          13.673086,
+          -64.60499999999999,
+          true
+        ],
+        "legs": [
+          [
+            "bitget.swap.1000CAT.USDT",
+            "1000CAT/USDT:USDT",
+            "simon-s-cat",
+            0.001647,
+            0.001645,
+            1794393706329,
+            1794393706401,
+            0.08072584633
+          ],
+          [
+            "bybit.swap.1000CAT.USDT",
+            "1000CAT/USDT:USDT",
+            "simon-s-cat",
+            0.001689,
+            0.001687,
+            null,
+            1794393706490,
+            0.32312447009999995
+          ]
+        ]
+      },
+      {
+        "group": "PYBOBO",
+        "pair": [
+          null,
+          "skew",
+          18.018738,
+          50.99643,
+          1310.058,
+          false
+        ],
+        "legs": [
+          [
+            "kucoinfutures.swap.PYBOBO.USDT",
+            "PYBOBO/USDT:USDT",
+            "capybobo",
+            0.0005023,
+            0.0005008,
+            1794393706718,
+            1794393706739,
+            2.8029010642
+          ],
+          [
+            "mexc.swap.PYBOBO.USDT",
+            "PYBOBO/USDT:USDT",
+            "capybobo",
+            0.0005136,
+            0.0005105,
+            1794393702153,
+            1794393706457,
+            0.405404912
+          ]
+        ]
+      },
+      {
+        "group": "BEAM",
+        "pair": [
+          1.0964476498848588,
+          "receipt",
+          217.4386,
+          248.42351,
+          31.857930000000003,
+          true
+        ],
+        "legs": [
+          [
+            "whitebit.swap.BEAM.USDT",
+            "BEAM/USDT:USDT",
+            "beam-2",
+            0.004254,
+            0.004241,
+            null,
+            1794393706164,
+            2.254092760878
+          ],
+          [
+            "bybit.swap.BEAM.USDT",
+            "BEAM/USDT:USDT",
+            "beam-2",
+            0.0043036,
+            0.0043009,
+            null,
+            1794393706490,
+            4.991203598
+          ]
+        ]
+      },
+      {
+        "group": "POD",
+        "pair": [
+          1.0409273716583902,
+          "receipt",
+          37.47747,
+          223.574783,
+          0,
+          true
+        ],
+        "legs": [
+          [
+            "gate.swap.POD.USDT",
+            "POD/USDT:USDT",
+            "dolphin-2",
+            0.4205,
+            0.4,
+            null,
+            1794393706322,
+            0.00338
+          ],
+          [
+            "aster.swap.POD.USDT",
+            "POD/USDT:USDT",
+            "dolphin-2",
+            0.4486,
+            0.4249,
+            1794393693100,
+            1794393706563,
+            0.00240615
+          ]
+        ]
+      },
+      {
+        "group": "UP",
+        "pair": [
+          1.1090573012939011,
+          "timed",
+          29.062985,
+          134.550914,
+          438.6785335119534,
+          true
+        ],
+        "legs": [
+          [
+            "okx.swap.UP.USDT",
+            "UP/USDT:USDT",
+            "unitas",
+            0.1345,
+            0.1344,
+            1794393707070,
+            1794393707365,
+            null
+          ],
+          [
+            "aster.swap.UP.USDT",
+            "UP/USDT:USDT",
+            "unitas",
+            0.1364,
+            0.136,
+            1794393706400,
+            1794393706563,
+            1.4672556499999998
+          ]
+        ]
+      },
+      {
+        "group": "AXIS",
+        "pair": [
+          null,
+          "skew",
+          17.47364,
+          105.900851,
+          0,
+          false
+        ],
+        "legs": [
+          [
+            "aster.swap.AXIS.USDT",
+            "AXIS/USDT:USDT",
+            "axis-robotics",
+            0.1038,
+            0.1033,
+            1794393694600,
+            1794393706563,
+            0.0034788
+          ],
+          [
+            "bitget.swap.AXIS.USDT",
+            "AXIS/USDT:USDT",
+            "axis-robotics",
+            0.10511,
+            0.10501,
+            1794393706331,
+            1794393706401,
+            0.64329924985
+          ]
+        ]
+      },
+      {
+        "group": "PREDICT",
+        "pair": null,
+        "legs": [
+          null,
+          [
+            "aster.swap.PREDICT.USDT",
+            "PREDICT/USDT:USDT",
+            null,
+            1.1038,
+            1.1031,
+            1794393706250,
+            1794393706563,
+            0.37121533
+          ]
+        ]
+      },
+      {
+        "group": "CYBER",
+        "pair": [
+          0.8349146110056849,
+          "receipt",
+          16.281505,
+          26.658331,
+          -584.3839800000001,
+          true
+        ],
+        "legs": [
+          [
+            "whitebit.swap.CYBER.USDT",
+            "CYBER/USDT:USDT",
+            "cyberconnect",
+            0.2624,
+            0.2606,
+            null,
+            1794393706164,
+            1.31193995955
+          ],
+          [
+            "bybit.swap.CYBER.USDT",
+            "CYBER/USDT:USDT",
+            "cyberconnect",
+            0.2647,
+            0.2646,
+            null,
+            1794393706490,
+            16.636782899499998
+          ]
+        ]
+      },
+      {
+        "group": "MEW",
+        "pair": [
+          0.878734622144102,
+          "receipt",
+          30.486182,
+          30.486182,
+          0,
+          true
+        ],
+        "legs": [
+          [
+            "whitebit.swap.MEW.USDT",
+            "MEW/USDT:USDT",
+            "cat-in-a-dogs-world",
+            0.0003399,
+            0.0003381,
+            null,
+            1794393706164,
+            0.44331020381680003
+          ],
+          [
+            "mexc.swap.MEW.USDT",
+            "MEW/USDT:USDT",
+            "cat-in-a-dogs-world",
+            0.000343,
+            0.0003429,
+            1794393702835,
+            1794393706457,
+            0.1134316099
+          ]
+        ]
+      },
+      {
+        "group": "RSR",
+        "pair": [
+          0.7588286798326623,
+          "receipt",
+          96.996542,
+          155.062542,
+          0,
+          true
+        ],
+        "legs": [
+          [
+            "whitebit.swap.RSR.USDT",
+            "RSR/USDT:USDT",
+            "reserve-rights-token",
+            0.001536,
+            0.001527,
+            null,
+            1794393706164,
+            1.80793781754
+          ],
+          [
+            "bybit.swap.RSR.USDT",
+            "RSR/USDT:USDT",
+            "reserve-rights-token",
+            0.0015486,
+            0.0015477,
+            null,
+            1794393706490,
+            2.1238506255000003
+          ]
+        ]
+      },
+      {
+        "group": "BLUR",
+        "pair": [
+          0.6486160343917284,
+          "receipt",
+          19.452647,
+          19.917939,
+          0,
+          true
+        ],
+        "legs": [
+          [
+            "whitebit.swap.BLUR.USDT",
+            "BLUR/USDT:USDT",
+            "blur",
+            0.006608,
+            0.006566,
+            null,
+            1794393706164,
+            1.033349600648
+          ],
+          [
+            "bybit.swap.BLUR.USDT",
+            "BLUR/USDT:USDT",
+            "blur",
+            0.006653,
+            0.006651,
+            null,
+            1794393706490,
+            0.7171529631000001
+          ]
+        ]
+      },
+      {
+        "group": "TRIA",
+        "pair": [
+          0.6379585326953731,
+          "receipt",
+          5.368112,
+          24.879206,
+          0,
+          true
+        ],
+        "legs": [
+          [
+            "bitget.swap.TRIA.USDT",
+            "TRIA/USDT:USDT",
+            "tria",
+            0.0025,
+            0.002497,
+            1794393706330,
+            1794393706401,
+            0.139387795358
+          ],
+          [
+            "whitebit.swap.TRIA.USDT",
+            "TRIA/USDT:USDT",
+            "tria",
+            0.002536,
+            0.002516,
+            null,
+            1794393706164,
+            0.5801414584210001
+          ]
+        ]
+      },
+      {
+        "group": "CHIP",
+        "pair": [
+          0.5543578688019698,
+          "receipt",
+          65.229663,
+          326.148315,
+          0,
+          true
+        ],
+        "legs": [
+          [
+            "whitebit.swap.CHIP.USDT",
+            "CHIP/USDT:USDT",
+            "chip-2",
+            0.03238,
+            0.03208,
+            null,
+            1794393706164,
+            2.2417241664999996
+          ],
+          [
+            "bybit.swap.CHIP.USDT",
+            "CHIP/USDT:USDT",
+            "chip-2",
+            0.03259,
+            0.03256,
+            null,
+            1794393706490,
+            1.9070879652
+          ]
+        ]
+      },
+      {
+        "group": "HAJIMI",
+        "pair": null,
+        "legs": [
+          [
+            "bybit.swap.HAJIMI.USDT",
+            "HAJIMI/USDT:USDT",
+            "hajimi",
+            0.01636,
+            0.01634,
+            null,
+            1794393706490,
+            1.689836301
+          ],
+          null
+        ]
+      },
+      {
+        "group": "BULLA",
+        "pair": [
+          0.509491330429777,
+          "receipt",
+          24.059821,
+          60.466939,
+          657.3482099999999,
+          true
+        ],
+        "legs": [
+          [
+            "binanceusdm.swap.BULLA.USDT",
+            "BULLA/USDT:USDT",
+            "bulla-3",
+            0.06069,
+            0.06068,
+            1794393705312,
+            1794393706371,
+            12.04963256996
+          ],
+          [
+            "gate.swap.BULLA.USDT",
+            "BULLA/USDT:USDT",
+            "bulla-3",
+            0.061088,
+            0.061,
+            null,
+            1794393706322,
+            0.953743
+          ]
+        ]
+      },
+      {
+        "group": "ARIA",
+        "pair": [
+          0.6179420001806809,
+          "timed",
+          null,
+          null,
+          114.37056000000001,
+          false
+        ],
+        "legs": [
+          [
+            "aster.swap.ARIA.USDT",
+            "ARIA/USDT:USDT",
+            null,
+            0.27587,
+            0.27565,
+            1794393706550,
+            1794393706563,
+            0.86462787
+          ],
+          [
+            "bitget.swap.ARIA.USDT",
+            "ARIA/USDT:USDT",
+            "aria-ai",
+            0.27781,
+            0.27758,
+            1794393706330,
+            1794393706401,
+            23.55907277666
+          ]
+        ]
+      },
+      {
+        "group": "AGT",
+        "pair": [
+          0.6992882878085982,
+          "receipt",
+          null,
+          278.2111,
+          272.75574,
+          false
+        ],
+        "legs": [
+          [
+            "gate.swap.AGT.USDT",
+            "AGT/USDT:USDT",
+            "alaya-ai",
+            0.056146,
+            0.056145,
+            null,
+            1794393706322,
+            7.027523
+          ],
+          [
+            "aster.swap.AGT.USDT",
+            "AGT/USDT:USDT",
+            "alaya-ai",
+            0.05668,
+            0.05654,
+            1794393706550,
+            1794393706563,
+            0.8541145600000001
+          ]
+        ]
+      },
+      {
+        "group": "ONE",
+        "pair": [
+          0.2856771847811901,
+          "receipt",
+          null,
+          null,
+          71.2845,
+          false
+        ],
+        "legs": [
+          [
+            "gate.swap.ONE.USDT",
+            "ONE/USDT:USDT",
+            "harmony",
+            0.001538,
+            0.001537,
+            null,
+            1794393706322,
+            6.207128
+          ],
+          [
+            "mexc.swap.ONE.USDT",
+            "ONE/USDT:USDT",
+            null,
+            0.0015425,
+            0.0015424,
+            1794393702101,
+            1794393706457,
+            10.9721571142974
+          ]
+        ]
+      },
+      {
+        "group": "GRAM",
+        "pair": [
+          0.3305785123966945,
+          "timed",
+          null,
+          null,
+          76.73979,
+          false
+        ],
+        "legs": [
+          [
+            "bitget.swap.GRAM.USDT",
+            "GRAM/USDT:USDT",
+            null,
+            1.208,
+            1.2074,
+            1794393706329,
+            1794393706401,
+            5.54760710004
+          ],
+          [
+            "aster.swap.GRAM.USDT",
+            "GRAM/USDT:USDT",
+            "the-open-network",
+            1.214,
+            1.212,
+            1794393706200,
+            1794393706563,
+            2.68648807
+          ]
+        ]
+      },
+      {
+        "group": "DOS",
+        "pair": [
+          0.23752969121140824,
+          "receipt",
+          null,
+          null,
+          64.04874,
+          false
+        ],
+        "legs": [
+          [
+            "gate.swap.DOS.USDT",
+            "DOS/USDT:USDT",
+            null,
+            0.1682,
+            0.1681,
+            null,
+            1794393706322,
+            0.350465
+          ],
+          [
+            "aster.swap.DOS.USDT",
+            "DOS/USDT:USDT",
+            null,
+            0.1692,
+            0.1686,
+            1794393706450,
+            1794393706563,
+            0.44162581
+          ]
+        ]
+      },
+      {
+        "group": "ZEREBRO",
+        "pair": [
+          0.26292005587051825,
+          "receipt",
+          null,
+          null,
+          77.088,
+          false
+        ],
+        "legs": [
+          [
+            "gate.swap.ZEREBRO.USDT",
+            "ZEREBRO/USDT:USDT",
+            null,
+            0.02431,
+            0.024275,
+            null,
+            1794393706322,
+            0.030364
+          ],
+          [
+            "kucoinfutures.swap.ZEREBRO.USDT",
+            "ZEREBRO/USDT:USDT",
+            null,
+            0.024403,
+            0.024374,
+            1794393706718,
+            1794393706739,
+            0.613085047984
+          ]
+        ]
+      },
+      {
+        "group": "ERA",
+        "pair": null,
+        "legs": [
+          null,
+          [
+            "bitget.swap.ERA.USDT",
+            "ERA/USDT:USDT",
+            null,
+            0.08625,
+            0.08615,
+            1794393706329,
+            1794393706401,
+            7.32297729308
+          ]
+        ]
+      },
+      {
+        "group": "POWER",
+        "pair": [
+          0.2868983104877265,
+          "receipt",
+          13.145719,
+          62.598664,
+          169.287,
+          true
+        ],
+        "legs": [
+          [
+            "kucoinfutures.swap.POWER.USDT",
+            "POWER/USDT:USDT",
+            "power-protocol",
+            0.06265,
+            0.06255,
+            1794393706718,
+            1794393706739,
+            0.49108104119999996
+          ],
+          [
+            "gate.swap.POWER.USDT",
+            "POWER/USDT:USDT",
+            "power-protocol",
+            0.06286,
+            0.06283,
+            null,
+            1794393706322,
+            0.01339
+          ]
+        ]
+      },
+      {
+        "group": "PENGU",
+        "pair": [
+          null,
+          "skew",
+          null,
+          null,
+          2.4090000000000007,
+          false
+        ],
+        "legs": [
+          [
+            "bitget.swap.PENGU.USDT",
+            "PENGU/USDT:USDT",
+            null,
+            0.006284,
+            0.006283,
+            1794393706329,
+            1794393706401,
+            2.280887755591
+          ],
+          [
+            "mexc.swap.PENGU.USDT",
+            "PENGU/USDT:USDT",
+            null,
+            0.006286,
+            0.006285,
+            1794393702268,
+            1794393706457,
+            2.83024804568
+          ]
+        ]
+      },
+      {
+        "group": "IDOL",
+        "pair": [
+          0.26705926661417356,
+          "timed",
+          null,
+          null,
+          103.47969,
+          false
+        ],
+        "legs": [
+          [
+            "bitget.swap.IDOL.USDT",
+            "IDOL/USDT:USDT",
+            null,
+            0.029168,
+            0.029138,
+            1794393706329,
+            1794393706401,
+            3.493674262383
+          ],
+          [
+            "aster.swap.IDOL.USDT",
+            "IDOL/USDT:USDT",
+            null,
+            0.029296,
+            0.029246,
+            1794393706550,
+            1794393706563,
+            0.5598970600000001
+          ]
+        ]
+      },
+      {
+        "group": "COAI",
+        "pair": [
+          0.12492192379763141,
+          "receipt",
+          null,
+          null,
+          98.112,
+          false
+        ],
+        "legs": [
+          [
+            "gate.swap.COAI.USDT",
+            "COAI/USDT:USDT",
+            null,
+            0.208,
+            0.2077,
+            null,
+            1794393706322,
+            0.047756
+          ],
+          [
+            "kucoinfutures.swap.COAI.USDT",
+            "COAI/USDT:USDT",
+            null,
+            0.20878,
+            0.20826,
+            1794393706718,
+            1794393706739,
+            0.8689423937999999
+          ]
+        ]
+      },
+      {
+        "group": "BTW",
+        "pair": null,
+        "legs": [
+          null,
+          [
+            "gate.swap.BTW.USDT",
+            "BTW/USDT:USDT",
+            "bitway-btw",
+            1.074427,
+            1.073993,
+            null,
+            1794393706322,
+            16.909102
+          ]
+        ]
+      },
+      {
+        "group": "GUA",
+        "pair": [
+          0.142500890630573,
+          "receipt",
+          1.260035,
+          28.000768,
+          296.70995999999997,
+          true
+        ],
+        "legs": [
+          [
+            "binanceusdm.swap.GUA.USDT",
+            "GUA/USDT:USDT",
+            "superfortune",
+            0.02805,
+            0.02804,
+            1794393690405,
+            1794393706371,
+            1.89831853214
+          ],
+          [
+            "gate.swap.GUA.USDT",
+            "GUA/USDT:USDT",
+            "superfortune",
+            0.02813,
+            0.02809,
+            null,
+            1794393706322,
+            0.012231
+          ]
+        ]
+      },
+      {
+        "group": "GTC",
+        "pair": [
+          null,
+          "skew",
+          null,
+          null,
+          189.12839999999997,
+          false
+        ],
+        "legs": [
+          [
+            "kucoinfutures.swap.GTC.USDT",
+            "GTC/USDT:USDT",
+            null,
+            0.1617,
+            0.1614,
+            1794393706718,
+            1794393706739,
+            0.14449071479999998
+          ],
+          [
+            "binanceusdm.swap.GTC.USDT",
+            "GTC/USDT:USDT",
+            null,
+            0.16216,
+            0.16214,
+            1794393705034,
+            1794393706371,
+            6.350729953673
+          ]
+        ]
+      },
+      {
+        "group": "FF",
+        "pair": [
+          0.23421946363741875,
+          "receipt",
+          null,
+          null,
+          66.576,
+          false
+        ],
+        "legs": [
+          [
+            "bybit.swap.FF.USDT",
+            "FF/USDT:USDT",
+            null,
+            0.08529,
+            0.08527,
+            null,
+            1794393706490,
+            0.42538941230000005
+          ],
+          [
+            "gate.swap.FF.USDT",
+            "FF/USDT:USDT",
+            null,
+            0.08552,
+            0.08549,
+            null,
+            1794393706322,
+            0.264153
+          ]
+        ]
+      },
+      {
+        "group": "OG",
+        "pair": [
+          -0.09456264775414769,
+          "receipt",
+          null,
+          null,
+          207.83100000000002,
+          false
+        ],
+        "legs": [
+          [
+            "binanceusdm.swap.OG.USDT",
+            "OG/USDT:USDT",
+            null,
+            2.116,
+            2.114,
+            1794393694937,
+            1794393706371,
+            0.6520938903
+          ],
+          [
+            "gate.swap.OG.USDT",
+            "OG/USDT:USDT",
+            null,
+            2.121,
+            2.114,
+            null,
+            1794393706322,
+            0.018099
+          ]
+        ]
+      },
+      {
+        "group": "POPCAT",
+        "pair": [
+          -0.058892815076558254,
+          "timed",
+          null,
+          null,
+          0,
+          false
+        ],
+        "legs": [
+          [
+            "bitget.swap.POPCAT.USDT",
+            "POPCAT/USDT:USDT",
+            null,
+            0.03397,
+            0.03393,
+            1794393706329,
+            1794393706401,
+            0.07974311996
+          ],
+          [
+            "kucoinfutures.swap.POPCAT.USDT",
+            "POPCAT/USDT:USDT",
+            null,
+            0.034,
+            0.03395,
+            1794393706718,
+            1794393706739,
+            0.27810030396
+          ]
+        ]
+      },
+      {
+        "group": "AERO",
+        "pair": [
+          0.21945866861740654,
+          "receipt",
+          158.979639,
+          1098.364262,
+          123.07800000000002,
+          true
+        ],
+        "legs": [
+          [
+            "bybit.swap.AERO.USDT",
+            "AERO/USDT:USDT",
+            "aerodrome-finance",
+            0.5462,
+            0.5461,
+            null,
+            1794393706490,
+            6.473754546
+          ],
+          [
+            "bitget.swap.AERO.USDT",
+            "AERO/USDT:USDT",
+            "aerodrome-finance",
+            0.5477,
+            0.5474,
+            1794393706329,
+            1794393706401,
+            4.229860245799999
+          ]
+        ]
+      },
+      {
+        "group": "SUI",
+        "pair": [
+          null,
+          "skew",
+          null,
+          null,
+          -2.19,
+          false
+        ],
+        "legs": [
+          [
+            "kucoinfutures.swap.SUI.USDT",
+            "SUI/USDT:USDT",
+            null,
+            0.8311,
+            0.8309,
+            1794393706718,
+            1794393706739,
+            20.6315025784
+          ],
+          [
+            "mexc.swap.SUI.USDT",
+            "SUI/USDT:USDT",
+            "sui",
+            0.8315,
+            0.8314,
+            1794393702124,
+            1794393706457,
+            51.285819964599995
+          ]
+        ]
+      },
+      {
+        "group": "NOM",
+        "pair": [
+          0.21074815595363292,
+          "receipt",
+          4.123803,
+          10.408624,
+          111.69,
+          true
+        ],
+        "legs": [
+          [
+            "gate.swap.NOM.USDT",
+            "NOM/USDT:USDT",
+            "nomina",
+            0.001422,
+            0.00142,
+            null,
+            1794393706322,
+            0.00707
+          ],
+          [
+            "kucoinfutures.swap.NOM.USDT",
+            "NOM/USDT:USDT",
+            "nomina",
+            0.001433,
+            0.001425,
+            1794393706718,
+            1794393706739,
+            0.043842826
+          ]
+        ]
+      },
+      {
+        "group": "BARD",
+        "pair": [
+          0.10496238847747011,
+          "receipt",
+          null,
+          null,
+          88.13655,
+          false
+        ],
+        "legs": [
+          [
+            "binanceusdm.swap.BARD.USDT",
+            "BARD/USDT:USDT",
+            null,
+            0.0857,
+            0.0856,
+            1794393705957,
+            1794393706371,
+            6.9364136505000005
+          ],
+          [
+            "bybit.swap.BARD.USDT",
+            "BARD/USDT:USDT",
+            null,
+            0.08581,
+            0.08579,
+            null,
+            1794393706490,
+            2.230248707
+          ]
+        ]
+      },
+      {
+        "group": "BIRB",
+        "pair": [
+          0.1940366082401025,
+          "timed",
+          null,
+          null,
+          82.44693,
+          false
+        ],
+        "legs": [
+          [
+            "aster.swap.BIRB.USDT",
+            "BIRB/USDT:USDT",
+            null,
+            0.07723,
+            0.07708,
+            1794393706550,
+            1794393706563,
+            0.03085102
+          ],
+          [
+            "kucoinfutures.swap.BIRB.USDT",
+            "BIRB/USDT:USDT",
+            null,
+            0.07751,
+            0.07738,
+            1794393706718,
+            1794393706739,
+            0.2438977166
+          ]
+        ]
+      },
+      {
+        "group": "MAVIA",
+        "pair": [
+          0.039800995024874,
+          "receipt",
+          null,
+          null,
+          82.34400000000001,
+          false
+        ],
+        "legs": [
+          [
+            "gate.swap.MAVIA.USDT",
+            "MAVIA/USDT:USDT",
+            null,
+            0.02512,
+            0.02511,
+            null,
+            1794393706322,
+            0.025588
+          ],
+          [
+            "mexc.swap.MAVIA.USDT",
+            "MAVIA/USDT:USDT",
+            null,
+            0.02514,
+            0.02513,
+            1794393702715,
+            1794393706457,
+            0.11919449337
+          ]
+        ]
+      },
+      {
+        "group": "STEEM",
+        "pair": [
+          null,
+          "skew",
+          null,
+          null,
+          68.4979305903823,
+          false
+        ],
+        "legs": [
+          [
+            "htx.swap.STEEM.USDT",
+            "STEEM/USDT:USDT",
+            null,
+            0.04624,
+            0.04601,
+            1794393706387,
+            1794393706590,
+            0.00835861692
+          ],
+          [
+            "mexc.swap.STEEM.USDT",
+            "STEEM/USDT:USDT",
+            null,
+            0.04629,
+            0.04628,
+            1794393703664,
+            1794393706457,
+            0.12467940649999999
+          ]
+        ]
+      },
+      {
+        "group": "1000RATS",
+        "pair": [
+          null,
+          "skew",
+          null,
+          null,
+          85.71222000000002,
+          false
+        ],
+        "legs": [
+          [
+            "kucoinfutures.swap.1000RATS.USDT",
+            "1000RATS/USDT:USDT",
+            null,
+            0.01387,
+            0.01383,
+            1794393706718,
+            1794393706739,
+            0.086718403
+          ],
+          [
+            "binanceusdm.swap.1000RATS.USDT",
+            "1000RATS/USDT:USDT",
+            null,
+            0.01391,
+            0.0139,
+            1794393704058,
+            1794393706371,
+            1.4407761968400001
+          ]
+        ]
+      },
+      {
+        "group": "B",
+        "pair": [
+          0.1377884946606902,
+          "receipt",
+          null,
+          null,
+          61.39446,
+          false
+        ],
+        "legs": [
+          [
+            "bybit.swap.B.USDT",
+            "B/USDT:USDT",
+            null,
+            0.11604,
+            0.11573,
+            null,
+            1794393706490,
+            0.0882267005
+          ],
+          [
+            "aster.swap.B.USDT",
+            "B/USDT:USDT",
+            null,
+            0.1164,
+            0.1162,
+            1794393706500,
+            1794393706563,
+            0.023240959999999998
+          ]
+        ]
+      },
+      {
+        "group": "O",
+        "pair": [
+          0.12881064834692774,
+          "receipt",
+          null,
+          null,
+          79.49700000000001,
+          false
+        ],
+        "legs": [
+          [
+            "gate.swap.O.USDT",
+            "O/USDT:USDT",
+            null,
+            0.4655,
+            0.4651,
+            null,
+            1794393706322,
+            0.451647
+          ],
+          [
+            "mexc.swap.O.USDT",
+            "O/USDT:USDT",
+            null,
+            0.4668,
+            0.4661,
+            1794393702697,
+            1794393706457,
+            0.141561758
+          ]
+        ]
+      },
+      {
+        "group": "GOOGL",
+        "pair": null,
+        "legs": [
+          null,
+          null
+        ]
+      }
+    ],
+    "valuations": {
+      "bitcoin": {
+        "cap": 1488913.420575,
+        "fdv": 1488913.420575,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "ethereum": {
+        "cap": 252012.961228,
+        "fdv": 252012.961228,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "bnb": {
+        "cap": 89606.729713,
+        "fdv": 89606.729713,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "usd-coin": {
+        "cap": 69860.966707,
+        "fdv": 69877.943793,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "xrp": {
+        "cap": 67696.301595,
+        "fdv": 106565.109886,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "solana": {
+        "cap": 49687.704865,
+        "fdv": 53549.371396,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "tron": {
+        "cap": 30174.113959,
+        "fdv": 30174.547895,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "hyperliquid": {
+        "cap": 17410.237077,
+        "fdv": 69198.14276,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "zcash": {
+        "cap": 16993.606054,
+        "fdv": 16993.75195,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "dogecoin": {
+        "cap": 10717.446725,
+        "fdv": 10717.532218,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "chainlink": {
+        "cap": 7989.716461,
+        "fdv": 10418.878228,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "cardano": {
+        "cap": 6652.758679,
+        "fdv": 7969.085627,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "stellar": {
+        "cap": 5275.904967,
+        "fdv": 7457.346164,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "near-protocol": {
+        "cap": 4797.589655,
+        "fdv": 4797.589728,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "bitcoin-cash": {
+        "cap": 4645.643374,
+        "fdv": 4645.641209,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "litecoin": {
+        "cap": 3974.216851,
+        "fdv": 3974.235684,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "uniswap": {
+        "cap": 3955.161627,
+        "fdv": 5765.939649,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "avalanche": {
+        "cap": 3886.151372,
+        "fdv": 4104.073236,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "sui": {
+        "cap": 3448.776421,
+        "fdv": 8332.302823,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "the-open-network": {
+        "cap": 3448.413553,
+        "fdv": 6379.55389,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "hedera": {
+        "cap": 2923.611871,
+        "fdv": 3297.767026,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "shiba-inu": {
+        "cap": 2622.385852,
+        "fdv": 2623.532261,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "bittensor": {
+        "cap": 2576.096391,
+        "fdv": 2576.096391,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "pepe": {
+        "cap": 2127.012437,
+        "fdv": 2127.012437,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "ethena": {
+        "cap": 2068.315064,
+        "fdv": 2298.127849,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "aave": {
+        "cap": 1924.363708,
+        "fdv": 1994.061947,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "ondo-finance": {
+        "cap": 1807.105825,
+        "fdv": 3711.199663,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "aster-2": {
+        "cap": 1657.516328,
+        "fdv": 5018.778286,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "pump-fun": {
+        "cap": 1644.173457,
+        "fdv": 2952.671755,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "bitway-btw": {
+        "cap": 1627.474393,
+        "fdv": 10808.127829,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "world-liberty-financial": {
+        "cap": 1520.609152,
+        "fdv": 4784.739969,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "polkadot": {
+        "cap": 1465.486724,
+        "fdv": 1465.486724,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "internet-computer": {
+        "cap": 1416.135697,
+        "fdv": 1416.135751,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "worldcoin-wld": {
+        "cap": 1178.121882,
+        "fdv": 3140.746374,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "arbitrum": {
+        "cap": 1100.902532,
+        "fdv": 1597.33627,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "venice-token": {
+        "cap": 936.894148,
+        "fdv": 1555.270548,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "render-token": {
+        "cap": 862.008746,
+        "fdv": 908.95856,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "jupiter-exchange-solana": {
+        "cap": 859.153256,
+        "fdv": 1775.960274,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "lighter": {
+        "cap": 859.035652,
+        "fdv": 3373.980313,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "injective": {
+        "cap": 804.092156,
+        "fdv": 804.092156,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "cosmos": {
+        "cap": 768.046494,
+        "fdv": 768.046494,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "midnight-3": {
+        "cap": 737.958683,
+        "fdv": 1066.452849,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "filecoin": {
+        "cap": 650.05642,
+        "fdv": 1504.019167,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "layerzero": {
+        "cap": 631.840806,
+        "fdv": 1579.696292,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "blockstack": {
+        "cap": 599.99353,
+        "fdv": 599.99353,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "dash": {
+        "cap": 568.912638,
+        "fdv": 568.914873,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "aptos": {
+        "cap": 509.621515,
+        "fdv": 698.145328,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "curve-dao-token": {
+        "cap": 393.065054,
+        "fdv": 603.115981,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "fetch-ai": {
+        "cap": 341.505277,
+        "fdv": 401.026729,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "official-trump": {
+        "cap": 322.007085,
+        "fdv": 1142.404099,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "sei": {
+        "cap": 297.245298,
+        "fdv": 441.453413,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "starknet": {
+        "cap": 291.662221,
+        "fdv": 387.544607,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "plasma": {
+        "cap": 255.281912,
+        "fdv": 536.181378,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "optimism": {
+        "cap": 229.523653,
+        "fdv": 430.333955,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "beam-2": {
+        "cap": 217.4386,
+        "fdv": 248.42351,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "compound-governance-token": {
+        "cap": 200.857198,
+        "fdv": 200.857198,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "monad": {
+        "cap": 195.498163,
+        "fdv": 1664.528733,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "aerodrome-finance": {
+        "cap": 158.979639,
+        "fdv": 1098.364262,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "quack-ai": {
+        "cap": 124.482138,
+        "fdv": 252.368442,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "pons": {
+        "cap": 103.46384,
+        "fdv": 103.46384,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "reserve-rights-token": {
+        "cap": 96.996542,
+        "fdv": 155.062542,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "safe1": {
+        "cap": 69.031872,
+        "fdv": 87.299204,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "janction": {
+        "cap": 67.471873,
+        "fdv": 293.517085,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "chip-2": {
+        "cap": 65.229663,
+        "fdv": 326.148315,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "akedo": {
+        "cap": 57.993297,
+        "fdv": 254.398406,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "megaeth": {
+        "cap": 53.00919,
+        "fdv": 469.193913,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "aria-ai": {
+        "cap": 47.063781,
+        "fdv": 257.179132,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "axelar": {
+        "cap": 44.982319,
+        "fdv": 45.173943,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "initia": {
+        "cap": 44.666932,
+        "fdv": 203.737991,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "merlin-chain": {
+        "cap": 43.491461,
+        "fdv": 63.87701,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "dolphin-2": {
+        "cap": 37.47747,
+        "fdv": 223.574783,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "nexus-4": {
+        "cap": 34.488968,
+        "fdv": 57.481613,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "cat-in-a-dogs-world": {
+        "cap": 30.486182,
+        "fdv": 30.486182,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "unitas": {
+        "cap": 29.062985,
+        "fdv": 134.550914,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "bulla-3": {
+        "cap": 24.059821,
+        "fdv": 60.466939,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "harmony": {
+        "cap": 22.95267,
+        "fdv": 22.952673,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "blur": {
+        "cap": 19.452647,
+        "fdv": 19.917939,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "capybobo": {
+        "cap": 18.018738,
+        "fdv": 50.99643,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "axis-robotics": {
+        "cap": 17.47364,
+        "fdv": 105.900851,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "cyberconnect": {
+        "cap": 16.281505,
+        "fdv": 26.658331,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "hajimi": {
+        "cap": 16.268939,
+        "fdv": 16.268939,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "huma-finance": {
+        "cap": 15.207649,
+        "fdv": 87.736436,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "power-protocol": {
+        "cap": 13.145719,
+        "fdv": 62.598664,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "simon-s-cat": {
+        "cap": 12.667961,
+        "fdv": 13.673086,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "tria": {
+        "cap": 5.368112,
+        "fdv": 24.879206,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "nomina": {
+        "cap": 4.123803,
+        "fdv": 10.408624,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "yooldo-games": {
+        "cap": 1.410351,
+        "fdv": 8.361765,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "superfortune": {
+        "cap": 1.260035,
+        "fdv": 28.000768,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      },
+      "alaya-ai": {
+        "cap": null,
+        "fdv": 278.2111,
+        "updatedAt": 1794393597000,
+        "expiresAt": 1794395397000
+      }
+    },
+    "venues": {
+      "Binance · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706371,
+        "returned": 804,
+        "with_bid_ask": 804,
+        "error": null,
+        "depth_refreshed": 2
+      },
+      "Binance · spot": {
+        "state": "ok"
+      },
+      "Bybit · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706490,
+        "returned": 938,
+        "with_bid_ask": 937,
+        "error": null
+      },
+      "Bybit · spot": {
+        "state": "ok"
+      },
+      "OKX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393707365,
+        "returned": 546,
+        "with_bid_ask": 545,
+        "error": null
+      },
+      "OKX · spot": {
+        "state": "ok"
+      },
+      "Bitget · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706401,
+        "returned": 884,
+        "with_bid_ask": 884,
+        "error": null
+      },
+      "Bitget · spot": {
+        "state": "ok"
+      },
+      "Gate · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706322,
+        "returned": 1081,
+        "with_bid_ask": 1081,
+        "error": null
+      },
+      "Gate · spot": {
+        "state": "ok"
+      },
+      "MEXC · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706457,
+        "returned": 1208,
+        "with_bid_ask": 1200,
+        "error": null
+      },
+      "MEXC · spot": {
+        "state": "ok"
+      },
+      "KuCoin · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706739,
+        "returned": 722,
+        "with_bid_ask": 722,
+        "error": null,
+        "feed": "uta"
+      },
+      "KuCoin · spot": {
+        "state": "ok"
+      },
+      "Aster · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706563,
+        "returned": 594,
+        "with_bid_ask": 594,
+        "error": null
+      },
+      "HTX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706590,
+        "returned": 432,
+        "with_bid_ask": 412,
+        "error": null
+      },
+      "HTX · spot": {
+        "state": "ok"
+      },
+      "WhiteBIT · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706164,
+        "returned": 395,
+        "with_bid_ask": 395,
+        "error": null
+      },
+      "WhiteBIT · spot": {
+        "state": "ok",
+        "with_bid_ask": 454
+      },
+      "EdgeX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706957,
+        "returned": 48,
+        "with_bid_ask": 48,
+        "error": null
+      },
+      "Extended · swap": {
+        "state": "ok",
+        "received_at_ms": 1794393706252,
+        "returned": 51,
+        "with_bid_ask": 51,
+        "error": null
+      }
+    },
+    "evidence": [
+      [
+        "binanceusdm.swap.ESPORTS.USDT",
+        "yooldo-games",
+        0.009048,
+        0.009049,
+        1794393704119,
+        1794393706371
+      ],
+      [
+        "bybit.swap.ESPORTS.USDT",
+        "yooldo-games",
+        0.00906,
+        0.00907,
+        null,
+        1794393706490
+      ],
+      [
+        "gate.swap.ESPORTS.USDT",
+        "yooldo-games",
+        0.00908,
+        0.00909,
+        null,
+        1794393706322
+      ],
+      [
+        "gate.spot.ESPORTS.USDT",
+        "yooldo-games",
+        0.009801,
+        0.009832,
+        null,
+        1794393706879
+      ],
+      [
+        "mexc.swap.ESPORTS.USDT",
+        "yooldo-games",
+        0.009045,
+        0.009049,
+        1794393702340,
+        1794393706457
+      ],
+      [
+        "mexc.spot.ESPORTS.USDT",
+        "yooldo-games",
+        0.01356,
+        0.01373,
+        1794393707281,
+        1794393707342
+      ],
+      [
+        "kucoinfutures.swap.ESPORTS.USDT",
+        "yooldo-games",
+        0.0091,
+        0.00912,
+        1794393706718,
+        1794393706739
+      ],
+      [
+        "kucoinfutures.spot.ESPORTS.USDT",
+        "yooldo-games",
+        0.00904,
+        0.00905,
+        1794393706804,
+        1794393706955
+      ],
+      [
+        "aster.swap.ESPORTS.USDT",
+        "yooldo-games",
+        0.009054,
+        0.009069,
+        1794393706450,
+        1794393706563
+      ],
+      [
+        "binanceusdm.swap.NOM.USDT",
+        "nomina",
+        0.001422,
+        0.001423,
+        1794393700790,
+        1794393706371
+      ],
+      [
+        "binanceusdm.spot.NOM.USDT",
+        "nomina",
+        0.001421,
+        0.001424,
+        1794393703058,
+        1794393709377
+      ],
+      [
+        "bybit.swap.NOM.USDT",
+        "nomina",
+        0.001425,
+        0.001427,
+        null,
+        1794393706490
+      ],
+      [
+        "gate.swap.NOM.USDT",
+        "nomina",
+        0.00142,
+        0.001422,
+        null,
+        1794393706322
+      ],
+      [
+        "mexc.swap.NOM.USDT",
+        "nomina",
+        0.001422,
+        0.001423,
+        1794393702907,
+        1794393706457
+      ],
+      [
+        "mexc.spot.NOM.USDT",
+        "nomina",
+        0.001421,
+        0.001424,
+        1794393707281,
+        1794393707342
+      ],
+      [
+        "kucoinfutures.swap.NOM.USDT",
+        "nomina",
+        0.001425,
+        0.001433,
+        1794393706718,
+        1794393706739
+      ],
+      [
+        "whitebit.swap.NOM.USDT",
+        "nomina",
+        0.001413,
+        0.001428,
+        null,
+        1794393706164
+      ],
+      [
+        "binanceusdm.swap.POWER.USDT",
+        "power-protocol",
+        0.06276,
+        0.0628,
+        1794393706298,
+        1794393706371
+      ],
+      [
+        "bybit.swap.POWER.USDT",
+        "power-protocol",
+        0.06277,
+        0.06286,
+        null,
+        1794393706490
+      ],
+      [
+        "bitget.swap.POWER.USDT",
+        "power-protocol",
+        0.063,
+        0.06308,
+        1794393706330,
+        1794393706401
+      ],
+      [
+        "bitget.spot.POWER.USDT",
+        "power-protocol",
+        0.062893,
+        0.062913,
+        1794393706088,
+        1794393707101
+      ],
+      [
+        "gate.swap.POWER.USDT",
+        "power-protocol",
+        0.06283,
+        0.06286,
+        null,
+        1794393706322
+      ],
+      [
+        "gate.spot.POWER.USDT",
+        "power-protocol",
+        0.06773,
+        0.06788,
+        null,
+        1794393706879
+      ],
+      [
+        "mexc.swap.POWER.USDT",
+        "power-protocol",
+        0.06277,
+        0.0628,
+        1794393702575,
+        1794393706457
+      ],
+      [
+        "mexc.spot.POWER.USDT",
+        "power-protocol",
+        0.06266,
+        0.06278,
+        1794393707281,
+        1794393707342
+      ],
+      [
+        "kucoinfutures.swap.POWER.USDT",
+        "power-protocol",
+        0.06255,
+        0.06265,
+        1794393706718,
+        1794393706739
+      ],
+      [
+        "binanceusdm.swap.GUA.USDT",
+        "superfortune",
+        0.02804,
+        0.02805,
+        1794393690405,
+        1794393706371
+      ],
+      [
+        "gate.swap.GUA.USDT",
+        "superfortune",
+        0.02809,
+        0.02813,
+        null,
+        1794393706322
+      ],
+      [
+        "gate.spot.GUA.USDT",
+        "superfortune",
+        0.07932,
+        0.07949,
+        null,
+        1794393706879
+      ],
+      [
+        "mexc.swap.GUA.USDT",
+        "superfortune",
+        0.02804,
+        0.02805,
+        1794393703114,
+        1794393706457
+      ],
+      [
+        "mexc.spot.GUA.USDT",
+        "superfortune",
+        0.02778,
+        0.02822,
+        1794393707280,
+        1794393707342
+      ],
+      [
+        "kucoinfutures.swap.GUA.USDT",
+        "superfortune",
+        0.0282,
+        0.02838,
+        1794393706718,
+        1794393706739
+      ],
+      [
+        "aster.swap.GUA.USDT",
+        "superfortune",
+        0.028,
+        0.02806,
+        1794393706350,
+        1794393706563
+      ],
+      [
+        "bybit.spot.PYBOBO.USDT",
+        "capybobo",
+        0.0005103,
+        0.0005122,
+        null,
+        1794393706803
+      ],
+      [
+        "gate.spot.PYBOBO.USDT",
+        "capybobo",
+        0.0005051,
+        0.000511,
+        null,
+        1794393706879
+      ],
+      [
+        "mexc.swap.PYBOBO.USDT",
+        "capybobo",
+        0.0005105,
+        0.0005136,
+        1794393702153,
+        1794393706457
+      ],
+      [
+        "mexc.spot.PYBOBO.USDT",
+        "capybobo",
+        0.000509,
+        0.0005148,
+        1794393707281,
+        1794393707342
+      ],
+      [
+        "kucoinfutures.swap.PYBOBO.USDT",
+        "capybobo",
+        0.0005008,
+        0.0005023,
+        1794393706718,
+        1794393706739
+      ],
+      [
+        "kucoinfutures.spot.PYBOBO.USDT",
+        "capybobo",
+        0.0005059,
+        0.0005112,
+        1794393706804,
+        1794393706955
+      ]
+    ],
+    "settings": {
+      "capMin": "1",
+      "mode": "spread",
+      "sort": "entry",
+      "direction": "desc",
+      "group": true,
+      "expand": "",
+      "categories": [
+        "crypto"
+      ],
+      "exchanges": [
+        "Aster",
+        "Binance",
+        "Bitget",
+        "Bybit",
+        "EdgeX",
+        "Extended",
+        "Gate",
+        "HTX",
+        "KuCoin",
+        "MEXC",
+        "OKX",
+        "WhiteBIT"
+      ],
+      "quotes": [
+        "USDT"
+      ],
+      "query": "",
+      "operator": "gte",
+      "favorites": false,
+      "different": false,
+      "uainvest": false
+    }
+  },
+  "public": {
+    "stamp": 1794393709000,
+    "url": "https://uainvest.com.ua/api/arbitrage/offers?include_liquidity=1&type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&volume=0&group=1&quotes=USDT&category=crypto&market_cap_min=1&sort_by=open_spread&sort_dir=desc",
+    "rows": [
+      [
+        "CASHCAT",
+        "gate",
+        "htx",
+        39.01065965,
+        60726418.95,
+        "coinmarketcap",
+        "probable",
+        1.083121,
+        0.03471638104,
+        "swap",
+        "swap",
+        "CASHCATUSDT",
+        "CASHCATUSDT",
+        null,
+        null
+      ],
+      [
+        "MYX",
+        "kucoin",
+        "htx",
+        17.00936384,
+        19689919.72,
+        "coinmarketcap",
+        "ambiguous",
+        0.5667999418,
+        0.0455339858,
+        "swap",
+        "swap",
+        "MYXUSDT",
+        "MYXUSDT",
+        null,
+        null
+      ],
+      [
+        "10000NEX",
+        "bybit",
+        "bitget",
+        13.89337641,
+        34471701,
+        "coinmarketcap",
+        "probable",
+        0.030455915,
+        0.04802346068,
+        "swap",
+        "swap",
+        "10000NEXUSDT",
+        "10000NEXUSDT",
+        null,
+        null
+      ],
+      [
+        "RAVE",
+        "kucoin",
+        "htx",
+        9.39816187,
+        34494159.3,
+        "coinmarketcap",
+        "probable",
+        1.8037391362000001,
+        0.016229720998,
+        "swap",
+        "swap",
+        "RAVEUSDT",
+        "RAVEUSDT",
+        null,
+        null
+      ],
+      [
+        "BP",
+        "edgex",
+        "gate",
+        7.806722,
+        218883359.34,
+        "coinmarketcap",
+        "ambiguous",
+        0.17115348749,
+        0.005175,
+        "swap",
+        "swap",
+        "BPUSDT",
+        "BPUSDT",
+        null,
+        null
+      ],
+      [
+        "BOME",
+        "binance",
+        "htx",
+        4.45788887,
+        42061842.78,
+        "coinmarketcap",
+        "matched",
+        1.8448314169283,
+        0.0477240752,
+        "swap",
+        "swap",
+        "BOMEUSDC",
+        "BOMEUSDT",
+        null,
+        null
+      ],
+      [
+        "INIT",
+        "gate",
+        "bybit",
+        3.62721811,
+        46451359.41,
+        "coinmarketcap",
+        "matched",
+        77.708469,
+        327.71408356620003,
+        "swap",
+        "swap",
+        "INITUSDT",
+        "INITUSDT",
+        null,
+        null
+      ],
+      [
+        "1000CAT",
+        "bitget",
+        "bybit",
+        2.39808153,
+        12746622.28,
+        "coinmarketcap",
+        "probable",
+        0.08072584633,
+        0.3234828782,
+        "swap",
+        "swap",
+        "1000CATUSDT",
+        "1000CATUSDT",
+        null,
+        null
+      ],
+      [
+        "PYBOBO",
+        "kucoin",
+        "mexc",
+        1.57946693,
+        21059914.25,
+        "coinmarketcap",
+        "matched",
+        2.8030477686,
+        0.405384482,
+        "swap",
+        "swap",
+        "PYBOBOUSDT",
+        "PYBOBOUSDT",
+        null,
+        null
+      ],
+      [
+        "BEAM",
+        "whitebit",
+        "bybit",
+        1.0967215,
+        217618958.93,
+        "coinmarketcap",
+        "probable",
+        2.25350963082,
+        4.9911238849999995,
+        "swap",
+        "swap",
+        "BEAMUSDT",
+        "BEAMUSDT",
+        null,
+        null
+      ],
+      [
+        "POD",
+        "gate",
+        "aster",
+        1.04092737,
+        37527467.89,
+        "coinmarketcap",
+        "ambiguous",
+        0.00338,
+        0.00240615,
+        "swap",
+        "swap",
+        "PODUSDT",
+        "PODUSDT",
+        null,
+        null
+      ],
+      [
+        "UP",
+        "okx",
+        "aster",
+        1.03626943,
+        19687414.28,
+        "coinmarketcap",
+        "ambiguous",
+        12.222181796,
+        1.4675061,
+        "swap",
+        "swap",
+        "UPUSDT",
+        "UPUSDT",
+        null,
+        null
+      ],
+      [
+        "AXIS",
+        "aster",
+        "bitget",
+        0.98550447,
+        17284290.36,
+        "coinmarketcap",
+        "probable",
+        0.0034788,
+        0.64329924985,
+        "swap",
+        "swap",
+        "AXISUSDT",
+        "AXISUSDT",
+        null,
+        null
+      ],
+      [
+        "PREDICT",
+        "bybit",
+        "aster",
+        0.97418856,
+        175351162.48,
+        "coinmarketcap",
+        "matched",
+        0.028183559,
+        0.37121533,
+        "swap",
+        "swap",
+        "PREDICTUSDT",
+        "PREDICTUSDT",
+        null,
+        null
+      ],
+      [
+        "CYBER",
+        "whitebit",
+        "bybit",
+        0.91047041,
+        20759783.38,
+        "coinmarketcap",
+        "probable",
+        1.3122675611499999,
+        16.6479331633,
+        "swap",
+        "swap",
+        "CYBERUSDT",
+        "CYBERUSDT",
+        null,
+        null
+      ],
+      [
+        "MEW",
+        "whitebit",
+        "mexc",
+        0.8480772,
+        30357390.62,
+        "coinmarketcap",
+        "probable",
+        0.44318908683639996,
+        0.11341341499999999,
+        "swap",
+        "swap",
+        "MEWUSDT",
+        "MEWUSDT",
+        null,
+        null
+      ],
+      [
+        "RSR",
+        "whitebit",
+        "bybit",
+        0.75882868,
+        97026985.44,
+        "coinmarketcap",
+        "matched",
+        1.80864155351,
+        2.1238315540999997,
+        "swap",
+        "swap",
+        "RSRUSDT",
+        "RSRUSDT",
+        null,
+        null
+      ],
+      [
+        "BLUR",
+        "whitebit",
+        "bybit",
+        0.69371136,
+        19317171.29,
+        "coinmarketcap",
+        "probable",
+        1.034121071128,
+        0.7180404599,
+        "swap",
+        "swap",
+        "BLURUSDT",
+        "BLURUSDT",
+        null,
+        null
+      ],
+      [
+        "TRIA",
+        "bitget",
+        "whitebit",
+        0.59844405,
+        7097106.53,
+        "coinmarketcap",
+        "matched",
+        0.139387795358,
+        0.579949473442,
+        "swap",
+        "swap",
+        "TRIAUSDT",
+        "TRIAUSDT",
+        null,
+        null
+      ],
+      [
+        "CHIP",
+        "whitebit",
+        "bybit",
+        0.58470534,
+        65226090.67,
+        "coinmarketcap",
+        "probable",
+        2.2418881717,
+        1.9149815477,
+        "swap",
+        "swap",
+        "CHIPUSDT",
+        "CHIPUSDT",
+        null,
+        null
+      ],
+      [
+        "哈基米",
+        "bybit",
+        "edgex",
+        0.54727881,
+        16150387.42,
+        "coinmarketcap",
+        "matched",
+        1.6901227694,
+        0.12652915094,
+        "swap",
+        "swap",
+        "哈基米USDT",
+        "哈基米USDT",
+        null,
+        null
+      ],
+      [
+        "BULLA",
+        "binance",
+        "gate",
+        0.52596976,
+        60415506.28,
+        "coinmarketcap",
+        "matched",
+        12.05143628037,
+        0.952523,
+        "swap",
+        "swap",
+        "BULLAUSDT",
+        "BULLAUSDT",
+        null,
+        null
+      ],
+      [
+        "ARIA",
+        "aster",
+        "bitget",
+        0.50420168,
+        132794940.02,
+        "coinmarketcap",
+        "matched",
+        0.86537089,
+        23.53704294426,
+        "swap",
+        "swap",
+        "ARIAUSDT",
+        "ARIAUSDT",
+        null,
+        null
+      ],
+      [
+        "AGT",
+        "gate",
+        "aster",
+        0.50357216,
+        183841435.77,
+        "coinmarketcap",
+        "probable",
+        7.022976,
+        0.8541145600000001,
+        "swap",
+        "swap",
+        "AGTUSDT",
+        "AGTUSDT",
+        null,
+        null
+      ],
+      [
+        "ONE",
+        "gate",
+        "mexc",
+        0.42848796,
+        25561319.15,
+        "coinmarketcap",
+        "matched",
+        6.207126,
+        10.971291773895999,
+        "swap",
+        "swap",
+        "ONEUSDT",
+        "ONEUSDT",
+        null,
+        null
+      ],
+      [
+        "GRAM",
+        "bitget",
+        "aster",
+        0.41373604,
+        3410065956.77,
+        "coinmarketcap",
+        "ambiguous",
+        0.22438995,
+        2.68648807,
+        "swap",
+        "swap",
+        "GRAMUSDC",
+        "GRAMUSDT",
+        null,
+        null
+      ],
+      [
+        "DOS",
+        "gate",
+        "aster",
+        0.35587189,
+        32771663.05,
+        "coinmarketcap",
+        "probable",
+        0.350433,
+        0.44162581,
+        "swap",
+        "swap",
+        "DOSUSDT",
+        "DOSUSDT",
+        null,
+        null
+      ],
+      [
+        "ZEREBRO",
+        "gate",
+        "kucoin",
+        0.34091142,
+        24038711.27,
+        "coinmarketcap",
+        "matched",
+        0.030364,
+        0.61309884508,
+        "swap",
+        "swap",
+        "ZEREBROUSDT",
+        "ZEREBROUSDT",
+        null,
+        null
+      ],
+      [
+        "ERA",
+        "extended",
+        "bitget",
+        0.30387882,
+        12740417.22,
+        "coinmarketcap",
+        "probable",
+        0.0002678712,
+        7.3208143723,
+        "swap",
+        "swap",
+        "ERAUSDT",
+        "ERAUSDT",
+        null,
+        null
+      ],
+      [
+        "POWER",
+        "kucoin",
+        "gate",
+        0.28653295,
+        13179354.98,
+        "coinmarketcap",
+        "probable",
+        0.49102912439999996,
+        0.01339,
+        "swap",
+        "swap",
+        "POWERUSDT",
+        "POWERUSDT",
+        null,
+        null
+      ],
+      [
+        "PENGU",
+        "bitget",
+        "mexc",
+        0.28644176,
+        393490325.02,
+        "coinmarketcap",
+        "matched",
+        0.00436201215,
+        2.8302364734,
+        "swap",
+        "swap",
+        "PENGUUSDC",
+        "PENGUUSDT",
+        null,
+        null
+      ],
+      [
+        "IDOL",
+        "bitget",
+        "aster",
+        0.27734502,
+        31261334.87,
+        "coinmarketcap",
+        "probable",
+        3.493653535941,
+        0.5598970600000001,
+        "swap",
+        "swap",
+        "IDOLUSDT",
+        "IDOLUSDT",
+        null,
+        null
+      ],
+      [
+        "COAI",
+        "gate",
+        "kucoin",
+        0.27353216,
+        38792234.42,
+        "coinmarketcap",
+        "probable",
+        0.047756,
+        0.8689423937999999,
+        "swap",
+        "swap",
+        "COAIUSDT",
+        "COAIUSDT",
+        null,
+        null
+      ],
+      [
+        "BTW",
+        "extended",
+        "gate",
+        0.25881326,
+        3187164608.53,
+        "coinmarketcap",
+        "probable",
+        0.22324861,
+        16.906006,
+        "swap",
+        "swap",
+        "BTWUSDT",
+        "BTWUSDT",
+        null,
+        null
+      ],
+      [
+        "GUA",
+        "binance",
+        "gate",
+        0.24915465,
+        3493094.1,
+        "coinmarketcap",
+        "matched",
+        1.89846346444,
+        0.012231,
+        "swap",
+        "swap",
+        "GUAUSDT",
+        "GUAUSDT",
+        null,
+        null
+      ],
+      [
+        "GTC",
+        "kucoin",
+        "binance",
+        0.24691358,
+        14216244.01,
+        "coinmarketcap",
+        "matched",
+        0.1443131222,
+        6.3513820443,
+        "swap",
+        "swap",
+        "GTCUSDT",
+        "GTCUSDT",
+        null,
+        null
+      ],
+      [
+        "FF",
+        "bybit",
+        "gate",
+        0.24577213,
+        302398068.84,
+        "coinmarketcap",
+        "matched",
+        0.4266751249,
+        0.264007,
+        "swap",
+        "swap",
+        "FFUSDT",
+        "FFUSDT",
+        null,
+        null
+      ],
+      [
+        "OG",
+        "binance",
+        "gate",
+        0.23590469,
+        10279451.46,
+        "coinmarketcap",
+        "matched",
+        0.6519710862,
+        0.018099,
+        "swap",
+        "swap",
+        "OGUSDT",
+        "OGUSDT",
+        null,
+        null
+      ],
+      [
+        "POPCAT",
+        "bitget",
+        "kucoin",
+        0.23550191,
+        33124020.61,
+        "coinmarketcap",
+        "probable",
+        0.07833203704,
+        0.27816620632,
+        "swap",
+        "swap",
+        "POPCATUSDC",
+        "POPCATUSDT",
+        null,
+        null
+      ],
+      [
+        "AERO",
+        "bybit",
+        "bitget",
+        0.21933833,
+        583330961.09,
+        "coinmarketcap",
+        "matched",
+        6.4772231673,
+        4.228774517900001,
+        "swap",
+        "swap",
+        "AEROUSDT",
+        "AEROUSDT",
+        null,
+        null
+      ],
+      [
+        "SUI",
+        "kucoin",
+        "mexc",
+        0.21642419,
+        3424849602.32,
+        "coinmarketcap",
+        "ambiguous",
+        9.177879451999999,
+        51.2574366526,
+        "swap",
+        "swap",
+        "SUIUSDC",
+        "SUIUSDT",
+        null,
+        null
+      ],
+      [
+        "NOM",
+        "gate",
+        "kucoin",
+        0.21060021,
+        4123252.05,
+        "coinmarketcap",
+        "matched",
+        0.00707,
+        0.043842826,
+        "swap",
+        "swap",
+        "NOMUSDT",
+        "NOMUSDT",
+        null,
+        null
+      ],
+      [
+        "BARD",
+        "binance",
+        "bybit",
+        0.18630647,
+        34061870.55,
+        "coinmarketcap",
+        "matched",
+        6.9367645725,
+        2.2301187895,
+        "swap",
+        "swap",
+        "BARDUSDT",
+        "BARDUSDT",
+        null,
+        null
+      ],
+      [
+        "BIRB",
+        "aster",
+        "kucoin",
+        0.18094869,
+        21998487.09,
+        "coinmarketcap",
+        "probable",
+        0.03085102,
+        0.2439179628,
+        "swap",
+        "swap",
+        "BIRBUSDT",
+        "BIRBUSDT",
+        null,
+        null
+      ],
+      [
+        "MAVIA",
+        "gate",
+        "mexc",
+        0.15910899,
+        6212361.12,
+        "coinmarketcap",
+        "matched",
+        0.025588,
+        0.11917131335,
+        "swap",
+        "swap",
+        "MAVIAUSDT",
+        "MAVIAUSDT",
+        null,
+        null
+      ],
+      [
+        "STEEM",
+        "htx",
+        "mexc",
+        0.15126958,
+        25966909.73,
+        "coinmarketcap",
+        "matched",
+        0.00835843276,
+        0.1246585787,
+        "swap",
+        "swap",
+        "STEEMUSDT",
+        "STEEMUSDT",
+        null,
+        null
+      ],
+      [
+        "1000RATS",
+        "kucoin",
+        "binance",
+        0.14409222,
+        13813769.8,
+        "coinmarketcap",
+        "ambiguous",
+        0.0867180866,
+        1.44052362625,
+        "swap",
+        "swap",
+        "1000RATSUSDT",
+        "1000RATSUSDT",
+        null,
+        null
+      ],
+      [
+        "B",
+        "bybit",
+        "aster",
+        0.13778849,
+        115111926.33,
+        "coinmarketcap",
+        "matched",
+        0.08822682009999999,
+        0.023240959999999998,
+        "swap",
+        "swap",
+        "BUSDT",
+        "BUSDT",
+        null,
+        null
+      ],
+      [
+        "O",
+        "gate",
+        "mexc",
+        0.12870013,
+        74368158.58,
+        "coinmarketcap",
+        "matched",
+        0.451479,
+        0.1415347136,
+        "swap",
+        "swap",
+        "OUSDT",
+        "OUSDT",
+        null,
+        null
+      ],
+      [
+        "GOOGL",
+        "bitget",
+        "htx",
+        0.12336794,
+        112955547.8,
+        "coinmarketcap",
+        "probable",
+        27.6099896239,
+        0.190914939,
+        "swap",
+        "swap",
+        "GOOGLUSDT",
+        "GOOGLUSDT",
+        null,
+        null
+      ]
+    ]
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "state": {
+    "at": 1794390500910,
+    "stamp": 1794390500150,
+    "latin": [
+      [
+        "bybit.swap.HAJIMI.USDT~kucoinfutures.swap.HAJIMI.USDT",
+        "HAJIMI",
+        1.134930643127362,
+        true,
+        15.731454,
+        15.731454,
+        1.7053586458999999,
+        2.136235154,
+        "receipt"
+      ]
+    ],
+    "exclusions": {
+      "SOXX": [],
+      "DELL": [],
+      "NATGAS": [],
+      "XAU": [],
+      "XAG": [],
+      "SOXL": [],
+      "SPY": []
+    },
+    "pair": {
+      "id": "bybit.swap.HAJIMI.USDT~binanceusdm.swap.HAJIMI.USDT",
+      "entry": 0.8838383838383916,
+      "verified": true,
+      "cap": 15.731454,
+      "fdv": 15.731454,
+      "quality": "receipt",
+      "legs": [
+        {
+          "id": "bybit.swap.HAJIMI.USDT",
+          "exchange": "Bybit",
+          "type": "swap",
+          "quote": "USDT",
+          "symbol": "HAJIMI/USDT:USDT",
+          "bid": 0.01575,
+          "ask": 0.01577,
+          "last": 0.01577,
+          "asset": "hajimi",
+          "size": 1,
+          "sourceAt": null,
+          "receivedAt": 1794390497977,
+          "index": 0.01583,
+          "oi": 250778.32,
+          "volume": 1.7053586458999999,
+          "totals": {},
+          "networks": [],
+          "rate": 0.00125,
+          "hours": 1,
+          "next": 1794391200000,
+          "cap": 2.5,
+          "floor": -2.5,
+          "status": [
+            null,
+            null
+          ],
+          "fundingPending": false
+        },
+        {
+          "id": "binanceusdm.swap.HAJIMI.USDT",
+          "exchange": "Binance",
+          "type": "swap",
+          "quote": "USDT",
+          "symbol": "哈基米/USDT:USDT",
+          "bid": 0.01591,
+          "ask": 0.01593,
+          "last": 0.01592,
+          "asset": "hajimi",
+          "size": 1,
+          "sourceAt": 1794390494740,
+          "receivedAt": 1794390497132,
+          "index": 0.01587311,
+          "oi": null,
+          "volume": 5.77252667125,
+          "totals": {},
+          "networks": [],
+          "rate": 0.053033,
+          "hours": 4,
+          "next": 1794398400000,
+          "cap": 2,
+          "floor": -2,
+          "nativeBase": "哈基米",
+          "status": [
+            null,
+            null
+          ],
+          "fundingPending": false
+        }
+      ]
+    },
+    "venues": {
+      "Binance · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497132,
+        "returned": 804,
+        "with_bid_ask": 804,
+        "error": null,
+        "depth_refreshed": 4
+      },
+      "Binance · spot": {
+        "state": "ok"
+      },
+      "Bybit · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497977,
+        "returned": 938,
+        "with_bid_ask": 937,
+        "error": null
+      },
+      "Bybit · spot": {
+        "state": "ok"
+      },
+      "OKX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497765,
+        "returned": 546,
+        "with_bid_ask": 545,
+        "error": null
+      },
+      "OKX · spot": {
+        "state": "ok"
+      },
+      "Bitget · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497183,
+        "returned": 884,
+        "with_bid_ask": 884,
+        "error": null
+      },
+      "Bitget · spot": {
+        "state": "ok"
+      },
+      "Gate · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497347,
+        "returned": 1081,
+        "with_bid_ask": 1081,
+        "error": null
+      },
+      "Gate · spot": {
+        "state": "ok"
+      },
+      "MEXC · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497235,
+        "returned": 1208,
+        "with_bid_ask": 1200,
+        "error": null
+      },
+      "MEXC · spot": {
+        "state": "ok"
+      },
+      "KuCoin · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497619,
+        "returned": 722,
+        "with_bid_ask": 722,
+        "error": null,
+        "feed": "uta"
+      },
+      "KuCoin · spot": {
+        "state": "ok"
+      },
+      "Aster · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497356,
+        "returned": 594,
+        "with_bid_ask": 594,
+        "error": null
+      },
+      "HTX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497615,
+        "returned": 432,
+        "with_bid_ask": 414,
+        "error": null
+      },
+      "HTX · spot": {
+        "state": "ok"
+      },
+      "WhiteBIT · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390496868,
+        "returned": 395,
+        "with_bid_ask": 395,
+        "error": null
+      },
+      "WhiteBIT · spot": {
+        "state": "ok",
+        "with_bid_ask": 443
+      },
+      "EdgeX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497766,
+        "returned": 45,
+        "with_bid_ask": 45,
+        "error": null
+      },
+      "Extended · swap": {
+        "state": "ok",
+        "received_at_ms": 1794390497021,
+        "returned": 51,
+        "with_bid_ask": 51,
+        "error": null
+      }
+    },
+    "legs": [
+      {
+        "id": "binanceusdm.swap.HAJIMI.USDT",
+        "exchange": "Binance",
+        "type": "swap",
+        "quote": "USDT",
+        "symbol": "哈基米/USDT:USDT",
+        "bid": 0.01591,
+        "ask": 0.01593,
+        "last": 0.01592,
+        "asset": "hajimi",
+        "size": 1,
+        "sourceAt": 1794390494740,
+        "receivedAt": 1794390497132,
+        "index": 0.01587311,
+        "oi": null,
+        "volume": 5.77252667125,
+        "totals": {},
+        "networks": [],
+        "rate": 0.053033,
+        "hours": 4,
+        "next": 1794398400000,
+        "cap": 2,
+        "floor": -2,
+        "nativeBase": "哈基米"
+      },
+      {
+        "id": "bybit.swap.HAJIMI.USDT",
+        "exchange": "Bybit",
+        "type": "swap",
+        "quote": "USDT",
+        "symbol": "HAJIMI/USDT:USDT",
+        "bid": 0.01575,
+        "ask": 0.01577,
+        "last": 0.01577,
+        "asset": "hajimi",
+        "size": 1,
+        "sourceAt": null,
+        "receivedAt": 1794390497977,
+        "index": 0.01583,
+        "oi": 250778.32,
+        "volume": 1.7053586458999999,
+        "totals": {},
+        "networks": [],
+        "rate": 0.00125,
+        "hours": 1,
+        "next": 1794391200000,
+        "cap": 2.5,
+        "floor": -2.5
+      },
+      {
+        "id": "bitget.swap.HAJIMI.USDT",
+        "exchange": "Bitget",
+        "type": "swap",
+        "quote": "USDT",
+        "symbol": "哈基米/USDT:USDT",
+        "bid": 0.01584,
+        "ask": 0.01594,
+        "last": 0.01594,
+        "asset": "hajimi",
+        "size": 1,
+        "sourceAt": 1794390497056,
+        "receivedAt": 1794390497183,
+        "index": 0.01580617,
+        "oi": null,
+        "volume": 0.44479653494,
+        "totals": {},
+        "networks": [],
+        "rate": 0.3337,
+        "hours": 4,
+        "next": 1794398400000,
+        "cap": 2,
+        "floor": -2,
+        "nativeBase": "哈基米"
+      },
+      {
+        "id": "gate.swap.HAJIMI.USDT",
+        "exchange": "Gate",
+        "type": "swap",
+        "quote": "USDT",
+        "symbol": "哈基米/USDT:USDT",
+        "bid": 0.01593,
+        "ask": 0.0161,
+        "last": 0.01589,
+        "asset": "hajimi",
+        "size": 100,
+        "sourceAt": null,
+        "receivedAt": 1794390497347,
+        "index": 0.015912,
+        "oi": null,
+        "volume": 0.0998,
+        "totals": {},
+        "networks": [
+          {
+            "name": "BEP20",
+            "deposit": true,
+            "withdraw": true
+          }
+        ],
+        "rate": 0.005,
+        "hours": 4,
+        "next": 1794398400000,
+        "cap": 2,
+        "floor": -2,
+        "nativeBase": "哈基米"
+      },
+      {
+        "id": "mexc.swap.HAJIMI.USDT",
+        "exchange": "MEXC",
+        "type": "swap",
+        "quote": "USDT",
+        "symbol": "HAJIMI/USDT:USDT",
+        "bid": 0.01591,
+        "ask": 0.01592,
+        "last": 0.01592,
+        "asset": null,
+        "size": 10,
+        "sourceAt": 1794390495148,
+        "receivedAt": 1794390497235,
+        "index": 0.01586,
+        "oi": null,
+        "volume": 0.24366315090000001,
+        "totals": {},
+        "networks": [],
+        "rate": 0.053,
+        "hours": 4,
+        "next": 1794398400000,
+        "cap": 3,
+        "floor": -3
+      },
+      {
+        "id": "kucoinfutures.swap.HAJIMI.USDT",
+        "exchange": "KuCoin",
+        "type": "swap",
+        "quote": "USDT",
+        "symbol": "HAJIMI/USDT:USDT",
+        "bid": 0.01595,
+        "ask": 0.01601,
+        "last": 0.01596,
+        "asset": "hajimi",
+        "size": 100,
+        "sourceAt": 1794390497463,
+        "receivedAt": 1794390497619,
+        "index": 0.01594,
+        "oi": null,
+        "volume": 2.136235154,
+        "totals": {},
+        "networks": [],
+        "rate": 0.005,
+        "hours": 4,
+        "next": 1794398400000,
+        "cap": 2,
+        "floor": -2
+      }
+    ],
+    "valuation": {
+      "cap": 15.731454,
+      "fdv": 15.731454,
+      "updatedAt": 1794390414000,
+      "expiresAt": 1794392214000
+    }
+  },
+  "chinese": {
+    "rows": [
+      "bybit.swap.HAJIMI.USDT~binanceusdm.swap.HAJIMI.USDT"
+    ],
+    "dom": [
+      "HAJIMI\n+1"
+    ]
+  },
+  "checks": [
+    [
+      "SOXX",
+      0
+    ],
+    [
+      "DELL",
+      0
+    ],
+    [
+      "NATGAS",
+      0
+    ]
+  ],
+  "books": [
+    [
+      "bybit.swap.HAJIMI.USDT",
+      200,
+      {
+        "bid": [
+          0.01575,
+          4070
+        ],
+        "ask": [
+          0.01577,
+          110
+        ],
+        "sourceAt": 1794390500850,
+        "receivedAt": 1794390501304
+      }
+    ],
+    [
+      "binanceusdm.swap.HAJIMI.USDT",
+      200,
+      {
+        "bid": [
+          0.01592,
+          3127
+        ],
+        "ask": [
+          0.01594,
+          4092
+        ],
+        "sourceAt": 1794390501601,
+        "receivedAt": 1794390501679
+      }
+    ]
+  ],
+  "public": {
+    "url": "https://uainvest.com.ua/api/arbitrage/offers?include_liquidity=1&type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&coin=%E5%93%88%E5%9F%BA%E7%B1%B3&volume=1&group=1&quotes=USDT&category=crypto&sort_by=open_spread&sort_dir=desc",
+    "stamp": 1794390500000,
+    "rows": [
+      [
+        "哈基米",
+        "bybit",
+        "binance",
+        1.07424961,
+        1.7053476073,
+        5.77253690271,
+        "15757597.07",
+        "15757597.07"
+      ]
+    ]
+  }
+}

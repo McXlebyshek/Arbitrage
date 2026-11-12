@@ -1,0 +1,96 @@
+{
+  "url": "https://uainvest.com.ua/arbitrage/pybobo-mexc-swap-kucoin-swap",
+  "before": {
+    "at": 1794393915400,
+    "entry": 2.19,
+    "sides": [
+      {
+        "ask": 0.0005202,
+        "bid": 0.000517
+      },
+      {
+        "ask": 0.0005058,
+        "bid": 0.0005037
+      }
+    ],
+    "title": "➡️ 2.19⬅️-3.22-PYBOBO-MEXC(short)Kucoin(long)"
+  },
+  "books": [
+    {
+      "venue": "kucoinfutures",
+      "status": 200,
+      "ask": 0.0005053,
+      "bid": 0.0005037,
+      "sourceAt": 1794393914049,
+      "receivedAt": 1794393915816
+    },
+    {
+      "venue": "mexc",
+      "status": 200,
+      "ask": 0.0005218,
+      "bid": 0.000517,
+      "sourceAt": 1794393915710,
+      "receivedAt": 1794393916239
+    }
+  ],
+  "after": {
+    "at": 1794393916241,
+    "entry": 2.289,
+    "sides": [
+      {
+        "ask": 0.0005218,
+        "bid": 0.000517
+      },
+      {
+        "ask": 0.0005053,
+        "bid": 0.0005032
+      }
+    ],
+    "title": "➡️ 2.29⬅️-3.63-PYBOBO-MEXC(short)Kucoin(long)"
+  },
+  "spot": {
+    "mode": "spot",
+    "rows": [
+      [
+        "ESPORTS",
+        "kucoinfutures.spot.ESPORTS.USDT",
+        "kucoinfutures.swap.ESPORTS.USDT",
+        0.5515719801434245,
+        1.410351,
+        8.361765
+      ],
+      [
+        "POWER",
+        "bitget.spot.POWER.USDT",
+        "bitget.swap.POWER.USDT",
+        0.2160033035799327,
+        13.145719,
+        62.598664
+      ],
+      [
+        "NOM",
+        "mexc.spot.NOM.USDT",
+        "bybit.swap.NOM.USDT",
+        0,
+        4.123803,
+        10.408624
+      ],
+      [
+        "GUA",
+        "mexc.spot.GUA.USDT",
+        "gate.swap.GUA.USDT",
+        -0.35536602700781594,
+        1.260035,
+        28.000768
+      ],
+      [
+        "PYBOBO",
+        "gate.spot.PYBOBO.USDT",
+        "mexc.swap.PYBOBO.USDT",
+        -0.9362200117027517,
+        18.018738,
+        50.99643
+      ]
+    ]
+  }
+}

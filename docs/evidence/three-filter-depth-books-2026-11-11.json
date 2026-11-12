@@ -1,0 +1,29 @@
+{
+  "url": "https://uainvest.com.ua/arbitrage/zerebro-kucoin-swap-gate-swap",
+  "before": {
+    "at": 1794398423692,
+    "entry": null,
+    "sides": [],
+    "title": "-ZEREBRO-Kucoin(short)Gate(long)"
+  },
+  "books": [
+    {
+      "venue": "gate",
+      "status": 200,
+      "ask": 0.024303,
+      "bid": 0.024192,
+      "sourceAt": 1794398424000,
+      "receivedAt": 1794398424224
+    },
+    {
+      "venue": "kucoinfutures",
+      "status": 503
+    }
+  ],
+  "after": {
+    "at": 1794398424650,
+    "entry": null,
+    "sides": [],
+    "title": "-ZEREBRO-Kucoin(short)Gate(long)"
+  }
+}

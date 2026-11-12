@@ -1,0 +1,94 @@
+{
+  "card": "https://uainvest.com.ua/arbitrage/1000cat-bybit-swap-bitget-swap",
+  "before": {
+    "at": 1794393123436,
+    "title": "➡️ 2.40⬅️-2.64-1000CAT-Bybit(short)Bitget(long)",
+    "entry": 2.397,
+    "sides": [
+      [
+        0.00169,
+        0.001689
+      ],
+      [
+        0.001649,
+        0.001646
+      ]
+    ]
+  },
+  "own": {
+    "legs": [
+      [
+        "binanceusdm.swap.1000CAT.USDT",
+        "simon-s-cat",
+        1000
+      ],
+      [
+        "bybit.swap.1000CAT.USDT",
+        "simon-s-cat",
+        1000
+      ],
+      [
+        "bitget.swap.1000CAT.USDT",
+        "simon-s-cat",
+        1000
+      ],
+      [
+        "aster.swap.1000CAT.USDT",
+        "simon-s-cat",
+        1000
+      ]
+    ],
+    "books": [
+      {
+        "v": "bitget",
+        "status": 200,
+        "ask": 0.001649,
+        "bid": 0.001646,
+        "sourceAt": 1794393123928,
+        "receivedAt": 1794393123914
+      },
+      {
+        "v": "bybit",
+        "status": 200,
+        "ask": 0.00169,
+        "bid": 0.001689,
+        "sourceAt": 1794393122724,
+        "receivedAt": 1794393124220
+      }
+    ],
+    "cap": 12.662251
+  },
+  "after": {
+    "at": 1794393124223,
+    "title": "➡️ 2.40⬅️-2.64-1000CAT-Bybit(short)Bitget(long)",
+    "entry": 2.397,
+    "sides": [
+      [
+        0.00169,
+        0.001689
+      ],
+      [
+        0.001649,
+        0.001646
+      ]
+    ]
+  },
+  "estimate": {
+    "status": 200,
+    "body": {
+      "quantity": 14979,
+      "entry": [
+        0.001649,
+        0.001689
+      ],
+      "exit": [
+        0.001646,
+        0.00169
+      ],
+      "used": 49.999902,
+      "fees": 0.0599819076,
+      "gross": -0.059916,
+      "net": -0.1198979076
+    }
+  }
+}

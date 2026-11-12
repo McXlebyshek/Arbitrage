@@ -1,0 +1,5501 @@
+{
+  "start": {
+    "kind": "start",
+    "at": 1794422006850,
+    "venues": [
+      "binanceusdm",
+      "bybit",
+      "okx",
+      "bitget",
+      "gate",
+      "mexc",
+      "kucoinfutures",
+      "aster",
+      "htx",
+      "whitebit",
+      "edgex",
+      "extended"
+    ],
+    "stockBinanceSlots": 3,
+    "diagnosticBinanceSlots": 1
+  },
+  "finish": {
+    "kind": "finish",
+    "at": 1794422267492
+  },
+  "cycles": [
+    {
+      "seq": 1,
+      "stamp": 1794422018977,
+      "healthy": true,
+      "okx": 5,
+      "legs": 901,
+      "omitted": 1100,
+      "admitted": 144,
+      "base": 162,
+      "alt": 162,
+      "strict": 162,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.7282943292660304
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7603709263338029
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~binanceusdm.swap.RSR.USDT",
+          "entry": 0.6489292667099303
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~binanceusdm.swap.NIGHT.USDT",
+          "entry": 0.5055824731409252
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~binanceusdm.swap.BEAM.USDT",
+          "entry": 0.49943246311008965
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~binanceusdm.swap.STX.USDT",
+          "entry": 0.439836632108078
+        },
+        {
+          "coin": "AGT",
+          "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.4170899951874135
+        },
+        {
+          "coin": "BABY",
+          "id": "whitebit.swap.BABY.USDT~binanceusdm.swap.BABY.USDT",
+          "entry": 0.4065040650406514
+        },
+        {
+          "coin": "SOPH",
+          "id": "whitebit.swap.SOPH.USDT~binanceusdm.swap.SOPH.USDT",
+          "entry": 0.3995205753096295
+        },
+        {
+          "coin": "ONE",
+          "id": "gate.swap.ONE.USDT~mexc.swap.ONE.USDT",
+          "entry": 0.36820083682008903
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.7282943292660304
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7603709263338029
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~binanceusdm.swap.RSR.USDT",
+            "entry": 0.6489292667099303
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~binanceusdm.swap.NIGHT.USDT",
+            "entry": 0.5055824731409252
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~binanceusdm.swap.BEAM.USDT",
+            "entry": 0.49943246311008965
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.7282943292660304
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7603709263338029
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~binanceusdm.swap.RSR.USDT",
+            "entry": 0.6489292667099303
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~binanceusdm.swap.NIGHT.USDT",
+            "entry": 0.5055824731409252
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~binanceusdm.swap.BEAM.USDT",
+            "entry": 0.49943246311008965
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.7282943292660304
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7603709263338029
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~binanceusdm.swap.RSR.USDT",
+            "entry": 0.6489292667099303
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~binanceusdm.swap.NIGHT.USDT",
+            "entry": 0.5055824731409252
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~binanceusdm.swap.BEAM.USDT",
+            "entry": 0.49943246311008965
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.7282943292660304
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7603709263338029
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~binanceusdm.swap.RSR.USDT",
+            "entry": 0.6489292667099303
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~binanceusdm.swap.NIGHT.USDT",
+            "entry": 0.5055824731409252
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~binanceusdm.swap.BEAM.USDT",
+            "entry": 0.49943246311008965
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 2,
+        "aster": 4
+      }
+    },
+    {
+      "seq": 2,
+      "stamp": 1794422025088,
+      "healthy": true,
+      "okx": 10,
+      "legs": 906,
+      "omitted": 234,
+      "admitted": 200,
+      "base": 206,
+      "alt": 221,
+      "strict": 206,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.906598909455111
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7876774727045872
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7652895777936287
+        },
+        {
+          "coin": "JCT",
+          "id": "gate.swap.JCT.USDT~htx.swap.JCT.USDT",
+          "entry": 0.6018833122997724
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+          "entry": 0.5475989890480125
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5356575423305527
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.48674603696640034
+        },
+        {
+          "coin": "SOPH",
+          "id": "whitebit.swap.SOPH.USDT~bybit.swap.SOPH.USDT",
+          "entry": 0.4792332268370723
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~bybit.swap.STX.USDT",
+          "entry": 0.4711795193968906
+        },
+        {
+          "coin": "ONE",
+          "id": "gate.swap.ONE.USDT~mexc.swap.ONE.USDT",
+          "entry": 0.4416783778357794
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.906598909455111
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7876774727045872
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7652895777936287
+          },
+          {
+            "coin": "JCT",
+            "id": "gate.swap.JCT.USDT~htx.swap.JCT.USDT",
+            "entry": 0.6018833122997724
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+            "entry": 0.5475989890480125
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.906598909455111
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7876774727045872
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7652895777936287
+          },
+          {
+            "coin": "JCT",
+            "id": "gate.swap.JCT.USDT~htx.swap.JCT.USDT",
+            "entry": 0.6018833122997724
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+            "entry": 0.5475989890480125
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.906598909455111
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7876774727045872
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7652895777936287
+          },
+          {
+            "coin": "JCT",
+            "id": "gate.swap.JCT.USDT~htx.swap.JCT.USDT",
+            "entry": 0.6018833122997724
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+            "entry": 0.5475989890480125
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.906598909455111
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7876774727045872
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7652895777936287
+          },
+          {
+            "coin": "JCT",
+            "id": "gate.swap.JCT.USDT~htx.swap.JCT.USDT",
+            "entry": 0.6018833122997724
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+            "entry": 0.5475989890480125
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 1,
+        "aster": 4
+      }
+    },
+    {
+      "seq": 3,
+      "stamp": 1794422040640,
+      "healthy": true,
+      "okx": 22,
+      "legs": 919,
+      "omitted": 642,
+      "admitted": 436,
+      "base": 201,
+      "alt": 222,
+      "strict": 201,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.9824116857951974
+        },
+        {
+          "coin": "BTW",
+          "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.8150080987345553
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7717500567463289
+        },
+        {
+          "coin": "AGT",
+          "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.594791555031615
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5375551447656365
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~binanceusdm.swap.NIGHT.USDT",
+          "entry": 0.5060088551549738
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.473559589581688
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~bybit.swap.STX.USDT",
+          "entry": 0.439836632108078
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.4393900232618158
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.413820283762484
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.9824116857951974
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8150080987345553
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.594791555031615
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5375551447656365
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.9824116857951974
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8150080987345553
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.594791555031615
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5375551447656365
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.9824116857951974
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8150080987345553
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.594791555031615
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5375551447656365
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "aster.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.9824116857951974
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8150080987345553
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.594791555031615
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5375551447656365
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 1,
+        "aster": 3
+      }
+    },
+    {
+      "seq": 4,
+      "stamp": 1794422055602,
+      "healthy": true,
+      "okx": 37,
+      "legs": 932,
+      "omitted": 626,
+      "admitted": 440,
+      "base": 205,
+      "alt": 221,
+      "strict": 205,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 2.2022170969422055
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7717500567463289
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7374645002095002
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.5491385472546527
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5369462034278607
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~kucoinfutures.swap.NIGHT.USDT",
+          "entry": 0.5282495213332822
+        },
+        {
+          "coin": "GRAM",
+          "id": "bitget.swap.GRAM.USDT~aster.swap.GRAM.USDT",
+          "entry": 0.5103300683183787
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5055478957389579
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.48674603696640034
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.47146962895986594
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.2022170969422055
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7374645002095002
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5491385472546527
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5369462034278607
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.2022170969422055
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7374645002095002
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5491385472546527
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5369462034278607
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.2022170969422055
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7374645002095002
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5491385472546527
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5369462034278607
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.2022170969422055
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7374645002095002
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5491385472546527
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5369462034278607
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 2,
+        "aster": 4
+      }
+    },
+    {
+      "seq": 5,
+      "stamp": 1794422070163,
+      "healthy": true,
+      "okx": 56,
+      "legs": 954,
+      "omitted": 710,
+      "admitted": 504,
+      "base": 202,
+      "alt": 221,
+      "strict": 203,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 2.297141582723103
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7970798569725979
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7394434714925051
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.5857294994675318
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5838557106972195
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5557727460034009
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5055478957389579
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.48674603696640034
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.47146962895986594
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~binanceusdm.swap.STX.USDT",
+          "entry": 0.4399748585795136
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.297141582723103
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7970798569725979
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5857294994675318
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5838557106972195
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "IDOL"
+        ],
+        "changed": 27,
+        "newDirections": [
+          {
+            "coin": "ARIA",
+            "id": "aster.swap.ARIA.USDT~mexc.swap.ARIA.USDT",
+            "entry": 0.2305429684394504
+          },
+          {
+            "coin": "IDOL",
+            "id": "mexc.swap.IDOL.USDT~aster.swap.IDOL.USDT",
+            "entry": 0.2010211876331823
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.297141582723103
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7970798569725979
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5857294994675318
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5838557106972195
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.297141582723103
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7970798569725979
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5857294994675318
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5838557106972195
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.297141582723103
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7970798569725979
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5857294994675318
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5838557106972195
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 4,
+        "aster": 3
+      }
+    },
+    {
+      "seq": 6,
+      "stamp": 1794422087476,
+      "healthy": true,
+      "okx": 72,
+      "legs": 971,
+      "omitted": 700,
+      "admitted": 516,
+      "base": 203,
+      "alt": 224,
+      "strict": 203,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 2.1179355701705433
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.8235408551299985
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7394434714925051
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5674175718597082
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5513249754438533
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5055478957389579
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.5035181718417164
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.48674603696640034
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.4544942591942282
+        },
+        {
+          "coin": "ONE",
+          "id": "gate.swap.ONE.USDT~binanceusdm.swap.ONE.USDT",
+          "entry": 0.4286096972943972
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.1179355701705433
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8235408551299985
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5674175718597082
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+            "entry": 0.5513249754438533
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [],
+        "changed": 2,
+        "newDirections": [
+          {
+            "coin": "IDOL",
+            "id": "mexc.swap.IDOL.USDT~aster.swap.IDOL.USDT",
+            "entry": 0.16886458668380872
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.1179355701705433
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8235408551299985
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5674175718597082
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+            "entry": 0.5513249754438533
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.1179355701705433
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8235408551299985
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5674175718597082
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+            "entry": 0.5513249754438533
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.1179355701705433
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8235408551299985
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5674175718597082
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+            "entry": 0.5513249754438533
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 4,
+        "aster": 3
+      }
+    },
+    {
+      "seq": 7,
+      "stamp": 1794422100721,
+      "healthy": true,
+      "okx": 86,
+      "legs": 983,
+      "omitted": 704,
+      "admitted": 494,
+      "base": 206,
+      "alt": 222,
+      "strict": 206,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.986828887152588
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7676956628436347
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7394434714925051
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.5867738013427075
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5671611438126362
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5129666571672845
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5055478957389579
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.500263296471816
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.43910628955186226
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~binanceusdm.swap.STX.USDT",
+          "entry": 0.4079711281970714
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.986828887152588
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7676956628436347
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5867738013427075
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5671611438126362
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.986828887152588
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7676956628436347
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5867738013427075
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5671611438126362
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.986828887152588
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7676956628436347
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5867738013427075
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5671611438126362
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.986828887152588
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7676956628436347
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7394434714925051
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5867738013427075
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5671611438126362
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 3,
+        "aster": 3
+      }
+    },
+    {
+      "seq": 8,
+      "stamp": 1794422115373,
+      "healthy": true,
+      "okx": 105,
+      "legs": 1003,
+      "omitted": 750,
+      "admitted": 540,
+      "base": 210,
+      "alt": 226,
+      "strict": 210,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.6479400749063726
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.9689518166687388
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.6877311360539761
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5536410372295203
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5055478957389579
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.500263296471816
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.48877090970377973
+        },
+        {
+          "coin": "ARIA",
+          "id": "gate.swap.ARIA.USDT~bitget.swap.ARIA.USDT",
+          "entry": 0.47993971005294767
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.4701457451809891
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.4393900232618158
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.6479400749063726
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.9689518166687388
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5536410372295203
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5055478957389579
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "HANA"
+        ],
+        "changed": 14,
+        "newDirections": [
+          {
+            "coin": "HANA",
+            "id": "kucoinfutures.swap.HANA.USDT~binanceusdm.swap.HANA.USDT",
+            "entry": 0.18343014368693839
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.6479400749063726
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.9689518166687388
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5536410372295203
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5055478957389579
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.6479400749063726
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.9689518166687388
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5536410372295203
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5055478957389579
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.6479400749063726
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.9689518166687388
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5536410372295203
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5055478957389579
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 3,
+        "aster": 3
+      }
+    },
+    {
+      "seq": 9,
+      "stamp": 1794422130310,
+      "healthy": true,
+      "okx": 126,
+      "legs": 1026,
+      "omitted": 766,
+      "admitted": 562,
+      "base": 209,
+      "alt": 228,
+      "strict": 209,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.8274415817854985
+        },
+        {
+          "coin": "BTW",
+          "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.8636609783529403
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.6877311360539761
+        },
+        {
+          "coin": "AGT",
+          "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.580551523947745
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5741799850803643
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5495836009307069
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5220046290976523
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.4873872093789044
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.4697040864255523
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.4393900232618158
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.8274415817854985
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8636609783529403
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.580551523947745
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5741799850803643
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "MEGA"
+        ],
+        "changed": 20,
+        "newDirections": [
+          {
+            "coin": "MEGA",
+            "id": "okx.swap.MEGA.USDT~binanceusdm.swap.MEGA.USDT",
+            "entry": 0.19704433497536905
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.8274415817854985
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8636609783529403
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.580551523947745
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5741799850803643
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.8274415817854985
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8636609783529403
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.580551523947745
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5741799850803643
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.8274415817854985
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.8636609783529403
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.580551523947745
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5741799850803643
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 1,
+        "aster": 5
+      }
+    },
+    {
+      "seq": 10,
+      "stamp": 1794422145893,
+      "healthy": true,
+      "okx": 148,
+      "legs": 1052,
+      "omitted": 748,
+      "admitted": 560,
+      "base": 218,
+      "alt": 236,
+      "strict": 218,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.779117979645685
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7892908425586975
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.6877311360539761
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5670330166834049
+        },
+        {
+          "coin": "AGT",
+          "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.5370823789590152
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.507185122569744
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5011686916970144
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.44748618057382616
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.4393900232618158
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.43804755944929813
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.779117979645685
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7892908425586975
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5670330166834049
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5370823789590152
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.779117979645685
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7892908425586975
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5670330166834049
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5370823789590152
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.779117979645685
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7892908425586975
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5670330166834049
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5370823789590152
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.779117979645685
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7892908425586975
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5670330166834049
+          },
+          {
+            "coin": "AGT",
+            "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.5370823789590152
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "aster": 5,
+        "binanceusdm": 1
+      }
+    },
+    {
+      "seq": 11,
+      "stamp": 1794422163203,
+      "healthy": true,
+      "okx": 168,
+      "legs": 1063,
+      "omitted": 816,
+      "admitted": 610,
+      "base": 209,
+      "alt": 233,
+      "strict": 209,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "mexc.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 2.0470676129996415
+        },
+        {
+          "coin": "BTW",
+          "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7592859559910946
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.6877311360539761
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5737908600085663
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+          "entry": 0.5475989890480125
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.5313923666739196
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.5017246785826248
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.4393900232618158
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.42166293319278003
+        },
+        {
+          "coin": "S",
+          "id": "whitebit.swap.S.USDT~okx.swap.S.USDT",
+          "entry": 0.4063388866314622
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "mexc.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.0470676129996415
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7592859559910946
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5737908600085663
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+            "entry": 0.5475989890480125
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "SLX",
+          "BICO"
+        ],
+        "changed": 14,
+        "newDirections": [
+          {
+            "coin": "SLX",
+            "id": "okx.swap.SLX.USDT~kucoinfutures.swap.SLX.USDT",
+            "entry": 0.16858668165214263
+          },
+          {
+            "coin": "BICO",
+            "id": "okx.swap.BICO.USDT~kucoinfutures.swap.BICO.USDT",
+            "entry": 0.1480384900074087
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "mexc.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.0470676129996415
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7592859559910946
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5737908600085663
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+            "entry": 0.5475989890480125
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "mexc.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.0470676129996415
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7592859559910946
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5737908600085663
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+            "entry": 0.5475989890480125
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "mexc.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.0470676129996415
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7592859559910946
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5737908600085663
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~bybit.swap.NIGHT.USDT",
+            "entry": 0.5475989890480125
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "aster": 5,
+        "binanceusdm": 5
+      }
+    },
+    {
+      "seq": 12,
+      "stamp": 1794422174932,
+      "healthy": true,
+      "okx": 181,
+      "legs": 1063,
+      "omitted": 214,
+      "admitted": 180,
+      "base": 216,
+      "alt": 238,
+      "strict": 216,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 2.804052790967214
+        },
+        {
+          "coin": "BTW",
+          "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.87275685770549
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.6877311360539761
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5985657010559514
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.592450525126611
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5667393525687732
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5478373546344759
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.5009227524387099
+        },
+        {
+          "coin": "ARIA",
+          "id": "gate.swap.ARIA.USDT~bitget.swap.ARIA.USDT",
+          "entry": 0.47881254488866765
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.4699984333385559
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.804052790967214
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.87275685770549
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5985657010559514
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.592450525126611
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "TRUTH"
+        ],
+        "changed": 20,
+        "newDirections": [
+          {
+            "coin": "TRUTH",
+            "id": "okx.swap.TRUTH.USDT~binanceusdm.swap.TRUTH.USDT",
+            "entry": 0.21007105344456461
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.804052790967214
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.87275685770549
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5985657010559514
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.592450525126611
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.804052790967214
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.87275685770549
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5985657010559514
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.592450525126611
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 2.804052790967214
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.87275685770549
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6877311360539761
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5985657010559514
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.592450525126611
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 5,
+        "aster": 4
+      }
+    },
+    {
+      "seq": 13,
+      "stamp": 1794422191024,
+      "healthy": true,
+      "okx": 200,
+      "legs": 1064,
+      "omitted": 852,
+      "admitted": 624,
+      "base": 219,
+      "alt": 237,
+      "strict": 219,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.6219031322074364
+        },
+        {
+          "coin": "BTW",
+          "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7216809615010991
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.6941966457975145
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.6020415091777355
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5313914583743323
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5029514199433982
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.5012531328320771
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.48110192111247135
+        },
+        {
+          "coin": "AGT",
+          "id": "kucoinfutures.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.4660474580721495
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.43882292204438966
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.6219031322074364
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7216809615010991
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6941966457975145
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.6020415091777355
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5313914583743323
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "IOST"
+        ],
+        "changed": 10,
+        "newDirections": [
+          {
+            "coin": "IOST",
+            "id": "binanceusdm.swap.IOST.USDT~okx.swap.IOST.USDT",
+            "entry": 0.1678236326188073
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.6219031322074364
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7216809615010991
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6941966457975145
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.6020415091777355
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5313914583743323
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.6219031322074364
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7216809615010991
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6941966457975145
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.6020415091777355
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5313914583743323
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "okx.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.6219031322074364
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7216809615010991
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.6941966457975145
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.6020415091777355
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5313914583743323
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 3,
+        "aster": 4
+      }
+    },
+    {
+      "seq": 14,
+      "stamp": 1794422205761,
+      "healthy": true,
+      "okx": 215,
+      "legs": 1064,
+      "omitted": 830,
+      "admitted": 592,
+      "base": 221,
+      "alt": 237,
+      "strict": 221,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.9612213059950994
+        },
+        {
+          "coin": "BTW",
+          "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7926366279608034
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7717500567463289
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5814676968675414
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5446551610998194
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5066164955171759
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.5031933423650106
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.4873872093789044
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.47557596441694566
+        },
+        {
+          "coin": "ONE",
+          "id": "gate.swap.ONE.USDT~binanceusdm.swap.ONE.USDT",
+          "entry": 0.4750593824228108
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.9612213059950994
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7926366279608034
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5814676968675414
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5446551610998194
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "DASH",
+          "TRUTH"
+        ],
+        "changed": 15,
+        "newDirections": [
+          {
+            "coin": "LIT",
+            "id": "mexc.swap.LIT.USDT~okx.swap.LIT.USDT",
+            "entry": 0.27167828514277037
+          },
+          {
+            "coin": "DASH",
+            "id": "mexc.swap.DASH.USDT~okx.swap.DASH.USDT",
+            "entry": 0.20711080428029782
+          },
+          {
+            "coin": "TRUTH",
+            "id": "okx.swap.TRUTH.USDT~binanceusdm.swap.TRUTH.USDT",
+            "entry": 0.20394919810882425
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.9612213059950994
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7926366279608034
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5814676968675414
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5446551610998194
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.9612213059950994
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7926366279608034
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5814676968675414
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5446551610998194
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.9612213059950994
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7926366279608034
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7717500567463289
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5814676968675414
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5446551610998194
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "aster": 3
+      }
+    },
+    {
+      "publicComparison": {
+        "raw": 50,
+        "matchedMarketRows": 44,
+        "diffMs": 463,
+        "publicStamp": 1794422220000,
+        "base10": {
+          "coins": 8,
+          "pairs": 5
+        },
+        "alt10": {
+          "coins": 8,
+          "pairs": 5
+        },
+        "strict10": {
+          "coins": 8,
+          "pairs": 5
+        },
+        "base50": {
+          "coins": 20,
+          "pairs": 7
+        },
+        "alt50": {
+          "coins": 20,
+          "pairs": 7
+        },
+        "strict50": {
+          "coins": 20,
+          "pairs": 7
+        }
+      },
+      "seq": 15,
+      "stamp": 1794422220463,
+      "healthy": true,
+      "okx": 231,
+      "legs": 1064,
+      "omitted": 844,
+      "admitted": 632,
+      "base": 215,
+      "alt": 238,
+      "strict": 215,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.8775872264932099
+        },
+        {
+          "coin": "BTW",
+          "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7151392761530647
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7135906584495584
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5611064625682959
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5408524649520688
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5408419878573614
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.48110192111247135
+        },
+        {
+          "coin": "ONE",
+          "id": "gate.swap.ONE.USDT~binanceusdm.swap.ONE.USDT",
+          "entry": 0.4750593824228108
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~bybit.swap.STX.USDT",
+          "entry": 0.4697040864255523
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.43853992003096476
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.8775872264932099
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7151392761530647
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5611064625682959
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5408524649520688
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "TRUTH",
+          "IOST"
+        ],
+        "changed": 24,
+        "newDirections": [
+          {
+            "coin": "TRUTH",
+            "id": "okx.swap.TRUTH.USDT~binanceusdm.swap.TRUTH.USDT",
+            "entry": 0.24729520865534366
+          },
+          {
+            "coin": "IOST",
+            "id": "binanceusdm.swap.IOST.USDT~okx.swap.IOST.USDT",
+            "entry": 0.15248551387616893
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.8775872264932099
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7151392761530647
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5611064625682959
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5408524649520688
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.8775872264932099
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7151392761530647
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5611064625682959
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5408524649520688
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.8775872264932099
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7151392761530647
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5611064625682959
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5408524649520688
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "aster": 2
+      }
+    },
+    {
+      "seq": 16,
+      "stamp": 1794422237748,
+      "healthy": true,
+      "okx": 251,
+      "legs": 1064,
+      "omitted": 790,
+      "admitted": 580,
+      "base": 218,
+      "alt": 237,
+      "strict": 218,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.3425789318383121
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.819090466362108
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.739053669998745
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7135906584495584
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5972580426224908
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5827553658636586
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~kucoinfutures.swap.NIGHT.USDT",
+          "entry": 0.5503730458436933
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.5010961478233605
+        },
+        {
+          "coin": "ONE",
+          "id": "gate.swap.ONE.USDT~mexc.swap.ONE.USDT",
+          "entry": 0.46775810223856074
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.43853992003096476
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.3425789318383121
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.819090466362108
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.739053669998745
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5972580426224908
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "TRUTH",
+          "SLX"
+        ],
+        "changed": 19,
+        "newDirections": [
+          {
+            "coin": "TRUTH",
+            "id": "okx.swap.TRUTH.USDT~binanceusdm.swap.TRUTH.USDT",
+            "entry": 0.23494497341412043
+          },
+          {
+            "coin": "SLX",
+            "id": "okx.swap.SLX.USDT~kucoinfutures.swap.SLX.USDT",
+            "entry": 0.19654639898919168
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.3425789318383121
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.819090466362108
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.739053669998745
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5972580426224908
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.3425789318383121
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.819090466362108
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.739053669998745
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5972580426224908
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.3425789318383121
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.819090466362108
+          },
+          {
+            "coin": "AGT",
+            "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+            "entry": 0.739053669998745
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5972580426224908
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "aster": 2
+      }
+    },
+    {
+      "seq": 17,
+      "stamp": 1794422250353,
+      "healthy": true,
+      "okx": 260,
+      "legs": 1064,
+      "omitted": 846,
+      "admitted": 628,
+      "base": 220,
+      "alt": 238,
+      "strict": 220,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.5410138248847989
+        },
+        {
+          "coin": "BTW",
+          "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.7887711726459945
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7135906584495584
+        },
+        {
+          "coin": "BULLA",
+          "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+          "entry": 0.5827553658636586
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5794739463081117
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~kucoinfutures.swap.NIGHT.USDT",
+          "entry": 0.5673043122094924
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.48110192111247135
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.46941010796432525
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~bybit.swap.NXPC.USDT",
+          "entry": 0.43853992003096476
+        },
+        {
+          "coin": "ONE",
+          "id": "gate.swap.ONE.USDT~binanceusdm.swap.ONE.USDT",
+          "entry": 0.420799519086256
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.5410138248847989
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7887711726459945
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5827553658636586
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5794739463081117
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.5410138248847989
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7887711726459945
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5827553658636586
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5794739463081117
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.5410138248847989
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7887711726459945
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5827553658636586
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5794739463081117
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "gate.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.5410138248847989
+          },
+          {
+            "coin": "BTW",
+            "id": "aster.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.7887711726459945
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BULLA",
+            "id": "binanceusdm.swap.BULLA.USDT~gate.swap.BULLA.USDT",
+            "entry": 0.5827553658636586
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5794739463081117
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 1,
+        "aster": 3
+      }
+    },
+    {
+      "seq": 18,
+      "stamp": 1794422266855,
+      "healthy": true,
+      "okx": 273,
+      "legs": 1064,
+      "omitted": 818,
+      "admitted": 564,
+      "base": 215,
+      "alt": 234,
+      "strict": 215,
+      "baselineTop": [
+        {
+          "coin": "INIT",
+          "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+          "entry": 1.3974698440717952
+        },
+        {
+          "coin": "BTW",
+          "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+          "entry": 0.897678593853919
+        },
+        {
+          "coin": "RSR",
+          "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+          "entry": 0.7135906584495584
+        },
+        {
+          "coin": "BEAM",
+          "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+          "entry": 0.5408524649520688
+        },
+        {
+          "coin": "NIGHT",
+          "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+          "entry": 0.5188450424988994
+        },
+        {
+          "coin": "ALLO",
+          "id": "whitebit.swap.ALLO.USDT~bybit.swap.ALLO.USDT",
+          "entry": 0.4873872093789044
+        },
+        {
+          "coin": "STX",
+          "id": "whitebit.swap.STX.USDT~okx.swap.STX.USDT",
+          "entry": 0.46926325668700186
+        },
+        {
+          "coin": "NXPC",
+          "id": "whitebit.swap.NXPC.USDT~binanceusdm.swap.NXPC.USDT",
+          "entry": 0.43825728280483767
+        },
+        {
+          "coin": "AGT",
+          "id": "gate.swap.AGT.USDT~aster.swap.AGT.USDT",
+          "entry": 0.43590147576282623
+        },
+        {
+          "coin": "S",
+          "id": "whitebit.swap.S.USDT~okx.swap.S.USDT",
+          "entry": 0.4060089321965012
+        }
+      ],
+      "alt10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.3974698440717952
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.897678593853919
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5408524649520688
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+            "entry": 0.5188450424988994
+          }
+        ]
+      },
+      "alt50": {
+        "newCoins": [
+          "IOST"
+        ],
+        "changed": 21,
+        "newDirections": [
+          {
+            "coin": "IOST",
+            "id": "binanceusdm.swap.IOST.USDT~okx.swap.IOST.USDT",
+            "entry": 0.19809523809523466
+          }
+        ],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.3974698440717952
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.897678593853919
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5408524649520688
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+            "entry": 0.5188450424988994
+          }
+        ]
+      },
+      "strict10": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.3974698440717952
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.897678593853919
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5408524649520688
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+            "entry": 0.5188450424988994
+          }
+        ]
+      },
+      "strict50": {
+        "newCoins": [],
+        "changed": 0,
+        "newDirections": [],
+        "top": [
+          {
+            "coin": "INIT",
+            "id": "binanceusdm.swap.INIT.USDT~bybit.swap.INIT.USDT",
+            "entry": 1.3974698440717952
+          },
+          {
+            "coin": "BTW",
+            "id": "bitget.swap.BTW.USDT~bybit.swap.BTW.USDT",
+            "entry": 0.897678593853919
+          },
+          {
+            "coin": "RSR",
+            "id": "whitebit.swap.RSR.USDT~bybit.swap.RSR.USDT",
+            "entry": 0.7135906584495584
+          },
+          {
+            "coin": "BEAM",
+            "id": "whitebit.swap.BEAM.USDT~bybit.swap.BEAM.USDT",
+            "entry": 0.5408524649520688
+          },
+          {
+            "coin": "NIGHT",
+            "id": "whitebit.swap.NIGHT.USDT~okx.swap.NIGHT.USDT",
+            "entry": 0.5188450424988994
+          }
+        ]
+      },
+      "serverAgeRejectedWithRawBbo": {
+        "binanceusdm": 2,
+        "aster": 4
+      }
+    }
+  ],
+  "probes": [
+    {
+      "seq": 1,
+      "coin": "INIT",
+      "ids": [
+        "mexc.swap.INIT.USDT",
+        "kucoinfutures.swap.INIT.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "KuCoin"
+      ],
+      "kinds": [
+        "trade",
+        "batch"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 1970,
+      "gap": 111,
+      "latency": 4428,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.7882799137354096,
+      "spread": 1.0055491415589661,
+      "delta": 0.2172692278235565
+    },
+    {
+      "seq": 1,
+      "coin": "JCT",
+      "ids": [
+        "binanceusdm.swap.JCT.USDT",
+        "htx.swap.JCT.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "HTX"
+      ],
+      "kinds": [
+        "transaction",
+        "unknown"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 10706,
+      "gap": 81,
+      "latency": 3114,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.38978756577665274,
+      "spread": 0.19421246844046597,
+      "delta": -0.19557509733618678
+    },
+    {
+      "seq": 2,
+      "coin": "BTW",
+      "ids": [
+        "bitget.swap.BTW.USDT",
+        "binanceusdm.swap.BTW.USDT"
+      ],
+      "exchanges": [
+        "Bitget",
+        "Binance"
+      ],
+      "kinds": [
+        "unknown",
+        "transaction"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3602,
+      "gap": 19,
+      "latency": 3259,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.24172920707198722,
+      "spread": 0.286632258306232,
+      "delta": 0.04490305123424479
+    },
+    {
+      "seq": 2,
+      "coin": "IDOL",
+      "ids": [
+        "mexc.swap.IDOL.USDT",
+        "aster.swap.IDOL.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "Aster"
+      ],
+      "kinds": [
+        "trade",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "insufficient",
+      "samePrices": false,
+      "bulkGap": 1553,
+      "gap": 1667,
+      "latency": 3069,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.1860991989643071,
+      "spread": 0.12942366026289498,
+      "delta": -0.05667553870141212
+    },
+    {
+      "seq": 3,
+      "coin": "BTW",
+      "ids": [
+        "aster.swap.BTW.USDT",
+        "binanceusdm.swap.BTW.USDT"
+      ],
+      "exchanges": [
+        "Aster",
+        "Binance"
+      ],
+      "kinds": [
+        "transaction",
+        "transaction"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 7595,
+      "gap": 144,
+      "latency": 3455,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.31914047328252687,
+      "spread": 0.20788658007846209,
+      "delta": -0.11125389320406479
+    },
+    {
+      "seq": 3,
+      "coin": "INIT",
+      "ids": [
+        "okx.swap.INIT.USDT",
+        "mexc.swap.INIT.USDT"
+      ],
+      "exchanges": [
+        "OKX",
+        "MEXC"
+      ],
+      "kinds": [
+        "ticker_generated",
+        "trade"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3490,
+      "gap": 300,
+      "latency": 3265,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.20289310539169075,
+      "spread": -0.10517617008489312,
+      "delta": -0.30806927547658386
+    },
+    {
+      "seq": 4,
+      "coin": "GRAM",
+      "ids": [
+        "mexc.swap.GRAM.USDT",
+        "binanceusdm.swap.GRAM.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "Binance"
+      ],
+      "kinds": [
+        "trade",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3260,
+      "gap": 1122,
+      "latency": 3753,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.24701523260600175,
+      "spread": -0.08220304151254516,
+      "delta": -0.3292182741185469
+    },
+    {
+      "seq": 5,
+      "coin": "RAVE",
+      "ids": [
+        "kucoinfutures.swap.RAVE.USDT",
+        "binanceusdm.swap.RAVE.USDT"
+      ],
+      "exchanges": [
+        "KuCoin",
+        "Binance"
+      ],
+      "kinds": [
+        "batch",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "same",
+      "samePrices": true,
+      "bulkGap": 2924,
+      "gap": 1357,
+      "latency": 2761,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.12459118517364388,
+      "spread": 0.12459118517364388,
+      "delta": 0
+    },
+    {
+      "seq": 5,
+      "coin": "INIT",
+      "ids": [
+        "mexc.swap.INIT.USDT",
+        "bitget.swap.INIT.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "Bitget"
+      ],
+      "kinds": [
+        "trade",
+        "unknown"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 4220,
+      "gap": 323,
+      "latency": 3308,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.45694595303194835,
+      "spread": 0.0748111019675445,
+      "delta": -0.38213485106440387
+    },
+    {
+      "seq": 6,
+      "coin": "UNI",
+      "ids": [
+        "mexc.swap.UNI.USDT",
+        "htx.swap.UNI.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "HTX"
+      ],
+      "kinds": [
+        "trade",
+        "unknown"
+      ],
+      "alternate": false,
+      "observed": "insufficient",
+      "samePrices": false,
+      "bulkGap": 3315,
+      "gap": null,
+      "latency": 5239,
+      "errors": [
+        "ValueError: стакан просрочен",
+        null
+      ],
+      "old": 0.08336175211247024,
+      "spread": null,
+      "delta": null
+    },
+    {
+      "seq": 6,
+      "coin": "APR",
+      "ids": [
+        "okx.swap.APR.USDT",
+        "binanceusdm.swap.APR.USDT"
+      ],
+      "exchanges": [
+        "OKX",
+        "Binance"
+      ],
+      "kinds": [
+        "ticker_generated",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 2487,
+      "gap": 738,
+      "latency": 5102,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.08258774948381366,
+      "spread": 0.02752167331772705,
+      "delta": -0.05506607616608661
+    },
+    {
+      "seq": 7,
+      "coin": "INIT",
+      "ids": [
+        "binanceusdm.swap.INIT.USDT",
+        "kucoinfutures.swap.INIT.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "KuCoin"
+      ],
+      "kinds": [
+        "transaction",
+        "batch"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 2443,
+      "gap": 390,
+      "latency": 3176,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 1.313040883318421,
+      "spread": 1.2322168701691385,
+      "delta": -0.08082401314928256
+    },
+    {
+      "seq": 7,
+      "coin": "BTW",
+      "ids": [
+        "bitget.swap.BTW.USDT",
+        "mexc.swap.BTW.USDT"
+      ],
+      "exchanges": [
+        "Bitget",
+        "MEXC"
+      ],
+      "kinds": [
+        "unknown",
+        "trade"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 2216,
+      "gap": 432,
+      "latency": 3806,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.2868401631925623,
+      "spread": 0.2514083523441431,
+      "delta": -0.035431810848419176
+    },
+    {
+      "seq": 8,
+      "coin": "JCT",
+      "ids": [
+        "binanceusdm.swap.JCT.USDT",
+        "bitget.swap.JCT.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "Bitget"
+      ],
+      "kinds": [
+        "transaction",
+        "unknown"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 2551,
+      "gap": 22,
+      "latency": 3009,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.15497869043005283,
+      "spread": 0.1545296503766698,
+      "delta": -0.0004490400533830319
+    },
+    {
+      "seq": 8,
+      "coin": "BTW",
+      "ids": [
+        "mexc.swap.BTW.USDT",
+        "okx.swap.BTW.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "OKX"
+      ],
+      "kinds": [
+        "trade",
+        "ticker_generated"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3873,
+      "gap": 1295,
+      "latency": 2894,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.4912638457616777,
+      "spread": -0.12012012012012742,
+      "delta": -0.6113839658818051
+    },
+    {
+      "seq": 9,
+      "coin": "JCT",
+      "ids": [
+        "mexc.swap.JCT.USDT",
+        "htx.swap.JCT.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "HTX"
+      ],
+      "kinds": [
+        "trade",
+        "unknown"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3784,
+      "gap": 328,
+      "latency": 2632,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.40756914119359894,
+      "spread": 0.1939111886755787,
+      "delta": -0.21365795251802025
+    },
+    {
+      "seq": 9,
+      "coin": "MEGA",
+      "ids": [
+        "okx.swap.MEGA.USDT",
+        "binanceusdm.swap.MEGA.USDT"
+      ],
+      "exchanges": [
+        "OKX",
+        "Binance"
+      ],
+      "kinds": [
+        "ticker_generated",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 2866,
+      "gap": 558,
+      "latency": 3823,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.19704433497536905,
+      "spread": 0.08760402978536656,
+      "delta": -0.10944030519000249
+    },
+    {
+      "seq": 10,
+      "coin": "LIT",
+      "ids": [
+        "binanceusdm.swap.LIT.USDT",
+        "aster.swap.LIT.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "Aster"
+      ],
+      "kinds": [
+        "transaction",
+        "transaction"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3347,
+      "gap": 244,
+      "latency": 4100,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.10755900806692702,
+      "spread": 0.0388123423248484,
+      "delta": -0.06874666574207862
+    },
+    {
+      "seq": 10,
+      "coin": "AXIS",
+      "ids": [
+        "okx.swap.AXIS.USDT",
+        "kucoinfutures.swap.AXIS.USDT"
+      ],
+      "exchanges": [
+        "OKX",
+        "KuCoin"
+      ],
+      "kinds": [
+        "ticker_generated",
+        "batch"
+      ],
+      "alternate": true,
+      "observed": "insufficient",
+      "samePrices": false,
+      "bulkGap": 1582,
+      "gap": null,
+      "latency": 3703,
+      "errors": [
+        null,
+        "ValueError: стакан просрочен"
+      ],
+      "old": 0.056534438895698196,
+      "spread": null,
+      "delta": null
+    },
+    {
+      "seq": 11,
+      "coin": "BTW",
+      "ids": [
+        "binanceusdm.swap.BTW.USDT",
+        "htx.swap.BTW.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "HTX"
+      ],
+      "kinds": [
+        "transaction",
+        "unknown"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 1688,
+      "gap": 164,
+      "latency": 5430,
+      "errors": [
+        null,
+        null
+      ],
+      "old": -0.25647239950264883,
+      "spread": -0.5347717746751415,
+      "delta": -0.27829937517249265
+    },
+    {
+      "seq": 11,
+      "coin": "ASTER",
+      "ids": [
+        "okx.swap.ASTER.USDT",
+        "aster.swap.ASTER.USDT"
+      ],
+      "exchanges": [
+        "OKX",
+        "Aster"
+      ],
+      "kinds": [
+        "ticker_generated",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 1545,
+      "gap": 302,
+      "latency": 6206,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.045533884799283296,
+      "spread": 0.04554771122752266,
+      "delta": 0.000013826428239362143
+    },
+    {
+      "seq": 12,
+      "coin": "IDOL",
+      "ids": [
+        "binanceusdm.swap.IDOL.USDT",
+        "aster.swap.IDOL.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "Aster"
+      ],
+      "kinds": [
+        "transaction",
+        "transaction"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 5302,
+      "gap": 24,
+      "latency": 2703,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.10465303493802011,
+      "spread": 0.05633802816901458,
+      "delta": -0.048315006769005533
+    },
+    {
+      "seq": 13,
+      "coin": "APR",
+      "ids": [
+        "bitget.swap.APR.USDT",
+        "binanceusdm.swap.APR.USDT"
+      ],
+      "exchanges": [
+        "Bitget",
+        "Binance"
+      ],
+      "kinds": [
+        "unknown",
+        "transaction"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 1973,
+      "gap": 1,
+      "latency": 4147,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.05491488193300161,
+      "spread": 0,
+      "delta": -0.05491488193300161
+    },
+    {
+      "seq": 13,
+      "coin": "AGT",
+      "ids": [
+        "kucoinfutures.swap.AGT.USDT",
+        "mexc.swap.AGT.USDT"
+      ],
+      "exchanges": [
+        "KuCoin",
+        "MEXC"
+      ],
+      "kinds": [
+        "batch",
+        "trade"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 4584,
+      "gap": 1375,
+      "latency": 3270,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.26939124149940635,
+      "spread": 0.26412788520293395,
+      "delta": -0.005263356296472399
+    },
+    {
+      "seq": 14,
+      "coin": "INIT",
+      "ids": [
+        "mexc.swap.INIT.USDT",
+        "binanceusdm.swap.INIT.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "Binance"
+      ],
+      "kinds": [
+        "trade",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3303,
+      "gap": 478,
+      "latency": 3894,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.4334504147672052,
+      "spread": -0.029832935560847623,
+      "delta": -0.4632833503280528
+    },
+    {
+      "seq": 15,
+      "coin": "BNB",
+      "ids": [
+        "bitget.swap.BNB.USDT",
+        "mexc.swap.BNB.USDT"
+      ],
+      "exchanges": [
+        "Bitget",
+        "MEXC"
+      ],
+      "kinds": [
+        "unknown",
+        "trade"
+      ],
+      "alternate": false,
+      "observed": "insufficient",
+      "samePrices": true,
+      "bulkGap": 3310,
+      "gap": 2706,
+      "latency": 3536,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.11186576108669331,
+      "spread": 0.11186576108669331,
+      "delta": 0
+    },
+    {
+      "seq": 15,
+      "coin": "TRUTH",
+      "ids": [
+        "okx.swap.TRUTH.USDT",
+        "binanceusdm.swap.TRUTH.USDT"
+      ],
+      "exchanges": [
+        "OKX",
+        "Binance"
+      ],
+      "kinds": [
+        "ticker_generated",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 9516,
+      "gap": 493,
+      "latency": 3420,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.24729520865534366,
+      "spread": 0.23494497341412043,
+      "delta": -0.012350235241223223
+    },
+    {
+      "seq": 16,
+      "coin": "DOGE",
+      "ids": [
+        "binanceusdm.swap.DOGE.USDT",
+        "htx.swap.DOGE.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "HTX"
+      ],
+      "kinds": [
+        "transaction",
+        "unknown"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 1501,
+      "gap": 49,
+      "latency": 5720,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.04055972419387584,
+      "spread": 0.04780080102555206,
+      "delta": 0.00724107683167622
+    },
+    {
+      "seq": 16,
+      "coin": "AGT",
+      "ids": [
+        "mexc.swap.AGT.USDT",
+        "aster.swap.AGT.USDT"
+      ],
+      "exchanges": [
+        "MEXC",
+        "Aster"
+      ],
+      "kinds": [
+        "trade",
+        "transaction"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3639,
+      "gap": 1318,
+      "latency": 5902,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.30126399895211753,
+      "spread": 0.17045827050415163,
+      "delta": -0.1308057284479659
+    },
+    {
+      "seq": 17,
+      "coin": "ARIA",
+      "ids": [
+        "binanceusdm.swap.ARIA.USDT",
+        "bitget.swap.ARIA.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "Bitget"
+      ],
+      "kinds": [
+        "transaction",
+        "unknown"
+      ],
+      "alternate": false,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 2199,
+      "gap": 72,
+      "latency": 3510,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.1668785759694755,
+      "spread": 0.019887437105977963,
+      "delta": -0.14699113886349754
+    },
+    {
+      "seq": 17,
+      "coin": "BTW",
+      "ids": [
+        "aster.swap.BTW.USDT",
+        "mexc.swap.BTW.USDT"
+      ],
+      "exchanges": [
+        "Aster",
+        "MEXC"
+      ],
+      "kinds": [
+        "transaction",
+        "trade"
+      ],
+      "alternate": true,
+      "observed": "changed",
+      "samePrices": false,
+      "bulkGap": 3738,
+      "gap": 1043,
+      "latency": 3155,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.3495770118156955,
+      "spread": 0.14746922279987465,
+      "delta": -0.20210778901582085
+    },
+    {
+      "seq": 18,
+      "coin": "ICNT",
+      "ids": [
+        "binanceusdm.swap.ICNT.USDT",
+        "kucoinfutures.swap.ICNT.USDT"
+      ],
+      "exchanges": [
+        "Binance",
+        "KuCoin"
+      ],
+      "kinds": [
+        "transaction",
+        "batch"
+      ],
+      "alternate": true,
+      "observed": "insufficient",
+      "samePrices": true,
+      "bulkGap": 1924,
+      "gap": 1781,
+      "latency": 4565,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.10982976386599952,
+      "spread": 0.10982976386599952,
+      "delta": 0
+    },
+    {
+      "seq": 18,
+      "coin": "BNB",
+      "ids": [
+        "htx.swap.BNB.USDT",
+        "mexc.swap.BNB.USDT"
+      ],
+      "exchanges": [
+        "HTX",
+        "MEXC"
+      ],
+      "kinds": [
+        "unknown",
+        "trade"
+      ],
+      "alternate": false,
+      "observed": "insufficient",
+      "samePrices": false,
+      "bulkGap": 2187,
+      "gap": 2076,
+      "latency": 4809,
+      "errors": [
+        null,
+        null
+      ],
+      "old": 0.05533290877549025,
+      "spread": 0.045314324555120536,
+      "delta": -0.010018584220369713
+    }
+  ],
+  "bookCalls": 66,
+  "binanceBooks": 18,
+  "probeVenues": {
+    "aster": 7,
+    "binanceusdm": 18,
+    "bitget": 7,
+    "htx": 6,
+    "kucoinfutures": 6,
+    "mexc": 15,
+    "okx": 7
+  },
+  "stockBinance": 51,
+  "maxBinance": 4,
+  "categories": {
+    "changed": 26,
+    "insufficient": 6,
+    "same": 1
+  },
+  "alternateCategories": {
+    "changed": 13,
+    "insufficient": 3,
+    "same": 1
+  },
+  "browser": [
+    {
+      "kind": "browser",
+      "at": 1794422030577,
+      "stamp": 1794422025088,
+      "settings": {
+        "volume": "1",
+        "mode": "spread",
+        "sort": "entry",
+        "direction": "desc",
+        "group": true,
+        "expand": "",
+        "categories": [
+          "crypto"
+        ],
+        "exchanges": [
+          "Aster",
+          "Binance",
+          "Bitget",
+          "Bybit",
+          "EdgeX",
+          "Extended",
+          "Gate",
+          "HTX",
+          "KuCoin",
+          "MEXC",
+          "OKX",
+          "WhiteBIT"
+        ],
+        "quotes": [
+          "USDT"
+        ],
+        "query": "",
+        "operator": "gte",
+        "favorites": false
+      },
+      "groups": 206,
+      "venues": 21,
+      "top": [
+        [
+          "INIT",
+          "aster.swap.INIT.USDT",
+          "bybit.swap.INIT.USDT",
+          1.906598909455111
+        ],
+        [
+          "BTW",
+          "bitget.swap.BTW.USDT",
+          "bybit.swap.BTW.USDT",
+          0.7876774727045872
+        ],
+        [
+          "RSR",
+          "whitebit.swap.RSR.USDT",
+          "bybit.swap.RSR.USDT",
+          0.7652895777936287
+        ],
+        [
+          "JCT",
+          "gate.swap.JCT.USDT",
+          "htx.swap.JCT.USDT",
+          0.6018833122997724
+        ],
+        [
+          "NIGHT",
+          "whitebit.swap.NIGHT.USDT",
+          "bybit.swap.NIGHT.USDT",
+          0.5475989890480125
+        ],
+        [
+          "BEAM",
+          "whitebit.swap.BEAM.USDT",
+          "bybit.swap.BEAM.USDT",
+          0.5356575423305527
+        ],
+        [
+          "ALLO",
+          "whitebit.swap.ALLO.USDT",
+          "bybit.swap.ALLO.USDT",
+          0.48674603696640034
+        ],
+        [
+          "SOPH",
+          "whitebit.swap.SOPH.USDT",
+          "bybit.swap.SOPH.USDT",
+          0.4792332268370723
+        ],
+        [
+          "STX",
+          "whitebit.swap.STX.USDT",
+          "bybit.swap.STX.USDT",
+          0.4711795193968906
+        ],
+        [
+          "ONE",
+          "gate.swap.ONE.USDT",
+          "mexc.swap.ONE.USDT",
+          0.4416783778357794
+        ]
+      ],
+      "visible": "INIT\n+51\n\t\n↑\nA\nAster\n0,13351\n↓\nB\nBybit\n0,13608\n\t\n-0.0569% 1 ч\n00:26:10\n0.0013% 1 ч\n00:26:10\n\t—\t509.74%\t0.47%\t≈ 1.91%\t\nВв\nВы\nВв\nВы\n\t—\n—\nСтакан\n\t—\n—"
+    },
+    {
+      "kind": "browser",
+      "role": "public",
+      "at": 1794422221475,
+      "url": "https://uainvest.com.ua/api/arbitrage/offers?include_liquidity=1&type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&volume=1&group=1&quotes=USDT&category=crypto&sort_by=open_spread&sort_dir=desc",
+      "stamp": 1794422220000,
+      "stamps": [
+        1794422205761,
+        1794422220463
+      ],
+      "rows": [
+        {
+          "coin": "INIT",
+          "long": "gate",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "INITUSDT",
+          "ss": "INITUSDT",
+          "entry": 1.9172178,
+          "volume": [
+            64291507,
+            226542989.3007
+          ]
+        },
+        {
+          "coin": "BTW",
+          "long": "aster",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "BTWUSDT",
+          "ss": "BTWUSDT",
+          "entry": 0.79355893,
+          "volume": [
+            4488781.74,
+            16897549.0515
+          ]
+        },
+        {
+          "coin": "AGT",
+          "long": "extended",
+          "short": "aster",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "AGTUSDT",
+          "ss": "AGTUSDT",
+          "entry": 0.78334635,
+          "volume": [
+            1496798.3102,
+            3177134.07
+          ]
+        },
+        {
+          "coin": "RSR",
+          "long": "whitebit",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "RSRUSDT",
+          "ss": "RSRUSDT",
+          "entry": 0.77175006,
+          "volume": [
+            1611500.53745,
+            1610746.5314
+          ]
+        },
+        {
+          "coin": "Q",
+          "long": "bitget",
+          "short": "mexc",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "QUSDT",
+          "ss": "QUSDT",
+          "entry": 0.72037249,
+          "volume": [
+            3262072.946404,
+            2011112.18
+          ]
+        },
+        {
+          "coin": "NIGHT",
+          "long": "whitebit",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "NIGHTUSDT",
+          "ss": "NIGHTUSDT",
+          "entry": 0.60994847,
+          "volume": [
+            6544719.36402,
+            4114397.7819
+          ]
+        },
+        {
+          "coin": "BEAM",
+          "long": "whitebit",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "BEAMUSDT",
+          "ss": "BEAMUSDT",
+          "entry": 0.5814677,
+          "volume": [
+            2352475.604122,
+            4096385.0026
+          ]
+        },
+        {
+          "coin": "STX",
+          "long": "whitebit",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "STXUSDT",
+          "ss": "STXUSDT",
+          "entry": 0.56338028,
+          "volume": [
+            2385531.1907,
+            3262683.59
+          ]
+        },
+        {
+          "coin": "BULLA",
+          "long": "binance",
+          "short": "gate",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "BULLAUSDT",
+          "ss": "BULLAUSDT",
+          "entry": 0.52820656,
+          "volume": [
+            8927858.13069,
+            1274300
+          ]
+        },
+        {
+          "coin": "WIF",
+          "long": "bitget",
+          "short": "whitebit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "WIFUSDT",
+          "ss": "WIFUSDT",
+          "entry": 0.37641154,
+          "volume": [
+            1155290.26506,
+            19132053.46097
+          ]
+        },
+        {
+          "coin": "ONE",
+          "long": "gate",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "ONEUSDT",
+          "ss": "ONEUSDT",
+          "entry": 0.34146831,
+          "volume": [
+            4305541,
+            27854463.9736
+          ]
+        },
+        {
+          "coin": "IDOL",
+          "long": "bitget",
+          "short": "aster",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "IDOLUSDT",
+          "ss": "IDOLUSDT",
+          "entry": 0.2820079,
+          "volume": [
+            5757535.554251,
+            1104697.45
+          ]
+        },
+        {
+          "coin": "UP",
+          "long": "gate",
+          "short": "aster",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "UPUSDT",
+          "ss": "UPUSDT",
+          "entry": 0.27155465,
+          "volume": [
+            1018703,
+            1546748.5
+          ]
+        },
+        {
+          "coin": "AXIS",
+          "long": "bybit",
+          "short": "kucoin",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "AXISUSDT",
+          "ss": "AXISUSDT",
+          "entry": 0.24498257,
+          "volume": [
+            1869797.4661,
+            1983665.8726
+          ]
+        },
+        {
+          "coin": "ARIA",
+          "long": "gate",
+          "short": "kucoin",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "ARIAUSDT",
+          "ss": "ARIAUSDT",
+          "entry": 0.20718782,
+          "volume": [
+            14326065,
+            5809104.1068
+          ]
+        },
+        {
+          "coin": "DASH",
+          "long": "gate",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "DASHUSDT",
+          "ss": "DASHUSDT",
+          "entry": 0.18407731,
+          "volume": [
+            1439121,
+            9507693.3159
+          ]
+        },
+        {
+          "coin": "SUI",
+          "long": "kucoin",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "SUIUSDC",
+          "ss": "SUIUSDT",
+          "entry": 0.1783697,
+          "volume": [
+            9083488.3404,
+            41190187.0466
+          ]
+        },
+        {
+          "coin": "TA",
+          "long": "bybit",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "TAUSDT",
+          "ss": "TAUSDT",
+          "entry": 0.11981015,
+          "volume": [
+            1147086.5921,
+            5422319.67018
+          ]
+        },
+        {
+          "coin": "ORDI",
+          "long": "gate",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "ORDIUSDT",
+          "ss": "ORDIUSDT",
+          "entry": 0.09376465,
+          "volume": [
+            1085904,
+            1802438.6061
+          ]
+        },
+        {
+          "coin": "TRUMP",
+          "long": "whitebit",
+          "short": "kucoin",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "TRUMPUSDT",
+          "ss": "TRUMPUSDT",
+          "entry": 0.08722198,
+          "volume": [
+            10625461.56781,
+            12050999.159
+          ]
+        },
+        {
+          "coin": "CORE",
+          "long": "bybit",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "COREUSDT",
+          "ss": "COREUSDT",
+          "entry": 0.08120179,
+          "volume": [
+            3336873.7196,
+            5631062.86328
+          ]
+        },
+        {
+          "coin": "PONS",
+          "long": "bybit",
+          "short": "mexc",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "PONSUSDT",
+          "ss": "PONSUSDT",
+          "entry": 0.06319115,
+          "volume": [
+            8725257.1723,
+            1135690.1
+          ]
+        },
+        {
+          "coin": "BARD",
+          "long": "binance",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "BARDUSDT",
+          "ss": "BARDUSDT",
+          "entry": 0.05979073,
+          "volume": [
+            5296508.7888,
+            2460471.3212
+          ]
+        },
+        {
+          "coin": "GOOGL",
+          "long": "edgex",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "GOOGLUSDT",
+          "ss": "GOOGLUSDT",
+          "entry": 0.05410523,
+          "volume": [
+            1206572.7538,
+            13765546.7964
+          ]
+        },
+        {
+          "coin": "AMD",
+          "long": "edgex",
+          "short": "whitebit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "AMDUSDT",
+          "ss": "AMDUSDT",
+          "entry": 0.03537944,
+          "volume": [
+            1652380.9114,
+            18182187.5899
+          ]
+        },
+        {
+          "coin": "ETHFI",
+          "long": "bybit",
+          "short": "mexc",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "ETHFIUSDT",
+          "ss": "ETHFIUSDT",
+          "entry": 0.03087373,
+          "volume": [
+            5669054.9842,
+            3372320.6362
+          ]
+        },
+        {
+          "coin": "HUMA",
+          "long": "binance",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "HUMAUSDT",
+          "ss": "HUMAUSDT",
+          "entry": 0.02409929,
+          "volume": [
+            15924409.122887,
+            3205078.79
+          ]
+        },
+        {
+          "coin": "ERA",
+          "long": "binance",
+          "short": "bitget",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "ERAUSDT",
+          "ss": "ERAUSDT",
+          "entry": 0,
+          "volume": [
+            90277132.27347,
+            8912381.17066
+          ]
+        },
+        {
+          "coin": "JUP",
+          "long": "bybit",
+          "short": "kucoin",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "JUPUSDT",
+          "ss": "JUPUSDT",
+          "entry": 0,
+          "volume": [
+            6868021.4378,
+            16869281.8966
+          ]
+        },
+        {
+          "coin": "RENDER",
+          "long": "kucoin",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "RENDERUSDT",
+          "ss": "RENDERUSDT",
+          "entry": 0,
+          "volume": [
+            15809069.205,
+            14332412.5118
+          ]
+        },
+        {
+          "coin": "哈基米",
+          "long": "bybit",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "哈基米USDT",
+          "ss": "哈基米USDT",
+          "entry": 0,
+          "volume": [
+            1285174.7107,
+            5738944.1731
+          ]
+        },
+        {
+          "coin": "O",
+          "long": "kucoin",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "OUSDT",
+          "ss": "OUSDT",
+          "entry": -0.02102386,
+          "volume": [
+            1611921.7518,
+            1311904.012
+          ]
+        },
+        {
+          "coin": "MET",
+          "long": "bybit",
+          "short": "kucoin",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "METUSDT",
+          "ss": "METUSDT",
+          "entry": -0.03351768,
+          "volume": [
+            2899882.7601,
+            19811995.636
+          ]
+        },
+        {
+          "coin": "MERL",
+          "long": "bybit",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "MERLUSDT",
+          "ss": "MERLUSDT",
+          "entry": -0.03356268,
+          "volume": [
+            4604308.3959,
+            25665267.95639
+          ]
+        },
+        {
+          "coin": "XDC",
+          "long": "bybit",
+          "short": "kucoin",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "XDCUSDT",
+          "ss": "XDCUSDT",
+          "entry": -0.03427592,
+          "volume": [
+            1352139.0147,
+            1756509.27
+          ]
+        },
+        {
+          "coin": "SIREN",
+          "long": "binance",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "SIRENUSDT",
+          "ss": "SIRENUSDT",
+          "entry": -0.03568243,
+          "volume": [
+            6301348.76154,
+            1943934.6441
+          ]
+        },
+        {
+          "coin": "MAGMA",
+          "long": "bitget",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "MAGMAUSDT",
+          "ss": "MAGMAUSDT",
+          "entry": -0.04092034,
+          "volume": [
+            2766195.87603,
+            17816751.49195
+          ]
+        },
+        {
+          "coin": "MEGA",
+          "long": "bybit",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "MEGAUSDT",
+          "ss": "MEGAUSDT",
+          "entry": -0.04377325,
+          "volume": [
+            3550227.8243,
+            10453602.40921
+          ]
+        },
+        {
+          "coin": "BIO",
+          "long": "okx",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "BIOUSDT",
+          "ss": "BIOUSDT",
+          "entry": -0.04988775,
+          "volume": [
+            1485346.52352,
+            3179432.10613
+          ]
+        },
+        {
+          "coin": "IRYS",
+          "long": "kucoin",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "IRYSUSDT",
+          "ss": "IRYSUSDT",
+          "entry": -0.05961252,
+          "volume": [
+            9910881.9002,
+            12479250.07701
+          ]
+        },
+        {
+          "coin": "PYTH",
+          "long": "bybit",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "PYTHUSDT",
+          "ss": "PYTHUSDT",
+          "entry": -0.0598265,
+          "volume": [
+            6987508.3963,
+            6405905.268
+          ]
+        },
+        {
+          "coin": "0G",
+          "long": "kucoin",
+          "short": "okx",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "0GUSDT",
+          "ss": "0GUSDT",
+          "entry": -0.07891622,
+          "volume": [
+            5742439.00486,
+            1637191.544
+          ]
+        },
+        {
+          "coin": "SOPH",
+          "long": "binance",
+          "short": "bybit",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "SOPHUSDT",
+          "ss": "SOPHUSDT",
+          "entry": -0.07977663,
+          "volume": [
+            8815816.12079,
+            2569114.0943
+          ]
+        },
+        {
+          "coin": "US",
+          "long": "bybit",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "USUSDT",
+          "ss": "USUSDT",
+          "entry": -0.1003009,
+          "volume": [
+            1471803.7651,
+            3518672.860926
+          ]
+        },
+        {
+          "coin": "GRAM",
+          "long": "whitebit",
+          "short": "aster",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "GRAMUSDT",
+          "ss": "GRAMUSDT",
+          "entry": -0.11431371,
+          "volume": [
+            10212771.33028,
+            5322442.87
+          ]
+        },
+        {
+          "coin": "EVAA",
+          "long": "binance",
+          "short": "kucoin",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "EVAAUSDT",
+          "ss": "EVAAUSDT",
+          "entry": -0.13052396,
+          "volume": [
+            4583364.7816,
+            4588706.7368
+          ]
+        },
+        {
+          "coin": "CLO",
+          "long": "bybit",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "CLOUSDT",
+          "ss": "CLOUSDT",
+          "entry": -0.17094017,
+          "volume": [
+            1186460.197,
+            5443160.87528
+          ]
+        },
+        {
+          "coin": "CSOPSKHYNIX2L",
+          "long": "okx",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "CSOPSKHYNIX2LUSDT",
+          "ss": "CSOPSKHYNIX2LUSDT",
+          "entry": -0.2090738,
+          "volume": [
+            2891303.962,
+            41857191.73895
+          ]
+        },
+        {
+          "coin": "MVLL",
+          "long": "whitebit",
+          "short": "mexc",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "MVLLUSDT",
+          "ss": "MVLLUSDT",
+          "entry": -0.23501763,
+          "volume": [
+            1861790.0263,
+            2751880.3477
+          ]
+        },
+        {
+          "coin": "CYBER",
+          "long": "bybit",
+          "short": "binance",
+          "lt": "swap",
+          "st": "swap",
+          "ls": "CYBERUSDT",
+          "ss": "CYBERUSDT",
+          "entry": -0.30816641,
+          "volume": [
+            5741646.7896,
+            27303294.34244
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,696 @@
+{
+  "catalogs": {
+    "binanceusdm": {
+      "AGT": {
+        "id": "AGTUSDT",
+        "symbol": "AGT/USDT:USDT",
+        "contractSize": 1.0,
+        "info": {
+          "fullName": null,
+          "name": null,
+          "indexSymbol": null,
+          "baseAsset": "AGT",
+          "baseCurrency": null,
+          "baseCoinName": null
+        }
+      },
+      "JELLYJELLY": {
+        "id": "JELLYJELLYUSDT",
+        "symbol": "JELLYJELLY/USDT:USDT",
+        "contractSize": 1.0,
+        "info": {
+          "fullName": null,
+          "name": null,
+          "indexSymbol": null,
+          "baseAsset": "JELLYJELLY",
+          "baseCurrency": null,
+          "baseCoinName": null
+        }
+      }
+    },
+    "mexc": {
+      "AGT": {
+        "id": "AGT_USDT",
+        "symbol": "AGT/USDT:USDT",
+        "contractSize": 100.0,
+        "info": {
+          "fullName": null,
+          "name": null,
+          "indexSymbol": null,
+          "baseAsset": null,
+          "baseCurrency": null,
+          "baseCoinName": "AGT"
+        }
+      }
+    },
+    "kucoinfutures": {
+      "JELLYJELLY": {
+        "id": "JELLYJELLYUSDTM",
+        "symbol": "JELLYJELLY/USDT:USDT",
+        "contractSize": 100.0,
+        "info": {
+          "fullName": null,
+          "name": null,
+          "indexSymbol": ".KJELLYJELLYUSDT",
+          "baseAsset": null,
+          "baseCurrency": "JELLYJELLY",
+          "baseCoinName": null
+        }
+      }
+    }
+  },
+  "rounds": [
+    {
+      "startedAt": 1794405501608,
+      "bulk": {
+        "binanceusdm": {
+          "AGT": {
+            "bid": 0.04068,
+            "ask": 0.04069,
+            "sourceAt": 1794405501914,
+            "receivedAt": 1794405501938,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405501914
+            }
+          },
+          "JELLYJELLY": {
+            "bid": 0.04227,
+            "ask": 0.04228,
+            "sourceAt": 1794405501350,
+            "receivedAt": 1794405501938,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405501350
+            }
+          }
+        },
+        "mexc": {
+          "AGT": {
+            "bid": 0.04066,
+            "ask": 0.04068,
+            "sourceAt": 1794405503132,
+            "receivedAt": 1794405507061,
+            "feed": null,
+            "nativeTime": {
+              "timestamp": 1794405503132
+            }
+          }
+        },
+        "kucoinfutures": {
+          "JELLYJELLY": {
+            "bid": "0.04226",
+            "ask": "0.042442",
+            "sourceAt": 1794405502500,
+            "receivedAt": 1794405502455,
+            "feed": "uta",
+            "nativeTime": {}
+          }
+        }
+      },
+      "books": {
+        "JELLYJELLY": {
+          "binanceusdm": {
+            "bid": 0.04227,
+            "ask": 0.04228,
+            "sourceAt": 1794405507569.0,
+            "receivedAt": 1794405507572
+          },
+          "kucoinfutures": {
+            "bid": 0.04226,
+            "ask": 0.042442,
+            "sourceAt": 1794405507379.0,
+            "receivedAt": 1794405507423
+          }
+        },
+        "AGT": {
+          "binanceusdm": {
+            "bid": 0.04072,
+            "ask": 0.04075,
+            "sourceAt": 1794405508129.0,
+            "receivedAt": 1794405508076
+          },
+          "mexc": {
+            "bid": 0.04077,
+            "ask": 0.04081,
+            "sourceAt": 1794405507704.0,
+            "receivedAt": 1794405507992
+          }
+        }
+      }
+    },
+    {
+      "startedAt": 1794405509077,
+      "bulk": {
+        "binanceusdm": {
+          "AGT": {
+            "bid": 0.04082,
+            "ask": 0.04084,
+            "sourceAt": 1794405509340,
+            "receivedAt": 1794405509701,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405509340
+            }
+          },
+          "JELLYJELLY": {
+            "bid": 0.04227,
+            "ask": 0.04228,
+            "sourceAt": 1794405501350,
+            "receivedAt": 1794405509701,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405501350
+            }
+          }
+        },
+        "mexc": {
+          "AGT": {
+            "bid": 0.04074,
+            "ask": 0.04078,
+            "sourceAt": 1794405507000,
+            "receivedAt": 1794405509628,
+            "feed": null,
+            "nativeTime": {
+              "timestamp": 1794405507000
+            }
+          }
+        },
+        "kucoinfutures": {
+          "JELLYJELLY": {
+            "bid": "0.04226",
+            "ask": "0.042442",
+            "sourceAt": 1794405509806,
+            "receivedAt": 1794405509758,
+            "feed": "uta",
+            "nativeTime": {}
+          }
+        }
+      },
+      "books": {
+        "JELLYJELLY": {
+          "binanceusdm": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405510334.0,
+            "receivedAt": 1794405510268
+          },
+          "kucoinfutures": {
+            "bid": 0.04226,
+            "ask": 0.042442,
+            "sourceAt": 1794405510151.0,
+            "receivedAt": 1794405510109
+          }
+        },
+        "AGT": {
+          "binanceusdm": {
+            "bid": 0.04065,
+            "ask": 0.04066,
+            "sourceAt": 1794405510828.0,
+            "receivedAt": 1794405510770
+          },
+          "mexc": {
+            "bid": 0.04083,
+            "ask": 0.04085,
+            "sourceAt": 1794405510256.0,
+            "receivedAt": 1794405510703
+          }
+        }
+      }
+    },
+    {
+      "startedAt": 1794405511782,
+      "bulk": {
+        "binanceusdm": {
+          "AGT": {
+            "bid": 0.04079,
+            "ask": 0.0408,
+            "sourceAt": 1794405512142,
+            "receivedAt": 1794405512161,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405512142
+            }
+          },
+          "JELLYJELLY": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405511692,
+            "receivedAt": 1794405512161,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405511692
+            }
+          }
+        },
+        "mexc": {
+          "AGT": {
+            "bid": 0.04066,
+            "ask": 0.04068,
+            "sourceAt": 1794405510889,
+            "receivedAt": 1794405512291,
+            "feed": null,
+            "nativeTime": {
+              "timestamp": 1794405510889
+            }
+          }
+        },
+        "kucoinfutures": {
+          "JELLYJELLY": {
+            "bid": "0.04226",
+            "ask": "0.042442",
+            "sourceAt": 1794405512571,
+            "receivedAt": 1794405512520,
+            "feed": "uta",
+            "nativeTime": {}
+          }
+        }
+      },
+      "books": {
+        "JELLYJELLY": {
+          "binanceusdm": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405513101.0,
+            "receivedAt": 1794405513030
+          },
+          "kucoinfutures": {
+            "bid": 0.04226,
+            "ask": 0.04243,
+            "sourceAt": 1794405512606.0,
+            "receivedAt": 1794405512878
+          }
+        },
+        "AGT": {
+          "binanceusdm": {
+            "bid": 0.04086,
+            "ask": 0.04088,
+            "sourceAt": 1794405513601.0,
+            "receivedAt": 1794405513533
+          },
+          "mexc": {
+            "bid": 0.04087,
+            "ask": 0.04088,
+            "sourceAt": 1794405512951.0,
+            "receivedAt": 1794405513461
+          }
+        }
+      }
+    },
+    {
+      "startedAt": 1794405514534,
+      "bulk": {
+        "binanceusdm": {
+          "AGT": {
+            "bid": 0.04092,
+            "ask": 0.04094,
+            "sourceAt": 1794405514616,
+            "receivedAt": 1794405515139,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405514616
+            }
+          },
+          "JELLYJELLY": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405511692,
+            "receivedAt": 1794405515139,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405511692
+            }
+          }
+        },
+        "mexc": {
+          "AGT": {
+            "bid": 0.04088,
+            "ask": 0.0409,
+            "sourceAt": 1794405513913,
+            "receivedAt": 1794405515070,
+            "feed": null,
+            "nativeTime": {
+              "timestamp": 1794405513913
+            }
+          }
+        },
+        "kucoinfutures": {
+          "JELLYJELLY": {
+            "bid": "0.04226",
+            "ask": "0.04243",
+            "sourceAt": 1794405515435,
+            "receivedAt": 1794405515386,
+            "feed": "uta",
+            "nativeTime": {}
+          }
+        }
+      },
+      "books": {
+        "JELLYJELLY": {
+          "binanceusdm": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405515964.0,
+            "receivedAt": 1794405515896
+          },
+          "kucoinfutures": {
+            "bid": 0.04226,
+            "ask": 0.042427,
+            "sourceAt": 1794405515572.0,
+            "receivedAt": 1794405515754
+          }
+        },
+        "AGT": {
+          "binanceusdm": {
+            "bid": 0.04084,
+            "ask": 0.04086,
+            "sourceAt": 1794405516473.0,
+            "receivedAt": 1794405516400
+          },
+          "mexc": {
+            "bid": 0.04079,
+            "ask": 0.0408,
+            "sourceAt": 1794405515953.0,
+            "receivedAt": 1794405516321
+          }
+        }
+      }
+    },
+    {
+      "startedAt": 1794405517401,
+      "bulk": {
+        "binanceusdm": {
+          "AGT": {
+            "bid": 0.04086,
+            "ask": 0.04088,
+            "sourceAt": 1794405517633,
+            "receivedAt": 1794405517781,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405517633
+            }
+          },
+          "JELLYJELLY": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405517677,
+            "receivedAt": 1794405517781,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405517677
+            }
+          }
+        },
+        "mexc": {
+          "AGT": {
+            "bid": 0.04089,
+            "ask": 0.04091,
+            "sourceAt": 1794405517175,
+            "receivedAt": 1794405517939,
+            "feed": null,
+            "nativeTime": {
+              "timestamp": 1794405517175
+            }
+          }
+        },
+        "kucoinfutures": {
+          "JELLYJELLY": {
+            "bid": "0.04226",
+            "ask": "0.042427",
+            "sourceAt": 1794405518084,
+            "receivedAt": 1794405518062,
+            "feed": "uta",
+            "nativeTime": {}
+          }
+        }
+      },
+      "books": {
+        "JELLYJELLY": {
+          "binanceusdm": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405518543.0,
+            "receivedAt": 1794405518574
+          },
+          "kucoinfutures": {
+            "bid": 0.04226,
+            "ask": 0.042427,
+            "sourceAt": 1794405517604.0,
+            "receivedAt": 1794405518435
+          }
+        },
+        "AGT": {
+          "binanceusdm": {
+            "bid": 0.04096,
+            "ask": 0.04099,
+            "sourceAt": 1794405519147.0,
+            "receivedAt": 1794405519074
+          },
+          "mexc": {
+            "bid": 0.04093,
+            "ask": 0.04096,
+            "sourceAt": 1794405518588.0,
+            "receivedAt": 1794405519023
+          }
+        }
+      }
+    },
+    {
+      "startedAt": 1794405520076,
+      "bulk": {
+        "binanceusdm": {
+          "AGT": {
+            "bid": 0.04141,
+            "ask": 0.04143,
+            "sourceAt": 1794405520376,
+            "receivedAt": 1794405520464,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405520376
+            }
+          },
+          "JELLYJELLY": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405518801,
+            "receivedAt": 1794405520464,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405518801
+            }
+          }
+        },
+        "mexc": {
+          "AGT": {
+            "bid": 0.04089,
+            "ask": 0.04091,
+            "sourceAt": 1794405517175,
+            "receivedAt": 1794405520628,
+            "feed": null,
+            "nativeTime": {
+              "timestamp": 1794405517175
+            }
+          }
+        },
+        "kucoinfutures": {
+          "JELLYJELLY": {
+            "bid": "0.04226",
+            "ask": "0.042427",
+            "sourceAt": 1794405520724,
+            "receivedAt": 1794405520672,
+            "feed": "uta",
+            "nativeTime": {}
+          }
+        }
+      },
+      "books": {
+        "JELLYJELLY": {
+          "binanceusdm": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405521236.0,
+            "receivedAt": 1794405521181
+          },
+          "kucoinfutures": {
+            "bid": 0.04226,
+            "ask": 0.042427,
+            "sourceAt": 1794405521069.0,
+            "receivedAt": 1794405521030
+          }
+        },
+        "AGT": {
+          "binanceusdm": {
+            "bid": 0.04157,
+            "ask": 0.04158,
+            "sourceAt": 1794405521739.0,
+            "receivedAt": 1794405521686
+          },
+          "mexc": {
+            "bid": 0.04153,
+            "ask": 0.04158,
+            "sourceAt": 1794405521268.0,
+            "receivedAt": 1794405521581
+          }
+        }
+      }
+    },
+    {
+      "startedAt": 1794405522687,
+      "bulk": {
+        "binanceusdm": {
+          "AGT": {
+            "bid": 0.04178,
+            "ask": 0.04181,
+            "sourceAt": 1794405522748,
+            "receivedAt": 1794405523069,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405522748
+            }
+          },
+          "JELLYJELLY": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405520893,
+            "receivedAt": 1794405523069,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405520893
+            }
+          }
+        },
+        "mexc": {
+          "AGT": {
+            "bid": 0.04142,
+            "ask": 0.04147,
+            "sourceAt": 1794405520848,
+            "receivedAt": 1794405523303,
+            "feed": null,
+            "nativeTime": {
+              "timestamp": 1794405520848
+            }
+          }
+        },
+        "kucoinfutures": {
+          "JELLYJELLY": {
+            "bid": "0.04226",
+            "ask": "0.042427",
+            "sourceAt": 1794405523406,
+            "receivedAt": 1794405523358,
+            "feed": "uta",
+            "nativeTime": {}
+          }
+        }
+      },
+      "books": {
+        "JELLYJELLY": {
+          "binanceusdm": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405523936.0,
+            "receivedAt": 1794405523868
+          },
+          "kucoinfutures": {
+            "bid": 0.04226,
+            "ask": 0.042427,
+            "sourceAt": 1794405521848.0,
+            "receivedAt": 1794405523728
+          }
+        },
+        "AGT": {
+          "binanceusdm": {
+            "bid": 0.04161,
+            "ask": 0.04162,
+            "sourceAt": 1794405524434.0,
+            "receivedAt": 1794405524371
+          },
+          "mexc": {
+            "bid": 0.04164,
+            "ask": 0.04166,
+            "sourceAt": 1794405524202.0,
+            "receivedAt": 1794405524291
+          }
+        }
+      }
+    },
+    {
+      "startedAt": 1794405525372,
+      "bulk": {
+        "binanceusdm": {
+          "AGT": {
+            "bid": 0.04114,
+            "ask": 0.04115,
+            "sourceAt": 1794405525659,
+            "receivedAt": 1794405525751,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405525659
+            }
+          },
+          "JELLYJELLY": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405520893,
+            "receivedAt": 1794405525751,
+            "feed": null,
+            "nativeTime": {
+              "time": 1794405520893
+            }
+          }
+        },
+        "mexc": {
+          "AGT": {
+            "bid": 0.04169,
+            "ask": 0.04171,
+            "sourceAt": 1794405524105,
+            "receivedAt": 1794405525917,
+            "feed": null,
+            "nativeTime": {
+              "timestamp": 1794405524105
+            }
+          }
+        },
+        "kucoinfutures": {
+          "JELLYJELLY": {
+            "bid": "0.04226",
+            "ask": "0.042427",
+            "sourceAt": 1794405526106,
+            "receivedAt": 1794405526064,
+            "feed": "uta",
+            "nativeTime": {}
+          }
+        }
+      },
+      "books": {
+        "JELLYJELLY": {
+          "binanceusdm": {
+            "bid": 0.04225,
+            "ask": 0.04226,
+            "sourceAt": 1794405526636.0,
+            "receivedAt": 1794405526576
+          },
+          "kucoinfutures": {
+            "bid": 0.04226,
+            "ask": 0.042427,
+            "sourceAt": 1794405526462.0,
+            "receivedAt": 1794405526405
+          }
+        },
+        "AGT": {
+          "binanceusdm": {
+            "bid": 0.04148,
+            "ask": 0.04151,
+            "sourceAt": 1794405527139.0,
+            "receivedAt": 1794405527085
+          },
+          "mexc": {
+            "bid": 0.04137,
+            "ask": 0.04141,
+            "sourceAt": 1794405526824.0,
+            "receivedAt": 1794405526989
+          }
+        }
+      }
+    }
+  ]
+}

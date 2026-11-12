@@ -1,0 +1,83 @@
+{
+  "url": "https://uainvest.com.ua/arbitrage/init-bybit-swap-gate-swap",
+  "attempts": [
+    {
+      "before": {
+        "at": 1794404944569,
+        "entry": null,
+        "sides": []
+      },
+      "local": [
+        {
+          "venue": "gate",
+          "status": 200,
+          "ask": 0.16377,
+          "bid": 0.16369,
+          "sourceAt": 1794404944000,
+          "receivedAt": 1794404944883
+        },
+        {
+          "venue": "bybit",
+          "status": 200,
+          "ask": 0.16977,
+          "bid": 0.16973,
+          "sourceAt": 1794404945231,
+          "receivedAt": 1794404945181
+        }
+      ],
+      "after": {
+        "at": 1794404945184,
+        "entry": null,
+        "sides": []
+      }
+    },
+    {
+      "before": {
+        "at": 1794404948386,
+        "entry": 3.597,
+        "sides": [
+          {
+            "ask": 0.16956,
+            "bid": 0.16952
+          },
+          {
+            "ask": 0.16353,
+            "bid": 0.16352
+          }
+        ]
+      },
+      "local": [
+        {
+          "venue": "gate",
+          "status": 200,
+          "ask": 0.16352,
+          "bid": 0.16341,
+          "sourceAt": 1794404948000,
+          "receivedAt": 1794404948698
+        },
+        {
+          "venue": "bybit",
+          "status": 200,
+          "ask": 0.1695,
+          "bid": 0.16947,
+          "sourceAt": 1794404949031,
+          "receivedAt": 1794404949004
+        }
+      ],
+      "after": {
+        "at": 1794404949007,
+        "entry": 3.574,
+        "sides": [
+          {
+            "ask": 0.1695,
+            "bid": 0.16947
+          },
+          {
+            "ask": 0.16352,
+            "bid": 0.16341
+          }
+        ]
+      }
+    }
+  ]
+}

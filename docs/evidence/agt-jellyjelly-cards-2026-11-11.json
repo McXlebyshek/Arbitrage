@@ -1,0 +1,467 @@
+[
+  {
+    "symbol": "AGT",
+    "url": "https://uainvest.com.ua/arbitrage/agt-mexc-swap-binance-swap",
+    "attempts": [
+      {
+        "before": {
+          "at": 1794405542385,
+          "entry": null,
+          "sides": [],
+          "title": "-AGT-MEXC(short)Binance(long)"
+        },
+        "data": {
+          "stamp": 1794405541325,
+          "pair": {
+            "entry": 0.04828585224529016,
+            "quality": "timed"
+          },
+          "legs": [
+            {
+              "id": "binanceusdm.swap.AGT.USDT",
+              "ask": 0.04141,
+              "bid": 0.04138,
+              "sourceAt": 1794405538109,
+              "receivedAt": 1794405538581,
+              "volume": 268.70505396042904,
+              "quoteSource": null
+            },
+            {
+              "id": "mexc.swap.AGT.USDT",
+              "ask": 0.04145,
+              "bid": 0.04143,
+              "sourceAt": 1794405537892,
+              "receivedAt": 1794405538754,
+              "volume": 15.418597117000001,
+              "quoteSource": null
+            }
+          ],
+          "books": [
+            {
+              "id": "binanceusdm.swap.AGT.USDT",
+              "status": 200,
+              "ask": 0.04148,
+              "bid": 0.04147,
+              "sourceAt": 1794405542859,
+              "receivedAt": 1794405542792
+            },
+            {
+              "id": "mexc.swap.AGT.USDT",
+              "status": 200,
+              "ask": 0.04162,
+              "bid": 0.0416,
+              "sourceAt": 1794405541767,
+              "receivedAt": 1794405543189
+            }
+          ]
+        },
+        "after": {
+          "at": 1794405543194,
+          "entry": -0.072,
+          "sides": [
+            {
+              "ask": 0.04154,
+              "bid": 0.04151
+            },
+            {
+              "ask": 0.04154,
+              "bid": 0.04152
+            }
+          ],
+          "title": "➡️-0.07⬅️-0.05-AGT-MEXC(short)Binance(long)"
+        }
+      },
+      {
+        "before": {
+          "at": 1794405545096,
+          "entry": 0.024,
+          "sides": [
+            {
+              "ask": 0.0415,
+              "bid": 0.04146
+            },
+            {
+              "ask": 0.04145,
+              "bid": 0.04143
+            }
+          ],
+          "title": "➡️ 0.02⬅️-0.17-AGT-MEXC(short)Binance(long)"
+        },
+        "data": {
+          "stamp": 1794405541325,
+          "pair": {
+            "entry": 0.04828585224529016,
+            "quality": "timed"
+          },
+          "legs": [
+            {
+              "id": "binanceusdm.swap.AGT.USDT",
+              "ask": 0.04141,
+              "bid": 0.04138,
+              "sourceAt": 1794405538109,
+              "receivedAt": 1794405538581,
+              "volume": 268.70505396042904,
+              "quoteSource": null
+            },
+            {
+              "id": "mexc.swap.AGT.USDT",
+              "ask": 0.04145,
+              "bid": 0.04143,
+              "sourceAt": 1794405537892,
+              "receivedAt": 1794405538754,
+              "volume": 15.418597117000001,
+              "quoteSource": null
+            }
+          ],
+          "books": [
+            {
+              "id": "binanceusdm.swap.AGT.USDT",
+              "status": 200,
+              "ask": 0.04148,
+              "bid": 0.04147,
+              "sourceAt": 1794405542859,
+              "receivedAt": 1794405542792
+            },
+            {
+              "id": "mexc.swap.AGT.USDT",
+              "status": 200,
+              "ask": 0.04147,
+              "bid": 0.0414,
+              "sourceAt": 1794405545416,
+              "receivedAt": 1794405545539
+            }
+          ]
+        },
+        "after": {
+          "at": 1794405545542,
+          "entry": -0.096,
+          "sides": [
+            {
+              "ask": 0.04147,
+              "bid": 0.04144
+            },
+            {
+              "ask": 0.04148,
+              "bid": 0.04144
+            }
+          ],
+          "title": "➡️-0.10⬅️-0.07-AGT-MEXC(short)Binance(long)"
+        }
+      },
+      {
+        "before": {
+          "at": 1794405547444,
+          "entry": -0.024,
+          "sides": [
+            {
+              "ask": 0.04156,
+              "bid": 0.04155
+            },
+            {
+              "ask": 0.04156,
+              "bid": 0.04154
+            }
+          ],
+          "title": "➡️-0.02⬅️-0.05-AGT-MEXC(short)Binance(long)"
+        },
+        "data": {
+          "stamp": 1794405541325,
+          "pair": {
+            "entry": 0.04828585224529016,
+            "quality": "timed"
+          },
+          "legs": [
+            {
+              "id": "binanceusdm.swap.AGT.USDT",
+              "ask": 0.04141,
+              "bid": 0.04138,
+              "sourceAt": 1794405538109,
+              "receivedAt": 1794405538581,
+              "volume": 268.70505396042904,
+              "quoteSource": null
+            },
+            {
+              "id": "mexc.swap.AGT.USDT",
+              "ask": 0.04145,
+              "bid": 0.04143,
+              "sourceAt": 1794405537892,
+              "receivedAt": 1794405538754,
+              "volume": 15.418597117000001,
+              "quoteSource": null
+            }
+          ],
+          "books": [
+            {
+              "id": "binanceusdm.swap.AGT.USDT",
+              "status": 200,
+              "ask": 0.04164,
+              "bid": 0.04161,
+              "sourceAt": 1794405547921,
+              "receivedAt": 1794405547849
+            },
+            {
+              "id": "mexc.swap.AGT.USDT",
+              "status": 200,
+              "ask": 0.04147,
+              "bid": 0.0414,
+              "sourceAt": 1794405545416,
+              "receivedAt": 1794405545539
+            }
+          ]
+        },
+        "after": {
+          "at": 1794405547858,
+          "entry": -0.12,
+          "sides": [
+            {
+              "ask": 0.04156,
+              "bid": 0.04155
+            },
+            {
+              "ask": 0.0416,
+              "bid": 0.04159
+            }
+          ],
+          "title": "➡️-0.12⬅️ 0.07-AGT-MEXC(short)Binance(long)"
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "JELLYJELLY",
+    "url": "https://uainvest.com.ua/arbitrage/jellyjelly-kucoin-swap-binance-swap",
+    "attempts": [
+      {
+        "before": {
+          "at": 1794405548009,
+          "entry": -0.069,
+          "sides": [
+            {
+              "ask": 0.042421,
+              "bid": 0.042261
+            },
+            {
+              "ask": 0.04229,
+              "bid": 0.04227
+            }
+          ],
+          "title": "➡️-0.07⬅️-0.36-JELLYJELLY-Kucoin(short)Binance(long)"
+        },
+        "data": {
+          "stamp": 1794405541325,
+          "pair": {
+            "entry": 0.023665838362314808,
+            "quality": "timed"
+          },
+          "legs": [
+            {
+              "id": "binanceusdm.swap.JELLYJELLY.USDT",
+              "ask": 0.04225,
+              "bid": 0.04224,
+              "sourceAt": 1794405537934,
+              "receivedAt": 1794405538581,
+              "volume": 1.3164221972199999,
+              "quoteSource": null
+            },
+            {
+              "id": "kucoinfutures.swap.JELLYJELLY.USDT",
+              "ask": 0.042423,
+              "bid": 0.04226,
+              "sourceAt": 1794405538897,
+              "receivedAt": 1794405538855,
+              "volume": 1.0737190502,
+              "quoteSource": null
+            }
+          ],
+          "books": [
+            {
+              "id": "binanceusdm.swap.JELLYJELLY.USDT",
+              "status": 200,
+              "ask": 0.04229,
+              "bid": 0.04227,
+              "sourceAt": 1794405548953,
+              "receivedAt": 1794405548894
+            },
+            {
+              "id": "kucoinfutures.swap.JELLYJELLY.USDT",
+              "status": 200,
+              "ask": 0.042421,
+              "bid": 0.042261,
+              "sourceAt": 1794405549321,
+              "receivedAt": 1794405549305
+            }
+          ]
+        },
+        "after": {
+          "at": 1794405549308,
+          "entry": -0.069,
+          "sides": [
+            {
+              "ask": 0.042421,
+              "bid": 0.042261
+            },
+            {
+              "ask": 0.04229,
+              "bid": 0.04227
+            }
+          ],
+          "title": "➡️-0.07⬅️-0.36-JELLYJELLY-Kucoin(short)Binance(long)"
+        }
+      },
+      {
+        "before": {
+          "at": 1794405551211,
+          "entry": -0.161,
+          "sides": [
+            {
+              "ask": 0.042421,
+              "bid": 0.042262
+            },
+            {
+              "ask": 0.04233,
+              "bid": 0.04231
+            }
+          ],
+          "title": "➡️-0.16⬅️-0.26-JELLYJELLY-Kucoin(short)Binance(long)"
+        },
+        "data": {
+          "stamp": 1794405541325,
+          "pair": {
+            "entry": 0.023665838362314808,
+            "quality": "timed"
+          },
+          "legs": [
+            {
+              "id": "binanceusdm.swap.JELLYJELLY.USDT",
+              "ask": 0.04225,
+              "bid": 0.04224,
+              "sourceAt": 1794405537934,
+              "receivedAt": 1794405538581,
+              "volume": 1.3164221972199999,
+              "quoteSource": null
+            },
+            {
+              "id": "kucoinfutures.swap.JELLYJELLY.USDT",
+              "ask": 0.042423,
+              "bid": 0.04226,
+              "sourceAt": 1794405538897,
+              "receivedAt": 1794405538855,
+              "volume": 1.0737190502,
+              "quoteSource": null
+            }
+          ],
+          "books": [
+            {
+              "id": "binanceusdm.swap.JELLYJELLY.USDT",
+              "status": 200,
+              "ask": 0.04229,
+              "bid": 0.04227,
+              "sourceAt": 1794405548953,
+              "receivedAt": 1794405548894
+            },
+            {
+              "id": "kucoinfutures.swap.JELLYJELLY.USDT",
+              "status": 200,
+              "ask": 0.042421,
+              "bid": 0.042261,
+              "sourceAt": 1794405549321,
+              "receivedAt": 1794405549305
+            }
+          ]
+        },
+        "after": {
+          "at": 1794405551259,
+          "entry": -0.161,
+          "sides": [
+            {
+              "ask": 0.042421,
+              "bid": 0.042262
+            },
+            {
+              "ask": 0.04233,
+              "bid": 0.04231
+            }
+          ],
+          "title": "➡️-0.16⬅️-0.26-JELLYJELLY-Kucoin(short)Binance(long)"
+        }
+      },
+      {
+        "before": {
+          "at": 1794405553161,
+          "entry": -0.137,
+          "sides": [
+            {
+              "ask": 0.042421,
+              "bid": 0.042262
+            },
+            {
+              "ask": 0.04232,
+              "bid": 0.04231
+            }
+          ],
+          "title": "➡️-0.14⬅️-0.26-JELLYJELLY-Kucoin(short)Binance(long)"
+        },
+        "data": {
+          "stamp": 1794405541325,
+          "pair": {
+            "entry": 0.023665838362314808,
+            "quality": "timed"
+          },
+          "legs": [
+            {
+              "id": "binanceusdm.swap.JELLYJELLY.USDT",
+              "ask": 0.04225,
+              "bid": 0.04224,
+              "sourceAt": 1794405537934,
+              "receivedAt": 1794405538581,
+              "volume": 1.3164221972199999,
+              "quoteSource": null
+            },
+            {
+              "id": "kucoinfutures.swap.JELLYJELLY.USDT",
+              "ask": 0.042423,
+              "bid": 0.04226,
+              "sourceAt": 1794405538897,
+              "receivedAt": 1794405538855,
+              "volume": 1.0737190502,
+              "quoteSource": null
+            }
+          ],
+          "books": [
+            {
+              "id": "binanceusdm.swap.JELLYJELLY.USDT",
+              "status": 200,
+              "ask": 0.04232,
+              "bid": 0.04231,
+              "sourceAt": 1794405556078,
+              "receivedAt": 1794405556083
+            },
+            {
+              "id": "kucoinfutures.swap.JELLYJELLY.USDT",
+              "status": 200,
+              "ask": 0.042421,
+              "bid": 0.042262,
+              "sourceAt": 1794405553904,
+              "receivedAt": 1794405556423
+            }
+          ]
+        },
+        "after": {
+          "at": 1794405556425,
+          "entry": -0.137,
+          "sides": [
+            {
+              "ask": 0.042421,
+              "bid": 0.042262
+            },
+            {
+              "ask": 0.04232,
+              "bid": 0.04231
+            }
+          ],
+          "title": "➡️-0.14⬅️-0.26-JELLYJELLY-Kucoin(short)Binance(long)"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,190 @@
+[
+  {
+    "cycle": 10,
+    "event": {
+      "cycle": 10,
+      "deliveredAt": 1794407199385,
+      "expiresAt": 1794407201160,
+      "fullAt": 1794407204538,
+      "legs": [
+        {
+          "bid": 0.04199,
+          "ask": 0.04201,
+          "sourceAt": 1794407199413,
+          "receivedAt": 1794407199385,
+          "volume": 1.3974483341600001,
+          "quoteSource": "depth",
+          "id": "binanceusdm.swap.JELLYJELLY.USDT",
+          "symbol": "JELLYJELLY/USDT:USDT",
+          "exchange": "Binance",
+          "type": "swap",
+          "quote": "USDT",
+          "asset": null,
+          "rate": 0,
+          "hours": 8,
+          "totals": {},
+          "networks": []
+        },
+        {
+          "bid": 0.041945,
+          "ask": 0.04209,
+          "sourceAt": 1794407198198,
+          "receivedAt": 1794407198160,
+          "volume": 1.0873226746,
+          "quoteSource": null,
+          "id": "kucoinfutures.swap.JELLYJELLY.USDT",
+          "symbol": "JELLYJELLY/USDT:USDT",
+          "exchange": "KuCoin",
+          "type": "swap",
+          "quote": "USDT",
+          "asset": null,
+          "rate": 0,
+          "hours": 8,
+          "totals": {},
+          "networks": []
+        }
+      ]
+    },
+    "fullAt": 1794407204539,
+    "shown": {
+      "at": 1794407199415,
+      "stamp": 1794407199233,
+      "entry": -0.15484485736405362,
+      "quality": "timed",
+      "visible": true
+    },
+    "normalDuring": {
+      "at": 1794407199416,
+      "stamp": 1794407199233,
+      "entry": null,
+      "quality": "skew",
+      "visible": false
+    },
+    "expired": {
+      "at": 1794407201166,
+      "stamp": 1794407199233,
+      "entry": null,
+      "quality": "skew",
+      "visible": false
+    },
+    "afterEarly": {
+      "at": 1794407204565,
+      "stamp": 1794407204539,
+      "entry": null,
+      "quality": "skew",
+      "visible": false
+    },
+    "afterNormal": {
+      "at": 1794407204566,
+      "stamp": 1794407204539,
+      "entry": null,
+      "quality": "skew",
+      "visible": false
+    },
+    "browserEvents": [
+      {
+        "phase": "shown",
+        "at": 1794407199412,
+        "expiresAt": 1794407201160
+      },
+      {
+        "phase": "expired",
+        "at": 1794407201162
+      }
+    ]
+  },
+  {
+    "cycle": 11,
+    "event": {
+      "cycle": 11,
+      "deliveredAt": 1794407204822,
+      "expiresAt": 1794407206981,
+      "fullAt": 1794407211137,
+      "legs": [
+        {
+          "bid": 0.04198,
+          "ask": 0.042,
+          "sourceAt": 1794407204870,
+          "receivedAt": 1794407204822,
+          "volume": 1.3974483341600001,
+          "quoteSource": "depth",
+          "id": "binanceusdm.swap.JELLYJELLY.USDT",
+          "symbol": "JELLYJELLY/USDT:USDT",
+          "exchange": "Binance",
+          "type": "swap",
+          "quote": "USDT",
+          "asset": null,
+          "rate": 0,
+          "hours": 8,
+          "totals": {},
+          "networks": []
+        },
+        {
+          "bid": 0.041945,
+          "ask": 0.04209,
+          "sourceAt": 1794407204002,
+          "receivedAt": 1794407203981,
+          "volume": 1.0873226746,
+          "quoteSource": null,
+          "id": "kucoinfutures.swap.JELLYJELLY.USDT",
+          "symbol": "JELLYJELLY/USDT:USDT",
+          "exchange": "KuCoin",
+          "type": "swap",
+          "quote": "USDT",
+          "asset": null,
+          "rate": 0,
+          "hours": 8,
+          "totals": {},
+          "networks": []
+        }
+      ]
+    },
+    "fullAt": 1794407211138,
+    "shown": {
+      "at": 1794407204850,
+      "stamp": 1794407204686,
+      "entry": -0.1310381797605563,
+      "quality": "timed",
+      "visible": true
+    },
+    "normalDuring": {
+      "at": 1794407204851,
+      "stamp": 1794407204686,
+      "entry": null,
+      "quality": "skew",
+      "visible": false
+    },
+    "expired": {
+      "at": 1794407206986,
+      "stamp": 1794407204686,
+      "entry": null,
+      "quality": "skew",
+      "visible": false
+    },
+    "afterEarly": {
+      "at": 1794407211147,
+      "stamp": 1794407211138,
+      "entry": null,
+      "quality": "skew",
+      "visible": false
+    },
+    "afterNormal": {
+      "at": 1794407211148,
+      "stamp": 1794407211138,
+      "entry": null,
+      "quality": "skew",
+      "visible": false
+    },
+    "browserEvents": [
+      {
+        "phase": "shown",
+        "at": 1794407204847,
+        "expiresAt": 1794407206981
+      },
+      {
+        "phase": "expired",
+        "at": 1794407206983
+      }
+    ]
+  }
+]

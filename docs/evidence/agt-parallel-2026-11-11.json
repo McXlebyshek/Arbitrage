@@ -1,0 +1,239 @@
+{
+  "url": "https://uainvest.com.ua/arbitrage/agt-mexc-swap-binance-swap",
+  "sources": {
+    "binance": "https://fapi.binance.com/fapi/v1/depth?symbol=AGTUSDT&limit=5",
+    "mexc": "https://api.mexc.com/api/v1/contract/depth/AGT_USDT?limit=5"
+  },
+  "attempts": [
+    {
+      "before": {
+        "at": 1794405641287,
+        "entry": -0.205,
+        "sides": [
+          {
+            "ask": 0.03903,
+            "bid": 0.03902
+          },
+          {
+            "ask": 0.0391,
+            "bid": 0.03906
+          }
+        ]
+      },
+      "books": {
+        "binance": {
+          "status": 200,
+          "receivedAt": 1794405641670,
+          "sourceAt": 1794405641722,
+          "ask": 0.03911,
+          "bid": 0.03907
+        },
+        "mexc": {
+          "status": 200,
+          "receivedAt": 1794405641765,
+          "sourceAt": 1794405641636,
+          "ask": 0.03922,
+          "bid": 0.03914
+        }
+      },
+      "after": {
+        "at": 1794405641768,
+        "entry": 0.051,
+        "sides": [
+          {
+            "ask": 0.03912,
+            "bid": 0.0391
+          },
+          {
+            "ask": 0.03908,
+            "bid": 0.03905
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "at": 1794405642719,
+        "entry": -0.025,
+        "sides": [
+          {
+            "ask": 0.03959,
+            "bid": 0.03956
+          },
+          {
+            "ask": 0.03957,
+            "bid": 0.03954
+          }
+        ]
+      },
+      "books": {
+        "binance": {
+          "status": 200,
+          "receivedAt": 1794405642990,
+          "sourceAt": 1794405643061,
+          "ask": 0.03955,
+          "bid": 0.03951
+        },
+        "mexc": {
+          "status": 200,
+          "receivedAt": 1794405643038,
+          "sourceAt": 1794405642813,
+          "ask": 0.03955,
+          "bid": 0.03952
+        }
+      },
+      "after": {
+        "at": 1794405643040,
+        "entry": -0.025,
+        "sides": [
+          {
+            "ask": 0.03959,
+            "bid": 0.03954
+          },
+          {
+            "ask": 0.03955,
+            "bid": 0.03952
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "at": 1794405643992,
+        "entry": -0.076,
+        "sides": [
+          {
+            "ask": 0.03949,
+            "bid": 0.03947
+          },
+          {
+            "ask": 0.0395,
+            "bid": 0.03946
+          }
+        ]
+      },
+      "books": {
+        "binance": {
+          "status": 200,
+          "receivedAt": 1794405644255,
+          "sourceAt": 1794405644311,
+          "ask": 0.03951,
+          "bid": 0.03948
+        },
+        "mexc": {
+          "status": 200,
+          "receivedAt": 1794405644313,
+          "sourceAt": 1794405644030,
+          "ask": 0.0395,
+          "bid": 0.03931
+        }
+      },
+      "after": {
+        "at": 1794405644315,
+        "entry": 0.101,
+        "sides": [
+          {
+            "ask": 0.03951,
+            "bid": 0.03949
+          },
+          {
+            "ask": 0.03945,
+            "bid": 0.03943
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "at": 1794405645266,
+        "entry": -0.152,
+        "sides": [
+          {
+            "ask": 0.03942,
+            "bid": 0.03939
+          },
+          {
+            "ask": 0.03945,
+            "bid": 0.03944
+          }
+        ]
+      },
+      "books": {
+        "binance": {
+          "status": 200,
+          "receivedAt": 1794405645531,
+          "sourceAt": 1794405645607,
+          "ask": 0.03956,
+          "bid": 0.03954
+        },
+        "mexc": {
+          "status": 200,
+          "receivedAt": 1794405645575,
+          "sourceAt": 1794405645496,
+          "ask": 0.03952,
+          "bid": 0.03951
+        }
+      },
+      "after": {
+        "at": 1794405645577,
+        "entry": -0.228,
+        "sides": [
+          {
+            "ask": 0.0395,
+            "bid": 0.03947
+          },
+          {
+            "ask": 0.03956,
+            "bid": 0.03954
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "at": 1794405646529,
+        "entry": -0.281,
+        "sides": [
+          {
+            "ask": 0.03913,
+            "bid": 0.03908
+          },
+          {
+            "ask": 0.03919,
+            "bid": 0.03916
+          }
+        ]
+      },
+      "books": {
+        "binance": {
+          "status": 200,
+          "receivedAt": 1794405646789,
+          "sourceAt": 1794405646860,
+          "ask": 0.03915,
+          "bid": 0.03911
+        },
+        "mexc": {
+          "status": 200,
+          "receivedAt": 1794405646834,
+          "sourceAt": 1794405646685,
+          "ask": 0.03922,
+          "bid": 0.03917
+        }
+      },
+      "after": {
+        "at": 1794405646835,
+        "entry": -0.026,
+        "sides": [
+          {
+            "ask": 0.03915,
+            "bid": 0.03912
+          },
+          {
+            "ask": 0.03913,
+            "bid": 0.03911
+          }
+        ]
+      }
+    }
+  ]
+}

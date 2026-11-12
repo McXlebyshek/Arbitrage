@@ -1,0 +1,1175 @@
+{
+  "at": 1794390263422,
+  "venues": {
+    "aster": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794390259762,
+        "contracts": 562,
+        "error": null
+      },
+      "fields": {
+        "symbolType": {
+          "0": 441,
+          "1": 121
+        },
+        "type": {
+          "None": 562
+        },
+        "contractType": {
+          "PERPETUAL": 562
+        },
+        "underlyingType": {
+          "COIN": 562
+        },
+        "instCategory": {
+          "None": 562
+        },
+        "assetClass": {
+          "None": 562
+        },
+        "isRwa": {
+          "None": 562
+        },
+        "contract_type": {
+          "None": 562
+        }
+      },
+      "markets": [
+        {
+          "id": "BTCUSDT",
+          "base": "BTC",
+          "symbol": "BTC/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": 0,
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "BTC"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XAUUSDT",
+          "base": "XAU",
+          "symbol": "XAU/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": 1,
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "XAU"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XAGUSDT",
+          "base": "XAG",
+          "symbol": "XAG/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": 1,
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "XAG"
+          },
+          "admitted": false
+        },
+        {
+          "id": "NATGASUSDT",
+          "base": "NATGAS",
+          "symbol": "NATGAS/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": 1,
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "NATGAS"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SPYUSDT",
+          "base": "SPY",
+          "symbol": "SPY/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": 1,
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "SPY"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SOXLUSDT",
+          "base": "SOXL",
+          "symbol": "SOXL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": 1,
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "SOXL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "DELLUSDT",
+          "base": "DELL",
+          "symbol": "DELL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": 1,
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "DELL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "哈基米USDT",
+          "base": "哈基米",
+          "symbol": "哈基米/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": 0,
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "哈基米"
+          },
+          "admitted": false
+        }
+      ]
+    },
+    "binanceusdm": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794390257885,
+        "contracts": 756,
+        "error": null
+      },
+      "fields": {
+        "symbolType": {
+          "None": 756
+        },
+        "type": {
+          "None": 756
+        },
+        "contractType": {
+          "PERPETUAL": 522,
+          "TRADIFI_PERPETUAL": 234
+        },
+        "underlyingType": {
+          "COIN": 519,
+          "INDEX": 2,
+          "COMMODITY": 8,
+          "EQUITY": 196,
+          "PREMARKET": 5,
+          "KR_EQUITY": 8,
+          "HK_EQUITY": 15,
+          "CN_EQUITY": 2,
+          "FX": 1
+        },
+        "instCategory": {
+          "None": 756
+        },
+        "assetClass": {
+          "None": 756
+        },
+        "isRwa": {
+          "None": 756
+        },
+        "contract_type": {
+          "None": 756
+        }
+      },
+      "markets": [
+        {
+          "id": "BTCUSDT",
+          "base": "BTC",
+          "symbol": "BTC/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "BTC"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XAUUSDT",
+          "base": "XAU",
+          "symbol": "XAU/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "TRADIFI_PERPETUAL",
+            "underlyingType": "COMMODITY",
+            "baseAsset": "XAU"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XAGUSDT",
+          "base": "XAG",
+          "symbol": "XAG/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "TRADIFI_PERPETUAL",
+            "underlyingType": "COMMODITY",
+            "baseAsset": "XAG"
+          },
+          "admitted": false
+        },
+        {
+          "id": "NATGASUSDT",
+          "base": "NATGAS",
+          "symbol": "NATGAS/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "TRADIFI_PERPETUAL",
+            "underlyingType": "COMMODITY",
+            "baseAsset": "NATGAS"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SPYUSDT",
+          "base": "SPY",
+          "symbol": "SPY/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "TRADIFI_PERPETUAL",
+            "underlyingType": "EQUITY",
+            "baseAsset": "SPY"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SOXLUSDT",
+          "base": "SOXL",
+          "symbol": "SOXL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "TRADIFI_PERPETUAL",
+            "underlyingType": "EQUITY",
+            "baseAsset": "SOXL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "DELLUSDT",
+          "base": "DELL",
+          "symbol": "DELL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "TRADIFI_PERPETUAL",
+            "underlyingType": "EQUITY",
+            "baseAsset": "DELL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "哈基米USDT",
+          "base": "哈基米",
+          "symbol": "哈基米/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "PERPETUAL",
+            "underlyingType": "COIN",
+            "baseAsset": "哈基米"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XOMUSDT",
+          "base": "XOM",
+          "symbol": "XOM/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "contractType": "TRADIFI_PERPETUAL",
+            "underlyingType": "EQUITY",
+            "baseAsset": "XOM"
+          },
+          "admitted": false
+        }
+      ]
+    },
+    "bitget": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794390261512,
+        "contracts": 884,
+        "error": null
+      },
+      "fields": {
+        "symbolType": {
+          "perpetual": 884
+        },
+        "type": {
+          "None": 884
+        },
+        "contractType": {
+          "None": 884
+        },
+        "underlyingType": {
+          "None": 884
+        },
+        "instCategory": {
+          "None": 884
+        },
+        "assetClass": {
+          "None": 884
+        },
+        "isRwa": {
+          "NO": 464,
+          "YES": 420
+        },
+        "contract_type": {
+          "None": 884
+        }
+      },
+      "markets": [
+        {
+          "id": "BTCUSDT",
+          "base": "BTC",
+          "symbol": "BTC/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "NO",
+            "baseCoin": "BTC"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XAUUSDT",
+          "base": "XAU",
+          "symbol": "XAU/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "YES",
+            "baseCoin": "XAU"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XAGUSDT",
+          "base": "XAG",
+          "symbol": "XAG/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "YES",
+            "baseCoin": "XAG"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SPYUSDT",
+          "base": "SPY",
+          "symbol": "SPY/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "YES",
+            "baseCoin": "SPY"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XOMUSDT",
+          "base": "XOM",
+          "symbol": "XOM/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "YES",
+            "baseCoin": "XOM"
+          },
+          "admitted": false
+        },
+        {
+          "id": "NATGASUSDT",
+          "base": "NATGAS",
+          "symbol": "NATGAS/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "YES",
+            "baseCoin": "NATGAS"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SOXLUSDT",
+          "base": "SOXL",
+          "symbol": "SOXL/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "YES",
+            "baseCoin": "SOXL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "DELLUSDT",
+          "base": "DELL",
+          "symbol": "DELL/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "YES",
+            "baseCoin": "DELL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SOXXUSDT",
+          "base": "SOXX",
+          "symbol": "SOXX/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "YES",
+            "baseCoin": "SOXX"
+          },
+          "admitted": false
+        },
+        {
+          "id": "哈基米USDT",
+          "base": "哈基米",
+          "symbol": "哈基米/USDT:USDT",
+          "contractSize": 1,
+          "info": {
+            "symbolType": "perpetual",
+            "isRwa": "NO",
+            "baseCoin": "哈基米"
+          },
+          "admitted": false
+        }
+      ]
+    },
+    "bybit": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794390263168,
+        "contracts": 822,
+        "error": null
+      },
+      "fields": {
+        "symbolType": {
+          "": 406,
+          "innovation": 111,
+          "stock": 238,
+          "ETF": 59,
+          "commodity": 4,
+          "forex": 4
+        },
+        "type": {
+          "None": 822
+        },
+        "contractType": {
+          "LinearPerpetual": 822
+        },
+        "underlyingType": {
+          "None": 822
+        },
+        "instCategory": {
+          "None": 822
+        },
+        "assetClass": {
+          "None": 822
+        },
+        "isRwa": {
+          "None": 822
+        },
+        "contract_type": {
+          "None": 822
+        }
+      },
+      "markets": [
+        {
+          "id": "BTCUSDT",
+          "base": "BTC",
+          "symbol": "BTC/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "",
+            "contractType": "LinearPerpetual",
+            "fullName": "Bitcoin",
+            "baseCoin": "BTC"
+          },
+          "admitted": true
+        },
+        {
+          "id": "DELLUSDT",
+          "base": "DELL",
+          "symbol": "DELL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "stock",
+            "contractType": "LinearPerpetual",
+            "fullName": "Dell Technologies",
+            "baseCoin": "DELL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "HAJIMIUSDT",
+          "base": "HAJIMI",
+          "symbol": "HAJIMI/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "innovation",
+            "contractType": "LinearPerpetual",
+            "fullName": "Hajimi",
+            "baseCoin": "HAJIMI"
+          },
+          "admitted": true
+        },
+        {
+          "id": "SOXLUSDT",
+          "base": "SOXL",
+          "symbol": "SOXL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "ETF",
+            "contractType": "LinearPerpetual",
+            "fullName": "Direxion Daily Semiconductor Bull 3x ETF",
+            "baseCoin": "SOXL"
+          },
+          "admitted": true
+        },
+        {
+          "id": "SOXXUSDT",
+          "base": "SOXX",
+          "symbol": "SOXX/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "ETF",
+            "contractType": "LinearPerpetual",
+            "fullName": "iShares Semiconductor ETF",
+            "baseCoin": "SOXX"
+          },
+          "admitted": true
+        },
+        {
+          "id": "SPYUSDT",
+          "base": "SPY",
+          "symbol": "SPY/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "ETF",
+            "contractType": "LinearPerpetual",
+            "fullName": "SPDR S&P 500 ETF Trust",
+            "baseCoin": "SPY"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XAGUSDT",
+          "base": "XAG",
+          "symbol": "XAG/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "commodity",
+            "contractType": "LinearPerpetual",
+            "fullName": "Silver",
+            "baseCoin": "XAG"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XAUUSDT",
+          "base": "XAU",
+          "symbol": "XAU/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "commodity",
+            "contractType": "LinearPerpetual",
+            "fullName": "XAU",
+            "baseCoin": "XAU"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XOMUSDT",
+          "base": "XOM",
+          "symbol": "XOM/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "symbolType": "stock",
+            "contractType": "LinearPerpetual",
+            "fullName": "Exxon",
+            "baseCoin": "XOM"
+          },
+          "admitted": false
+        }
+      ]
+    },
+    "gate": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794390260876,
+        "contracts": 1081,
+        "error": null
+      },
+      "fields": {
+        "symbolType": {
+          "None": 1081
+        },
+        "type": {
+          "direct": 1081
+        },
+        "contractType": {
+          "None": 1081
+        },
+        "underlyingType": {
+          "None": 1081
+        },
+        "instCategory": {
+          "None": 1081
+        },
+        "assetClass": {
+          "None": 1081
+        },
+        "isRwa": {
+          "None": 1081
+        },
+        "contract_type": {
+          "": 597,
+          "stocks": 447,
+          "indices": 18,
+          "commodities": 3,
+          "forex": 4,
+          "metals": 12
+        }
+      },
+      "markets": [
+        {
+          "id": "BTC_USDT",
+          "base": "BTC",
+          "symbol": "BTC/USDT:USDT",
+          "contractSize": 0.0001,
+          "info": {
+            "type": "direct",
+            "contract_type": ""
+          },
+          "admitted": true
+        },
+        {
+          "id": "DELL_USDT",
+          "base": "DELL",
+          "symbol": "DELL/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "direct",
+            "contract_type": "stocks"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SOXL_USDT",
+          "base": "SOXL",
+          "symbol": "SOXL/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "direct",
+            "contract_type": "stocks"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SOXX_USDT",
+          "base": "SOXX",
+          "symbol": "SOXX/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "direct",
+            "contract_type": "stocks"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SPY_USDT",
+          "base": "SPY",
+          "symbol": "SPY/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "direct",
+            "contract_type": "stocks"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XAG_USDT",
+          "base": "XAG",
+          "symbol": "XAG/USDT:USDT",
+          "contractSize": 0.001,
+          "info": {
+            "type": "direct",
+            "contract_type": "metals"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XAU_USDT",
+          "base": "XAU",
+          "symbol": "XAU/USDT:USDT",
+          "contractSize": 0.0001,
+          "info": {
+            "type": "direct",
+            "contract_type": "metals"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XOM_USDT",
+          "base": "XOM",
+          "symbol": "XOM/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "direct",
+            "contract_type": "stocks"
+          },
+          "admitted": false
+        },
+        {
+          "id": "哈基米_USDT",
+          "base": "哈基米",
+          "symbol": "哈基米/USDT:USDT",
+          "contractSize": 100.0,
+          "info": {
+            "type": "direct",
+            "contract_type": ""
+          },
+          "admitted": false
+        }
+      ]
+    },
+    "kucoinfutures": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794390259044,
+        "contracts": 712,
+        "error": null
+      },
+      "fields": {
+        "symbolType": {
+          "None": 712
+        },
+        "type": {
+          "FFWCSX": 712
+        },
+        "contractType": {
+          "None": 712
+        },
+        "underlyingType": {
+          "None": 712
+        },
+        "instCategory": {
+          "None": 712
+        },
+        "assetClass": {
+          "CRYPTO": 519,
+          "STOCK": 184,
+          "COMMODITY": 3,
+          "METAL": 6
+        },
+        "isRwa": {
+          "None": 712
+        },
+        "contract_type": {
+          "None": 712
+        }
+      },
+      "markets": [
+        {
+          "id": "XBTUSDTM",
+          "base": "BTC",
+          "symbol": "BTC/USDT:USDT",
+          "contractSize": 0.001,
+          "info": {
+            "type": "FFWCSX",
+            "assetClass": "CRYPTO",
+            "baseCurrency": "XBT"
+          },
+          "admitted": true
+        },
+        {
+          "id": "DELLUSDTM",
+          "base": "DELL",
+          "symbol": "DELL/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "FFWCSX",
+            "assetClass": "STOCK",
+            "baseCurrency": "DELL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "HAJIMIUSDTM",
+          "base": "HAJIMI",
+          "symbol": "HAJIMI/USDT:USDT",
+          "contractSize": 100.0,
+          "info": {
+            "type": "FFWCSX",
+            "assetClass": "CRYPTO",
+            "baseCurrency": "HAJIMI"
+          },
+          "admitted": true
+        },
+        {
+          "id": "NATGASUSDTM",
+          "base": "NATGAS",
+          "symbol": "NATGAS/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "type": "FFWCSX",
+            "assetClass": "COMMODITY",
+            "baseCurrency": "NATGAS"
+          },
+          "admitted": true
+        },
+        {
+          "id": "SOXLUSDTM",
+          "base": "SOXL",
+          "symbol": "SOXL/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "FFWCSX",
+            "assetClass": "STOCK",
+            "baseCurrency": "SOXL"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SPYUSDTM",
+          "base": "SPY",
+          "symbol": "SPY/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "FFWCSX",
+            "assetClass": "STOCK",
+            "baseCurrency": "SPY"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XAGUSDTM",
+          "base": "XAG",
+          "symbol": "XAG/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "FFWCSX",
+            "assetClass": "METAL",
+            "baseCurrency": "XAG"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XOMUSDTM",
+          "base": "XOM",
+          "symbol": "XOM/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "type": "FFWCSX",
+            "assetClass": "STOCK",
+            "baseCurrency": "XOM"
+          },
+          "admitted": false
+        }
+      ]
+    },
+    "okx": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794390260154,
+        "contracts": 528,
+        "error": null
+      },
+      "fields": {
+        "symbolType": {
+          "None": 528
+        },
+        "type": {
+          "None": 528
+        },
+        "contractType": {
+          "None": 528
+        },
+        "underlyingType": {
+          "None": 528
+        },
+        "instCategory": {
+          "3": 230,
+          "1": 289,
+          "4": 9
+        },
+        "assetClass": {
+          "None": 528
+        },
+        "isRwa": {
+          "None": 528
+        },
+        "contract_type": {
+          "None": 528
+        }
+      },
+      "markets": [
+        {
+          "id": "BTC-USDT-SWAP",
+          "base": "BTC",
+          "symbol": "BTC/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "instCategory": "1"
+          },
+          "admitted": true
+        },
+        {
+          "id": "DELL-USDT-SWAP",
+          "base": "DELL",
+          "symbol": "DELL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "instCategory": "3"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SOXL-USDT-SWAP",
+          "base": "SOXL",
+          "symbol": "SOXL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "instCategory": "3"
+          },
+          "admitted": false
+        },
+        {
+          "id": "SPY-USDT-SWAP",
+          "base": "SPY",
+          "symbol": "SPY/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "instCategory": "3"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XAG-USDT-SWAP",
+          "base": "XAG",
+          "symbol": "XAG/USDT:USDT",
+          "contractSize": 0.01,
+          "info": {
+            "instCategory": "4"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XAU-USDT-SWAP",
+          "base": "XAU",
+          "symbol": "XAU/USDT:USDT",
+          "contractSize": 0.001,
+          "info": {
+            "instCategory": "4"
+          },
+          "admitted": false
+        },
+        {
+          "id": "XOM-USDT-SWAP",
+          "base": "XOM",
+          "symbol": "XOM/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "instCategory": "3"
+          },
+          "admitted": false
+        }
+      ]
+    },
+    "whitebit": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794390258089,
+        "contracts": 395,
+        "error": null
+      },
+      "fields": {
+        "symbolType": {
+          "None": 395
+        },
+        "type": {
+          "futures": 302,
+          "tradfiFutures": 93
+        },
+        "contractType": {
+          "None": 395
+        },
+        "underlyingType": {
+          "None": 395
+        },
+        "instCategory": {
+          "None": 395
+        },
+        "assetClass": {
+          "None": 395
+        },
+        "isRwa": {
+          "None": 395
+        },
+        "contract_type": {
+          "None": 395
+        }
+      },
+      "markets": [
+        {
+          "id": "BTC_PERP",
+          "base": "BTC",
+          "symbol": "BTC/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "type": "futures"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XAU_PERP",
+          "base": "XAU",
+          "symbol": "XAU/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "type": "tradfiFutures"
+          },
+          "admitted": true
+        },
+        {
+          "id": "XAG_PERP",
+          "base": "XAG",
+          "symbol": "XAG/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "type": "tradfiFutures"
+          },
+          "admitted": true
+        },
+        {
+          "id": "NATGAS_PERP",
+          "base": "NATGAS",
+          "symbol": "NATGAS/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "type": "tradfiFutures"
+          },
+          "admitted": true
+        },
+        {
+          "id": "SPY_PERP",
+          "base": "SPY",
+          "symbol": "SPY/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "type": "tradfiFutures"
+          },
+          "admitted": true
+        },
+        {
+          "id": "SOXL_PERP",
+          "base": "SOXL",
+          "symbol": "SOXL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "type": "tradfiFutures"
+          },
+          "admitted": true
+        },
+        {
+          "id": "DELL_PERP",
+          "base": "DELL",
+          "symbol": "DELL/USDT:USDT",
+          "contractSize": 1.0,
+          "info": {
+            "type": "tradfiFutures"
+          },
+          "admitted": true
+        }
+      ]
+    }
+  },
+  "coingecko": {
+    "status": 404,
+    "url": "https://api.coingecko.com/api/v3/coins/hajimi?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false",
+    "data": {
+      "id": null,
+      "name": null,
+      "platforms": null,
+      "links": null
+    }
+  },
+  "identitySources": [
+    "https://www.coingecko.com/en/coins/hajimi",
+    "https://www.binance.com/en-NZ/support/announcement/detail/ca3196e008da448da107d397bae0b4b0",
+    "https://announcements.bybit.com/en/article/new-listing-hajimiusdt-perpetual-contract-in-innovation-zone-with-up-to-10x-leverage--arte7ee8f9bc7dc/"
+  ],
+  "coinGeckoApiId": "hakimi",
+  "bindings": [
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "哈基米USDT",
+      "base": "哈基米",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "1.0",
+      "group": "HAJIMI"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "HAJIMIUSDT",
+      "base": "HAJIMI",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "哈基米USDT",
+      "base": "哈基米",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "1",
+      "group": "HAJIMI"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "哈基米_USDT",
+      "base": "哈基米",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "100.0",
+      "group": "HAJIMI"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "HAJIMIUSDTM",
+      "base": "HAJIMI",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "100.0"
+    }
+  ]
+}

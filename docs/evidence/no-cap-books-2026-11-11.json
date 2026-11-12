@@ -1,0 +1,51 @@
+{
+  "url": "https://uainvest.com.ua/arbitrage/claudia-mexc-swap-gate-swap",
+  "before": {
+    "at": 1794403428079,
+    "entry": 2.703,
+    "sides": [
+      {
+        "ask": 0.005416,
+        "bid": 0.0054
+      },
+      {
+        "ask": 0.005256,
+        "bid": 0.00522
+      }
+    ],
+    "title": "➡️ 2.70⬅️-3.69-CLAUDIA-MEXC(short)Gate(long)"
+  },
+  "books": [
+    {
+      "venue": "gate",
+      "status": 200,
+      "ask": 0.005256,
+      "bid": 0.00522,
+      "sourceAt": 1794403428000,
+      "receivedAt": 1794403428391
+    },
+    {
+      "venue": "mexc",
+      "status": 200,
+      "ask": 0.005416,
+      "bid": 0.0054,
+      "sourceAt": 1794403427312,
+      "receivedAt": 1794403429138
+    }
+  ],
+  "after": {
+    "at": 1794403429141,
+    "entry": 2.703,
+    "sides": [
+      {
+        "ask": 0.005416,
+        "bid": 0.0054
+      },
+      {
+        "ask": 0.005256,
+        "bid": 0.00522
+      }
+    ],
+    "title": "➡️ 2.70⬅️-3.69-CLAUDIA-MEXC(short)Gate(long)"
+  }
+}

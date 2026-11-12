@@ -1,0 +1,1441 @@
+{
+  "catalogAt": "2026-11-11T09:30:36.381388+00:00",
+  "additionalCatalogAt": "2026-11-11T09:33:26.235491+00:00",
+  "spotCatalogAt": "2026-11-11T09:31:35.983621+00:00",
+  "coinGeckoAt": "2026-11-11T09:31:16.449086+00:00",
+  "bindings": [
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "INIT_USDT",
+        "asset": "initia",
+        "base": "INIT",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/initia",
+      "marketSymbol": "INIT/USDT:USDT",
+      "marketUrl": "https://www.gate.com/en-bs/futures/USDT/INIT_USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "INITUSDT",
+        "asset": "initia",
+        "base": "INIT",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/initia",
+      "marketSymbol": "INIT/USDT:USDT",
+      "fullName": "Initia"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "INITUSDT",
+        "asset": "initia",
+        "base": "INIT",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/initia",
+      "marketSymbol": "INIT/USDT:USDT",
+      "marketUrl": "https://www.binance.com/en/futures/INITUSDT"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "INIT_USDT",
+        "asset": "initia",
+        "base": "INIT",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/initia",
+      "marketSymbol": "INIT/USDT:USDT",
+      "marketUrl": "https://contract.mexc.com/exchange?symbol=INIT_USDT"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "spot",
+        "id": "INITUSDT",
+        "asset": "initia",
+        "base": "INIT",
+        "quote": "USDT"
+      },
+      "coinGeckoApi": "https://api.coingecko.com/api/v3/coins/initia/tickers?exchange_ids=binance,bybit_spot,okex,gate,bitget,mexc,kucoin,huobi,whitebit,gdax",
+      "marketUrl": "https://www.binance.com/en/trade/INIT_USDT",
+      "marketSymbol": "INIT/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "ARIA_USDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/aria-ai",
+      "marketSymbol": "ARIA/USDT:USDT",
+      "marketUrl": "https://www.gate.com/futures/USDT/ARIA_USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "ARIAUSDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/aria-ai",
+      "marketSymbol": "ARIA/USDT:USDT",
+      "index": {
+        "url": "https://api.bitget.com/api/v3/market/index-components?symbol=ARIAUSDT",
+        "status": 200,
+        "data": {
+          "code": "00000",
+          "msg": "success",
+          "requestTime": 1794389434647,
+          "data": {
+            "symbol": "ARIAUSDT",
+            "componentList": [
+              {
+                "exchange": "BITGET",
+                "spotPair": "ARIA/USDT",
+                "equivalentPrice": "0.24448",
+                "weight": "0.4102"
+              },
+              {
+                "exchange": "GATEIO",
+                "spotPair": "ARIA/USDT",
+                "equivalentPrice": "0.24796",
+                "weight": "0.2051"
+              },
+              {
+                "exchange": "KUCOIN",
+                "spotPair": "ARIA/USDT",
+                "equivalentPrice": "0.24176",
+                "weight": "0.1538"
+              },
+              {
+                "exchange": "MEXC",
+                "spotPair": "ARIA/USDT",
+                "equivalentPrice": "0.24",
+                "weight": "0.1282"
+              },
+              {
+                "exchange": "BINANCE_ALPHA",
+                "spotPair": "ALPHA_332/USDT",
+                "equivalentPrice": "0.24218",
+                "weight": "0.1025"
+              }
+            ]
+          }
+        }
+      },
+      "identifiedComponent": "CoinGecko Bitget spot ARIA/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "ARIAUSDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/aria-ai",
+      "marketSymbol": "ARIA/USDT:USDT",
+      "fullName": "aria-ai"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "ARIAUSDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/aria-ai",
+      "marketSymbol": "ARIA/USDT:USDT",
+      "marketUrl": "https://www.binance.com/en/futures/ARIAUSDT"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "ARIAUSDTM",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/aria-ai",
+      "marketSymbol": "ARIA/USDT:USDT",
+      "marketUrl": "https://www.kucoin.com/trade/futures/ARIAUSDTM"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "spot",
+        "id": "ARIA_USDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT"
+      },
+      "coinGeckoApi": "https://api.coingecko.com/api/v3/coins/aria-ai/tickers?exchange_ids=binance,bybit_spot,okex,gate,bitget,mexc,kucoin,huobi,whitebit,gdax",
+      "marketUrl": "https://www.gate.com/trade/ARIA_USDT",
+      "marketSymbol": "ARIA/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "spot",
+        "id": "ARIA-USDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT"
+      },
+      "coinGeckoApi": "https://api.coingecko.com/api/v3/coins/aria-ai/tickers?exchange_ids=binance,bybit_spot,okex,gate,bitget,mexc,kucoin,huobi,whitebit,gdax",
+      "marketUrl": "https://www.kucoin.com/trade/ARIA-USDT",
+      "marketSymbol": "ARIA/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "spot",
+        "id": "ARIAUSDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT"
+      },
+      "coinGeckoApi": "https://api.coingecko.com/api/v3/coins/aria-ai/tickers?exchange_ids=binance,bybit_spot,okex,gate,bitget,mexc,kucoin,huobi,whitebit,gdax",
+      "marketUrl": "https://www.bitget.com/spot/ARIAUSDT",
+      "marketSymbol": "ARIA/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "AGT_USDT",
+        "asset": "alaya-ai",
+        "base": "AGT",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/alaya-ai",
+      "marketSymbol": "AGT/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/AGT_USDT",
+        "status": 200,
+        "data": {
+          "index": "AGT_USDT",
+          "time": 1794389420000,
+          "constituents": [
+            {
+              "exchange": "BinanceIndex",
+              "symbols": [
+                "AGT_USDT"
+              ],
+              "price": "0.05608659",
+              "weight": "0.3334"
+            },
+            {
+              "exchange": "KuCoin",
+              "symbols": [
+                "AGT_USDT"
+              ],
+              "price": "0.055992",
+              "weight": "0.3333"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "AGT_USDT"
+              ],
+              "price": "0.056076",
+              "weight": "0.3333"
+            }
+          ]
+        }
+      },
+      "identifiedComponent": "CoinGecko KuCoin spot AGT/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "AGT_USDT",
+        "asset": "alaya-ai",
+        "base": "AGT",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/alaya-ai",
+      "marketSymbol": "AGT/USDT:USDT",
+      "marketUrl": "https://www.mexc.com/announcements/article/initial-futures-listing-alaya-ai-agt-usdt-m-futures-to-list-on-may-16-2025-09-17827791524131"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "AGTUSDTM",
+        "asset": "alaya-ai",
+        "base": "AGT",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/alaya-ai",
+      "marketSymbol": "AGT/USDT:USDT",
+      "marketUrl": "https://futures.kucoin.com/trade/AGTUSDTM"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "AGTUSDT",
+        "asset": "alaya-ai",
+        "base": "AGT",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/alaya-ai",
+      "marketSymbol": "AGT/USDT:USDT",
+      "marketUrl": "https://www.binance.com/en/futures/AGTUSDT"
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "AGTUSDT",
+        "asset": "alaya-ai",
+        "base": "AGT",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/alaya-ai",
+      "marketSymbol": "AGT/USDT:USDT",
+      "marketUrl": "https://www.asterdex.com/en/trade/pro/futures/AGTUSDT"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "spot",
+        "id": "AGT-USDT",
+        "asset": "alaya-ai",
+        "base": "AGT",
+        "quote": "USDT"
+      },
+      "coinGeckoApi": "https://api.coingecko.com/api/v3/coins/alaya-ai/tickers?exchange_ids=binance,bybit_spot,okex,gate,bitget,mexc,kucoin,huobi,whitebit,gdax",
+      "marketUrl": "https://www.kucoin.com/trade/AGT-USDT",
+      "marketSymbol": "AGT/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "JCT_USDT",
+        "asset": "janction",
+        "base": "JCT",
+        "quote": "USDT",
+        "contract_size": "1000.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/janction",
+      "marketSymbol": "JCT/USDT:USDT",
+      "marketUrl": "https://www.gate.com/futures/USDT/JCT_USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "JCTUSDT",
+        "asset": "janction",
+        "base": "JCT",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/janction",
+      "marketSymbol": "JCT/USDT:USDT",
+      "marketUrl": "https://www.bitget.com/support/articles/12560603842277"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "JCTUSDT",
+        "asset": "janction",
+        "base": "JCT",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/janction",
+      "marketSymbol": "JCT/USDT:USDT",
+      "fullName": "janction"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "JCTUSDT",
+        "asset": "janction",
+        "base": "JCT",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/janction",
+      "marketSymbol": "JCT/USDT:USDT",
+      "marketUrl": "https://www.binance.com/en/futures/JCTUSDT"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "JCTUSDTM",
+        "asset": "janction",
+        "base": "JCT",
+        "quote": "USDT",
+        "contract_size": "1000.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/janction",
+      "marketSymbol": "JCT/USDT:USDT",
+      "marketUrl": "https://futures.kucoin.com/trade/JCTUSDTM"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "spot",
+        "id": "JCT-USDT",
+        "asset": "janction",
+        "base": "JCT",
+        "quote": "USDT"
+      },
+      "coinGeckoApi": "https://api.coingecko.com/api/v3/coins/janction/tickers?exchange_ids=binance,bybit_spot,okex,gate,bitget,mexc,kucoin,huobi,whitebit,gdax",
+      "marketUrl": "https://www.kucoin.com/trade/JCT-USDT",
+      "marketSymbol": "JCT/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "spot",
+        "id": "JCTUSDT",
+        "asset": "janction",
+        "base": "JCT",
+        "quote": "USDT"
+      },
+      "coinGeckoApi": "https://api.coingecko.com/api/v3/coins/janction/tickers?exchange_ids=binance,bybit_spot,okex,gate,bitget,mexc,kucoin,huobi,whitebit,gdax",
+      "marketUrl": "https://www.bitget.com/spot/JCTUSDT",
+      "marketSymbol": "JCT/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "AEROUSDT",
+        "asset": "aerodrome-finance",
+        "base": "AERO",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/aerodrome-finance",
+      "marketSymbol": "AERO/USDT:USDT",
+      "index": {
+        "url": "https://api.bitget.com/api/v3/market/index-components?symbol=AEROUSDT",
+        "status": 200,
+        "data": {
+          "code": "00000",
+          "msg": "success",
+          "requestTime": 1794389434660,
+          "data": {
+            "symbol": "AEROUSDT",
+            "componentList": [
+              {
+                "exchange": "BINANCE",
+                "spotPair": "AERO/USDT",
+                "equivalentPrice": "0.5416",
+                "weight": "0.4109"
+              },
+              {
+                "exchange": "BITGET",
+                "spotPair": "AERO/USDT",
+                "equivalentPrice": "0.541",
+                "weight": "0.2191"
+              },
+              {
+                "exchange": "COINBASE",
+                "spotPair": "AERO/USD",
+                "equivalentPrice": "0.5414",
+                "weight": "0.1095"
+              },
+              {
+                "exchange": "GATEIO",
+                "spotPair": "AERO/USDT",
+                "equivalentPrice": "0.5415",
+                "weight": "0.1095"
+              },
+              {
+                "exchange": "KUCOIN",
+                "spotPair": "AERO/USDT",
+                "equivalentPrice": "0.5418",
+                "weight": "0.0821"
+              },
+              {
+                "exchange": "MEXC",
+                "spotPair": "AERO/USDT",
+                "equivalentPrice": "0.5396",
+                "weight": "0.0684"
+              }
+            ]
+          }
+        }
+      },
+      "identifiedComponent": "Bitget listing AERO/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "AEROUSDT",
+        "asset": "aerodrome-finance",
+        "base": "AERO",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/aerodrome-finance",
+      "marketSymbol": "AERO/USDT:USDT",
+      "fullName": "Aerodrome Finance"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "spot",
+        "id": "AEROUSDT",
+        "asset": "aerodrome-finance",
+        "base": "AERO",
+        "quote": "USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/aerodrome-finance",
+      "marketUrl": "https://www.bitget.com/support/articles/12560603807199",
+      "marketSymbol": "AERO/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "DASH_USDT",
+        "asset": "dash",
+        "base": "DASH",
+        "quote": "USDT",
+        "contract_size": "0.01",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/dash",
+      "marketSymbol": "DASH/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/DASH_USDT",
+        "status": 200,
+        "data": {
+          "index": "DASH_USDT",
+          "time": 1794389418000,
+          "constituents": [
+            {
+              "exchange": "Binance",
+              "symbols": [
+                "DASH_USDT"
+              ],
+              "price": "43.25",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "DASH_USDT"
+              ],
+              "price": "43.27",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "KuCoin",
+              "symbols": [
+                "DASH_USDT"
+              ],
+              "price": "43.27",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "DASH_USDT"
+              ],
+              "price": "43.28",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "OKX",
+              "symbols": [
+                "DASH_USDT"
+              ],
+              "price": "43.32",
+              "weight": "0.2"
+            }
+          ]
+        }
+      },
+      "identifiedComponent": "CoinGecko Binance spot DASH/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "DASHUSDT",
+        "asset": "dash",
+        "base": "DASH",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/dash",
+      "marketSymbol": "DASH/USDT:USDT",
+      "fullName": "Dash"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "spot",
+        "id": "DASHUSDT",
+        "asset": "dash",
+        "base": "DASH",
+        "quote": "USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/dash",
+      "marketUrl": "https://www.binance.com/en/trade/DASH_USDT",
+      "marketSymbol": "DASH/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "COMPUSDT",
+        "asset": "compound-governance-token",
+        "base": "COMP",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/compound",
+      "marketSymbol": "COMP/USDT:USDT",
+      "index": {
+        "url": "https://fapi.binance.com/fapi/v1/constituents?symbol=COMPUSDT",
+        "status": 200,
+        "data": {
+          "symbol": "COMPUSDT",
+          "time": 1794389380764,
+          "constituents": [
+            {
+              "exchange": "binance",
+              "symbol": "COMPUSDT",
+              "price": "19.95000000",
+              "weight": "0.58823529"
+            },
+            {
+              "exchange": "okex",
+              "symbol": "COMP-USDT",
+              "price": "19.95000000",
+              "weight": "0.17647059"
+            },
+            {
+              "exchange": "gateio",
+              "symbol": "COMP_USDT",
+              "price": "19.94000000",
+              "weight": "0.05882353"
+            },
+            {
+              "exchange": "mexc",
+              "symbol": "COMPUSDT",
+              "price": "20.03000000",
+              "weight": "0.08823529"
+            },
+            {
+              "exchange": "bybit",
+              "symbol": "COMPUSDT",
+              "price": "19.96000000",
+              "weight": "0.08823529"
+            }
+          ]
+        }
+      },
+      "identifiedComponent": "CoinGecko Binance spot COMP/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "COMPUSDT",
+        "asset": "compound-governance-token",
+        "base": "COMP",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/compound",
+      "marketSymbol": "COMP/USDT:USDT",
+      "fullName": "Compound"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "spot",
+        "id": "COMPUSDT",
+        "asset": "compound-governance-token",
+        "base": "COMP",
+        "quote": "USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/compound",
+      "marketUrl": "https://www.binance.com/en/trade/COMP_USDT",
+      "marketSymbol": "COMP/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "swap",
+        "id": "HUMA-USDT-SWAP",
+        "asset": "huma-finance",
+        "base": "HUMA",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1",
+        "underlying": "HUMA-USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/huma-finance",
+      "marketSymbol": "HUMA/USDT:USDT",
+      "index": {
+        "url": "https://www.okx.com/api/v5/market/index-components?index=HUMA-USDT",
+        "status": 200,
+        "data": {
+          "code": "0",
+          "data": {
+            "components": [
+              {
+                "wgt": "0.2307",
+                "exch": "Bybit",
+                "symbol": "HUMA/USDT",
+                "symPx": "0.00866",
+                "cnvPx": "0.00866"
+              },
+              {
+                "wgt": "0.3076",
+                "exch": "Binance",
+                "symbol": "HUMA/USDT",
+                "symPx": "0.00865",
+                "cnvPx": "0.00865"
+              },
+              {
+                "wgt": "0.3076",
+                "exch": "OKX",
+                "symbol": "HUMA/USDT",
+                "symPx": "0.00863",
+                "cnvPx": "0.00863"
+              },
+              {
+                "wgt": "0.1538",
+                "exch": "Bitget",
+                "symbol": "HUMA/USDT",
+                "symPx": "0.00864",
+                "cnvPx": "0.00864"
+              }
+            ],
+            "index": "HUMA-USDT",
+            "last": "0.008644",
+            "ts": "1794389405771"
+          },
+          "msg": ""
+        }
+      },
+      "identifiedComponent": "OKX listing HUMA/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "HUMAUSDT",
+        "asset": "huma-finance",
+        "base": "HUMA",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/huma-finance",
+      "marketSymbol": "HUMA/USDT:USDT",
+      "marketUrl": "https://www.bybit.com/trade/usdt/HUMAUSDT/"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "spot",
+        "id": "HUMA-USDT",
+        "asset": "huma-finance",
+        "base": "HUMA",
+        "quote": "USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/huma-finance",
+      "marketUrl": "https://www.okx.com/en-gb/help/okx-to-list-huma-huma-finance-for-spot-trading",
+      "marketSymbol": "HUMA/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "swap",
+        "id": "BLUR-USDT-SWAP",
+        "asset": "blur",
+        "base": "BLUR",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1",
+        "underlying": "BLUR-USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/blur",
+      "marketSymbol": "BLUR/USDT:USDT",
+      "index": {
+        "url": "https://www.okx.com/api/v5/market/index-components?index=BLUR-USDT",
+        "status": 200,
+        "data": {
+          "code": "0",
+          "data": {
+            "components": [
+              {
+                "wgt": "0.1333",
+                "exch": "Kucoin",
+                "symbol": "BLUR/USDT",
+                "symPx": "0.00655",
+                "cnvPx": "0.00655"
+              },
+              {
+                "wgt": "0.2",
+                "exch": "Bybit",
+                "symbol": "BLUR/USDT",
+                "symPx": "0.00656",
+                "cnvPx": "0.00656"
+              },
+              {
+                "wgt": "0.1333",
+                "exch": "Gate",
+                "symbol": "BLUR/USDT",
+                "symPx": "0.006542",
+                "cnvPx": "0.006542"
+              },
+              {
+                "wgt": "0.2666",
+                "exch": "Binance",
+                "symbol": "BLUR/USDT",
+                "symPx": "0.00654",
+                "cnvPx": "0.00654"
+              },
+              {
+                "wgt": "0.2666",
+                "exch": "OKX",
+                "symbol": "BLUR/USDT",
+                "symPx": "0.006549",
+                "cnvPx": "0.006549"
+              }
+            ],
+            "index": "BLUR-USDT",
+            "last": "0.006548",
+            "ts": "1794388961105"
+          },
+          "msg": ""
+        }
+      },
+      "identifiedComponent": "OKX listing BLUR/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "whitebit",
+        "kind": "swap",
+        "id": "BLUR_PERP",
+        "asset": "blur",
+        "base": "BLUR",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/blur",
+      "marketSymbol": "BLUR/USDT:USDT",
+      "marketUrl": "https://whitebit.com/trade/BLUR_PERP"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "spot",
+        "id": "BLUR-USDT",
+        "asset": "blur",
+        "base": "BLUR",
+        "quote": "USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/blur",
+      "marketUrl": "https://www.okx.com/en-eu/help/okx-will-list-blur-for-spot-trading-2-13-2023",
+      "marketSymbol": "BLUR/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "swap",
+        "id": "STX-USDT-SWAP",
+        "asset": "blockstack",
+        "base": "STX",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1",
+        "underlying": "STX-USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/stacks",
+      "marketSymbol": "STX/USDT:USDT",
+      "index": {
+        "url": "https://www.okx.com/api/v5/market/index-components?index=STX-USDT",
+        "status": 200,
+        "data": {
+          "code": "0",
+          "data": {
+            "components": [
+              {
+                "wgt": "0.1333",
+                "exch": "Gate",
+                "symbol": "STX/USDT",
+                "symPx": "0.317",
+                "cnvPx": "0.317"
+              },
+              {
+                "wgt": "0.2",
+                "exch": "Bybit",
+                "symbol": "STX/USDT",
+                "symPx": "0.317",
+                "cnvPx": "0.317"
+              },
+              {
+                "wgt": "0.2666",
+                "exch": "Binance",
+                "symbol": "STX/USDT",
+                "symPx": "0.3168",
+                "cnvPx": "0.3168"
+              },
+              {
+                "wgt": "0.2666",
+                "exch": "OKX",
+                "symbol": "STX/USDT",
+                "symPx": "0.3167",
+                "cnvPx": "0.3167"
+              },
+              {
+                "wgt": "0.1333",
+                "exch": "Kucoin",
+                "symbol": "STX/USDT",
+                "symPx": "0.3165",
+                "cnvPx": "0.3165"
+              }
+            ],
+            "index": "STX-USDT",
+            "last": "0.3168",
+            "ts": "1794389420973"
+          },
+          "msg": ""
+        }
+      },
+      "identifiedComponent": "CoinGecko OKX spot STX/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "whitebit",
+        "kind": "swap",
+        "id": "STX_PERP",
+        "asset": "blockstack",
+        "base": "STX",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/stacks",
+      "marketSymbol": "STX/USDT:USDT",
+      "marketUrl": "https://whitebit.com/trade/STX_PERP"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "spot",
+        "id": "STX-USDT",
+        "asset": "blockstack",
+        "base": "STX",
+        "quote": "USDT"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/stacks",
+      "marketUrl": "https://www.okx.com/en-us/trade-spot/stx-usdt",
+      "marketSymbol": "STX/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "RENDER_USDT",
+        "asset": "render-token",
+        "base": "RENDER",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/render-token",
+      "marketSymbol": "RENDER/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/RENDER_USDT",
+        "status": 200,
+        "data": {
+          "index": "RENDER_USDT",
+          "time": 1794389433000,
+          "constituents": [
+            {
+              "exchange": "Binance",
+              "symbols": [
+                "RENDER_USDT"
+              ],
+              "price": "1.593",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "Bitget",
+              "symbols": [
+                "RENDER_USDT"
+              ],
+              "price": "1.592",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "Bybit",
+              "symbols": [
+                "RENDER_USDT"
+              ],
+              "price": "1.592",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "RENDER_USDT"
+              ],
+              "price": "1.5908",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "OKX",
+              "symbols": [
+                "RENDER_USDT"
+              ],
+              "price": "1.591",
+              "weight": "0.2000"
+            }
+          ]
+        }
+      },
+      "identifiedComponent": "Prior OKX/Bybit spot RENDER/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "RENDERUSDT",
+        "asset": "render-token",
+        "base": "RENDER",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/render-token",
+      "marketSymbol": "RENDER/USDT:USDT",
+      "index": {
+        "url": "https://api.bitget.com/api/v3/market/index-components?symbol=RENDERUSDT",
+        "status": 200,
+        "data": {
+          "code": "00000",
+          "msg": "success",
+          "requestTime": 1794389434622,
+          "data": {
+            "symbol": "RENDERUSDT",
+            "componentList": [
+              {
+                "exchange": "BINANCE",
+                "spotPair": "RENDER/USDT",
+                "equivalentPrice": "1.593",
+                "weight": "0.326"
+              },
+              {
+                "exchange": "BYBIT",
+                "spotPair": "RENDER/USDT",
+                "equivalentPrice": "1.592",
+                "weight": "0.1739"
+              },
+              {
+                "exchange": "BITGET",
+                "spotPair": "RENDER/USDT",
+                "equivalentPrice": "1.592",
+                "weight": "0.1739"
+              },
+              {
+                "exchange": "OKX",
+                "spotPair": "RENDER/USDT",
+                "equivalentPrice": "1.591",
+                "weight": "0.1739"
+              },
+              {
+                "exchange": "GATEIO",
+                "spotPair": "RENDER/USDT",
+                "equivalentPrice": "1.591",
+                "weight": "0.0869"
+              },
+              {
+                "exchange": "KUCOIN",
+                "spotPair": "RENDER/USDT",
+                "equivalentPrice": "1.59",
+                "weight": "0.0652"
+              }
+            ]
+          }
+        }
+      },
+      "identifiedComponent": "Prior OKX/Bybit spot RENDER/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "RENDERUSDT",
+        "asset": "render-token",
+        "base": "RENDER",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/render-token",
+      "marketSymbol": "RENDER/USDT:USDT",
+      "fullName": "Render"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "RENDERUSDT",
+        "asset": "render-token",
+        "base": "RENDER",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/render-token",
+      "marketSymbol": "RENDER/USDT:USDT",
+      "index": {
+        "url": "https://fapi.binance.com/fapi/v1/constituents?symbol=RENDERUSDT",
+        "status": 200,
+        "data": {
+          "symbol": "RENDERUSDT",
+          "time": 1794389380762,
+          "constituents": [
+            {
+              "exchange": "binance",
+              "symbol": "RENDERUSDT",
+              "price": "1.59000000",
+              "weight": "0.62500000"
+            },
+            {
+              "exchange": "okex",
+              "symbol": "RENDER-USDT",
+              "price": "1.59000000",
+              "weight": "0.18750000"
+            },
+            {
+              "exchange": "gateio",
+              "symbol": "RENDER_USDT",
+              "price": "1.59020000",
+              "weight": "0.09375000"
+            },
+            {
+              "exchange": "bybit",
+              "symbol": "RENDERUSDT",
+              "price": "1.59000000",
+              "weight": "0.09375000"
+            }
+          ]
+        }
+      },
+      "identifiedComponent": "Prior OKX/Bybit spot RENDER/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "VVV_USDT",
+        "asset": "venice-token",
+        "base": "VVV",
+        "quote": "USDT",
+        "contract_size": "0.1",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/venice-token",
+      "marketSymbol": "VVV/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/VVV_USDT",
+        "status": 200,
+        "data": {
+          "index": "VVV_USDT",
+          "time": 1794389423000,
+          "constituents": [
+            {
+              "exchange": "Bybit",
+              "symbols": [
+                "VVV_USDT"
+              ],
+              "price": "18.971",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "Coinbase",
+              "symbols": [
+                "VVV_USD"
+              ],
+              "price": "18.973",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "VVV_USDT"
+              ],
+              "price": "18.957",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "VVV_USDT"
+              ],
+              "price": "18.9497",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "OKX",
+              "symbols": [
+                "VVV_USDT"
+              ],
+              "price": "18.96",
+              "weight": "0.2"
+            }
+          ]
+        }
+      },
+      "identifiedComponent": "Prior OKX/Bybit spot VVV/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "PONS_USDT",
+        "asset": "pons",
+        "base": "PONS",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/pons",
+      "marketSymbol": "PONS/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/PONS_USDT",
+        "status": 200,
+        "data": {
+          "index": "PONS_USDT",
+          "time": 1794389423000,
+          "constituents": [
+            {
+              "exchange": "Bitget",
+              "symbols": [
+                "PONS_USDT"
+              ],
+              "price": "0.1508",
+              "weight": "0.1111"
+            },
+            {
+              "exchange": "Bybit",
+              "symbols": [
+                "PONS_USDT"
+              ],
+              "price": "0.1508",
+              "weight": "0.1111"
+            },
+            {
+              "exchange": "Crypto.com",
+              "symbols": [
+                "PONS_USD"
+              ],
+              "price": "0.15368",
+              "weight": "0.1111"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "PONS_USDT"
+              ],
+              "price": "0.1507",
+              "weight": "0.1111"
+            },
+            {
+              "exchange": "KuCoin",
+              "symbols": [
+                "PONS_USDT"
+              ],
+              "price": "0.1507",
+              "weight": "0.1111"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "PONS_USDT"
+              ],
+              "price": "0.150426",
+              "weight": "0.1111"
+            },
+            {
+              "exchange": "OKX",
+              "symbols": [
+                "PONS_USDT"
+              ],
+              "price": "0.1507",
+              "weight": "0.1111"
+            },
+            {
+              "exchange": "UP33",
+              "symbols": [
+                "PONS_WETH"
+              ],
+              "price": "0.15017",
+              "weight": "0.1112"
+            },
+            {
+              "exchange": "UniswapV3",
+              "symbols": [
+                "PONS_WETH"
+              ],
+              "price": "0.15017",
+              "weight": "0.1111"
+            }
+          ]
+        }
+      },
+      "identifiedComponent": "Prior OKX/Bybit spot PONS/USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "ONE_USDT",
+        "asset": "harmony",
+        "base": "ONE",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/harmony",
+      "marketSymbol": "ONE/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/ONE_USDT",
+        "status": 200,
+        "data": {
+          "index": "ONE_USDT",
+          "time": 1794389429000,
+          "constituents": [
+            {
+              "exchange": "BinanceFutures",
+              "symbols": [
+                "ONE_USDT"
+              ],
+              "price": "0.0015545",
+              "weight": "0.3333"
+            },
+            {
+              "exchange": "GateFutures",
+              "symbols": [
+                "ONE_USDT"
+              ],
+              "price": "0.001547",
+              "weight": "0.3333"
+            },
+            {
+              "exchange": "OKXFutures",
+              "symbols": [
+                "ONE_USDT"
+              ],
+              "price": "0.0015517",
+              "weight": "0.3334"
+            }
+          ]
+        }
+      },
+      "identifiedComponent": "Previously verified OKX ONE-USDT-SWAP"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "NIGHTUSDT",
+        "asset": "midnight-3",
+        "base": "NIGHT",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/midnight-3",
+      "marketSymbol": "NIGHT/USDT:USDT",
+      "fullName": "Midnight"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "MERLUSDT",
+        "asset": "merlin-chain",
+        "base": "MERL",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGecko": "https://www.coingecko.com/en/coins/merlin-chain",
+      "marketSymbol": "MERL/USDT:USDT",
+      "marketUrl": "https://www.bybit.com/trade/usdt/MERLUSDT/"
+    }
+  ]
+}

@@ -1,0 +1,1433 @@
+{
+  "at": 1794391572142,
+  "bindings": [
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "swap",
+        "id": "UP-USDT-SWAP",
+        "asset": "unitas",
+        "base": "UP",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1",
+        "underlying": "UP-USDT"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/unitas",
+      "catalogFields": {
+        "uly": "UP-USDT",
+        "ctValCcy": "UP",
+        "ctVal": "10"
+      },
+      "symbol": "UP/USDT:USDT",
+      "marketSource": "https://www.okx.com/en-eu/help/okx-to-list-perpetual-futures-for-up-crypto",
+      "index": {
+        "url": "https://www.okx.com/api/v5/market/index-components?index=UP-USDT",
+        "status": 200,
+        "data": {
+          "code": "0",
+          "data": {
+            "components": [
+              {
+                "wgt": "0.3333",
+                "exch": "OKX_LINEAR_PERPETUAL",
+                "symbol": "UP/USDT",
+                "symPx": "0.1373",
+                "cnvPx": "0.1373392773578244"
+              },
+              {
+                "wgt": "0.3333",
+                "exch": "Gate",
+                "symbol": "UP/USDT",
+                "symPx": "0.13751",
+                "cnvPx": "0.13751"
+              },
+              {
+                "wgt": "0.3333",
+                "exch": "Mxc",
+                "symbol": "UP/USDT",
+                "symPx": "0.13837",
+                "cnvPx": "0.13837"
+              }
+            ],
+            "index": "UP-USDT",
+            "last": "0.1377",
+            "ts": "1794391551665"
+          },
+          "msg": ""
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "UPUSDT",
+        "asset": "unitas",
+        "base": "UP",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/unitas",
+      "catalogFields": {
+        "baseAsset": "UP",
+        "name": "",
+        "contractType": "PERPETUAL",
+        "tags": [
+          "Unitas"
+        ]
+      },
+      "symbol": "UP/USDT:USDT",
+      "marketSource": "https://www.asterdex.com/en/trade/pro/futures/UPUSDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "UP_USDT",
+        "asset": "unitas",
+        "base": "UP",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/unitas",
+      "catalogFields": {
+        "name": "UP_USDT",
+        "type": "direct"
+      },
+      "symbol": "UP/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/UP_USDT",
+        "status": 200,
+        "data": {
+          "index": "UP_USDT",
+          "time": 1794391560000,
+          "constituents": [
+            {
+              "exchange": "BinanceAlpha",
+              "symbols": [
+                "UP_USDT"
+              ],
+              "price": "0.137496",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "UP_USDT"
+              ],
+              "price": "0.13779",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "GateFutures",
+              "symbols": [
+                "UP_USDT"
+              ],
+              "price": "0.1382",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "UP_USDT"
+              ],
+              "price": "0.13834",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "OKXIndex",
+              "symbols": [
+                "UP_USDT"
+              ],
+              "price": "0.1377",
+              "weight": "0.2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "UP_USDT",
+        "asset": "unitas",
+        "base": "UP",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/unitas",
+      "catalogFields": {
+        "baseCoin": "UP",
+        "type": 1,
+        "indexOrigin": [
+          "BINANCEALPHA",
+          "GATEIO",
+          "MEXC_FUTURE",
+          "MEXC"
+        ]
+      },
+      "symbol": "UP/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "BEAMXUSDT",
+        "asset": "beam-2",
+        "base": "BEAMX",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1",
+        "group": "BEAM"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/beam-2",
+      "catalogFields": {
+        "baseAsset": "BEAMX",
+        "contractType": "PERPETUAL"
+      },
+      "symbol": "BEAMX/USDT:USDT",
+      "marketSource": "https://www.binance.com/en/futures/BEAMXUSDT",
+      "index": {
+        "url": "https://fapi.binance.com/fapi/v1/constituents?symbol=BEAMXUSDT",
+        "status": 200,
+        "data": {
+          "symbol": "BEAMXUSDT",
+          "time": 1794391540991,
+          "constituents": [
+            {
+              "exchange": "binance",
+              "symbol": "BEAMXUSDT",
+              "price": "0.00432700",
+              "weight": "0.61538462"
+            },
+            {
+              "exchange": "gateio",
+              "symbol": "BEAMX_USDT",
+              "price": "0.00432200",
+              "weight": "0.06153846"
+            },
+            {
+              "exchange": "mexc",
+              "symbol": "BEAMXUSDT",
+              "price": "0.00432200",
+              "weight": "0.09230769"
+            },
+            {
+              "exchange": "binance_cross2",
+              "symbol": "BEAMXTRY/USDTTRY",
+              "price": "0.00432583",
+              "weight": "0.04615385"
+            },
+            {
+              "exchange": "bitget",
+              "symbol": "BEAMUSDT",
+              "price": "0.00432200",
+              "weight": "0.09230769"
+            },
+            {
+              "exchange": "bybit",
+              "symbol": "BEAMUSDT",
+              "price": "0.00432600",
+              "weight": "0.09230769"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "BEAMUSDT",
+        "asset": "beam-2",
+        "base": "BEAM",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/beam-2",
+      "catalogFields": {
+        "baseCoin": "BEAM",
+        "fullName": "Beam",
+        "contractType": "LinearPerpetual",
+        "tags": []
+      },
+      "symbol": "BEAM/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "whitebit",
+        "kind": "swap",
+        "id": "BEAM_PERP",
+        "asset": "beam-2",
+        "base": "BEAM",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/beam-2",
+      "catalogFields": {
+        "name": "BEAM_PERP",
+        "type": "futures"
+      },
+      "symbol": "BEAM/USDT:USDT",
+      "marketSource": "https://whitebit.com/trade/BEAM_PERP"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "BEAMUSDT",
+        "asset": "beam-2",
+        "base": "BEAM",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/beam-2",
+      "catalogFields": {
+        "baseCoin": "BEAM"
+      },
+      "symbol": "BEAM/USDT:USDT",
+      "index": {
+        "url": "https://api.bitget.com/api/v3/market/index-components?symbol=BEAMUSDT",
+        "status": 200,
+        "data": {
+          "code": "00000",
+          "msg": "success",
+          "requestTime": 1794391570741,
+          "data": {
+            "symbol": "BEAMUSDT",
+            "componentList": [
+              {
+                "exchange": "BINANCE",
+                "spotPair": "BEAM/USDT",
+                "equivalentPrice": "0.004332",
+                "weight": "0.4"
+              },
+              {
+                "exchange": "BITGET",
+                "spotPair": "BEAM/USDT",
+                "equivalentPrice": "0.004322",
+                "weight": "0.2133"
+              },
+              {
+                "exchange": "BYBIT",
+                "spotPair": "BEAM/USDT",
+                "equivalentPrice": "0.004331",
+                "weight": "0.2133"
+              },
+              {
+                "exchange": "GATEIO",
+                "spotPair": "BEAM/USDT",
+                "equivalentPrice": "0.004322",
+                "weight": "0.1066"
+              },
+              {
+                "exchange": "MEXC",
+                "spotPair": "BEAM/USDT",
+                "equivalentPrice": "0.004326",
+                "weight": "0.0666"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "BULLAUSDT",
+        "asset": "bulla-3",
+        "base": "BULLA",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/bulla-3",
+      "catalogFields": {
+        "baseAsset": "BULLA",
+        "contractType": "PERPETUAL"
+      },
+      "symbol": "BULLA/USDT:USDT",
+      "index": {
+        "url": "https://fapi.binance.com/fapi/v1/constituents?symbol=BULLAUSDT",
+        "status": 200,
+        "data": {
+          "symbol": "BULLAUSDT",
+          "time": 1794391540993,
+          "constituents": [
+            {
+              "exchange": "mexc",
+              "symbol": "BULLAUSDT",
+              "price": "0.06038500",
+              "weight": "0.25000000"
+            },
+            {
+              "exchange": "binance_future",
+              "symbol": "BULLAUSDT",
+              "price": "0.06058000",
+              "weight": "0.25000000"
+            },
+            {
+              "exchange": "binance_alpha",
+              "symbol": "BULLAUSDT",
+              "price": "0.06033273",
+              "weight": "0.50000000"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "BULLAUSDT",
+        "asset": "bulla-3",
+        "base": "BULLA",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/bulla-3",
+      "catalogFields": {
+        "baseAsset": "BULLA",
+        "name": "",
+        "contractType": "PERPETUAL",
+        "tags": []
+      },
+      "symbol": "BULLA/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "BULLA_USDT",
+        "asset": "bulla-3",
+        "base": "BULLA",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/bulla-3",
+      "catalogFields": {
+        "name": "BULLA_USDT",
+        "type": "direct"
+      },
+      "symbol": "BULLA/USDT:USDT",
+      "marketSource": "https://www.gate.com/announcements/article/49618",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/BULLA_USDT",
+        "status": 200,
+        "data": {
+          "index": "BULLA_USDT",
+          "time": 1794391567000,
+          "constituents": [
+            {
+              "exchange": "BinanceAlpha",
+              "symbols": [
+                "BULLA_USDT"
+              ],
+              "price": "0.0604781",
+              "weight": "0.25"
+            },
+            {
+              "exchange": "GateFutures",
+              "symbols": [
+                "BULLA_USDT"
+              ],
+              "price": "0.06104",
+              "weight": "0.25"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "BULLA_USDT"
+              ],
+              "price": "0.060412",
+              "weight": "0.25"
+            },
+            {
+              "exchange": "UniswapV4",
+              "symbols": [
+                "BULLA_USDT"
+              ],
+              "price": "0.0602797",
+              "weight": "0.25"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "BULLA_USDT",
+        "asset": "bulla-3",
+        "base": "BULLA",
+        "quote": "USDT",
+        "contract_size": "10.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/bulla-3",
+      "catalogFields": {
+        "baseCoin": "BULLA",
+        "type": 1,
+        "indexOrigin": [
+          "BINANCE_FUTURE",
+          "BINANCETICKER",
+          "MEXC"
+        ]
+      },
+      "symbol": "BULLA/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "RSRUSDT",
+        "asset": "reserve-rights-token",
+        "base": "RSR",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/reserve-rights",
+      "catalogFields": {
+        "baseAsset": "RSR",
+        "contractType": "PERPETUAL"
+      },
+      "symbol": "RSR/USDT:USDT",
+      "index": {
+        "url": "https://fapi.binance.com/fapi/v1/constituents?symbol=RSRUSDT",
+        "status": 200,
+        "data": {
+          "symbol": "RSRUSDT",
+          "time": 1794391540995,
+          "constituents": [
+            {
+              "exchange": "binance",
+              "symbol": "RSRUSDT",
+              "price": "0.00155100",
+              "weight": "0.58823529"
+            },
+            {
+              "exchange": "okex",
+              "symbol": "RSR-USDT",
+              "price": "0.00155400",
+              "weight": "0.17647059"
+            },
+            {
+              "exchange": "gateio",
+              "symbol": "RSR_USDT",
+              "price": "0.00155100",
+              "weight": "0.05882353"
+            },
+            {
+              "exchange": "kucoin",
+              "symbol": "RSR-USDT",
+              "price": "0.00155200",
+              "weight": "0.08823529"
+            },
+            {
+              "exchange": "mexc",
+              "symbol": "RSRUSDT",
+              "price": "0.00155100",
+              "weight": "0.08823529"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "RSRUSDT",
+        "asset": "reserve-rights-token",
+        "base": "RSR",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/reserve-rights",
+      "catalogFields": {
+        "baseCoin": "RSR",
+        "fullName": "Reserve Rights",
+        "contractType": "LinearPerpetual",
+        "tags": []
+      },
+      "symbol": "RSR/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "whitebit",
+        "kind": "swap",
+        "id": "RSR_PERP",
+        "asset": "reserve-rights-token",
+        "base": "RSR",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/reserve-rights",
+      "catalogFields": {
+        "name": "RSR_PERP",
+        "type": "futures"
+      },
+      "symbol": "RSR/USDT:USDT",
+      "marketSource": "https://whitebit.com/trade/RSR_PERP"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "swap",
+        "id": "RSR-USDT-SWAP",
+        "asset": "reserve-rights-token",
+        "base": "RSR",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1",
+        "underlying": "RSR-USDT"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/reserve-rights",
+      "catalogFields": {
+        "uly": "RSR-USDT",
+        "ctValCcy": "RSR",
+        "ctVal": "100"
+      },
+      "symbol": "RSR/USDT:USDT",
+      "index": {
+        "url": "https://www.okx.com/api/v5/market/index-components?index=RSR-USDT",
+        "status": 200,
+        "data": {
+          "code": "0",
+          "data": {
+            "components": [
+              {
+                "wgt": "0.3333",
+                "exch": "OKX",
+                "symbol": "RSR/USDT",
+                "symPx": "0.001554",
+                "cnvPx": "0.001554"
+              },
+              {
+                "wgt": "0.3333",
+                "exch": "Binance",
+                "symbol": "RSR/USDT",
+                "symPx": "0.001551",
+                "cnvPx": "0.001551"
+              },
+              {
+                "wgt": "0.1666",
+                "exch": "Gate",
+                "symbol": "RSR/USDT",
+                "symPx": "0.001551",
+                "cnvPx": "0.001551"
+              },
+              {
+                "wgt": "0.1666",
+                "exch": "Kucoin",
+                "symbol": "RSR/USDT",
+                "symPx": "0.001552",
+                "cnvPx": "0.001552"
+              }
+            ],
+            "index": "RSR-USDT",
+            "last": "0.001552",
+            "ts": "1794391454292"
+          },
+          "msg": ""
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "RSR_USDT",
+        "asset": "reserve-rights-token",
+        "base": "RSR",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/reserve-rights",
+      "catalogFields": {
+        "name": "RSR_USDT",
+        "type": "direct"
+      },
+      "symbol": "RSR/USDT:USDT",
+      "indexAnchor": "Binance spot RSR/USDT listed on the Reserve Rights page",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/RSR_USDT",
+        "status": 200,
+        "data": {
+          "index": "RSR_USDT",
+          "time": 1794391563000,
+          "constituents": [
+            {
+              "exchange": "Binance",
+              "symbols": [
+                "RSR_USDT"
+              ],
+              "price": "0.001551",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "Bitget",
+              "symbols": [
+                "RSR_USDT"
+              ],
+              "price": "0.001553",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "RSR_USDT"
+              ],
+              "price": "0.001551",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "RSR_USDT"
+              ],
+              "price": "0.001551",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "OKX",
+              "symbols": [
+                "RSR_USDT"
+              ],
+              "price": "0.001554",
+              "weight": "0.2000"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "RSRUSDT",
+        "asset": "reserve-rights-token",
+        "base": "RSR",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/reserve-rights",
+      "catalogFields": {
+        "baseCoin": "RSR"
+      },
+      "symbol": "RSR/USDT:USDT",
+      "indexAnchor": "Binance spot RSR/USDT listed on the Reserve Rights page",
+      "index": {
+        "url": "https://api.bitget.com/api/v3/market/index-components?symbol=RSRUSDT",
+        "status": 200,
+        "data": {
+          "code": "00000",
+          "msg": "success",
+          "requestTime": 1794391570759,
+          "data": {
+            "symbol": "RSRUSDT",
+            "componentList": [
+              {
+                "exchange": "BINANCE",
+                "spotPair": "RSR/USDT",
+                "equivalentPrice": "0.001551",
+                "weight": "0.3703"
+              },
+              {
+                "exchange": "BITGET",
+                "spotPair": "RSR/USDT",
+                "equivalentPrice": "0.001553",
+                "weight": "0.1975"
+              },
+              {
+                "exchange": "OKX",
+                "spotPair": "RSR/USDT",
+                "equivalentPrice": "0.001554",
+                "weight": "0.1975"
+              },
+              {
+                "exchange": "GATEIO",
+                "spotPair": "RSR/USDT",
+                "equivalentPrice": "0.001551",
+                "weight": "0.0987"
+              },
+              {
+                "exchange": "KUCOIN",
+                "spotPair": "RSR/USDT",
+                "equivalentPrice": "0.001552",
+                "weight": "0.074"
+              },
+              {
+                "exchange": "MEXC",
+                "spotPair": "RSR/USDT",
+                "equivalentPrice": "0.001551",
+                "weight": "0.0617"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "CYBERUSDT",
+        "asset": "cyberconnect",
+        "base": "CYBER",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/cyberconnect",
+      "catalogFields": {
+        "baseAsset": "CYBER",
+        "contractType": "PERPETUAL"
+      },
+      "symbol": "CYBER/USDT:USDT",
+      "index": {
+        "url": "https://fapi.binance.com/fapi/v1/constituents?symbol=CYBERUSDT",
+        "status": 200,
+        "data": {
+          "symbol": "CYBERUSDT",
+          "time": 1794391540994,
+          "constituents": [
+            {
+              "exchange": "binance",
+              "symbol": "CYBERUSDT",
+              "price": "0.26600000",
+              "weight": "0.67796610"
+            },
+            {
+              "exchange": "gateio",
+              "symbol": "CYBER_USDT",
+              "price": "0.26540000",
+              "weight": "0.06779661"
+            },
+            {
+              "exchange": "mexc",
+              "symbol": "CYBERUSDT",
+              "price": "0.26560000",
+              "weight": "0.10169492"
+            },
+            {
+              "exchange": "binance_cross2",
+              "symbol": "CYBERTRY/USDTTRY",
+              "price": "0.26488747",
+              "weight": "0.05084746"
+            },
+            {
+              "exchange": "bybit",
+              "symbol": "CYBERUSDT",
+              "price": "0.26570000",
+              "weight": "0.10169492"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "CYBERUSDT",
+        "asset": "cyberconnect",
+        "base": "CYBER",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/cyberconnect",
+      "catalogFields": {
+        "baseAsset": "CYBER",
+        "name": "",
+        "contractType": "PERPETUAL",
+        "tags": []
+      },
+      "symbol": "CYBER/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "CYBERUSDT",
+        "asset": "cyberconnect",
+        "base": "CYBER",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/cyberconnect",
+      "catalogFields": {
+        "baseCoin": "CYBER",
+        "fullName": "CyberConnect",
+        "contractType": "LinearPerpetual",
+        "tags": []
+      },
+      "symbol": "CYBER/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "CYBER_USDT",
+        "asset": "cyberconnect",
+        "base": "CYBER",
+        "quote": "USDT",
+        "contract_size": "0.1",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/cyberconnect",
+      "catalogFields": {
+        "name": "CYBER_USDT",
+        "type": "direct"
+      },
+      "symbol": "CYBER/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/CYBER_USDT",
+        "status": 200,
+        "data": {
+          "index": "CYBER_USDT",
+          "time": 1794391566000,
+          "constituents": [
+            {
+              "exchange": "Binance",
+              "symbols": [
+                "CYBER_USDT"
+              ],
+              "price": "0.266",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "Bitget",
+              "symbols": [
+                "CYBER_USDT"
+              ],
+              "price": "0.2653",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "Bybit",
+              "symbols": [
+                "CYBER_USDT"
+              ],
+              "price": "0.2652",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "CYBER_USDT"
+              ],
+              "price": "0.2654",
+              "weight": "0.2000"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "CYBER_USDT"
+              ],
+              "price": "0.2653",
+              "weight": "0.2000"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "CYBERUSDT",
+        "asset": "cyberconnect",
+        "base": "CYBER",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/cyberconnect",
+      "catalogFields": {
+        "baseCoin": "CYBER"
+      },
+      "symbol": "CYBER/USDT:USDT",
+      "index": {
+        "url": "https://api.bitget.com/api/v3/market/index-components?symbol=CYBERUSDT",
+        "status": 200,
+        "data": {
+          "code": "00000",
+          "msg": "success",
+          "requestTime": 1794391570794,
+          "data": {
+            "symbol": "CYBERUSDT",
+            "componentList": [
+              {
+                "exchange": "BINANCE",
+                "spotPair": "CYBER/USDT",
+                "equivalentPrice": "0.266",
+                "weight": "0.3703"
+              },
+              {
+                "exchange": "BYBIT",
+                "spotPair": "CYBER/USDT",
+                "equivalentPrice": "0.2652",
+                "weight": "0.1975"
+              },
+              {
+                "exchange": "BITGET",
+                "spotPair": "CYBER/USDT",
+                "equivalentPrice": "0.2653",
+                "weight": "0.1975"
+              },
+              {
+                "exchange": "GATEIO",
+                "spotPair": "CYBER/USDT",
+                "equivalentPrice": "0.2654",
+                "weight": "0.0987"
+              },
+              {
+                "exchange": "KUCOIN",
+                "spotPair": "CYBER/USDT",
+                "equivalentPrice": "0.265",
+                "weight": "0.074"
+              },
+              {
+                "exchange": "MEXC",
+                "spotPair": "CYBER/USDT",
+                "equivalentPrice": "0.2654",
+                "weight": "0.0617"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "QUSDT",
+        "asset": "quack-ai",
+        "base": "Q",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/quack-ai",
+      "catalogFields": {
+        "baseCoin": "Q",
+        "fullName": "quack-ai",
+        "contractType": "LinearPerpetual",
+        "tags": []
+      },
+      "symbol": "Q/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "Q_USDT",
+        "asset": "quack-ai",
+        "base": "Q",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/quack-ai",
+      "catalogFields": {
+        "name": "Q_USDT",
+        "type": "direct"
+      },
+      "symbol": "Q/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/Q_USDT",
+        "status": 200,
+        "data": {
+          "index": "Q_USDT",
+          "time": 1794391562000,
+          "constituents": [
+            {
+              "exchange": "Bitget",
+              "symbols": [
+                "Q_USDT"
+              ],
+              "price": "0.0261404",
+              "weight": "0.3"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "Q_USDT"
+              ],
+              "price": "0.026097",
+              "weight": "0.3"
+            },
+            {
+              "exchange": "KuCoin",
+              "symbols": [
+                "Q_USDT"
+              ],
+              "price": "0.026104",
+              "weight": "0.2"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "Q_USDT"
+              ],
+              "price": "0.026129",
+              "weight": "0.2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "QUSDT",
+        "asset": "quack-ai",
+        "base": "Q",
+        "quote": "USDT",
+        "contract_size": "1",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/quack-ai",
+      "catalogFields": {
+        "baseCoin": "Q"
+      },
+      "symbol": "Q/USDT:USDT",
+      "index": {
+        "url": "https://api.bitget.com/api/v3/market/index-components?symbol=QUSDT",
+        "status": 200,
+        "data": {
+          "code": "00000",
+          "msg": "success",
+          "requestTime": 1794391570744,
+          "data": {
+            "symbol": "QUSDT",
+            "componentList": [
+              {
+                "exchange": "BITGET",
+                "spotPair": "Q/USDT",
+                "equivalentPrice": "0.0261727",
+                "weight": "0.4571"
+              },
+              {
+                "exchange": "GATEIO",
+                "spotPair": "Q/USDT",
+                "equivalentPrice": "0.026097",
+                "weight": "0.2285"
+              },
+              {
+                "exchange": "KUCOIN",
+                "spotPair": "Q/USDT",
+                "equivalentPrice": "0.026116",
+                "weight": "0.1714"
+              },
+              {
+                "exchange": "MEXC",
+                "spotPair": "Q/USDT",
+                "equivalentPrice": "0.026129",
+                "weight": "0.1428"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "Q_USDT",
+        "asset": "quack-ai",
+        "base": "Q",
+        "quote": "USDT",
+        "contract_size": "100.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/quack-ai",
+      "catalogFields": {
+        "baseCoin": "Q",
+        "type": 1,
+        "indexOrigin": [
+          "BITGET",
+          "BINANCE_FUTURE",
+          "BINANCETICKER",
+          "MEXC",
+          "KUCOIN"
+        ]
+      },
+      "symbol": "Q/USDT:USDT"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "QUSDT",
+        "asset": "quack-ai",
+        "base": "Q",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/quack-ai",
+      "catalogFields": {
+        "baseAsset": "Q",
+        "contractType": "PERPETUAL"
+      },
+      "symbol": "Q/USDT:USDT",
+      "indexAnchor": "Gate and KuCoin spot Q/USDT listed on the Quack AI page",
+      "index": {
+        "url": "https://fapi.binance.com/fapi/v1/constituents?symbol=QUSDT",
+        "status": 200,
+        "data": {
+          "symbol": "QUSDT",
+          "time": 1794391540992,
+          "constituents": [
+            {
+              "exchange": "gateio",
+              "symbol": "Q_USDT",
+              "price": "0.02602500",
+              "weight": "0.19047619"
+            },
+            {
+              "exchange": "kucoin",
+              "symbol": "Q-USDT",
+              "price": "0.02601700",
+              "weight": "0.09523810"
+            },
+            {
+              "exchange": "mexc",
+              "symbol": "QUSDT",
+              "price": "0.02610900",
+              "weight": "0.04761905"
+            },
+            {
+              "exchange": "bitget",
+              "symbol": "QUSDT",
+              "price": "0.02602820",
+              "weight": "0.28571429"
+            },
+            {
+              "exchange": "binance_alpha",
+              "symbol": "QUSDT",
+              "price": "0.02601421",
+              "weight": "0.38095238"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "GRAMUSDT",
+        "asset": "the-open-network",
+        "base": "GRAM",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/gram",
+      "catalogFields": {
+        "baseAsset": "GRAM",
+        "name": "",
+        "contractType": "PERPETUAL",
+        "tags": [
+          "Gram"
+        ]
+      },
+      "symbol": "GRAM/USDT:USDT",
+      "marketSource": "https://www.asterdex.com/en/trade/pro/futures/GRAMUSDT"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "GRAM_USDT",
+        "asset": "the-open-network",
+        "base": "GRAM",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/gram",
+      "catalogFields": {
+        "name": "GRAM_USDT",
+        "type": "direct"
+      },
+      "symbol": "GRAM/USDT:USDT",
+      "index": {
+        "url": "https://api.gateio.ws/api/v4/futures/usdt/index_constituents/GRAM_USDT",
+        "status": 200,
+        "data": {
+          "index": "GRAM_USDT",
+          "time": 1794391558000,
+          "constituents": [
+            {
+              "exchange": "Binance",
+              "symbols": [
+                "GRAM_USDT"
+              ],
+              "price": "1.193",
+              "weight": "0.125"
+            },
+            {
+              "exchange": "Bitget",
+              "symbols": [
+                "GRAM_USDT"
+              ],
+              "price": "1.194",
+              "weight": "0.125"
+            },
+            {
+              "exchange": "BitgetIndex",
+              "symbols": [
+                "GRAM_USDT"
+              ],
+              "price": "1.193113",
+              "weight": "0.125"
+            },
+            {
+              "exchange": "Bybit",
+              "symbols": [
+                "GRAM_USDT"
+              ],
+              "price": "1.194",
+              "weight": "0.125"
+            },
+            {
+              "exchange": "Gate",
+              "symbols": [
+                "GRAM_USDT"
+              ],
+              "price": "1.1942",
+              "weight": "0.125"
+            },
+            {
+              "exchange": "KuCoin",
+              "symbols": [
+                "GRAM_USDT"
+              ],
+              "price": "1.194",
+              "weight": "0.125"
+            },
+            {
+              "exchange": "MEXC",
+              "symbols": [
+                "GRAM_USDT"
+              ],
+              "price": "1.185",
+              "weight": "0.125"
+            },
+            {
+              "exchange": "OKX",
+              "symbols": [
+                "GRAM_USDT"
+              ],
+              "price": "1.193",
+              "weight": "0.125"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "GRAMUSDT",
+        "asset": "the-open-network",
+        "base": "GRAM",
+        "quote": "USDT",
+        "contract_size": "1.0",
+        "price_units": "1"
+      },
+      "coinGeckoMarketPage": "https://www.coingecko.com/en/coins/gram",
+      "catalogFields": {
+        "baseAsset": "GRAM",
+        "contractType": "PERPETUAL"
+      },
+      "symbol": "GRAM/USDT:USDT",
+      "index": {
+        "url": "https://fapi.binance.com/fapi/v1/constituents?symbol=GRAMUSDT",
+        "status": 200,
+        "data": {
+          "symbol": "GRAMUSDT",
+          "time": 1794391540996,
+          "constituents": [
+            {
+              "exchange": "binance",
+              "symbol": "GRAMUSDT",
+              "price": "1.19100000",
+              "weight": "0.50000000"
+            },
+            {
+              "exchange": "okex",
+              "symbol": "GRAM-USDT",
+              "price": "1.19300000",
+              "weight": "0.15000000"
+            },
+            {
+              "exchange": "gateio",
+              "symbol": "GRAM_USDT",
+              "price": "1.19200000",
+              "weight": "0.05000000"
+            },
+            {
+              "exchange": "kucoin",
+              "symbol": "GRAM-USDT",
+              "price": "1.19300000",
+              "weight": "0.07500000"
+            },
+            {
+              "exchange": "mexc",
+              "symbol": "GRAMUSDT",
+              "price": "1.18900000",
+              "weight": "0.07500000"
+            },
+            {
+              "exchange": "bitget",
+              "symbol": "GRAMUSDT",
+              "price": "1.19400000",
+              "weight": "0.07500000"
+            },
+            {
+              "exchange": "bybit",
+              "symbol": "GRAMUSDT",
+              "price": "1.19400000",
+              "weight": "0.07500000"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "tickerCollision": {
+    "UP": [
+      "unitas",
+      "superform"
+    ]
+  }
+}

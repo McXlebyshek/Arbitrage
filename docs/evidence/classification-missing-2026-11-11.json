@@ -1,0 +1,335 @@
+{
+  "at": 1794390845107,
+  "venues": {
+    "extended": {
+      "status": "ok",
+      "markets": {
+        "AERO": []
+      }
+    },
+    "bitget": {
+      "status": "ok",
+      "markets": {
+        "AERO": [
+          {
+            "id": "AEROUSDT",
+            "quote": "USDT",
+            "allowed": true,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          }
+        ],
+        "DELL": [
+          {
+            "id": "DELLUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "GOOGL": [
+          {
+            "id": "GOOGLUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "INTW": [
+          {
+            "id": "INTWUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "MRNA": [
+          {
+            "id": "MRNAUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "RAM": [
+          {
+            "id": "RAMUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "SECZ": [
+          {
+            "id": "SECZUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "SKDD": [
+          {
+            "id": "SKDDUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "SOXX": [
+          {
+            "id": "SOXXUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "WDC": [
+          {
+            "id": "WDCUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ],
+        "XOM": [
+          {
+            "id": "XOMUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "perpetual",
+              "isRwa": "YES"
+            }
+          }
+        ]
+      }
+    },
+    "bybit": {
+      "status": "ok",
+      "markets": {
+        "BMNR": [
+          {
+            "id": "BMNRUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "stock",
+              "contractType": "LinearPerpetual",
+              "fullName": "BitMine Immersion Technologies"
+            }
+          }
+        ],
+        "INTW": [
+          {
+            "id": "INTWUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "ETF",
+              "contractType": "LinearPerpetual",
+              "fullName": "GraniteShares 2x Long INTC Daily ETF"
+            }
+          }
+        ],
+        "MRNA": [
+          {
+            "id": "MRNAUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "stock",
+              "contractType": "LinearPerpetual",
+              "fullName": "Moderna Inc"
+            }
+          }
+        ],
+        "SECZ": [
+          {
+            "id": "SECZUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "stock",
+              "contractType": "LinearPerpetual",
+              "fullName": "Securitize Corp"
+            }
+          }
+        ],
+        "SOXX": [
+          {
+            "id": "SOXXUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "ETF",
+              "contractType": "LinearPerpetual",
+              "fullName": "iShares Semiconductor ETF"
+            }
+          }
+        ],
+        "XOM": [
+          {
+            "id": "XOMUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "symbolType": "stock",
+              "contractType": "LinearPerpetual",
+              "fullName": "Exxon"
+            }
+          }
+        ]
+      }
+    },
+    "gate": {
+      "status": "ok",
+      "markets": {
+        "BMNR": [
+          {
+            "id": "BMNR_USDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "type": "direct",
+              "contract_type": "stocks"
+            }
+          }
+        ],
+        "WDC": [
+          {
+            "id": "WDC_USDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "type": "direct",
+              "contract_type": "stocks"
+            }
+          }
+        ]
+      }
+    },
+    "kucoinfutures": {
+      "status": "ok",
+      "markets": {
+        "CSOPSKHYNIX2L": [
+          {
+            "id": "CSOPSKHYNIX2LUSDTM",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "type": "FFWCSX",
+              "assetClass": "STOCK"
+            }
+          }
+        ],
+        "SKDD": [
+          {
+            "id": "SKDDUSDTM",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "type": "FFWCSX",
+              "assetClass": "STOCK"
+            }
+          }
+        ]
+      }
+    },
+    "whitebit": {
+      "status": "ok",
+      "markets": {
+        "DELL": [
+          {
+            "id": "DELL_PERP",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "type": "tradfiFutures"
+            }
+          }
+        ]
+      }
+    },
+    "binanceusdm": {
+      "status": "ok",
+      "markets": {
+        "CSOPSKHYNIX2L": [
+          {
+            "id": "CSOPSKHYNIX2LUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "contractType": "TRADIFI_PERPETUAL",
+              "underlyingType": "HK_EQUITY"
+            }
+          }
+        ],
+        "RAM": [
+          {
+            "id": "RAMUSDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "contractType": "TRADIFI_PERPETUAL",
+              "underlyingType": "EQUITY"
+            }
+          }
+        ]
+      }
+    },
+    "htx": {
+      "status": "ok",
+      "markets": {
+        "MU": [
+          {
+            "id": "MU-USDT",
+            "quote": "USDT",
+            "allowed": false,
+            "info": {
+              "contract_type": "swap",
+              "tradfi_labels": [
+                "Stocks"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "edgex": {
+      "status": "ok",
+      "markets": {
+        "GOOGL": [],
+        "MU": []
+      }
+    }
+  }
+}

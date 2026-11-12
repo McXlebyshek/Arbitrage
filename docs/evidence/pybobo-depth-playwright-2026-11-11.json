@@ -1,0 +1,145 @@
+{
+  "identity": {
+    "oldPair": false,
+    "gensynPair": true,
+    "ai": [
+      [
+        "binanceusdm.spot.AI.USDT",
+        null
+      ],
+      [
+        "bitget.spot.AI.USDT",
+        null
+      ],
+      [
+        "gate.spot.AI.USDT",
+        null
+      ],
+      [
+        "aster.swap.AI.USDT",
+        null
+      ],
+      [
+        "htx.spot.AI.USDT",
+        null
+      ],
+      [
+        "whitebit.spot.AI.USDT",
+        null
+      ]
+    ],
+    "gensyn": [
+      [
+        "binanceusdm.swap.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "binanceusdm.spot.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "bybit.swap.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "okx.swap.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "okx.spot.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "gate.swap.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "gate.spot.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "mexc.swap.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "mexc.spot.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "kucoinfutures.swap.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "kucoinfutures.spot.AIGENSYN.USDT",
+        "gensyn"
+      ],
+      [
+        "aster.swap.AIGENSYN.USDT",
+        null
+      ],
+      [
+        "whitebit.swap.AIGENSYN.USDT",
+        null
+      ]
+    ],
+    "leaders": [
+      [
+        "INIT",
+        "gate.swap.INIT.USDT",
+        "bybit.swap.INIT.USDT",
+        3.5882458127197943
+      ],
+      [
+        "PTB",
+        "mexc.swap.PTB.USDT",
+        "gate.swap.PTB.USDT",
+        2.77777777777777
+      ],
+      [
+        "1000CAT",
+        "bitget.swap.1000CAT.USDT",
+        "bybit.swap.1000CAT.USDT",
+        2.5679307255897323
+      ],
+      [
+        "PYBOBO",
+        "kucoinfutures.swap.PYBOBO.USDT",
+        "mexc.swap.PYBOBO.USDT",
+        2.262941824371684
+      ],
+      [
+        "UP",
+        "okx.swap.UP.USDT",
+        "aster.swap.UP.USDT",
+        1.4204545454545465
+      ],
+      [
+        "CLAUDIA",
+        "gate.swap.CLAUDIA.USDT",
+        "mexc.swap.CLAUDIA.USDT",
+        1.2976022566995695
+      ],
+      [
+        "AXL",
+        "whitebit.swap.AXL.USDT",
+        "bybit.swap.AXL.USDT",
+        1.1095700416088699
+      ]
+    ]
+  },
+  "target": {
+    "stamp": 1794404402868,
+    "depth": {
+      "state": "applied",
+      "bulkSkewMs": 1898,
+      "depthSkewMs": 71
+    },
+    "id": "kucoinfutures.swap.PYBOBO.USDT~mexc.swap.PYBOBO.USDT",
+    "entry": 2.262941824371684,
+    "quality": "timed",
+    "cap": 17.759812,
+    "longAsk": 0.0004937,
+    "shortBid": 0.000505,
+    "listed": 4
+  }
+}

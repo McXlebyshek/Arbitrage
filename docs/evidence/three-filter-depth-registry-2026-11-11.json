@@ -1,0 +1,678 @@
+{
+  "catalogAt": 1794398201355,
+  "confirmed": [
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "DOSUSDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "binanceusdm.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "DOSUSDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "bybit.swap"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "swap",
+        "id": "DOS-USDT-SWAP",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "10.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "okx.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "DOSUSDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "bitget.swap"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "DOS_USDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "10.0"
+      },
+      "identity": "https://www.gate.com/en-uk/futures/USDT/DOS_USDT",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "gate.swap"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "DOSUSDTM",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "10.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "kucoinfutures.swap"
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "DOSUSDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "aster.swap"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "spot",
+        "id": "DOS-USDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "okx.spot"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "spot",
+        "id": "DOSUSDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "bitget.spot"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "spot",
+        "id": "DOS_USDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/dappos",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "gate.spot"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "spot",
+        "id": "DOSUSDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT"
+      },
+      "identity": "catalog:fullName=DAPPOS",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "mexc.spot"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "spot",
+        "id": "DOS-USDT",
+        "asset": "dappos",
+        "base": "DOS",
+        "quote": "USDT"
+      },
+      "identity": "https://www.kucoin.com/news/flash/dappos-dos-listed-on-kucoin-for-spot-trading",
+      "valuation": "https://www.coingecko.com/en/coins/dappos",
+      "catalog_key": "kucoinfutures.spot"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "ZEREBROUSDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "binanceusdm.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "ZEREBROUSDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "bybit.swap"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "ZEREBRO_USDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "10.0"
+      },
+      "identity": "https://www.gate.com/zh/futures/USDT/ZEREBRO_USDT",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "gate.swap"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "ZEREBRO_USDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "10.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "mexc.swap"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "ZEREBROUSDTM",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "kucoinfutures.swap"
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "ZEREBROUSDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "aster.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "spot",
+        "id": "ZEREBROUSDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "bybit.spot"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "spot",
+        "id": "ZEREBRO_USDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "gate.spot"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "spot",
+        "id": "ZEREBROUSDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT"
+      },
+      "identity": "catalog:fullName=Zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "mexc.spot"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "spot",
+        "id": "ZEREBRO-USDT",
+        "asset": "zerebro",
+        "base": "ZEREBRO",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/zerebro",
+      "valuation": "https://www.coingecko.com/en/coins/zerebro",
+      "catalog_key": "kucoinfutures.spot"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "IDOLUSDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/meet48",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "binanceusdm.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "IDOLUSDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1"
+      },
+      "identity": "https://www.coingecko.com/en/coins/meet48",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "bitget.swap"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "IDOL_USDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "100.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/meet48",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "gate.swap"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "IDOL_USDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "100.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/meet48",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "mexc.swap"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "IDOLUSDTM",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "100.0"
+      },
+      "identity": "https://www.kucoin.com/announcement/it-kucoin-futures-new-listing-idolusdt-perpetual-contract-and-trading-bots?x=it_IT",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "kucoinfutures.swap"
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "IDOLUSDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/meet48",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "aster.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "spot",
+        "id": "IDOLUSDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/meet48",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "bitget.spot"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "spot",
+        "id": "IDOL_USDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/meet48",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "gate.spot"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "spot",
+        "id": "IDOLUSDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/meet48",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "mexc.spot"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "spot",
+        "id": "IDOL-USDT",
+        "asset": "meet48",
+        "base": "IDOL",
+        "quote": "USDT"
+      },
+      "identity": "https://www.kucoin.com/news/flash/kucoin-lists-meet48-idol-on-spot-trading-platform",
+      "valuation": "https://www.coingecko.com/en/coins/meet48",
+      "catalog_key": "kucoinfutures.spot"
+    },
+    {
+      "binding": {
+        "exchange": "binanceusdm",
+        "kind": "swap",
+        "id": "COAIUSDT",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "binanceusdm.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bybit",
+        "kind": "swap",
+        "id": "COAIUSDT",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "bybit.swap"
+    },
+    {
+      "binding": {
+        "exchange": "okx",
+        "kind": "swap",
+        "id": "COAI-USDT-SWAP",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "0.1"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "okx.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "swap",
+        "id": "COAIUSDT",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "bitget.swap"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "swap",
+        "id": "COAI_USDT",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "10.0"
+      },
+      "identity": "https://www.gate.com/en-uk/futures/USDT/COAI_USDT",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "gate.swap"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "swap",
+        "id": "COAI_USDT",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "mexc.swap"
+    },
+    {
+      "binding": {
+        "exchange": "kucoinfutures",
+        "kind": "swap",
+        "id": "COAIUSDTM",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "10.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "kucoinfutures.swap"
+    },
+    {
+      "binding": {
+        "exchange": "whitebit",
+        "kind": "swap",
+        "id": "COAI_PERP",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "whitebit.swap"
+    },
+    {
+      "binding": {
+        "exchange": "bitget",
+        "kind": "spot",
+        "id": "COAIUSDT",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT"
+      },
+      "identity": "https://www.bitget.com/pt-PT/support/articles/12560603838362",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "bitget.spot"
+    },
+    {
+      "binding": {
+        "exchange": "gate",
+        "kind": "spot",
+        "id": "COAI_USDT",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "gate.spot"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "spot",
+        "id": "COAIUSDT",
+        "asset": "chainopera-ai",
+        "base": "COAI",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "valuation": "https://www.coingecko.com/en/coins/chainopera-ai",
+      "catalog_key": "mexc.spot"
+    },
+    {
+      "binding": {
+        "exchange": "aster",
+        "kind": "swap",
+        "id": "ARIAUSDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT",
+        "price_units": "1",
+        "contract_size": "1.0"
+      },
+      "identity": "https://www.coingecko.com/en/coins/aria-ai",
+      "valuation": "https://www.coingecko.com/en/coins/aria-ai",
+      "catalog_key": "aster.swap"
+    },
+    {
+      "binding": {
+        "exchange": "mexc",
+        "kind": "spot",
+        "id": "ARIAUSDT",
+        "asset": "aria-ai",
+        "base": "ARIA",
+        "quote": "USDT"
+      },
+      "identity": "https://www.coingecko.com/en/coins/aria-ai",
+      "valuation": "https://www.coingecko.com/en/coins/aria-ai",
+      "catalog_key": "mexc.spot"
+    }
+  ],
+  "unresolved": [
+    {
+      "venue": "mexc",
+      "kind": "swap",
+      "token": "DOS",
+      "id": "DOS_USDT"
+    },
+    {
+      "venue": "htx",
+      "kind": "spot",
+      "token": "DOS",
+      "id": "dosusdt"
+    },
+    {
+      "venue": "htx",
+      "kind": "spot",
+      "token": "ZEREBRO",
+      "id": "zerebrousdt"
+    },
+    {
+      "venue": "aster",
+      "kind": "swap",
+      "token": "COAI",
+      "id": "COAIUSDT"
+    },
+    {
+      "venue": "mexc",
+      "kind": "swap",
+      "token": "ARIA",
+      "id": "ARIA_USDT"
+    }
+  ]
+}

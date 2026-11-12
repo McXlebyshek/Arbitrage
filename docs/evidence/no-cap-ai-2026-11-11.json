@@ -1,0 +1,479 @@
+{
+  "stamp": 1794403482317,
+  "legs": [
+    {
+      "id": "binanceusdm.spot.AI.USDT",
+      "symbol": "AI/USDT",
+      "asset": null,
+      "ask": 0.0149,
+      "bid": 0.0148,
+      "sourceAt": 1794403445098,
+      "receivedAt": 1794403482312,
+      "volume": 0.20229189089000002,
+      "last": 0.0149
+    },
+    {
+      "id": "okx.swap.AI.USDT",
+      "symbol": "AI/USDT:USDT",
+      "asset": null,
+      "ask": 0.01393,
+      "bid": 0.01391,
+      "sourceAt": 1794403480079,
+      "receivedAt": 1794403480717,
+      "volume": 0.780675199,
+      "last": 0.01392
+    },
+    {
+      "id": "okx.spot.AI.USDT",
+      "symbol": "AI/USDT",
+      "asset": null,
+      "ask": 0.01394,
+      "bid": 0.01392,
+      "sourceAt": 1794403479574,
+      "receivedAt": 1794403480260,
+      "volume": 0.201141003319,
+      "last": 0.01393
+    },
+    {
+      "id": "bitget.spot.AI.USDT",
+      "symbol": "AI/USDT",
+      "asset": null,
+      "ask": 0.013932,
+      "bid": 0.013926,
+      "sourceAt": 1794403479375,
+      "receivedAt": 1794403480398,
+      "volume": 0.03192696,
+      "last": 0.013925
+    },
+    {
+      "id": "gate.spot.AI.USDT",
+      "symbol": "AI/USDT",
+      "asset": null,
+      "ask": 0.01474,
+      "bid": 0.01463,
+      "sourceAt": null,
+      "receivedAt": 1794403480112,
+      "volume": 0.0365357741755,
+      "last": 0.01473
+    },
+    {
+      "id": "mexc.spot.AI.USDT",
+      "symbol": "AI/USDT",
+      "asset": null,
+      "ask": 0.01394,
+      "bid": 0.01393,
+      "sourceAt": 1794403478345,
+      "receivedAt": 1794403480556,
+      "volume": 0.05120335131,
+      "last": 0.01392
+    },
+    {
+      "id": "kucoinfutures.spot.AI.USDT",
+      "symbol": "AI/USDT",
+      "asset": null,
+      "ask": 0.01393,
+      "bid": 0.01392,
+      "sourceAt": 1794403480102,
+      "receivedAt": 1794403480143,
+      "volume": 0.0016884059500000001,
+      "last": 0.01394
+    },
+    {
+      "id": "aster.swap.AI.USDT",
+      "symbol": "AI/USDT:USDT",
+      "asset": null,
+      "ask": 0.02627,
+      "bid": 0.02598,
+      "sourceAt": 1794403479050,
+      "receivedAt": 1794403479766,
+      "volume": 0.036959620000000006,
+      "last": null
+    },
+    {
+      "id": "htx.spot.AI.USDT",
+      "symbol": "AI/USDT",
+      "asset": null,
+      "ask": 0.0171,
+      "bid": 0.0142,
+      "sourceAt": null,
+      "receivedAt": 1794403480192,
+      "volume": 0.00900759441928,
+      "last": 0.0156
+    },
+    {
+      "id": "whitebit.spot.AI.USDT",
+      "symbol": "AI/USDT",
+      "asset": null,
+      "ask": 0.01491,
+      "bid": 0.01479,
+      "sourceAt": 1794403461863,
+      "receivedAt": 1794403461647,
+      "volume": 0.13413244252,
+      "last": 0.01486
+    }
+  ],
+  "books": [
+    {
+      "venue": "okx",
+      "status": 200,
+      "ask": 0.01392,
+      "bid": 0.01391,
+      "sourceAt": 1794403497108,
+      "receivedAt": 1794403497010
+    },
+    {
+      "venue": "aster",
+      "status": 200,
+      "ask": 0.02627,
+      "bid": 0.02598,
+      "sourceAt": 1794403495450,
+      "receivedAt": 1794403497610
+    }
+  ],
+  "marketMetadata": {
+    "at": 1794403571806,
+    "okx": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794403571303,
+        "contracts": 528,
+        "error": null
+      },
+      "market": {
+        "id": "AI-USDT-SWAP",
+        "lowercaseId": null,
+        "symbol": "AI/USDT:USDT",
+        "base": "AI",
+        "quote": "USDT",
+        "settle": "USDT",
+        "baseId": "AI",
+        "quoteId": "USDT",
+        "settleId": "USDT",
+        "type": "swap",
+        "spot": false,
+        "margin": false,
+        "swap": true,
+        "future": false,
+        "option": false,
+        "index": null,
+        "active": true,
+        "contract": true,
+        "linear": true,
+        "inverse": false,
+        "subType": "linear",
+        "taker": 0.0005,
+        "maker": 0.0002,
+        "contractSize": 100.0,
+        "expiry": null,
+        "expiryDatetime": null,
+        "strike": null,
+        "optionType": null,
+        "precision": {
+          "amount": 1.0,
+          "price": 1e-05
+        },
+        "limits": {
+          "leverage": {
+            "min": 1.0,
+            "max": 10.0
+          },
+          "amount": {
+            "min": 1.0,
+            "max": 100000000.0
+          },
+          "price": {
+            "min": null,
+            "max": null
+          },
+          "cost": {
+            "min": null,
+            "max": null
+          }
+        },
+        "marginModes": {
+          "cross": null,
+          "isolated": null
+        },
+        "created": 1777464000000,
+        "info": {
+          "alias": "",
+          "auctionEndTime": "",
+          "baseCcy": "",
+          "category": "1",
+          "contTdSwTime": "",
+          "ctMult": "1",
+          "ctType": "linear",
+          "ctVal": "100",
+          "ctValCcy": "AI",
+          "expTime": "",
+          "floatPxLmtPct": "0.02",
+          "freq": "",
+          "futureSettlement": false,
+          "groupId": "4",
+          "initPxLmtPct": "0.04",
+          "instCategory": "1",
+          "instFamily": "AI-USDT",
+          "instId": "AI-USDT-SWAP",
+          "instIdCode": 265983,
+          "instType": "SWAP",
+          "lever": "10",
+          "listTime": "1777464000000",
+          "longPosRemainingQuota": "",
+          "lotSz": "1",
+          "maxIcebergSz": "100000000.0000000000000000",
+          "maxLmtAmt": "20000000",
+          "maxLmtSz": "100000000",
+          "maxMktAmt": "",
+          "maxMktSz": "7100",
+          "maxPlatOICoinLmt": "",
+          "maxPlatOILmt": "2000000",
+          "maxPxLmtPct": "0.3",
+          "maxStopSz": "7100",
+          "maxTriggerSz": "100000000.0000000000000000",
+          "maxTwapSz": "100000000.0000000000000000",
+          "method": "",
+          "minSz": "1",
+          "openType": "fix_price",
+          "optType": "",
+          "posLmtAmt": "370000",
+          "posLmtPct": "25",
+          "preMktSwTime": "",
+          "quoteCcy": "",
+          "rpiMinLevel": "2",
+          "rpiMinPxBand": "20",
+          "ruleType": "normal",
+          "seriesId": "",
+          "settleCcy": "USDT",
+          "shortPosRemainingQuota": "",
+          "state": "live",
+          "stk": "",
+          "tickSz": "0.00001",
+          "tradeQuoteCcyList": [],
+          "uly": "AI-USDT",
+          "upcChg": []
+        },
+        "tierBased": null,
+        "percentage": null,
+        "instIdCode": 265983
+      }
+    },
+    "aster": {
+      "status": {
+        "state": "ok",
+        "checked_at_ms": 1794403570532,
+        "contracts": 562,
+        "error": null
+      },
+      "market": {
+        "id": "AIUSDT",
+        "lowercaseId": null,
+        "symbol": "AI/USDT:USDT",
+        "base": "AI",
+        "quote": "USDT",
+        "settle": "USDT",
+        "baseId": "AI",
+        "quoteId": "USDT",
+        "settleId": "USDT",
+        "type": "swap",
+        "spot": false,
+        "margin": false,
+        "swap": true,
+        "future": false,
+        "option": false,
+        "index": null,
+        "active": true,
+        "contract": true,
+        "linear": true,
+        "inverse": false,
+        "subType": "linear",
+        "taker": 0.00035,
+        "maker": 0.0001,
+        "contractSize": 1.0,
+        "expiry": null,
+        "expiryDatetime": null,
+        "strike": null,
+        "optionType": null,
+        "precision": {
+          "amount": 1.0,
+          "price": 1e-05,
+          "base": 1e-08,
+          "quote": 1e-08
+        },
+        "limits": {
+          "leverage": {
+            "min": null,
+            "max": null
+          },
+          "amount": {
+            "min": 1.0,
+            "max": 200000.0
+          },
+          "price": {
+            "min": 1e-05,
+            "max": 200.0
+          },
+          "cost": {
+            "min": 5.0,
+            "max": null
+          },
+          "market": {
+            "min": 1.0,
+            "max": 20000.0
+          }
+        },
+        "marginModes": {
+          "cross": null,
+          "isolated": null
+        },
+        "created": 1709195083822,
+        "info": {
+          "symbol": "AIUSDT",
+          "filters": [
+            {
+              "minPrice": "0.0000100",
+              "maxPrice": "200",
+              "filterType": "PRICE_FILTER",
+              "tickSize": "0.0000100"
+            },
+            {
+              "stepSize": "1",
+              "filterType": "LOT_SIZE",
+              "maxQty": "200000",
+              "minQty": "1"
+            },
+            {
+              "stepSize": "1",
+              "filterType": "MARKET_LOT_SIZE",
+              "maxQty": "20000",
+              "minQty": "1"
+            },
+            {
+              "limit": 200,
+              "filterType": "MAX_NUM_ORDERS"
+            },
+            {
+              "limit": 10,
+              "filterType": "MAX_NUM_ALGO_ORDERS"
+            },
+            {
+              "notional": "5",
+              "filterType": "MIN_NOTIONAL"
+            },
+            {
+              "multiplierDown": "0.8500",
+              "multiplierUp": "1.1500",
+              "ltMultiplierDown": "0",
+              "multiplierDecimal": "4",
+              "filterType": "PERCENT_PRICE",
+              "ltMultiplierUp": "0"
+            }
+          ],
+          "orderTypes": [
+            "LIMIT",
+            "MARKET",
+            "STOP",
+            "STOP_MARKET",
+            "TAKE_PROFIT",
+            "TAKE_PROFIT_MARKET",
+            "TRAILING_STOP_MARKET"
+          ],
+          "timeInForce": [
+            "GTC",
+            "IOC",
+            "GTX",
+            "HIDDEN"
+          ],
+          "createTime": 1709195083822,
+          "pair": "AIUSDT",
+          "contractType": "PERPETUAL",
+          "deliveryDate": 4133404800000,
+          "onboardDate": 1788161400000,
+          "status": "TRADING",
+          "maintMarginPercent": "16.6600",
+          "requiredMarginPercent": "33.3300",
+          "baseAsset": "AI",
+          "quoteAsset": "USDT",
+          "marginAsset": "USDT",
+          "pricePrecision": 7,
+          "quantityPrecision": 0,
+          "baseAssetPrecision": 8,
+          "quotePrecision": 8,
+          "underlyingType": "COIN",
+          "underlyingSubType": [],
+          "symbolType": 0,
+          "tradingMode": 0,
+          "name": "",
+          "channel": "{}",
+          "sequenceNo": 0,
+          "twapMinNotional": "1000",
+          "imn": "1000.00",
+          "tags": [],
+          "settlePlan": 0,
+          "triggerProtect": "0.1500",
+          "liquidationFee": "0.025000",
+          "marketTakeBound": "0.15"
+        },
+        "tierBased": true,
+        "percentage": true
+      }
+    },
+    "okxComponents": {
+      "url": "https://www.okx.com/api/v5/market/index-components?index=AI-USDT",
+      "status": 200,
+      "body": {
+        "code": "0",
+        "data": {
+          "components": [
+            {
+              "wgt": "0.2222",
+              "exch": "Kucoin",
+              "symbol": "AI/USDT",
+              "symPx": "0.01394",
+              "cnvPx": "0.01394"
+            },
+            {
+              "wgt": "0.4444",
+              "exch": "Binance",
+              "symbol": "AIGENSYN/USDT",
+              "symPx": "0.01391",
+              "cnvPx": "0.01391"
+            },
+            {
+              "wgt": "0.3333",
+              "exch": "Coinbase",
+              "symbol": "AI/USD",
+              "symPx": "0.01394",
+              "cnvPx": "0.0139531159289732"
+            }
+          ],
+          "index": "AI-USDT",
+          "last": "0.01393",
+          "ts": "1794403528545"
+        },
+        "msg": ""
+      }
+    },
+    "asterPremium": {
+      "url": "https://fapi.asterdex.com/fapi/v1/premiumIndex?symbol=AIUSDT",
+      "status": 200,
+      "body": {
+        "symbol": "AIUSDT",
+        "markPrice": "0.02609641",
+        "indexPrice": "0.02609622",
+        "estimatedSettlePrice": "0.02769022",
+        "lastFundingRate": "0.00001250",
+        "interestRate": "0.00010000",
+        "nextFundingTime": 1794405600000,
+        "time": 1794403569000
+      }
+    },
+    "asterIndexInfo": {
+      "url": "https://fapi.asterdex.com/fapi/v1/indexInfo?symbol=AIUSDT",
+      "status": 400,
+      "body": {
+        "code": -1121,
+        "msg": "Invalid symbol."
+      }
+    }
+  }
+}

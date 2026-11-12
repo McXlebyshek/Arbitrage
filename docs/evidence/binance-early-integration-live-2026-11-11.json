@@ -1,0 +1,497 @@
+[
+  {
+    "opens": 1,
+    "events": [
+      {
+        "connection": 1,
+        "at": 1794408109887,
+        "event": {
+          "baseAt": 1794408109822,
+          "legs": null
+        },
+        "stamp": null
+      },
+      {
+        "connection": 1,
+        "at": 1794408119885,
+        "event": {
+          "baseAt": 1794408109822,
+          "legs": null
+        },
+        "stamp": 1794408109822
+      },
+      {
+        "connection": 1,
+        "at": 1794408122914,
+        "event": {
+          "baseAt": 1794408109822,
+          "coin": "HAJIMI",
+          "expiresAt": 1794408124689,
+          "legs": [
+            {
+              "id": "binanceusdm.swap.HAJIMI.USDT",
+              "exchange": "Binance",
+              "type": "swap",
+              "quote": "USDT",
+              "symbol": "哈基米/USDT:USDT",
+              "bid": 0.01674,
+              "ask": 0.01676,
+              "last": 0.01677,
+              "asset": "hajimi",
+              "size": 1,
+              "sourceAt": 1794408122048,
+              "receivedAt": 1794408122776,
+              "index": 0.0167798,
+              "oi": null,
+              "volume": 5.669001317669999,
+              "totals": {},
+              "networks": [],
+              "rate": 0.022201,
+              "hours": 4,
+              "next": 1794412800000,
+              "cap": 2,
+              "floor": -2,
+              "nativeBase": "哈基米",
+              "quoteSource": "depth"
+            },
+            {
+              "id": "kucoinfutures.swap.HAJIMI.USDT",
+              "exchange": "KuCoin",
+              "type": "swap",
+              "quote": "USDT",
+              "symbol": "HAJIMI/USDT:USDT",
+              "bid": 0.01681,
+              "ask": 0.01687,
+              "last": 0.01686,
+              "asset": "hajimi",
+              "size": 100,
+              "sourceAt": 1794408121689,
+              "receivedAt": 1794408121990,
+              "index": 0.01679,
+              "oi": null,
+              "volume": 2.0893066780000003,
+              "totals": {},
+              "networks": [],
+              "rate": 0.0321,
+              "hours": 4,
+              "next": 1794412800000,
+              "cap": 2,
+              "floor": -2
+            }
+          ]
+        },
+        "early": true,
+        "entry": 0.2978850163836637,
+        "stamp": 1794408109822,
+        "visible": true
+      },
+      {
+        "connection": 1,
+        "at": 1794408125159,
+        "event": {
+          "baseAt": 1794408125148,
+          "legs": null
+        },
+        "stamp": 1794408109822
+      }
+    ],
+    "stamp": 1794408125148,
+    "venues": {
+      "Binance · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121592,
+        "returned": 804,
+        "with_bid_ask": 804,
+        "error": null,
+        "depth_refreshed": 0
+      },
+      "Binance · spot": {
+        "state": "ok"
+      },
+      "Bybit · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121697,
+        "returned": 938,
+        "with_bid_ask": 938,
+        "error": null
+      },
+      "Bybit · spot": {
+        "state": "ok"
+      },
+      "OKX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408122357,
+        "returned": 546,
+        "with_bid_ask": 545,
+        "error": null
+      },
+      "OKX · spot": {
+        "state": "ok"
+      },
+      "Bitget · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408122263,
+        "returned": 884,
+        "with_bid_ask": 884,
+        "error": null
+      },
+      "Bitget · spot": {
+        "state": "ok"
+      },
+      "Gate · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121552,
+        "returned": 1081,
+        "with_bid_ask": 1081,
+        "error": null
+      },
+      "Gate · spot": {
+        "state": "ok"
+      },
+      "MEXC · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121751,
+        "returned": 1212,
+        "with_bid_ask": 1204,
+        "error": null
+      },
+      "MEXC · spot": {
+        "state": "ok"
+      },
+      "KuCoin · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121990,
+        "returned": 722,
+        "with_bid_ask": 722,
+        "error": null,
+        "feed": "uta"
+      },
+      "KuCoin · spot": {
+        "state": "ok"
+      },
+      "Aster · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121852,
+        "returned": 594,
+        "with_bid_ask": 594,
+        "error": null
+      },
+      "HTX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408122081,
+        "returned": 432,
+        "with_bid_ask": 413,
+        "error": null
+      },
+      "HTX · spot": {
+        "state": "ok"
+      },
+      "WhiteBIT · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121297,
+        "returned": 395,
+        "with_bid_ask": 395,
+        "error": null
+      },
+      "WhiteBIT · spot": {
+        "state": "ok",
+        "with_bid_ask": 450
+      },
+      "EdgeX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408122016,
+        "returned": 56,
+        "with_bid_ask": 56,
+        "error": null
+      },
+      "Extended · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121486,
+        "returned": 51,
+        "with_bid_ask": 51,
+        "error": null
+      }
+    },
+    "activeEarly": false
+  },
+  {
+    "opens": 2,
+    "events": [
+      {
+        "connection": 1,
+        "at": 1794408109887,
+        "event": {
+          "baseAt": 1794408109822,
+          "legs": null
+        },
+        "stamp": null
+      },
+      {
+        "connection": 1,
+        "at": 1794408119885,
+        "event": {
+          "baseAt": 1794408109822,
+          "legs": null
+        },
+        "stamp": 1794408109822
+      },
+      {
+        "connection": 1,
+        "at": 1794408122931,
+        "event": {
+          "baseAt": 1794408109822,
+          "coin": "HAJIMI",
+          "expiresAt": 1794408124689,
+          "legs": [
+            {
+              "id": "binanceusdm.swap.HAJIMI.USDT",
+              "exchange": "Binance",
+              "type": "swap",
+              "quote": "USDT",
+              "symbol": "哈基米/USDT:USDT",
+              "bid": 0.01674,
+              "ask": 0.01676,
+              "last": 0.01677,
+              "asset": "hajimi",
+              "size": 1,
+              "sourceAt": 1794408122048,
+              "receivedAt": 1794408122776,
+              "index": 0.0167798,
+              "oi": null,
+              "volume": 5.669001317669999,
+              "totals": {},
+              "networks": [],
+              "rate": 0.022201,
+              "hours": 4,
+              "next": 1794412800000,
+              "cap": 2,
+              "floor": -2,
+              "nativeBase": "哈基米",
+              "quoteSource": "depth"
+            },
+            {
+              "id": "kucoinfutures.swap.HAJIMI.USDT",
+              "exchange": "KuCoin",
+              "type": "swap",
+              "quote": "USDT",
+              "symbol": "HAJIMI/USDT:USDT",
+              "bid": 0.01681,
+              "ask": 0.01687,
+              "last": 0.01686,
+              "asset": "hajimi",
+              "size": 100,
+              "sourceAt": 1794408121689,
+              "receivedAt": 1794408121990,
+              "index": 0.01679,
+              "oi": null,
+              "volume": 2.0893066780000003,
+              "totals": {},
+              "networks": [],
+              "rate": 0.0321,
+              "hours": 4,
+              "next": 1794412800000,
+              "cap": 2,
+              "floor": -2
+            }
+          ]
+        },
+        "early": true,
+        "entry": 0.2978850163836637,
+        "stamp": 1794408109822,
+        "visible": true
+      },
+      {
+        "connection": 2,
+        "at": 1794408123026,
+        "event": {
+          "baseAt": 1794408109822,
+          "coin": "HAJIMI",
+          "expiresAt": 1794408124689,
+          "legs": [
+            {
+              "id": "binanceusdm.swap.HAJIMI.USDT",
+              "exchange": "Binance",
+              "type": "swap",
+              "quote": "USDT",
+              "symbol": "哈基米/USDT:USDT",
+              "bid": 0.01674,
+              "ask": 0.01676,
+              "last": 0.01677,
+              "asset": "hajimi",
+              "size": 1,
+              "sourceAt": 1794408122048,
+              "receivedAt": 1794408122776,
+              "index": 0.0167798,
+              "oi": null,
+              "volume": 5.669001317669999,
+              "totals": {},
+              "networks": [],
+              "rate": 0.022201,
+              "hours": 4,
+              "next": 1794412800000,
+              "cap": 2,
+              "floor": -2,
+              "nativeBase": "哈基米",
+              "quoteSource": "depth"
+            },
+            {
+              "id": "kucoinfutures.swap.HAJIMI.USDT",
+              "exchange": "KuCoin",
+              "type": "swap",
+              "quote": "USDT",
+              "symbol": "HAJIMI/USDT:USDT",
+              "bid": 0.01681,
+              "ask": 0.01687,
+              "last": 0.01686,
+              "asset": "hajimi",
+              "size": 100,
+              "sourceAt": 1794408121689,
+              "receivedAt": 1794408121990,
+              "index": 0.01679,
+              "oi": null,
+              "volume": 2.0893066780000003,
+              "totals": {},
+              "networks": [],
+              "rate": 0.0321,
+              "hours": 4,
+              "next": 1794412800000,
+              "cap": 2,
+              "floor": -2
+            }
+          ]
+        },
+        "early": true,
+        "entry": 0.2978850163836637,
+        "stamp": 1794408109822,
+        "visible": true
+      },
+      {
+        "connection": 2,
+        "at": 1794408125159,
+        "event": {
+          "baseAt": 1794408125148,
+          "legs": null
+        },
+        "stamp": 1794408109822
+      }
+    ],
+    "stamp": 1794408125148,
+    "venues": {
+      "Binance · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121592,
+        "returned": 804,
+        "with_bid_ask": 804,
+        "error": null,
+        "depth_refreshed": 0
+      },
+      "Binance · spot": {
+        "state": "ok"
+      },
+      "Bybit · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121697,
+        "returned": 938,
+        "with_bid_ask": 938,
+        "error": null
+      },
+      "Bybit · spot": {
+        "state": "ok"
+      },
+      "OKX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408122357,
+        "returned": 546,
+        "with_bid_ask": 545,
+        "error": null
+      },
+      "OKX · spot": {
+        "state": "ok"
+      },
+      "Bitget · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408122263,
+        "returned": 884,
+        "with_bid_ask": 884,
+        "error": null
+      },
+      "Bitget · spot": {
+        "state": "ok"
+      },
+      "Gate · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121552,
+        "returned": 1081,
+        "with_bid_ask": 1081,
+        "error": null
+      },
+      "Gate · spot": {
+        "state": "ok"
+      },
+      "MEXC · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121751,
+        "returned": 1212,
+        "with_bid_ask": 1204,
+        "error": null
+      },
+      "MEXC · spot": {
+        "state": "ok"
+      },
+      "KuCoin · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121990,
+        "returned": 722,
+        "with_bid_ask": 722,
+        "error": null,
+        "feed": "uta"
+      },
+      "KuCoin · spot": {
+        "state": "ok"
+      },
+      "Aster · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121852,
+        "returned": 594,
+        "with_bid_ask": 594,
+        "error": null
+      },
+      "HTX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408122081,
+        "returned": 432,
+        "with_bid_ask": 413,
+        "error": null
+      },
+      "HTX · spot": {
+        "state": "ok"
+      },
+      "WhiteBIT · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121297,
+        "returned": 395,
+        "with_bid_ask": 395,
+        "error": null
+      },
+      "WhiteBIT · spot": {
+        "state": "ok",
+        "with_bid_ask": 450
+      },
+      "EdgeX · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408122016,
+        "returned": 56,
+        "with_bid_ask": 56,
+        "error": null
+      },
+      "Extended · swap": {
+        "state": "ok",
+        "received_at_ms": 1794408121486,
+        "returned": 51,
+        "with_bid_ask": 51,
+        "error": null
+      }
+    },
+    "activeEarly": false
+  }
+]

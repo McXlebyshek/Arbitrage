@@ -1,0 +1,66 @@
+[
+  {
+    "url": "https://uainvest.com.ua/api/arbitrage/offers?include_liquidity=1&type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&coin=soxx&volume=1&group=1&quotes=USDT&category=crypto&sort_by=open_spread&sort_dir=desc",
+    "status": 200,
+    "stamp": 1794391304,
+    "rows": [
+      [
+        "SOXX",
+        "bitget",
+        "bybit",
+        null,
+        "swap",
+        "swap",
+        4204785.3868,
+        1126628.815
+      ]
+    ]
+  },
+  {
+    "url": "https://uainvest.com.ua/api/arbitrage/offers?include_liquidity=1&type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&coin=dell&volume=1&group=1&quotes=USDT&category=crypto&sort_by=open_spread&sort_dir=desc",
+    "status": 200,
+    "stamp": 1794391304,
+    "rows": [
+      [
+        "DELL",
+        "whitebit",
+        "bitget",
+        null,
+        "swap",
+        "swap",
+        2938419.5639,
+        3660651.4585
+      ],
+      [
+        "DELL",
+        "bybit",
+        "bitget",
+        null,
+        "swap",
+        "swap",
+        2043408.8386,
+        3660651.4585
+      ],
+      [
+        "DELL",
+        "gate",
+        "bitget",
+        null,
+        "swap",
+        "swap",
+        3047397,
+        3660651.4585
+      ],
+      [
+        "DELL",
+        "kucoin",
+        "bitget",
+        null,
+        "swap",
+        "swap",
+        1026456.6614,
+        3660651.4585
+      ]
+    ]
+  }
+]

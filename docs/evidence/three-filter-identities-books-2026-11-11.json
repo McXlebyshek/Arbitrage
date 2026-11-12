@@ -1,0 +1,126 @@
+[
+  {
+    "symbol": "POWER",
+    "url": "https://uainvest.com.ua/arbitrage/power-gate-swap-kucoin-swap",
+    "before": {
+      "at": 1794393862007,
+      "entry": null,
+      "title": "-POWER-Gate(short)Kucoin(long)"
+    },
+    "books": [
+      {
+        "venue": "kucoinfutures",
+        "status": 503
+      },
+      {
+        "venue": "gate",
+        "status": 200,
+        "ask": 0.06323,
+        "bid": 0.06264,
+        "sourceAt": 1794393862000,
+        "receivedAt": 1794393862654
+      }
+    ],
+    "after": {
+      "at": 1794393862719,
+      "entry": null,
+      "title": "-POWER-Gate(short)Kucoin(long)"
+    }
+  },
+  {
+    "symbol": "POWER",
+    "url": "https://uainvest.com.ua/arbitrage/power-gate-swap-kucoin-swap",
+    "before": {
+      "at": 1794393862720,
+      "entry": null,
+      "title": "-POWER-Gate(short)Kucoin(long)"
+    },
+    "books": [
+      {
+        "venue": "kucoinfutures",
+        "status": 503
+      },
+      {
+        "venue": "gate",
+        "status": 200,
+        "ask": 0.06323,
+        "bid": 0.06264,
+        "sourceAt": 1794393862000,
+        "receivedAt": 1794393862654
+      }
+    ],
+    "after": {
+      "at": 1794393863060,
+      "entry": null,
+      "short": {
+        "ask": 0.06323,
+        "bid": 0.06264
+      },
+      "title": "-POWER-Gate(short)Kucoin(long)"
+    }
+  },
+  {
+    "symbol": "PYBOBO",
+    "url": "https://uainvest.com.ua/arbitrage/pybobo-mexc-swap-kucoin-swap",
+    "before": {
+      "at": 1794393863917,
+      "entry": null,
+      "title": "-PYBOBO-MEXC(short)Kucoin(long)"
+    },
+    "books": [
+      {
+        "venue": "kucoinfutures",
+        "status": 200,
+        "ask": 0.0005029,
+        "bid": 0.0005008,
+        "sourceAt": 1794393863399,
+        "receivedAt": 1794393864279
+      },
+      {
+        "venue": "mexc",
+        "status": 200,
+        "ask": 0.000513,
+        "bid": 0.0005101,
+        "sourceAt": 1794393864299,
+        "receivedAt": 1794393864688
+      }
+    ],
+    "after": {
+      "at": 1794393864723,
+      "entry": null,
+      "title": "-PYBOBO-MEXC(short)Kucoin(long)"
+    }
+  },
+  {
+    "symbol": "PYBOBO",
+    "url": "https://uainvest.com.ua/arbitrage/pybobo-mexc-swap-kucoin-swap",
+    "before": {
+      "at": 1794393864725,
+      "entry": null,
+      "title": "-PYBOBO-MEXC(short)Kucoin(long)"
+    },
+    "books": [
+      {
+        "venue": "kucoinfutures",
+        "status": 200,
+        "ask": 0.0005029,
+        "bid": 0.0005008,
+        "sourceAt": 1794393863399,
+        "receivedAt": 1794393864279
+      },
+      {
+        "venue": "mexc",
+        "status": 200,
+        "ask": 0.000513,
+        "bid": 0.0005101,
+        "sourceAt": 1794393864299,
+        "receivedAt": 1794393864688
+      }
+    ],
+    "after": {
+      "at": 1794393864740,
+      "entry": null,
+      "title": "-PYBOBO-MEXC(short)Kucoin(long)"
+    }
+  }
+]

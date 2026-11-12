@@ -1,0 +1,43 @@
+{
+  "latin": {
+    "stamp": 1794390710189,
+    "query": "HAJIMI",
+    "rows": [
+      [
+        "bybit.swap.HAJIMI.USDT~kucoinfutures.swap.HAJIMI.USDT",
+        15.731454,
+        15.731454
+      ]
+    ],
+    "links": [
+      [
+        "HAJIMI",
+        "#/arbitrage/bybit.swap.HAJIMI.USDT~kucoinfutures.swap.HAJIMI.USDT?volume=1&capMin=1&fdvMin=1&mode=spread&sort=entry&quotes=USDT&coin=HAJIMI"
+      ]
+    ]
+  },
+  "unicode": {
+    "stamp": 1794390710189,
+    "query": "哈基米",
+    "rows": [
+      [
+        "bybit.swap.HAJIMI.USDT~kucoinfutures.swap.HAJIMI.USDT",
+        15.731454,
+        15.731454
+      ]
+    ],
+    "links": [
+      [
+        "HAJIMI",
+        "#/arbitrage/bybit.swap.HAJIMI.USDT~kucoinfutures.swap.HAJIMI.USDT?volume=1&capMin=1&fdvMin=1&mode=spread&sort=entry&quotes=USDT&coin=%E5%93%88%E5%9F%BA%E7%B1%B3"
+      ]
+    ]
+  },
+  "card": {
+    "hash": "#/arbitrage/bybit.swap.HAJIMI.USDT~kucoinfutures.swap.HAJIMI.USDT?volume=1&capMin=1&fdvMin=1&mode=spread&sort=entry&quotes=USDT&coin=%E5%93%88%E5%9F%BA%E7%B1%B3",
+    "coin": "HAJIMI",
+    "verified": true,
+    "cap": 15.731454,
+    "fdv": 15.731454
+  }
+}

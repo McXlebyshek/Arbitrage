@@ -1,0 +1,51 @@
+{
+  "card": "https://uainvest.com.ua/arbitrage/pod-aster-swap-gate-swap",
+  "before": {
+    "at": 1794392500330,
+    "title": "➡️ 2.37⬅️-11.45-POD-Aster(short)Gate(long)",
+    "entry": 2.373,
+    "sides": [
+      [
+        0.4486,
+        0.4306
+      ],
+      [
+        0.4205,
+        0.4
+      ]
+    ]
+  },
+  "books": [
+    {
+      "v": "gate",
+      "status": 200,
+      "ask": 0.4205,
+      "bid": 0.4,
+      "sourceAt": 1794392500000,
+      "receivedAt": 1794392500642
+    },
+    {
+      "v": "aster",
+      "status": 200,
+      "ask": 0.4486,
+      "bid": 0.4306,
+      "sourceAt": 1794392500100,
+      "receivedAt": 1794392501235
+    }
+  ],
+  "after": {
+    "at": 1794392501238,
+    "title": "➡️ 2.37⬅️-11.45-POD-Aster(short)Gate(long)",
+    "entry": 2.373,
+    "sides": [
+      [
+        0.4486,
+        0.4306
+      ],
+      [
+        0.4205,
+        0.4
+      ]
+    ]
+  }
+}

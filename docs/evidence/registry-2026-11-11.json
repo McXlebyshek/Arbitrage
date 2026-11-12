@@ -1,0 +1,1610 @@
+{
+  "sources": {
+    "binanceusdm": [
+      {
+        "url": "https://api.coingecko.com/api/v3/exchanges/binance/tickers?depth=false",
+        "at": "2026-11-11T09:12:07.642058+00:00"
+      },
+      {
+        "url": "https://api.binance.com/api/v3/exchangeInfo?symbolStatus=TRADING",
+        "at": "2026-11-11T09:12:10.164145+00:00"
+      }
+    ],
+    "bybit": [
+      {
+        "url": "https://api.coingecko.com/api/v3/exchanges/bybit_spot/tickers?depth=false",
+        "at": "2026-11-11T09:12:07.675815+00:00"
+      },
+      {
+        "url": "https://api.bybit.com/v5/market/instruments-info?category=spot",
+        "at": "2026-11-11T09:12:08.102766+00:00"
+      }
+    ],
+    "okx": [
+      {
+        "url": "https://api.coingecko.com/api/v3/exchanges/okex/tickers?depth=false",
+        "at": "2026-11-11T09:12:07.707862+00:00"
+      },
+      {
+        "url": "https://www.okx.com/api/v5/public/instruments?instType=SPOT",
+        "at": "2026-11-11T09:12:33.1944798Z"
+      }
+    ]
+  },
+  "swapSource": {
+    "url": "https://www.okx.com/api/v5/public/instruments?instType=SWAP",
+    "at": "2026-11-11T09:12:33.8412403Z"
+  },
+  "valuationSource": {
+    "url": "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=aave,akedo,aptos,arbitrum,aster-2,avalanche-2,bitcoin,bitcoin-cash,bittensor,bitway,binancecoin,cardano,chainlink,cosmos,curve-dao-token,dogecoin,ethena,ethereum,fetch-ai,filecoin,harmony,hedera-hashgraph,hyperliquid,injective-protocol,internet-computer,jupiter-exchange-solana,layerzero,lighter,litecoin,megaeth,merlin-chain,midnight-3,monad,near,official-trump,ondo-finance,optimism,pepe,plasma,polkadot,pons,pump-fun,render-token,safe,sei-network,shiba-inu,solana,starknet,stellar,sui,the-open-network,tron,uniswap,usd-coin,venice-token,world-liberty-financial,worldcoin-wld,ripple,zcash&per_page=100",
+    "at": "2026-11-11T09:16:39.7126844Z"
+  },
+  "spot": {
+    "binanceusdm": {
+      "AAVEUSDT": {
+        "coin_id": "aave",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/AAVE_USDT",
+        "state": "TRADING"
+      },
+      "ADAUSDT": {
+        "coin_id": "cardano",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/ADA_USDT",
+        "state": "TRADING"
+      },
+      "ARBUSDT": {
+        "coin_id": "arbitrum",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/ARB_USDT",
+        "state": "TRADING"
+      },
+      "AVAXUSDT": {
+        "coin_id": "avalanche-2",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/AVAX_USDT",
+        "state": "TRADING"
+      },
+      "BNBUSDC": {
+        "coin_id": "binancecoin",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.binance.com/en/trade/BNB_USDC",
+        "state": "TRADING"
+      },
+      "BNBUSDT": {
+        "coin_id": "binancecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/BNB_USDT",
+        "state": "TRADING"
+      },
+      "BTCUSDC": {
+        "coin_id": "bitcoin",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.binance.com/en/trade/BTC_USDC",
+        "state": "TRADING"
+      },
+      "BTCUSDT": {
+        "coin_id": "bitcoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/BTC_USDT",
+        "state": "TRADING"
+      },
+      "DOGEUSDT": {
+        "coin_id": "dogecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/DOGE_USDT",
+        "state": "TRADING"
+      },
+      "ENAUSDT": {
+        "coin_id": "ethena",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/ENA_USDT",
+        "state": "TRADING"
+      },
+      "ETHUSDC": {
+        "coin_id": "ethereum",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.binance.com/en/trade/ETH_USDC",
+        "state": "TRADING"
+      },
+      "ETHUSDT": {
+        "coin_id": "ethereum",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/ETH_USDT",
+        "state": "TRADING"
+      },
+      "FETUSDT": {
+        "coin_id": "fetch-ai",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/FET_USDT",
+        "state": "TRADING"
+      },
+      "FILUSDT": {
+        "coin_id": "filecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/FIL_USDT",
+        "state": "TRADING"
+      },
+      "GRAMUSDT": {
+        "coin_id": "the-open-network",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/GRAM_USDT",
+        "state": "TRADING"
+      },
+      "HYPEUSDT": {
+        "coin_id": "hyperliquid",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/HYPE_USDT",
+        "state": "TRADING"
+      },
+      "ICPUSDT": {
+        "coin_id": "internet-computer",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/ICP_USDT",
+        "state": "TRADING"
+      },
+      "INJUSDT": {
+        "coin_id": "injective-protocol",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/INJ_USDT",
+        "state": "TRADING"
+      },
+      "LINKUSDT": {
+        "coin_id": "chainlink",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/LINK_USDT",
+        "state": "TRADING"
+      },
+      "LTCUSDT": {
+        "coin_id": "litecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/LTC_USDT",
+        "state": "TRADING"
+      },
+      "NEARUSDC": {
+        "coin_id": "near",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.binance.com/en/trade/NEAR_USDC",
+        "state": "TRADING"
+      },
+      "NEARUSDT": {
+        "coin_id": "near",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/NEAR_USDT",
+        "state": "TRADING"
+      },
+      "ONDOUSDT": {
+        "coin_id": "ondo-finance",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/ONDO_USDT",
+        "state": "TRADING"
+      },
+      "ONEUSDT": {
+        "coin_id": "harmony",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/ONE_USDT",
+        "state": "TRADING"
+      },
+      "PEPEUSDT": {
+        "coin_id": "pepe",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/PEPE_USDT",
+        "state": "TRADING"
+      },
+      "PUMPUSDT": {
+        "coin_id": "pump-fun",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/PUMP_USDT",
+        "state": "TRADING"
+      },
+      "SOLUSDC": {
+        "coin_id": "solana",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.binance.com/en/trade/SOL_USDC",
+        "state": "TRADING"
+      },
+      "SOLUSDT": {
+        "coin_id": "solana",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/SOL_USDT",
+        "state": "TRADING"
+      },
+      "SUIUSDT": {
+        "coin_id": "sui",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/SUI_USDT",
+        "state": "TRADING"
+      },
+      "TAOUSDT": {
+        "coin_id": "bittensor",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/TAO_USDT",
+        "state": "TRADING"
+      },
+      "TRUMPUSDT": {
+        "coin_id": "official-trump",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/TRUMP_USDT",
+        "state": "TRADING"
+      },
+      "TRXUSDT": {
+        "coin_id": "tron",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/TRX_USDT",
+        "state": "TRADING"
+      },
+      "UNIUSDT": {
+        "coin_id": "uniswap",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/UNI_USDT",
+        "state": "TRADING"
+      },
+      "USDCUSDT": {
+        "coin_id": "usd-coin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/USDC_USDT",
+        "state": "TRADING"
+      },
+      "WLDUSDT": {
+        "coin_id": "worldcoin-wld",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/WLD_USDT",
+        "state": "TRADING"
+      },
+      "XLMUSDT": {
+        "coin_id": "stellar",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/XLM_USDT",
+        "state": "TRADING"
+      },
+      "XRPUSDC": {
+        "coin_id": "ripple",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.binance.com/en/trade/XRP_USDC",
+        "state": "TRADING"
+      },
+      "XRPUSDT": {
+        "coin_id": "ripple",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/XRP_USDT",
+        "state": "TRADING"
+      },
+      "ZECUSDC": {
+        "coin_id": "zcash",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.binance.com/en/trade/ZEC_USDC",
+        "state": "TRADING"
+      },
+      "ZECUSDT": {
+        "coin_id": "zcash",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.binance.com/en/trade/ZEC_USDT",
+        "state": "TRADING"
+      }
+    },
+    "bybit": {
+      "AAVEUSDT": {
+        "coin_id": "aave",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/AAVE/USDT",
+        "state": "Trading"
+      },
+      "ADAUSDT": {
+        "coin_id": "cardano",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ADA/USDT",
+        "state": "Trading"
+      },
+      "ARBUSDT": {
+        "coin_id": "arbitrum",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ARB/USDT",
+        "state": "Trading"
+      },
+      "ASTERUSDT": {
+        "coin_id": "aster-2",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ASTER/USDT",
+        "state": "Trading"
+      },
+      "ATOMUSDT": {
+        "coin_id": "cosmos",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ATOM/USDT",
+        "state": "Trading"
+      },
+      "AVAXUSDT": {
+        "coin_id": "avalanche-2",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/AVAX/USDT",
+        "state": "Trading"
+      },
+      "BCHUSDT": {
+        "coin_id": "bitcoin-cash",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/BCH/USDT",
+        "state": "Trading"
+      },
+      "BNBUSDT": {
+        "coin_id": "binancecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/BNB/USDT",
+        "state": "Trading"
+      },
+      "BTCUSDC": {
+        "coin_id": "bitcoin",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.bybit.com/trade/spot/BTC/USDC",
+        "state": "Trading"
+      },
+      "BTCUSDT": {
+        "coin_id": "bitcoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/BTC/USDT",
+        "state": "Trading"
+      },
+      "CRVUSDT": {
+        "coin_id": "curve-dao-token",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/CRV/USDT",
+        "state": "Trading"
+      },
+      "DOGEUSDT": {
+        "coin_id": "dogecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/DOGE/USDT",
+        "state": "Trading"
+      },
+      "ENAUSDT": {
+        "coin_id": "ethena",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ENA/USDT",
+        "state": "Trading"
+      },
+      "ETHUSDC": {
+        "coin_id": "ethereum",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.bybit.com/trade/spot/ETH/USDC",
+        "state": "Trading"
+      },
+      "ETHUSDT": {
+        "coin_id": "ethereum",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ETH/USDT",
+        "state": "Trading"
+      },
+      "GRAMUSDC": {
+        "coin_id": "the-open-network",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.bybit.com/trade/spot/GRAM/USDC",
+        "state": "Trading"
+      },
+      "GRAMUSDT": {
+        "coin_id": "the-open-network",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/GRAM/USDT",
+        "state": "Trading"
+      },
+      "HBARUSDT": {
+        "coin_id": "hedera-hashgraph",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/HBAR/USDT",
+        "state": "Trading"
+      },
+      "HYPEUSDT": {
+        "coin_id": "hyperliquid",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/HYPE/USDT",
+        "state": "Trading"
+      },
+      "ICPUSDT": {
+        "coin_id": "internet-computer",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ICP/USDT",
+        "state": "Trading"
+      },
+      "INJUSDT": {
+        "coin_id": "injective-protocol",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/INJ/USDT",
+        "state": "Trading"
+      },
+      "JUPUSDT": {
+        "coin_id": "jupiter-exchange-solana",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/JUP/USDT",
+        "state": "Trading"
+      },
+      "LINKUSDT": {
+        "coin_id": "chainlink",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/LINK/USDT",
+        "state": "Trading"
+      },
+      "LITUSDT": {
+        "coin_id": "lighter",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/LIT/USDT",
+        "state": "Trading"
+      },
+      "LTCUSDT": {
+        "coin_id": "litecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/LTC/USDT",
+        "state": "Trading"
+      },
+      "MEGAUSDT": {
+        "coin_id": "megaeth",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/MEGA/USDT",
+        "state": "Trading"
+      },
+      "MERLUSDT": {
+        "coin_id": "merlin-chain",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/MERL/USDT",
+        "state": "Trading"
+      },
+      "MONUSDT": {
+        "coin_id": "monad",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/MON/USDT",
+        "state": "Trading"
+      },
+      "NEARUSDT": {
+        "coin_id": "near",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/NEAR/USDT",
+        "state": "Trading"
+      },
+      "NIGHTUSDT": {
+        "coin_id": "midnight-3",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/NIGHT/USDT",
+        "state": "Trading"
+      },
+      "ONDOUSDT": {
+        "coin_id": "ondo-finance",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ONDO/USDT",
+        "state": "Trading"
+      },
+      "PEPEUSDT": {
+        "coin_id": "pepe",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/PEPE/USDT",
+        "state": "Trading"
+      },
+      "PONSUSDT": {
+        "coin_id": "pons",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/PONS/USDT",
+        "state": "Trading"
+      },
+      "PUMPUSDT": {
+        "coin_id": "pump-fun",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/PUMP/USDT",
+        "state": "Trading"
+      },
+      "RENDERUSDT": {
+        "coin_id": "render-token",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/RENDER/USDT",
+        "state": "Trading"
+      },
+      "SHIBUSDT": {
+        "coin_id": "shiba-inu",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/SHIB/USDT",
+        "state": "Trading"
+      },
+      "SOLUSDC": {
+        "coin_id": "solana",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.bybit.com/trade/spot/SOL/USDC",
+        "state": "Trading"
+      },
+      "SOLUSDT": {
+        "coin_id": "solana",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/SOL/USDT",
+        "state": "Trading"
+      },
+      "STRKUSDT": {
+        "coin_id": "starknet",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/STRK/USDT",
+        "state": "Trading"
+      },
+      "SUIUSDT": {
+        "coin_id": "sui",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/SUI/USDT",
+        "state": "Trading"
+      },
+      "TRUMPUSDT": {
+        "coin_id": "official-trump",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/TRUMP/USDT",
+        "state": "Trading"
+      },
+      "TRXUSDT": {
+        "coin_id": "tron",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/TRX/USDT",
+        "state": "Trading"
+      },
+      "UNIUSDT": {
+        "coin_id": "uniswap",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/UNI/USDT",
+        "state": "Trading"
+      },
+      "USDCUSDT": {
+        "coin_id": "usd-coin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/USDC/USDT",
+        "state": "Trading"
+      },
+      "VVVUSDT": {
+        "coin_id": "venice-token",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/VVV/USDT",
+        "state": "Trading"
+      },
+      "WLDUSDT": {
+        "coin_id": "worldcoin-wld",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/WLD/USDT",
+        "state": "Trading"
+      },
+      "WLFIUSDT": {
+        "coin_id": "world-liberty-financial",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/WLFI/USDT",
+        "state": "Trading"
+      },
+      "XLMUSDT": {
+        "coin_id": "stellar",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/XLM/USDT",
+        "state": "Trading"
+      },
+      "XPLUSDT": {
+        "coin_id": "plasma",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/XPL/USDT",
+        "state": "Trading"
+      },
+      "XRPUSDC": {
+        "coin_id": "ripple",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.bybit.com/trade/spot/XRP/USDC",
+        "state": "Trading"
+      },
+      "XRPUSDT": {
+        "coin_id": "ripple",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/XRP/USDT",
+        "state": "Trading"
+      },
+      "ZROUSDT": {
+        "coin_id": "layerzero",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.bybit.com/trade/spot/ZRO/USDT",
+        "state": "Trading"
+      }
+    },
+    "okx": {
+      "AAVE-USDT": {
+        "coin_id": "aave",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/aave-usdt",
+        "state": "live"
+      },
+      "ADA-USDT": {
+        "coin_id": "cardano",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/ada-usdt",
+        "state": "live"
+      },
+      "APT-USDT": {
+        "coin_id": "aptos",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/apt-usdt",
+        "state": "live"
+      },
+      "ARB-USDT": {
+        "coin_id": "arbitrum",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/arb-usdt",
+        "state": "live"
+      },
+      "ASTER-USDT": {
+        "coin_id": "aster-2",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/aster-usdt",
+        "state": "live"
+      },
+      "AVAX-USDT": {
+        "coin_id": "avalanche-2",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/avax-usdt",
+        "state": "live"
+      },
+      "BCH-USDT": {
+        "coin_id": "bitcoin-cash",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/bch-usdt",
+        "state": "live"
+      },
+      "BNB-USDT": {
+        "coin_id": "binancecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/bnb-usdt",
+        "state": "live"
+      },
+      "BTC-USDC": {
+        "coin_id": "bitcoin",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/btc-usdc",
+        "state": "live"
+      },
+      "BTC-USDT": {
+        "coin_id": "bitcoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/btc-usdt",
+        "state": "live"
+      },
+      "CRV-USDT": {
+        "coin_id": "curve-dao-token",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/crv-usdt",
+        "state": "live"
+      },
+      "DOGE-USDT": {
+        "coin_id": "dogecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/doge-usdt",
+        "state": "live"
+      },
+      "DOT-USDT": {
+        "coin_id": "polkadot",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/dot-usdt",
+        "state": "live"
+      },
+      "ENA-USDT": {
+        "coin_id": "ethena",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/ena-usdt",
+        "state": "live"
+      },
+      "ETH-USDC": {
+        "coin_id": "ethereum",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/eth-usdc",
+        "state": "live"
+      },
+      "ETH-USDT": {
+        "coin_id": "ethereum",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/eth-usdt",
+        "state": "live"
+      },
+      "FET-USDT": {
+        "coin_id": "fetch-ai",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/fet-usdt",
+        "state": "live"
+      },
+      "FIL-USDT": {
+        "coin_id": "filecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/fil-usdt",
+        "state": "live"
+      },
+      "GRAM-USDT": {
+        "coin_id": "the-open-network",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/gram-usdt",
+        "state": "live"
+      },
+      "HBAR-USDT": {
+        "coin_id": "hedera-hashgraph",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/hbar-usdt",
+        "state": "live"
+      },
+      "HYPE-USDC": {
+        "coin_id": "hyperliquid",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/hype-usdc",
+        "state": "live"
+      },
+      "HYPE-USDT": {
+        "coin_id": "hyperliquid",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/hype-usdt",
+        "state": "live"
+      },
+      "ICP-USDT": {
+        "coin_id": "internet-computer",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/icp-usdt",
+        "state": "live"
+      },
+      "INJ-USDT": {
+        "coin_id": "injective-protocol",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/inj-usdt",
+        "state": "live"
+      },
+      "JUP-USDT": {
+        "coin_id": "jupiter-exchange-solana",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/jup-usdt",
+        "state": "live"
+      },
+      "LINK-USDC": {
+        "coin_id": "chainlink",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/link-usdc",
+        "state": "live"
+      },
+      "LINK-USDT": {
+        "coin_id": "chainlink",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/link-usdt",
+        "state": "live"
+      },
+      "LIT-USDC": {
+        "coin_id": "lighter",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/lit-usdc",
+        "state": "live"
+      },
+      "LIT-USDT": {
+        "coin_id": "lighter",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/lit-usdt",
+        "state": "live"
+      },
+      "LTC-USDT": {
+        "coin_id": "litecoin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/ltc-usdt",
+        "state": "live"
+      },
+      "MEGA-USDT": {
+        "coin_id": "megaeth",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/mega-usdt",
+        "state": "live"
+      },
+      "MERL-USDT": {
+        "coin_id": "merlin-chain",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/merl-usdt",
+        "state": "live"
+      },
+      "MON-USDT": {
+        "coin_id": "monad",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/mon-usdt",
+        "state": "live"
+      },
+      "NEAR-USDC": {
+        "coin_id": "near",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/near-usdc",
+        "state": "live"
+      },
+      "NEAR-USDT": {
+        "coin_id": "near",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/near-usdt",
+        "state": "live"
+      },
+      "NIGHT-USDT": {
+        "coin_id": "midnight-3",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/night-usdt",
+        "state": "live"
+      },
+      "ONDO-USDT": {
+        "coin_id": "ondo-finance",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/ondo-usdt",
+        "state": "live"
+      },
+      "ONE-USDT": {
+        "coin_id": "harmony",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/one-usdt",
+        "state": "live"
+      },
+      "OP-USDT": {
+        "coin_id": "optimism",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/op-usdt",
+        "state": "live"
+      },
+      "PEPE-USDC": {
+        "coin_id": "pepe",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/pepe-usdc",
+        "state": "live"
+      },
+      "PEPE-USDT": {
+        "coin_id": "pepe",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/pepe-usdt",
+        "state": "live"
+      },
+      "PONS-USDT": {
+        "coin_id": "pons",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/pons-usdt",
+        "state": "live"
+      },
+      "PUMP-USDC": {
+        "coin_id": "pump-fun",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/pump-usdc",
+        "state": "live"
+      },
+      "PUMP-USDT": {
+        "coin_id": "pump-fun",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/pump-usdt",
+        "state": "live"
+      },
+      "RENDER-USDT": {
+        "coin_id": "render-token",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/render-usdt",
+        "state": "live"
+      },
+      "SHIB-USDT": {
+        "coin_id": "shiba-inu",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/shib-usdt",
+        "state": "live"
+      },
+      "SOL-USDC": {
+        "coin_id": "solana",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/sol-usdc",
+        "state": "live"
+      },
+      "SOL-USDT": {
+        "coin_id": "solana",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/sol-usdt",
+        "state": "live"
+      },
+      "STRK-USDT": {
+        "coin_id": "starknet",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/strk-usdt",
+        "state": "live"
+      },
+      "SUI-USDT": {
+        "coin_id": "sui",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/sui-usdt",
+        "state": "live"
+      },
+      "TAO-USDT": {
+        "coin_id": "bittensor",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/tao-usdt",
+        "state": "live"
+      },
+      "TRUMP-USDT": {
+        "coin_id": "official-trump",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/trump-usdt",
+        "state": "live"
+      },
+      "TRX-USDT": {
+        "coin_id": "tron",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/trx-usdt",
+        "state": "live"
+      },
+      "UNI-USDT": {
+        "coin_id": "uniswap",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/uni-usdt",
+        "state": "live"
+      },
+      "USDC-USDT": {
+        "coin_id": "usd-coin",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/usdc-usdt",
+        "state": "live"
+      },
+      "VVV-USDT": {
+        "coin_id": "venice-token",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/vvv-usdt",
+        "state": "live"
+      },
+      "WLD-USDT": {
+        "coin_id": "worldcoin-wld",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/wld-usdt",
+        "state": "live"
+      },
+      "WLFI-USDT": {
+        "coin_id": "world-liberty-financial",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/wlfi-usdt",
+        "state": "live"
+      },
+      "XLM-USDT": {
+        "coin_id": "stellar",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/xlm-usdt",
+        "state": "live"
+      },
+      "XPL-USDT": {
+        "coin_id": "plasma",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/xpl-usdt",
+        "state": "live"
+      },
+      "XRP-USDC": {
+        "coin_id": "ripple",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/xrp-usdc",
+        "state": "live"
+      },
+      "XRP-USDT": {
+        "coin_id": "ripple",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/xrp-usdt",
+        "state": "live"
+      },
+      "ZEC-USDC": {
+        "coin_id": "zcash",
+        "target_coin_id": "usd-coin",
+        "trade_url": "https://www.okx.com/trade-spot/zec-usdc",
+        "state": "live"
+      },
+      "ZEC-USDT": {
+        "coin_id": "zcash",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/zec-usdt",
+        "state": "live"
+      },
+      "ZRO-USDT": {
+        "coin_id": "layerzero",
+        "target_coin_id": "tether",
+        "trade_url": "https://www.okx.com/trade-spot/zro-usdt",
+        "state": "live"
+      }
+    }
+  },
+  "swap": {
+    "ASTER-USDT-SWAP": {
+      "coin_id": "aster-2",
+      "uly": "ASTER-USDT",
+      "instFamily": "ASTER-USDT",
+      "ctValCcy": "ASTER",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "CRV-USDT-SWAP": {
+      "coin_id": "curve-dao-token",
+      "uly": "CRV-USDT",
+      "instFamily": "CRV-USDT",
+      "ctValCcy": "CRV",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "ENA-USDT-SWAP": {
+      "coin_id": "ethena",
+      "uly": "ENA-USDT",
+      "instFamily": "ENA-USDT",
+      "ctValCcy": "ENA",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "FET-USDT-SWAP": {
+      "coin_id": "fetch-ai",
+      "uly": "FET-USDT",
+      "instFamily": "FET-USDT",
+      "ctValCcy": "FET",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "GRAM-USDT-SWAP": {
+      "coin_id": "the-open-network",
+      "uly": "GRAM-USDT",
+      "instFamily": "GRAM-USDT",
+      "ctValCcy": "GRAM",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "HYPE-USDT-SWAP": {
+      "coin_id": "hyperliquid",
+      "uly": "HYPE-USDT",
+      "instFamily": "HYPE-USDT",
+      "ctValCcy": "HYPE",
+      "ctVal": "0.1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "JUP-USDT-SWAP": {
+      "coin_id": "jupiter-exchange-solana",
+      "uly": "JUP-USDT",
+      "instFamily": "JUP-USDT",
+      "ctValCcy": "JUP",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "LIT-USDT-SWAP": {
+      "coin_id": "lighter",
+      "uly": "LIT-USDT",
+      "instFamily": "LIT-USDT",
+      "ctValCcy": "LIT",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "MEGA-USDT-SWAP": {
+      "coin_id": "megaeth",
+      "uly": "MEGA-USDT",
+      "instFamily": "MEGA-USDT",
+      "ctValCcy": "MEGA",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "MERL-USDT-SWAP": {
+      "coin_id": "merlin-chain",
+      "uly": "MERL-USDT",
+      "instFamily": "MERL-USDT",
+      "ctValCcy": "MERL",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "MON-USDT-SWAP": {
+      "coin_id": "monad",
+      "uly": "MON-USDT",
+      "instFamily": "MON-USDT",
+      "ctValCcy": "MON",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "NIGHT-USDT-SWAP": {
+      "coin_id": "midnight-3",
+      "uly": "NIGHT-USDT",
+      "instFamily": "NIGHT-USDT",
+      "ctValCcy": "NIGHT",
+      "ctVal": "100",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "ONDO-USDT-SWAP": {
+      "coin_id": "ondo-finance",
+      "uly": "ONDO-USDT",
+      "instFamily": "ONDO-USDT",
+      "ctValCcy": "ONDO",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "ONE-USDT-SWAP": {
+      "coin_id": "harmony",
+      "uly": "ONE-USDT",
+      "instFamily": "ONE-USDT",
+      "ctValCcy": "ONE",
+      "ctVal": "100",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "PEPE-USDT-SWAP": {
+      "coin_id": "pepe",
+      "uly": "PEPE-USDT",
+      "instFamily": "PEPE-USDT",
+      "ctValCcy": "PEPE",
+      "ctVal": "10000000",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "PONS-USDT-SWAP": {
+      "coin_id": "pons",
+      "uly": "PONS-USDT",
+      "instFamily": "PONS-USDT",
+      "ctValCcy": "PONS",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "PUMP-USDT-SWAP": {
+      "coin_id": "pump-fun",
+      "uly": "PUMP-USDT",
+      "instFamily": "PUMP-USDT",
+      "ctValCcy": "PUMP",
+      "ctVal": "1000",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "RENDER-USDT-SWAP": {
+      "coin_id": "render-token",
+      "uly": "RENDER-USDT",
+      "instFamily": "RENDER-USDT",
+      "ctValCcy": "RENDER",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "SHIB-USDT-SWAP": {
+      "coin_id": "shiba-inu",
+      "uly": "SHIB-USDT",
+      "instFamily": "SHIB-USDT",
+      "ctValCcy": "SHIB",
+      "ctVal": "1000000",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "STRK-USDT-SWAP": {
+      "coin_id": "starknet",
+      "uly": "STRK-USDT",
+      "instFamily": "STRK-USDT",
+      "ctValCcy": "STRK",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "TAO-USDT-SWAP": {
+      "coin_id": "bittensor",
+      "uly": "TAO-USDT",
+      "instFamily": "TAO-USDT",
+      "ctValCcy": "TAO",
+      "ctVal": "0.01",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "TRUMP-USDT-SWAP": {
+      "coin_id": "official-trump",
+      "uly": "TRUMP-USDT",
+      "instFamily": "TRUMP-USDT",
+      "ctValCcy": "TRUMP",
+      "ctVal": "0.1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "USDC-USDT-SWAP": {
+      "coin_id": "usd-coin",
+      "uly": "USDC-USDT",
+      "instFamily": "USDC-USDT",
+      "ctValCcy": "USDC",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "VVV-USDT-SWAP": {
+      "coin_id": "venice-token",
+      "uly": "VVV-USDT",
+      "instFamily": "VVV-USDT",
+      "ctValCcy": "VVV",
+      "ctVal": "0.1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "WLD-USDT-SWAP": {
+      "coin_id": "worldcoin-wld",
+      "uly": "WLD-USDT",
+      "instFamily": "WLD-USDT",
+      "ctValCcy": "WLD",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "WLFI-USDT-SWAP": {
+      "coin_id": "world-liberty-financial",
+      "uly": "WLFI-USDT",
+      "instFamily": "WLFI-USDT",
+      "ctValCcy": "WLFI",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "XPL-USDT-SWAP": {
+      "coin_id": "plasma",
+      "uly": "XPL-USDT",
+      "instFamily": "XPL-USDT",
+      "ctValCcy": "XPL",
+      "ctVal": "10",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "ZEC-USDT-SWAP": {
+      "coin_id": "zcash",
+      "uly": "ZEC-USDT",
+      "instFamily": "ZEC-USDT",
+      "ctValCcy": "ZEC",
+      "ctVal": "0.01",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    },
+    "ZRO-USDT-SWAP": {
+      "coin_id": "layerzero",
+      "uly": "ZRO-USDT",
+      "instFamily": "ZRO-USDT",
+      "ctValCcy": "ZRO",
+      "ctVal": "1",
+      "ctMult": "1",
+      "ctType": "linear",
+      "settleCcy": "USDT",
+      "state": "live"
+    }
+  },
+  "valuation": {
+    "bitcoin": {
+      "market_cap": 1480863402511,
+      "fully_diluted_valuation": 1480864948868,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "ethereum": {
+      "market_cap": 250934300968,
+      "fully_diluted_valuation": 250934300968,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "binancecoin": {
+      "market_cap": 89311927230,
+      "fully_diluted_valuation": 89311927230,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "usd-coin": {
+      "market_cap": 69860705098,
+      "fully_diluted_valuation": 69877345721,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "ripple": {
+      "market_cap": 67129043120,
+      "fully_diluted_valuation": 105672151773,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "solana": {
+      "market_cap": 49021483041,
+      "fully_diluted_valuation": 52831371211,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "tron": {
+      "market_cap": 30160874111,
+      "fully_diluted_valuation": 30161291978,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "hyperliquid": {
+      "market_cap": 17138725576,
+      "fully_diluted_valuation": 68119002280,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "zcash": {
+      "market_cap": 16500998347,
+      "fully_diluted_valuation": 16501068938,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "dogecoin": {
+      "market_cap": 10604599930,
+      "fully_diluted_valuation": 10604641888,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "chainlink": {
+      "market_cap": 7911537741,
+      "fully_diluted_valuation": 10316930360,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "cardano": {
+      "market_cap": 6553554596,
+      "fully_diluted_valuation": 7850252843,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "stellar": {
+      "market_cap": 5177234567,
+      "fully_diluted_valuation": 7317878235,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "near": {
+      "market_cap": 4689636941,
+      "fully_diluted_valuation": 4689637138,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "bitcoin-cash": {
+      "market_cap": 4592029728,
+      "fully_diluted_valuation": 4592088226,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "litecoin": {
+      "market_cap": 3935727059,
+      "fully_diluted_valuation": 3935737490,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "uniswap": {
+      "market_cap": 3872881565,
+      "fully_diluted_valuation": 5645989590,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "avalanche-2": {
+      "market_cap": 3833270203,
+      "fully_diluted_valuation": 4048229536,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "sui": {
+      "market_cap": 3410115638,
+      "fully_diluted_valuation": 8238897710,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "the-open-network": {
+      "market_cap": 3290054992,
+      "fully_diluted_valuation": 6086626284,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "hedera-hashgraph": {
+      "market_cap": 2898658226,
+      "fully_diluted_valuation": 3269619888,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "shiba-inu": {
+      "market_cap": 2604209178,
+      "fully_diluted_valuation": 2605347640,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "bittensor": {
+      "market_cap": 2561340408,
+      "fully_diluted_valuation": 2561340408,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "pepe": {
+      "market_cap": 2102922396,
+      "fully_diluted_valuation": 2102922396,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "ethena": {
+      "market_cap": 2035756815,
+      "fully_diluted_valuation": 2261952016,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "aave": {
+      "market_cap": 1896358268,
+      "fully_diluted_valuation": 1965042183,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "ondo-finance": {
+      "market_cap": 1790226966,
+      "fully_diluted_valuation": 3676536049,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "bitway": {
+      "market_cap": 1697388781,
+      "fully_diluted_valuation": 11272432302,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "aster-2": {
+      "market_cap": 1643750427,
+      "fully_diluted_valuation": 4977096644,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "pump-fun": {
+      "market_cap": 1600039480,
+      "fully_diluted_valuation": 2873392497,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "world-liberty-financial": {
+      "market_cap": 1519285179,
+      "fully_diluted_valuation": 4780573965,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "polkadot": {
+      "market_cap": 1434165962,
+      "fully_diluted_valuation": 1434165962,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "internet-computer": {
+      "market_cap": 1410900571,
+      "fully_diluted_valuation": 1410900571,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "worldcoin-wld": {
+      "market_cap": 1164855836,
+      "fully_diluted_valuation": 3105380983,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "arbitrum": {
+      "market_cap": 1095276522,
+      "fully_diluted_valuation": 1589173304,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "venice-token": {
+      "market_cap": 924624693,
+      "fully_diluted_valuation": 1534905268,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "jupiter-exchange-solana": {
+      "market_cap": 844773444,
+      "fully_diluted_valuation": 1746235688,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "lighter": {
+      "market_cap": 838919628,
+      "fully_diluted_valuation": 3294971873,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "render-token": {
+      "market_cap": 838709885,
+      "fully_diluted_valuation": 884390713,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "injective-protocol": {
+      "market_cap": 796982799,
+      "fully_diluted_valuation": 796982799,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "cosmos": {
+      "market_cap": 764044949,
+      "fully_diluted_valuation": 764044949,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "midnight-3": {
+      "market_cap": 723810451,
+      "fully_diluted_valuation": 1046006687,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "filecoin": {
+      "market_cap": 641994620,
+      "fully_diluted_valuation": 1485389840,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "layerzero": {
+      "market_cap": 615278885,
+      "fully_diluted_valuation": 1538289019,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "aptos": {
+      "market_cap": 501244000,
+      "fully_diluted_valuation": 686669562,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "curve-dao-token": {
+      "market_cap": 391663465,
+      "fully_diluted_valuation": 600974360,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "fetch-ai": {
+      "market_cap": 337197991,
+      "fully_diluted_valuation": 395968720,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "official-trump": {
+      "market_cap": 316362073,
+      "fully_diluted_valuation": 1122376946,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "sei-network": {
+      "market_cap": 294129270,
+      "fully_diluted_valuation": 436825649,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "starknet": {
+      "market_cap": 288154181,
+      "fully_diluted_valuation": 382883317,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "plasma": {
+      "market_cap": 249838899,
+      "fully_diluted_valuation": 524749146,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "optimism": {
+      "market_cap": 227719054,
+      "fully_diluted_valuation": 426950511,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "monad": {
+      "market_cap": 192939280,
+      "fully_diluted_valuation": 1642741653,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "pons": {
+      "market_cap": 100861943,
+      "fully_diluted_valuation": 100861943,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "safe": {
+      "market_cap": 68201840,
+      "fully_diluted_valuation": 86249528,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "akedo": {
+      "market_cap": 57591843,
+      "fully_diluted_valuation": 252637354,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "megaeth": {
+      "market_cap": 53360510,
+      "fully_diluted_valuation": 472303515,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "merlin-chain": {
+      "market_cap": 43776093,
+      "fully_diluted_valuation": 64295057,
+      "last_updated": "2026-11-11T09:15:54Z"
+    },
+    "harmony": {
+      "market_cap": 23510199,
+      "fully_diluted_valuation": 23510201,
+      "last_updated": "2026-11-11T09:15:54Z"
+    }
+  }
+}

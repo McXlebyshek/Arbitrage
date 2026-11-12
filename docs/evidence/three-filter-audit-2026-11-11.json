@@ -1,0 +1,1744 @@
+{
+  "at": 1794391929522,
+  "venues": {
+    "gate": {
+      "status": "ok",
+      "markets": {
+        "INIT": [
+          {
+            "id": "INIT_USDT",
+            "base": "INIT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": "initia",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "CASHCAT": [
+          {
+            "id": "CASHCAT_USDT",
+            "base": "CASHCAT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "AGT": [
+          {
+            "id": "AGT_USDT",
+            "base": "AGT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 100.0,
+            "asset": "alaya-ai",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "DOS": [
+          {
+            "id": "DOS_USDT",
+            "base": "DOS",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "ONE": [
+          {
+            "id": "ONE_USDT",
+            "base": "ONE",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": "harmony",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "POD": [
+          {
+            "id": "POD_USDT",
+            "base": "POD",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "HUMA": [
+          {
+            "id": "HUMA_USDT",
+            "base": "HUMA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 100.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "UAI": [
+          {
+            "id": "UAI_USDT",
+            "base": "UAI",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "FF": [
+          {
+            "id": "FF_USDT",
+            "base": "FF",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "ARIA": [
+          {
+            "id": "ARIA_USDT",
+            "base": "ARIA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 100.0,
+            "asset": "aria-ai",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "BTW": [
+          {
+            "id": "BTW_USDT",
+            "base": "BTW",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 100.0,
+            "asset": "bitway-btw",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "BP": [
+          {
+            "id": "BP_USDT",
+            "base": "BP",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": false,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": true
+            }
+          }
+        ],
+        "ERA": [
+          {
+            "id": "ERA_USDT",
+            "base": "ERA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "POWER": [
+          {
+            "id": "POWER_USDT",
+            "base": "POWER",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "O": [
+          {
+            "id": "O_USDT",
+            "base": "O",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "ARC": [
+          {
+            "id": "ARC_USDT",
+            "base": "ARC",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "FRAX": [
+          {
+            "id": "FRAX_USDT",
+            "base": "FRAX",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "ZEREBRO": [
+          {
+            "id": "ZEREBRO_USDT",
+            "base": "ZEREBRO",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "BULLA": [
+          {
+            "id": "BULLA_USDT",
+            "base": "BULLA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": "bulla-3",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ],
+        "OG": [
+          {
+            "id": "OG_USDT",
+            "base": "OG",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 0.1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "direct",
+              "contract_type": "",
+              "is_pre_market": false
+            }
+          }
+        ]
+      }
+    },
+    "htx": {
+      "status": "ok",
+      "markets": {
+        "GOOGL": [
+          {
+            "id": "GOOGL-USDT",
+            "base": "GOOGL",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 0.01,
+            "asset": null,
+            "allowed": false,
+            "tradfi": {
+              "tradfi_labels": [
+                "Stocks"
+              ]
+            },
+            "fields": {
+              "contract_type": "swap",
+              "tradfi_labels": [
+                "Stocks"
+              ]
+            }
+          }
+        ],
+        "RAVE": [],
+        "CASHCAT": [
+          {
+            "id": "CASHCAT-USDT",
+            "base": "CASHCAT",
+            "quote": "USDT",
+            "active": false,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": false,
+            "tradfi": {},
+            "fields": {
+              "contract_type": "swap",
+              "tradfi_labels": []
+            }
+          }
+        ],
+        "BOME": [
+          {
+            "id": "BOME-USDT",
+            "base": "BOME",
+            "quote": "USDT",
+            "active": false,
+            "contractSize": 1000.0,
+            "asset": null,
+            "allowed": false,
+            "tradfi": {},
+            "fields": {
+              "contract_type": "swap",
+              "tradfi_labels": []
+            }
+          }
+        ],
+        "MYX": [],
+        "STEEM": [
+          {
+            "id": "STEEM-USDT",
+            "base": "STEEM",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contract_type": "swap",
+              "tradfi_labels": []
+            }
+          }
+        ]
+      }
+    },
+    "kucoinfutures": {
+      "status": "ok",
+      "markets": {
+        "POWER": [
+          {
+            "id": "POWERUSDTM",
+            "base": "POWER",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "SUI": [
+          {
+            "id": "SUIUSDCM",
+            "base": "SUI",
+            "quote": "USDC",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          },
+          {
+            "id": "SUIUSDTM",
+            "base": "SUI",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "AXIS": [
+          {
+            "id": "AXISUSDTM",
+            "base": "AXIS",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "PYBOBO": [
+          {
+            "id": "PYBOBOUSDTM",
+            "base": "PYBOBO",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1000.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "NOM": [
+          {
+            "id": "NOMUSDTM",
+            "base": "NOM",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "GOOGL": [
+          {
+            "id": "GOOGLUSDTM",
+            "base": "GOOGL",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 0.01,
+            "asset": null,
+            "allowed": false,
+            "tradfi": {
+              "assetClass": "STOCK"
+            },
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "STOCK"
+            }
+          }
+        ],
+        "GTC": [
+          {
+            "id": "GTCUSDTM",
+            "base": "GTC",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "PENGU": [
+          {
+            "id": "PENGUUSDTM",
+            "base": "PENGU",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "RAVE": [
+          {
+            "id": "RAVEUSDTM",
+            "base": "RAVE",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "MYX": [
+          {
+            "id": "MYXUSDTM",
+            "base": "MYX",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ],
+        "ZEREBRO": [
+          {
+            "id": "ZEREBROUSDTM",
+            "base": "ZEREBRO",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "FFWCSX",
+              "assetClass": "CRYPTO"
+            }
+          }
+        ]
+      }
+    },
+    "bybit": {
+      "status": "ok",
+      "markets": {
+        "1000CAT": [
+          {
+            "id": "1000CATUSDT",
+            "base": "1000CAT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "",
+              "tags": []
+            }
+          }
+        ],
+        "PREDICT": [
+          {
+            "id": "PREDICTUSDT",
+            "base": "PREDICT",
+            "quote": "USDT",
+            "active": false,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": false,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": true,
+              "fullName": "Predict Fun",
+              "tags": []
+            }
+          }
+        ],
+        "INIT": [
+          {
+            "id": "INITUSDT",
+            "base": "INIT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "initia",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Initia",
+              "tags": []
+            }
+          }
+        ],
+        "CYBER": [
+          {
+            "id": "CYBERUSDT",
+            "base": "CYBER",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "cyberconnect",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "CyberConnect",
+              "tags": []
+            }
+          }
+        ],
+        "MEW": [
+          {
+            "id": "MEWUSDT",
+            "base": "MEW",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "cat in a dogs world",
+              "tags": []
+            }
+          }
+        ],
+        "AERO": [
+          {
+            "id": "AEROUSDT",
+            "base": "AERO",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "aerodrome-finance",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Aerodrome Finance",
+              "tags": []
+            }
+          }
+        ],
+        "ARC": [
+          {
+            "id": "ARCUSDT",
+            "base": "ARC",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "ai-rig-complex",
+              "tags": []
+            }
+          }
+        ],
+        "FF": [
+          {
+            "id": "FFUSDT",
+            "base": "FF",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Falcon Finance",
+              "tags": []
+            }
+          }
+        ],
+        "HAJIMI": [
+          {
+            "id": "HAJIMIUSDT",
+            "base": "HAJIMI",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "hajimi",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "innovation",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Hajimi",
+              "tags": [
+                "ST"
+              ]
+            }
+          }
+        ],
+        "BEAM": [
+          {
+            "id": "BEAMUSDT",
+            "base": "BEAM",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "beam-2",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Beam",
+              "tags": []
+            }
+          }
+        ],
+        "10000NEX": [
+          {
+            "id": "10000NEXUSDT",
+            "base": "10000NEX",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "",
+              "tags": [
+                "ST"
+              ]
+            }
+          }
+        ],
+        "HUMA": [
+          {
+            "id": "HUMAUSDT",
+            "base": "HUMA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "huma-finance",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Huma Finance",
+              "tags": []
+            }
+          }
+        ],
+        "RSR": [
+          {
+            "id": "RSRUSDT",
+            "base": "RSR",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "reserve-rights-token",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Reserve Rights",
+              "tags": []
+            }
+          }
+        ],
+        "CHIP": [
+          {
+            "id": "CHIPUSDT",
+            "base": "CHIP",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "CHIP",
+              "tags": []
+            }
+          }
+        ],
+        "AXL": [
+          {
+            "id": "AXLUSDT",
+            "base": "AXL",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Axelar",
+              "tags": []
+            }
+          }
+        ],
+        "BLUR": [
+          {
+            "id": "BLURUSDT",
+            "base": "BLUR",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "",
+              "contractType": "LinearPerpetual",
+              "isPreListing": false,
+              "fullName": "Blur",
+              "tags": []
+            }
+          }
+        ]
+      }
+    },
+    "bitget": {
+      "status": "ok",
+      "markets": {
+        "1000CAT": [
+          {
+            "id": "1000CATUSDT",
+            "base": "1000CAT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          }
+        ],
+        "TRIA": [
+          {
+            "id": "TRIAUSDT",
+            "base": "TRIA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          }
+        ],
+        "AERO": [
+          {
+            "id": "AEROUSDT",
+            "base": "AERO",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1,
+            "asset": "aerodrome-finance",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          }
+        ],
+        "FRAX": [
+          {
+            "id": "FRAXUSDT",
+            "base": "FRAX",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          }
+        ],
+        "10000NEX": [],
+        "PENGU": [
+          {
+            "id": "PENGUUSDT",
+            "base": "PENGU",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          },
+          {
+            "id": "PENGUPERP",
+            "base": "PENGU",
+            "quote": "USDC",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          }
+        ],
+        "IDOL": [
+          {
+            "id": "IDOLUSDT",
+            "base": "IDOL",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          }
+        ],
+        "POPCAT": [
+          {
+            "id": "POPCATUSDT",
+            "base": "POPCAT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          },
+          {
+            "id": "POPCATPERP",
+            "base": "POPCAT",
+            "quote": "USDC",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": "perpetual",
+              "isRwa": "NO"
+            }
+          }
+        ]
+      }
+    },
+    "edgex": {
+      "status": "ok",
+      "markets": {
+        "DRV": [
+          {
+            "id": "30000186",
+            "base": "DRV",
+            "quote": "USDC",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {}
+          }
+        ],
+        "GRAM": [
+          {
+            "id": "30000061",
+            "base": "GRAM",
+            "quote": "USDC",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {}
+          }
+        ],
+        "BP": [
+          {
+            "id": "30000182",
+            "base": "BP",
+            "quote": "USDC",
+            "active": true,
+            "contractSize": 1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {}
+          }
+        ]
+      }
+    },
+    "binanceusdm": {
+      "status": "ok",
+      "markets": {
+        "HAJIMI": [
+          {
+            "id": "哈基米USDT",
+            "base": "哈基米",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "hajimi",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN"
+            }
+          }
+        ],
+        "POPCAT": [
+          {
+            "id": "POPCATUSDT",
+            "base": "POPCAT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN"
+            }
+          }
+        ],
+        "BOME": [
+          {
+            "id": "BOMEUSDT",
+            "base": "BOME",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN"
+            }
+          },
+          {
+            "id": "BOMEUSDC",
+            "base": "BOME",
+            "quote": "USDC",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN"
+            }
+          }
+        ],
+        "AGT": [
+          {
+            "id": "AGTUSDT",
+            "base": "AGT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "alaya-ai",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN"
+            }
+          }
+        ],
+        "UAI": [
+          {
+            "id": "UAIUSDT",
+            "base": "UAI",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN"
+            }
+          }
+        ],
+        "STEEM": [
+          {
+            "id": "STEEMUSDT",
+            "base": "STEEM",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN"
+            }
+          }
+        ],
+        "BULLA": [
+          {
+            "id": "BULLAUSDT",
+            "base": "BULLA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "bulla-3",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN"
+            }
+          }
+        ]
+      }
+    },
+    "aster": {
+      "status": "ok",
+      "markets": {
+        "SUI": [
+          {
+            "id": "SUIUSDT",
+            "base": "SUI",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": []
+            }
+          }
+        ],
+        "PREDICT": [
+          {
+            "id": "PREDICTUSDT",
+            "base": "PREDICT",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": []
+            }
+          }
+        ],
+        "AXIS": [
+          {
+            "id": "AXISUSDT",
+            "base": "AXIS",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": [
+                "Axis Robotics"
+              ]
+            }
+          }
+        ],
+        "DRV": [
+          {
+            "id": "DRVUSDT",
+            "base": "DRV",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": []
+            }
+          }
+        ],
+        "ONE": [
+          {
+            "id": "ONEUSDT",
+            "base": "ONE",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": [
+                "Harmony"
+              ]
+            }
+          }
+        ],
+        "GRAM": [
+          {
+            "id": "GRAMUSDT",
+            "base": "GRAM",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "the-open-network",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": [
+                "Gram"
+              ]
+            }
+          }
+        ],
+        "POD": [
+          {
+            "id": "PODUSDT",
+            "base": "POD",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": []
+            }
+          }
+        ],
+        "IDOL": [
+          {
+            "id": "IDOLUSDT",
+            "base": "IDOL",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": [
+                "MEET48"
+              ]
+            }
+          }
+        ],
+        "UP": [
+          {
+            "id": "UPUSDT",
+            "base": "UP",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "unitas",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": [
+                "Unitas"
+              ]
+            }
+          }
+        ],
+        "DOS": [
+          {
+            "id": "DOSUSDT",
+            "base": "DOS",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "symbolType": 0,
+              "contractType": "PERPETUAL",
+              "underlyingType": "COIN",
+              "tags": [
+                "Dappos"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "mexc": {
+      "status": "ok",
+      "markets": {
+        "NOM": [
+          {
+            "id": "NOM_USDT",
+            "base": "NOM",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": 1,
+              "conceptPlate": []
+            }
+          }
+        ],
+        "PYBOBO": [
+          {
+            "id": "PYBOBO_USDT",
+            "base": "PYBOBO",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10000.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": 1,
+              "conceptPlate": [
+                "mc-trade-zone-GameFi"
+              ]
+            }
+          }
+        ],
+        "O": [
+          {
+            "id": "O_USDT",
+            "base": "O",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": 1,
+              "conceptPlate": [
+                "mc-trade-zone-DeFi"
+              ]
+            }
+          }
+        ],
+        "GTC": [
+          {
+            "id": "GTC_USDT",
+            "base": "GTC",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 0.1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": 1,
+              "conceptPlate": [
+                "mc-trade-zone-web3"
+              ]
+            }
+          }
+        ],
+        "ARIA": [
+          {
+            "id": "ARIA_USDT",
+            "base": "ARIA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": 1,
+              "conceptPlate": []
+            }
+          }
+        ],
+        "OG": [
+          {
+            "id": "OG_USDT",
+            "base": "OG",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 0.1,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": 1,
+              "conceptPlate": []
+            }
+          }
+        ]
+      }
+    },
+    "whitebit": {
+      "status": "ok",
+      "markets": {
+        "STX": [
+          {
+            "id": "STX_PERP",
+            "base": "STX",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "blockstack",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ],
+        "AXL": [
+          {
+            "id": "AXL_PERP",
+            "base": "AXL",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ],
+        "CYBER": [
+          {
+            "id": "CYBER_PERP",
+            "base": "CYBER",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ],
+        "TRIA": [
+          {
+            "id": "TRIA_PERP",
+            "base": "TRIA",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ],
+        "BEAM": [
+          {
+            "id": "BEAM_PERP",
+            "base": "BEAM",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "beam-2",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ],
+        "RSR": [
+          {
+            "id": "RSR_PERP",
+            "base": "RSR",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "reserve-rights-token",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ],
+        "CHIP": [
+          {
+            "id": "CHIP_PERP",
+            "base": "CHIP",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ],
+        "MEW": [
+          {
+            "id": "MEW_PERP",
+            "base": "MEW",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": null,
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ],
+        "BLUR": [
+          {
+            "id": "BLUR_PERP",
+            "base": "BLUR",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 1.0,
+            "asset": "blur",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "type": "futures"
+            }
+          }
+        ]
+      }
+    },
+    "okx": {
+      "status": "ok",
+      "markets": {
+        "STX": [
+          {
+            "id": "STX-USDT-SWAP",
+            "base": "STX",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": "blockstack",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "instCategory": "1"
+            }
+          }
+        ],
+        "UP": [
+          {
+            "id": "UP-USDT-SWAP",
+            "base": "UP",
+            "quote": "USDT",
+            "active": true,
+            "contractSize": 10.0,
+            "asset": "unitas",
+            "allowed": true,
+            "tradfi": {},
+            "fields": {
+              "instCategory": "1"
+            }
+          }
+        ]
+      }
+    },
+    "extended": {
+      "status": "ok",
+      "markets": {
+        "BTW": [],
+        "ERA": []
+      }
+    }
+  }
+}
