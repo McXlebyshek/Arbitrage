@@ -72,6 +72,10 @@ for (const legs of Object.values(data.markets)) for (const leg of legs) leg.exch
     await page.locator('#market-table tbody .coin-cell a').first().click();
     await page.waitForFunction(() => activePair?.coin === 'TEST0001');
     await page.waitForFunction(() => live.details.size >= 2);
+    await page.evaluate(() => showStatus(activePair, activePair.long));
+    assert.equal(await page.locator('#arbitrage-network-probe').count(), 0);
+    assert.match(await page.locator('#dialog').innerText(), /<b id="arbitrage-network-probe">NET<\/b>/);
+    await page.evaluate(() => dialog.close());
     await page.evaluate(() => {location.hash = '/arbitrage?mode=funding';});
     await page.waitForFunction(() => state.mode === 'funding' && !activePair);
     assert.equal(await page.evaluate(() => visiblePairs().length), 200);
@@ -83,6 +87,14 @@ for (const legs of Object.values(data.markets)) for (const leg of legs) leg.exch
     assert.equal(mobileOverflow, false);
     assert.deepEqual(errors, []);
     assert.equal(metadataRequests, 1);
+    await page.evaluate(() => {
+      localStorage.setItem('arbitrage:favorites', JSON.stringify(['TEST0001', '<b id="arbitrage-escape-probe">BAD</b>']));
+    });
+    await page.reload();
+    await page.waitForFunction(() => live.generatedAt !== null);
+    await page.evaluate(() => showFavorites());
+    assert.equal(await page.locator('#arbitrage-escape-probe').count(), 0);
+    assert.equal(await page.locator('input[name=coin][value=TEST0001]').isChecked(), true);
     const report = {synthetic: true, browser: await browser.version(), initial, statuses,
       preservedUnchangedPair: true, sorting: true, search: true, card: true,
       fundingExpiry: true, mobileOverflow, errors};

@@ -18,6 +18,8 @@ async def main():
     await monitor.publish_snapshot(snapshot)
     monitor.detail = AsyncMock(return_value=dict(errors={}, totals={}, events=[], refreshAfter=now + 60000))
     monitor.history.read = lambda *_: []
+    monitor.network_details = lambda *_: ([dict(name='<b id="arbitrage-network-probe">NET</b>',
+                                                deposit=True, withdraw=False)], [True, False])
     monitor.registry.match = lambda venue, kind, market: dict(asset=market['symbol'].split('.')[0], price_units=1)
     for legs in snapshot['markets'].values():
         for leg in legs:

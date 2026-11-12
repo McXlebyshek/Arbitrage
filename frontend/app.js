@@ -61,7 +61,7 @@ const preferenceChecks = {
   theme: value => value === 'light' || value === 'dark',
   layout: value => value === 'compact' || value === 'regular',
   wide: value => typeof value === 'boolean',
-  favorites: stringValue,
+  favorites: value => stringValue(value) && /^[A-Z0-9]{1,30}$/.test(value),
   'hidden-columns': stringValue,
   presets: value => value && stringValue(value.name) && stringValue(value.query),
   'signal-rules': value => value && stringValue(value.key) && stringValue(value.pair) &&
@@ -201,7 +201,7 @@ function showDialog(title, content, actions = '', formName = '') {
 const cancel = () => button('Отмена', 'close', 'control');
 const submit = label => `<button type="submit" class="control primary">${label}</button>`;
 const badge = (exchange) => {
-  const [mark, color] = dataSource.exchanges[exchange];
+  const [mark, color] = Object.hasOwn(dataSource.exchanges, exchange) ? dataSource.exchanges[exchange] : ['?', '#525c68'];
   return `<span class="exchange-mark" style="--mark:${color}" aria-hidden="true">${mark}</span>`;
 };
 const arrow = short => `<span class="direction ${short ? 'short' : 'long'}" title="${short ? 'Шорт' : 'Лонг'}">${short ? '↓' : '↑'}</span>`;
@@ -270,19 +270,19 @@ function status(leg, id, index) {
     const value = leg.status[position];
     const css = value === undefined ? 'unknown' : value ? 'available' : 'unavailable';
     return button(label[0] + (position === 0 ? 'в' : 'ы'), 'status', `plain ${css}`,
-      `data-pair="${id}" data-leg="${index}" title="${label} · ${leg.exchange}" aria-label="${label} · ${leg.exchange}"`);
+      `data-pair="${esc(id)}" data-leg="${index}" title="${label} · ${esc(leg.exchange)}" aria-label="${label} · ${esc(leg.exchange)}"`);
   }).join('')}</div>`;
 }
 function exchangeLine(leg, short, id) {
   return `<div class="market-line">${arrow(short)}
-    ${button(badge(leg.exchange) + leg.exchange, 'market', 'plain market-name', `data-pair="${id}" data-leg="${Number(short)}"`)}
+    ${button(badge(leg.exchange) + esc(leg.exchange), 'market', 'plain market-name', `data-pair="${esc(id)}" data-leg="${Number(short)}"`)}
     ${leg.delist ? '<small class="delist" title="Предупреждение о делистинге">Делистинг</small>' : ''}
-    ${leg.quote !== 'USDT' ? `<small class="quote">${leg.quote}</small>` : ''}
+    ${leg.quote !== 'USDT' ? `<small class="quote">${esc(leg.quote)}</small>` : ''}
     <span class="price">${isDemo ? leg.price : price(short ? leg.bid : leg.ask)}</span></div>`;
 }
 function fundingLine(leg) {
   return leg.type === 'spot' ? '<div class="fund-line muted">Спот</div>' :
-    `<div class="fund-line"><span><b>${pct(leg.rate, 4)}</b> <small>${leg.hours ? leg.hours + ' ч' : ''}</small></span>${fundingClock(leg)}</div>`;
+    `<div class="fund-line"><span><b>${pct(leg.rate, 4)}</b> <small>${Number.isFinite(leg.hours) ? leg.hours + ' ч' : ''}</small></span>${fundingClock(leg)}</div>`;
 }
 function depthCell(pair, slip) {
   if (isDemo) return '<span class="muted">—<br>—</span>';
@@ -301,16 +301,16 @@ function executableCell(pair) {
 function row([pair, more]) {
   const {id, coin, long, short, delta, apr, funding, entry} = pair;
   return `<tr data-pair-row="${esc(id)}" data-coin-row="${esc(coin)}">
-    <td class="coin-cell"><a href="${routeHref(id)}">${coin}</a>${favorites.has(coin) ? '<span class="star" title="В избранном">★</span>' : ''}
-      ${more ? button('+' + more, 'expand', 'plain expand', `data-coin="${coin}" aria-label="Другие связки ${coin}"`) : ''}</td>
+    <td class="coin-cell"><a href="${esc(routeHref(id))}">${esc(coin)}</a>${favorites.has(coin) ? '<span class="star" title="В избранном">★</span>' : ''}
+      ${more ? button('+' + more, 'expand', 'plain expand', `data-coin="${esc(coin)}" aria-label="Другие связки ${esc(coin)}"`) : ''}</td>
     <td><div class="legs">${exchangeLine(long, false, id)}${exchangeLine(short, true, id)}</div></td>
     <td><div class="legs">${fundingLine(long)}${fundingLine(short)}</div></td>
-    <td class="metric">${button(signed(delta), 'history', `metric-chip ${tones(delta)}`, `data-pair="${id}" title="История фандинга ${coin}"`)}</td>
+    <td class="metric">${button(signed(delta), 'history', `metric-chip ${tones(delta)}`, `data-pair="${esc(id)}" title="История фандинга ${esc(coin)}"`)}</td>
     <td class="metric apr">${pct(apr)}</td>
     <td class="metric"><span class="metric-chip ${tones(funding)}">${pct(funding)}</span></td>
     <td class="metric"><span class="metric-chip ${tones(entry)}" title="${isDemo ? '' : liveQuality[pair.quality] + (pair.verified ? ' · реестр' : ' · совпадение тикеров')}">${!isDemo && Number.isFinite(entry) && (!pair.verified || pair.quality === 'receipt') ? '≈ ' : ''}${pct(entry)}</span></td>
     <td>${status(long, id, 0)}${status(short, id, 1)}</td>
-    <td class="metric muted dash">${depthCell(pair, false)}${isDemo ? '' : button('Стакан', 'depth', 'plain depth-request', `data-pair="${id}"`)}</td>
+    <td class="metric muted dash">${depthCell(pair, false)}${isDemo ? '' : button('Стакан', 'depth', 'plain depth-request', `data-pair="${esc(id)}"`)}</td>
     <td class="metric muted dash">${depthCell(pair, true)}</td>
     ${isDemo ? '' : `<td class="metric" data-executable="${esc(id)}">${executableCell(pair)}</td>
       <td class="metric apr">${pct(aprAfterFees(pair))}</td>`}
@@ -475,23 +475,23 @@ function venueCard(pair, short) {
     item !== (short ? pair.long : pair.short) && (!short || item.type !== 'spot'));
   const choices = alternatives.map(item => {
     const candidate = dataSource.resolve(pair.coin, short ? pair.long : item, short ? item : pair.short);
-    return candidate ? `<a href="${routeHref(candidate.id)}">${badge(item.exchange)}${item.exchange} · ${item.type === 'spot' ? 'спот' : 'фьючерс'} · ${item.quote}</a>` : '';
+    return candidate ? `<a href="${esc(routeHref(candidate.id))}">${badge(item.exchange)}${esc(item.exchange)} · ${item.type === 'spot' ? 'спот' : 'фьючерс'} · ${esc(item.quote)}</a>` : '';
   }).join('');
   const book = (side, multiplier) => isDemo ? leg.noBook ? '—' : Number((leg.price * multiplier).toPrecision(6)) : price(leg[side]);
   const history = fundingTotals(pair)[index];
   return `<article class="venue">
     <div class="venue-head">${arrow(short)}
-      <h2>${button(badge(leg.exchange) + leg.exchange, 'market', 'plain market-name', `data-pair="${pair.id}" data-leg="${index}"`)}</h2>
+      <h2>${button(badge(leg.exchange) + esc(leg.exchange), 'market', 'plain market-name', `data-pair="${esc(pair.id)}" data-leg="${index}"`)}</h2>
       <span class="leg-type">${leg.type === 'spot' ? 'Спот' : short ? 'Шорт' : 'Лонг'}</span>
       ${menu('<span class="sr-only">Заменить ' + (short ? 'короткую' : 'длинную') + ' ногу</span>', choices, 'align-right')}
     </div>
     <dl><dt>Аск</dt><dd>${book('ask', 1.0012)}</dd><dt>Бид</dt><dd>${book('bid', .9993)}</dd>
-    ${leg.type === 'spot' ? '' : `<dt>Фандинг ${leg.hours ? leg.hours + ' ч' : ''}</dt><dd>${button(pct(leg.rate, 4), 'limits', 'plain', `data-pair="${pair.id}" data-leg="${index}"`)}</dd>
+    ${leg.type === 'spot' ? '' : `<dt>Фандинг ${Number.isFinite(leg.hours) ? leg.hours + ' ч' : ''}</dt><dd>${button(pct(leg.rate, 4), 'limits', 'plain', `data-pair="${esc(pair.id)}" data-leg="${index}"`)}</dd>
       <dt>Отклонение от индекса</dt><dd>${signed(isDemo ? leg.noBook ? 0 : short ? pair.entry * .474 : -pair.entry * .117 :
         leg.index > 0 && leg.last > 0 ? 100 * (leg.last - leg.index) / leg.index : null, 3)}</dd>
-      <dt>Фандинг 24 ч</dt><dd>${button(signed(history), 'history', 'plain', `data-pair="${pair.id}" data-leg="${index}"`)}</dd>
+      <dt>Фандинг 24 ч</dt><dd>${button(signed(history), 'history', 'plain', `data-pair="${esc(pair.id)}" data-leg="${index}"`)}</dd>
       <dt>До начисления</dt><dd>${fundingClock(leg)}</dd>`}
-    <dt>Оборот</dt><dd>${Number.isFinite(leg.volume) ? money(leg.volume) + ' млн ' + leg.quote : '—'}</dd>
+    <dt>Оборот</dt><dd>${Number.isFinite(leg.volume) ? money(leg.volume) + ' млн ' + esc(leg.quote) : '—'}</dd>
     <dt>Статус</dt><dd>${status(leg, pair.id, index)}</dd>
     ${leg.limit ? `<dt>Лимит</dt><dd class="bad">$${leg.limit}</dd>` : ''}
     </dl></article>`;
@@ -501,7 +501,7 @@ function renderDetail(pair) {
   activePair = pair;
   app.className = `shell detail${wide ? ' wide' : ''}`;
   const reverse = pair.long.type === 'swap' && dataSource.resolve(pair.coin, pair.short, pair.long);
-  const flipped = reverse ? `<a href="${routeHref(reverse.id)}">Развернуть связку</a>` : '';
+  const flipped = reverse ? `<a href="${esc(routeHref(reverse.id))}">Развернуть связку</a>` : '';
   const hasOI = isDemo || [pair.long, pair.short].some(leg =>
     Number.isFinite(leg.oi) || live.details.get(leg.id)?.samples?.some(sample => Number.isFinite(sample[7])));
   if (chartTab === 'oi' && !hasOI) chartTab = 'spread';
@@ -510,7 +510,7 @@ function renderDetail(pair) {
   const exit = missing ? '—' : signed(pair.exit, 3);
   app.innerHTML = `<a href="${routeHref()}" class="breadcrumb">${icon('arrow')} К скринеру</a>
     <div class="detail-title">
-      <div class="title-group"><h1>${button(pair.coin, 'builder', 'plain', 'title="Открыть конструктор"')}</h1>
+      <div class="title-group"><h1>${button(esc(pair.coin), 'builder', 'plain', 'title="Открыть конструктор"')}</h1>
         ${menu('•••', button('Поделиться', 'share', 'menu-item') +
           button(favorites.has(pair.coin) ? 'Убрать из избранного' : 'В избранное', 'toggle-coin', 'menu-item') +
           button(wide ? 'Обычная ширина' : 'Широкий режим', 'wide', 'menu-item') + flipped + button('Обновить', 'refresh', 'menu-item'))}
@@ -520,7 +520,7 @@ function renderDetail(pair) {
     </div>
     ${isDemo ? '' : `<p class="muted pair-quality">${liveQuality[pair.quality]} · ${pair.verified ? 'Идентичность подтверждена реестром' : 'Идентичность по тикеру предварительная'}</p>`}
     <div class="venue-grid">${venueCard(pair, true)}${venueCard(pair, false)}</div>
-    ${isDemo ? '' : `<div class="detail-actions">${button('Проверить стаканы', 'depth', 'control', `data-pair="${pair.id}"`)}
+    ${isDemo ? '' : `<div class="detail-actions">${button('Проверить стаканы', 'depth', 'control', `data-pair="${esc(pair.id)}"`)}
       ${pair.verified ? button('Оценить издержки', 'estimate', 'control') : ''}
       ${button('Добавить сигнал', 'pair-signal', 'control')}<span id="depth-summary" class="muted"></span></div>
       <p class="muted" id="detail-status" role="status">${esc(detailError)}</p>`}
@@ -675,7 +675,7 @@ function renderRoute() {
     <a class="control back" href="#/arbitrage">${icon('arrow')} К арбитражу</a>`;
 }
 
-const check = (name, value, label, checked) => `<label class="check"><input type="checkbox" name="${name}" value="${value}"${checked ? ' checked' : ''}>${label}</label>`;
+const check = (name, value, label, checked) => `<label class="check"><input type="checkbox" name="${name}" value="${esc(value)}"${checked ? ' checked' : ''}>${label}</label>`;
 const checkboxGroup = (legend, content) => `<fieldset><legend>${legend}</legend><div class="check-grid">${content}</div></fieldset>`;
 
 function showFilters(filters = state) {
@@ -702,7 +702,7 @@ function showExchanges() {
 }
 function showFavorites() {
   showDialog('Избранные монеты', `<p>Отметьте монеты, которые хотите отслеживать на этом устройстве.</p>
-    <div class="check-grid">${[...new Set([...favorites, ...Object.keys(dataSource.markets)])].sort().map(coin => check('coin', coin, coin, favorites.has(coin))).join('')}</div>`,
+    <div class="check-grid">${[...new Set([...favorites, ...Object.keys(dataSource.markets)])].sort().map(coin => check('coin', coin, esc(coin), favorites.has(coin))).join('')}</div>`,
   cancel() + submit('Сохранить'), 'favorites');
 }
 const builderKey = (leg, index) => leg.id ?? String(index);
@@ -748,11 +748,11 @@ function showHistory(pair, leg = '', days = 1) {
   }).join('');
   showDialog('История фандинга · ' + pair.coin, `<div class="chart-tabs">
     ${[['', 'Сравнение'], ['0', pair.long.exchange], ['1', pair.short.exchange]].map(([key, label]) =>
-      button(label, 'history', '', `data-pair="${pair.id}" data-leg="${key}" aria-pressed="${key === leg}" aria-selected="${key === leg}"`)).join('')}</div>
+      button(esc(label), 'history', '', `data-pair="${esc(pair.id)}" data-leg="${key}" aria-pressed="${key === leg}" aria-selected="${key === leg}"`)).join('')}</div>
     <p>Условные начисления за последние 24 часа.</p>
     <table class="mini-table"><thead><tr><th>Время</th>${comparison ?
-      `<th>${pair.long.exchange}</th><th>${pair.short.exchange}</th><th>Накопленная разница</th>` :
-      `<th>Ставка · ${selection.exchange}</th><th>Накопление</th>`}</tr></thead><tbody>${rows}</tbody></table>`,
+      `<th>${esc(pair.long.exchange)}</th><th>${esc(pair.short.exchange)}</th><th>Накопленная разница</th>` :
+      `<th>Ставка · ${esc(selection.exchange)}</th><th>Накопление</th>`}</tr></thead><tbody>${rows}</tbody></table>`,
   button('Закрыть', 'close', 'control'));
 }
 async function showStatus(pair, leg) {
@@ -875,11 +875,11 @@ const actions = {
   status: (target, pair, leg) => showStatus(pair, leg),
   market: (target, pair, leg) => showDialog(`${leg.exchange} · ${pair.coin}/${leg.quote}`,
     `<p>${leg.type === 'spot' ? 'Спотовый' : 'Бессрочный'} рынок · ${isDemo ? 'демоданные' : esc(leg.symbol)}.</p>
-    <p>Последняя цена — ${isDemo ? leg.price : price(leg.last)} ${leg.quote}.</p>
+    <p>Последняя цена — ${isDemo ? leg.price : price(leg.last)} ${esc(leg.quote)}.</p>
     ${isDemo ? '' : `<p>Получено ${leg.receivedAt ? new Date(leg.receivedAt).toLocaleString('ru') : '—'}.
       Биржевое время ${leg.sourceAt ? new Date(leg.sourceAt).toLocaleString('ru') : '—'}.</p>`}`),
   limits: (target, pair, leg) => showDialog('Пределы фандинга · ' + leg.exchange,
-    `<p>Интервал начисления — ${leg.hours ? leg.hours + ' ч' : '—'}. Текущая ставка — ${pct(leg.rate, 4)}.</p>
+    `<p>Интервал начисления — ${Number.isFinite(leg.hours) ? leg.hours + ' ч' : '—'}. Текущая ставка — ${pct(leg.rate, 4)}.</p>
       <p>Нижний предел ${pct(leg.floor, 4)} · верхний предел ${pct(leg.cap, 4)}.</p>`),
   wide() { wide = !wide; savePreference('wide', wide); app.classList.toggle('wide', wide); renderDetail(activePair); },
   'chart-tab'(target) {

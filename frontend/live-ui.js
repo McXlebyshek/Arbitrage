@@ -284,10 +284,10 @@ function updateDepthSummary() {
 function showEstimate(pair) {
   showDialog('Оценка издержек · ' + pair.coin, `<p>Обе ноги рассчитываются на одно базовое количество.
     Выход моделируется по противоположным сторонам тех же стаканов.</p>
-    <label class="field">Бюджет на обе ноги, ${pair.long.quote}
+    <label class="field">Бюджет на обе ноги, ${esc(pair.long.quote)}
       <input name="budget" type="number" min="1" max="1000000" step="any" value="2000" required></label>
     <div class="form-grid">${[pair.long, pair.short].map((leg, i) => `<label class="field">
-      Taker ${leg.exchange}, %<input name="${i === 0 ? 'longFee' : 'shortFee'}" type="number" min="0" max="1"
+      Taker ${esc(leg.exchange)}, %<input name="${i === 0 ? 'longFee' : 'shortFee'}" type="number" min="0" max="1"
       step="any" value="${aprCosts.fees[feeKey(leg)] ?? ''}" required></label>`).join('')}</div>
     <label class="field">Срок удержания для APR после комиссий, дней
       <input name="holdDays" type="number" min="1" max="365" value="${aprCosts.days}" required></label>
@@ -311,12 +311,12 @@ async function calculateEstimate(pair, data) {
     const response = await fetch('/api/estimate?' + params, {signal: AbortSignal.timeout(10000)});
     if (!response.ok) throw new Error(await response.text());
     const value = await response.json();
-    result.innerHTML = `<dl class="status-description"><dt>Количество на ногу</dt><dd>${price(value.quantity)} ${pair.coin}</dd>
-      <dt>Номинал входа</dt><dd>${money(value.used)} ${pair.long.quote}</dd>
+    result.innerHTML = `<dl class="status-description"><dt>Количество на ногу</dt><dd>${price(value.quantity)} ${esc(pair.coin)}</dd>
+      <dt>Номинал входа</dt><dd>${money(value.used)} ${esc(pair.long.quote)}</dd>
       <dt>VWAP входа · лонг / шорт</dt><dd>${value.entry.map(price).join(' / ')}</dd>
       <dt>VWAP выхода · лонг / шорт</dt><dd>${value.exit.map(price).join(' / ')}</dd>
-      <dt>Четыре taker-комиссии</dt><dd>${money(value.fees)} ${pair.long.quote}</dd>
-      <dt>Условный результат до фандинга</dt><dd>${money(value.net)} ${pair.long.quote}</dd>
+      <dt>Четыре taker-комиссии</dt><dd>${money(value.fees)} ${esc(pair.long.quote)}</dd>
+      <dt>Условный результат до фандинга</dt><dd>${money(value.net)} ${esc(pair.long.quote)}</dd>
       <dt>Текущая разница ставок за 8 ч</dt><dd>${signed(pair.funding, 4)}</dd></dl>`;
   } catch (error) {
     result.textContent = error.message;
@@ -404,9 +404,9 @@ let historyRequest = 0;
 async function showLiveHistory(pair, selected, days) {
   const request = ++historyRequest;
   const tabs = [['', 'Сравнение'], ['0', pair.long.exchange], ['1', pair.short.exchange]].map(([key, label]) =>
-    button(label, 'history', '', `data-pair="${pair.id}" data-leg="${key}" data-days="${days}" aria-selected="${key === selected}"`)).join('');
+    button(esc(label), 'history', '', `data-pair="${esc(pair.id)}" data-leg="${key}" data-days="${days}" aria-selected="${key === selected}"`)).join('');
   const periods = [[1, '24 ч'], [3, '3 дня'], [7, '7 дней']].map(([value, label]) =>
-    button(label, 'history', '', `data-pair="${pair.id}" data-leg="${selected}" data-days="${value}" aria-selected="${value === days}"`)).join('');
+    button(esc(label), 'history', '', `data-pair="${esc(pair.id)}" data-leg="${selected}" data-days="${value}" aria-selected="${value === days}"`)).join('');
   const heading = 'История фандинга · ' + pair.coin;
   const present = body => showDialog(heading, `<div class="chart-tabs">${tabs}</div>
     <div class="chart-tabs">${periods}</div>${body}`, button('Закрыть', 'close', 'control'), 'funding-history');
@@ -432,7 +432,7 @@ async function showLiveHistory(pair, selected, days) {
   }).reverse().join('');
   present(`<p>Опубликованные ставки за ${days === 1 ? '24 ч' : days + ' дн.'} ${complete ? 'Разница ' + signed(totals[1] - totals[0], 4) : 'Покрытие одной или обеих ног неполное.'}</p>
     ${rows ? `<table class="mini-table"><thead><tr><th>Время</th>${comparison ?
-      `<th>${pair.long.exchange}</th><th>${pair.short.exchange}</th><th>Разница</th>` :
+      `<th>${esc(pair.long.exchange)}</th><th>${esc(pair.short.exchange)}</th><th>Разница</th>` :
       '<th>Ставка</th><th>Накопление</th>'}</tr></thead><tbody>${rows}</tbody></table>` : '<p>События за этот период отсутствуют.</p>'}`);
   if (!route.id && route.section === 'arbitrage') {
     rebuildPairs();
@@ -531,8 +531,8 @@ function renderLiveChart(panel) {
   const pair = activePair;
   if (chartTab === 'info') {
     panel.innerHTML = `<div class="chart-frame chart-info"><h2>О связке</h2>
-      <p>${pair.coin} · ${pair.long.exchange} (${pair.long.type === 'spot' ? 'спот' : 'лонг'}) / ${pair.short.exchange} (шорт).
-      Валюта котировки ${pair.long.quote}.</p>
+      <p>${esc(pair.coin)} · ${esc(pair.long.exchange)} (${pair.long.type === 'spot' ? 'спот' : 'лонг'}) / ${esc(pair.short.exchange)} (шорт).
+      Валюта котировки ${esc(pair.long.quote)}.</p>
       <p>${liveQuality[pair.quality]}. ${pair.verified ? 'Контракты сверены по реестру.' :
         'Совпадение тикера требует проверки идентичности.'}</p>
       ${pair.valuationAt ? `<p>CoinGecko · ${new Date(pair.valuationAt).toLocaleString('ru')}<br>
@@ -577,7 +577,7 @@ function renderLiveChart(panel) {
       <text x="570" y="${y(value) + 4}" fill="var(--muted)">${format(value)}</text>`;
   }).join('') : '';
   panel.innerHTML = `<div class="chart-frame live-chart" id="chart-frame">
-    <div class="live-chart-head"><span>${labels.map((label, i) => `<b style="color:${colors[i]}">${label}</b>`).join(' / ')}</span>
+    <div class="live-chart-head"><span>${labels.map((label, i) => `<b style="color:${colors[i]}">${esc(label)}</b>`).join(' / ')}</span>
       ${isFunding ? '<small>События за 7 дней</small>' : `<select class="control" id="interval" aria-label="Интервал графика">${options(intervals, interval)}</select>`}</div>
     ${values.length ? `<svg class="chart-svg" viewBox="0 0 680 ${height}" role="img" aria-label="${chartTabs[chartTab]} · публичные данные">
       <g font-size="11">${axes}
@@ -598,6 +598,6 @@ function renderLiveChart(panel) {
       ${button('⛶', 'fullscreen', '', 'aria-label="На весь экран"')}
     </div>
   </div>
-  ${isSpread ? `<p class="chart-history-link">${button('История фандинга', 'history', 'control', `data-pair="${pair.id}"`)}</p>` : ''}
+  ${isSpread ? `<p class="chart-history-link">${button('История фандинга', 'history', 'control', `data-pair="${esc(pair.id)}"`)}</p>` : ''}
   ${chartTab === 'index' ? indexComposition(pair) : ''}`;
 }
