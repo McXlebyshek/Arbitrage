@@ -1,0 +1,394 @@
+{
+  "started": "2026-11-12T10:34:14.136399+00:00",
+  "revision": "21ca98a16e3b29e3731e23540b300649620169c8",
+  "seconds": 100,
+  "venues": [
+    "binanceusdm",
+    "bybit",
+    "okx",
+    "gate",
+    "bitget",
+    "mexc",
+    "kucoinfutures"
+  ],
+  "futuresWs": true,
+  "snapshots": [
+    {
+      "generatedAt": 1794479654204,
+      "cycleMs": 48.6,
+      "snapshotMarketsMs": 0.6,
+      "legs": 0,
+      "readySources": 0,
+      "totalSources": 14,
+      "oiLegs": 0,
+      "streamPairs": 0,
+      "pairedDepth": null
+    },
+    {
+      "generatedAt": 1794479674063,
+      "cycleMs": 4992.4,
+      "snapshotMarketsMs": 120.4,
+      "legs": 6918,
+      "readySources": 14,
+      "totalSources": 14,
+      "oiLegs": 859,
+      "streamPairs": 0,
+      "pairedDepth": {
+        "state": "unavailable",
+        "bulkSkewMs": 2080.0
+      }
+    },
+    {
+      "generatedAt": 1794479687920,
+      "cycleMs": 3744.0,
+      "snapshotMarketsMs": 74.5,
+      "legs": 6918,
+      "readySources": 14,
+      "totalSources": 14,
+      "oiLegs": 859,
+      "streamPairs": 338,
+      "pairedDepth": {
+        "state": "applied",
+        "bulkSkewMs": 2827.0,
+        "depthSkewMs": 645.0
+      }
+    },
+    {
+      "generatedAt": 1794479702375,
+      "cycleMs": 3797.1,
+      "snapshotMarketsMs": 71.5,
+      "legs": 6918,
+      "readySources": 14,
+      "totalSources": 14,
+      "oiLegs": 859,
+      "streamPairs": 313,
+      "pairedDepth": {
+        "state": "ws_aligned",
+        "bulkSkewMs": 2806.0,
+        "streamSkewMs": 1046
+      }
+    },
+    {
+      "generatedAt": 1794479717704,
+      "cycleMs": 4088.7,
+      "snapshotMarketsMs": 66.4,
+      "legs": 6918,
+      "readySources": 14,
+      "totalSources": 14,
+      "oiLegs": 859,
+      "streamPairs": 271,
+      "pairedDepth": {
+        "state": "ws_aligned",
+        "bulkSkewMs": 2859.0,
+        "streamSkewMs": 576
+      }
+    },
+    {
+      "generatedAt": 1794479734530,
+      "cycleMs": 5357.3,
+      "snapshotMarketsMs": 64.5,
+      "legs": 6918,
+      "readySources": 14,
+      "totalSources": 14,
+      "oiLegs": 859,
+      "streamPairs": 404,
+      "pairedDepth": {
+        "state": "unavailable",
+        "bulkSkewMs": 1898.0
+      }
+    },
+    {
+      "generatedAt": 1794479747623,
+      "cycleMs": 3437.8,
+      "snapshotMarketsMs": 79.3,
+      "legs": 6918,
+      "readySources": 14,
+      "totalSources": 14,
+      "oiLegs": 859,
+      "streamPairs": 424,
+      "pairedDepth": {
+        "state": "ws_aligned",
+        "bulkSkewMs": 1760.0,
+        "streamSkewMs": 126
+      }
+    }
+  ],
+  "driftSamples": 4426,
+  "eventLoopDelayP95Ms": 4.096,
+  "eventLoopDelayP99Ms": 59.823,
+  "eventLoopDelayMaxMs": 422.531,
+  "health": {
+    "state": "ready",
+    "generatedAt": 1794479747623,
+    "cycleMs": 3437.8,
+    "snapshotMarketsMs": 79.3,
+    "sources": {
+      "binanceusdm.swap": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479654685,
+          "last_success_at_ms": 1794479654685,
+          "contracts": 758,
+          "error": null
+        },
+        "collectMs": 393.3,
+        "batchAgeMs": 9561,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "binanceusdm.spot": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479655712,
+          "last_success_at_ms": 1794479655712,
+          "contracts": 0,
+          "error": null
+        },
+        "collectMs": 1382.0,
+        "batchAgeMs": 8573,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "bybit.swap": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479661112,
+          "last_success_at_ms": 1794479661112,
+          "contracts": 822,
+          "error": null
+        },
+        "collectMs": 1697.2,
+        "batchAgeMs": 8263,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "bybit.spot": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479655108,
+          "last_success_at_ms": 1794479655108,
+          "contracts": 0,
+          "error": null
+        },
+        "collectMs": 1060.8,
+        "batchAgeMs": 8892,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "okx.swap": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479657756,
+          "last_success_at_ms": 1794479657756,
+          "contracts": 528,
+          "error": null
+        },
+        "collectMs": 2356.4,
+        "batchAgeMs": 8078,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "okx.spot": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479655361,
+          "last_success_at_ms": 1794479655361,
+          "contracts": 0,
+          "error": null
+        },
+        "collectMs": 1161.8,
+        "batchAgeMs": 8792,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "gate.swap": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479657833,
+          "last_success_at_ms": 1794479657833,
+          "contracts": 1086,
+          "error": null
+        },
+        "collectMs": 1043.8,
+        "batchAgeMs": 8913,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "gate.spot": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479659370,
+          "last_success_at_ms": 1794479659370,
+          "contracts": 0,
+          "error": null
+        },
+        "collectMs": 513.8,
+        "batchAgeMs": 9440,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "bitget.swap": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479658609,
+          "last_success_at_ms": 1794479658609,
+          "contracts": 885,
+          "error": null
+        },
+        "collectMs": 1876.9,
+        "batchAgeMs": 8733,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "bitget.spot": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479660541,
+          "last_success_at_ms": 1794479660541,
+          "contracts": 0,
+          "error": null
+        },
+        "collectMs": 645.1,
+        "batchAgeMs": 9310,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "mexc.swap": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479656373,
+          "last_success_at_ms": 1794479656373,
+          "contracts": 1106,
+          "error": null
+        },
+        "collectMs": 1165.2,
+        "batchAgeMs": 8845,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "mexc.spot": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479657020,
+          "last_success_at_ms": 1794479657020,
+          "contracts": 1106,
+          "error": null
+        },
+        "collectMs": 1950.8,
+        "batchAgeMs": 8003,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "kucoinfutures.swap": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479656434,
+          "last_success_at_ms": 1794479656434,
+          "contracts": 712,
+          "error": null
+        },
+        "collectMs": 2301.4,
+        "batchAgeMs": 9290,
+        "batchStale": false,
+        "turnoverError": null
+      },
+      "kucoinfutures.spot": {
+        "ticker": "ok",
+        "catalog": {
+          "state": "ok",
+          "checked_at_ms": 1794479656798,
+          "last_success_at_ms": 1794479656798,
+          "contracts": 0,
+          "error": null
+        },
+        "collectMs": 2112.3,
+        "batchAgeMs": 7840,
+        "batchStale": false,
+        "turnoverError": null
+      }
+    },
+    "rest": {
+      "binanceusdm": {
+        "requests": 43,
+        "rateLimits": 0
+      },
+      "bybit": {
+        "requests": 27,
+        "rateLimits": 0
+      },
+      "okx": {
+        "requests": 171,
+        "rateLimits": 0
+      },
+      "gate": {
+        "requests": 21,
+        "rateLimits": 0
+      },
+      "bitget": {
+        "requests": 36,
+        "rateLimits": 0
+      },
+      "mexc": {
+        "requests": 28,
+        "rateLimits": 0
+      },
+      "kucoinfutures": {
+        "requests": 28,
+        "rateLimits": 0
+      }
+    },
+    "clocks": {},
+    "reconnects": {
+      "mexc": 0,
+      "kucoinfutures": 0,
+      "binanceusdm": 0,
+      "bybit": 0,
+      "okx": 0,
+      "gate": 0,
+      "bitget": 0
+    },
+    "streams": {
+      "mexc": {
+        "subscribed": 30,
+        "fresh": 27
+      },
+      "kucoinfutures": {
+        "subscribed": 30,
+        "fresh": 24
+      },
+      "binanceusdm": {
+        "subscribed": 30,
+        "fresh": 30
+      },
+      "bybit": {
+        "subscribed": 30,
+        "fresh": 30
+      },
+      "okx": {
+        "subscribed": 30,
+        "fresh": 30
+      },
+      "gate": {
+        "subscribed": 30,
+        "fresh": 29
+      },
+      "bitget": {
+        "subscribed": 30,
+        "fresh": 30
+      }
+    }
+  }
+}

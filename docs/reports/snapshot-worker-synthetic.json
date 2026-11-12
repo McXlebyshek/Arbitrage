@@ -1,0 +1,12 @@
+{
+  "sync": {
+    "wallP50Ms": 68.82,
+    "pulseMaxP50Ms": 63.887,
+    "pulseMaxP95Ms": 114.242
+  },
+  "worker": {
+    "wallP50Ms": 67.921,
+    "pulseMaxP50Ms": 7.452,
+    "pulseMaxP95Ms": 7.776
+  }
+}
