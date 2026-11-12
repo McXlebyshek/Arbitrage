@@ -1,0 +1,67 @@
+{
+  "revision": "d0358773bb6a3fc20c9a55d614c70536b03cf9f4",
+  "environment": {
+    "os": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 7 5800X 8-Core Processor             ",
+    "node": "v24.19.0",
+    "python": "3.14.6",
+    "aiohttp": "3.14.5",
+    "orjson": "3.13.0"
+  },
+  "fixture": {
+    "coins": 1000,
+    "legs": 12000,
+    "directions": 66000,
+    "renderedRows": 80,
+    "iterations": 21,
+    "warmups": 5
+  },
+  "buildMs": {
+    "cold": {
+      "p50": 109.025,
+      "p95": 168.235
+    },
+    "warm": {
+      "p50": 83.672,
+      "p95": 104.684
+    }
+  },
+  "httpMs": {
+    "publicationMs": {
+      "p50": 0.005,
+      "p95": 0.006
+    },
+    "first": {
+      "p50": 15.682,
+      "p95": 16.208
+    },
+    "warm": {
+      "p50": 7.208,
+      "p95": 8.954
+    },
+    "conditional": {
+      "p50": 1.644,
+      "p95": 1.858
+    },
+    "gzip": {
+      "p50": 14.231,
+      "p95": 15.503
+    }
+  },
+  "bytes": {
+    "identity": 3884112,
+    "gzip": 120575
+  },
+  "browser": {
+    "version": "157.0.8103.51",
+    "tableRenderMs": {
+      "p50": 9.6,
+      "p95": 10.2
+    },
+    "publicationToTableMs": {
+      "p50": 85.7,
+      "p95": 96.7
+    }
+  }
+}
