@@ -249,6 +249,27 @@ class MonitorTests(unittest.TestCase):
             self.assertEqual(len(samples), 1)
             self.assertEqual(samples[0][3:5], (1, 2))
 
+    def test_snapshot_build_metric_keeps_slowest_build_in_the_cycle(self):
+        monitor = Monitor((), Path('unused.sqlite3'))
+        monitor._build_snapshot_markets = Mock(return_value={})
+        with patch('monitor.monotonic', side_effect=[1.0, 1.04, 2.0, 2.1]):
+            monitor.snapshot_markets(NOW)
+            monitor.snapshot_markets(NOW, source_keys=())
+        self.assertEqual(monitor.snapshot_build_ms, 100)
+
+
+class EventLoopMetricTests(unittest.IsolatedAsyncioTestCase):
+    async def test_event_loop_probe_records_lag_and_cancels_its_next_tick(self):
+        monitor = Monitor((), Path('unused.sqlite3'))
+        loop = asyncio.get_running_loop()
+        monitor.record_event_loop_lag(loop.time() - .025)
+        self.assertGreaterEqual(monitor.event_loop_lag_ms, 25)
+        self.assertEqual(monitor.event_loop_lag_max_ms, monitor.event_loop_lag_ms)
+        self.assertIsNotNone(monitor._event_loop_lag_handle)
+        monitor.closing = True
+        monitor.cancel_event_loop_lag_probe()
+        self.assertIsNone(monitor._event_loop_lag_handle)
+
 
 class MonitorRunRecoveryTests(unittest.IsolatedAsyncioTestCase):
     async def test_unexpected_cycle_error_is_reported_and_next_cycle_recovers(self):
@@ -256,10 +277,13 @@ class MonitorRunRecoveryTests(unittest.IsolatedAsyncioTestCase):
         monitor.snapshot = dict(state='ready', generatedAt=NOW, markets={'old': []}, venues={})
         failed = asyncio.Event()
         published = asyncio.Event()
+        loop = asyncio.get_running_loop()
+        failures = []
 
         def snapshot_markets(*_args, **_kwargs):
-            if not failed.is_set():
-                failed.set()
+            if not failures:
+                failures.append(True)
+                loop.call_soon_threadsafe(failed.set)
                 raise KeyError('injected snapshot failure')
             return {}
 

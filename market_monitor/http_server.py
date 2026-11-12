@@ -46,6 +46,7 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
         task = asyncio.create_task(monitor.run()) if collect else None
         if task is not None:
             def monitor_finished(done):
+                monitor.cancel_event_loop_lag_probe()
                 if done.cancelled():
                     return
                 monitor.collection_failed = True

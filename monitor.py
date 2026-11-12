@@ -122,6 +122,10 @@ class Monitor:
         self.cycle_started = None
         self.cycle_duration_ms = None
         self.collection_failed = False
+        self.snapshot_build_ms = None
+        self.event_loop_lag_ms = None
+        self.event_loop_lag_max_ms = None
+        self._event_loop_lag_handle = None
         self.source_duration_ms = {}
         self.instruments = {}
         self.catalog_descriptors = {}
@@ -154,6 +158,26 @@ class Monitor:
         self.futures_update = None
         if self.snapshot['generatedAt'] is not None:
             self.update_futures_pairs(self.snapshot['markets'], now_ms())
+
+    def schedule_event_loop_lag_probe(self):
+        if self.closing or self._event_loop_lag_handle is not None:
+            return
+        loop = asyncio.get_running_loop()
+        expected = loop.time() + 1
+        self._event_loop_lag_handle = loop.call_later(1, self.record_event_loop_lag, expected)
+
+    def record_event_loop_lag(self, expected):
+        self._event_loop_lag_handle = None
+        loop = asyncio.get_running_loop()
+        self.event_loop_lag_ms = max(0, round((loop.time() - expected) * 1000))
+        if self.event_loop_lag_max_ms is None or self.event_loop_lag_ms > self.event_loop_lag_max_ms:
+            self.event_loop_lag_max_ms = self.event_loop_lag_ms
+        self.schedule_event_loop_lag_probe()
+
+    def cancel_event_loop_lag_probe(self):
+        if self._event_loop_lag_handle is not None:
+            self._event_loop_lag_handle.cancel()
+            self._event_loop_lag_handle = None
 
     def select_futures_contracts(self, markets):
         ranked = []
@@ -300,6 +324,25 @@ class Monitor:
         return descriptors
 
     def snapshot_markets(self, now, *, source_keys=None):
+        started = monotonic()
+        try:
+            return self._build_snapshot_markets(now, source_keys=source_keys)
+        finally:
+            duration = round((monotonic() - started) * 1000)
+            self.snapshot_build_ms = max(self.snapshot_build_ms or 0, duration)
+
+    async def snapshot_markets_async(self, now, *, source_keys=None):
+        worker = asyncio.create_task(asyncio.to_thread(self.snapshot_markets, now, source_keys=source_keys))
+        try:
+            return await asyncio.shield(worker)
+        except asyncio.CancelledError:
+            try:
+                await asyncio.shield(worker)
+            except Exception:
+                LOG.exception('Snapshot worker failed while cancellation was pending')
+            raise
+
+    def _build_snapshot_markets(self, now, *, source_keys=None):
         groups, instruments = defaultdict(list), {}
         for venue, kind in self.sources if source_keys is None else source_keys:
             source = self.sources[venue, kind]
@@ -421,7 +464,7 @@ class Monitor:
             return await self.binance_depth_quotes()
 
         ready = now_ms()
-        markets = self.snapshot_markets(ready, source_keys=EARLY_BINANCE_SOURCES)
+        markets = await self.snapshot_markets_async(ready, source_keys=EARLY_BINANCE_SOURCES)
         candidates = {}
         for leg, peers in binance_depth_candidates(markets):
             key = leg['id']
@@ -514,9 +557,11 @@ class Monitor:
             tasks.create_task(self.asset_metrics.run(session))
             for source in self.sources.values():
                 source.open(session)
+            self.schedule_event_loop_lag_probe()
             while True:
                 started = monotonic()
                 self.cycle_started = started
+                self.snapshot_build_ms = None
                 previous_snapshot, previous_instruments = self.snapshot, self.instruments
                 try:
                     last_slot = await self._collect_cycle(session, started, last_slot)
@@ -560,7 +605,7 @@ class Monitor:
                 status = {**status, 'state': 'error', 'error': str(outcome)[:250]}
             statuses[f'{VENUES[venue]} · {kind}'] = status
         now = now_ms()
-        markets = self.snapshot_markets(now)
+        markets = await self.snapshot_markets_async(now)
         pybobo_depth = await self.recheck_pybobo(markets)
         now = now_ms()
         if isinstance(quotes, Exception):
@@ -623,6 +668,8 @@ class Monitor:
         return dict(
             state=state, generatedAt=self.snapshot['generatedAt'],
             snapshotAgeMs=snapshot_age, cycleDurationMs=self.cycle_duration_ms,
+            snapshotBuildMs=self.snapshot_build_ms,
+            eventLoopLagMs=self.event_loop_lag_ms, eventLoopLagMaxMs=self.event_loop_lag_max_ms,
             activeCycleMs=(round((monotonic() - self.cycle_started) * 1000)
                            if self.cycle_started is not None else None),
             sources=sources, rest=rest,
@@ -728,6 +775,7 @@ class Monitor:
 
     async def close(self):
         self.closing = True
+        self.cancel_event_loop_lag_probe()
         if self.futures_update is not None:
             self.futures_update.cancel()
             self.futures_update = None

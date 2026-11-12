@@ -59,10 +59,16 @@ class LocalHttpTests(unittest.IsolatedAsyncioTestCase):
         source.batches['bybit'] = {'received_at_ms': 1000}
         monitor.snapshot['generatedAt'] = 1050
         monitor.cycle_duration_ms = 200
+        monitor.snapshot_build_ms = 72
+        monitor.event_loop_lag_ms = 8
+        monitor.event_loop_lag_max_ms = 19
         monitor.source_duration_ms['bybit', 'swap'] = 150
         health = monitor.health(1100)
         self.assertEqual(health['snapshotAgeMs'], 50)
         self.assertEqual(health['cycleDurationMs'], 200)
+        self.assertEqual(health['snapshotBuildMs'], 72)
+        self.assertEqual(health['eventLoopLagMs'], 8)
+        self.assertEqual(health['eventLoopLagMaxMs'], 19)
         self.assertEqual(health['sources']['Bybit · swap']['batchAgeMs'], 100)
         self.assertEqual(health['sources']['Bybit · swap']['durationMs'], 150)
         self.assertIsNone(health['sources']['Bybit · spot']['batchAgeMs'])
