@@ -39,25 +39,38 @@ function http(url, path, {method = 'GET', headers} = {}) {
 
 async function measureHttp(url) {
   const rows = [];
+  const marketsPath = process.env.ARBITRAGE_COMPACT === '1' ? '/api/markets?compact=1' : '/api/markets';
+  let metaVersion, metadataBytes = {identity: 0, gzip: 0};
   for (let i = 0; i < iterations + warmups; i++) {
     const published = await http(url, '/__bench/publish', {method: 'POST'});
     assert.equal(published.status, 200);
     const {generatedAt, publicationMs} = JSON.parse(published.body);
-    const first = await http(url, '/api/markets');
+    const first = await http(url, marketsPath);
     assert.equal(first.status, 200);
-    assert.equal(JSON.parse(first.body).generatedAt, generatedAt);
-    const warm = await http(url, '/api/markets');
+    const snapshot = JSON.parse(first.body);
+    assert.equal(snapshot.generatedAt, generatedAt);
+    if (snapshot.metaVersion && snapshot.metaVersion !== metaVersion) {
+      const path = '/api/meta/' + encodeURIComponent(snapshot.metaVersion);
+      const metadata = await http(url, path);
+      const compressed = await http(url, path, {headers: {'Accept-Encoding': 'gzip'}});
+      assert.equal(metadata.status, 200);
+      assert.equal(compressed.status, 200);
+      assert.equal(compressed.headers['content-encoding'], 'gzip');
+      metadataBytes = {identity: metadata.body.length, gzip: compressed.body.length};
+      metaVersion = snapshot.metaVersion;
+    }
+    const warm = await http(url, marketsPath);
     assert.equal(warm.status, 200);
     assert.ok(warm.body.equals(first.body));
-    const conditional = await http(url, '/api/markets', {headers: {'If-None-Match': first.headers.etag}});
+    const conditional = await http(url, marketsPath, {headers: {'If-None-Match': first.headers.etag}});
     assert.equal(conditional.status, 304);
     assert.equal(conditional.body.length, 0);
-    const gzip = await http(url, '/api/markets', {headers: {'Accept-Encoding': 'gzip'}});
+    const gzip = await http(url, marketsPath, {headers: {'Accept-Encoding': 'gzip'}});
     assert.equal(gzip.headers['content-encoding'], 'gzip');
     rows.push({publicationMs, first: first.ms, warm: warm.ms, conditional: conditional.ms, gzip: gzip.ms,
       identityBytes: first.body.length, gzipBytes: gzip.body.length});
   }
-  return rows.slice(warmups);
+  return {rows: rows.slice(warmups), metadataBytes};
 }
 
 async function measureBrowser(url) {
@@ -116,7 +129,7 @@ async function main() {
     const buildResponse = await http(url, '/__bench/build');
     assert.equal(buildResponse.status, 200);
     const {cold, warm, ...versions} = JSON.parse(buildResponse.body);
-    const rows = await measureHttp(url);
+    const {rows, metadataBytes} = await measureHttp(url);
     const browser = await measureBrowser(url);
     console.log(JSON.stringify({
       revision: execFileSync('git', ['rev-parse', 'HEAD'], {cwd: target, encoding: 'utf8'}).trim(),
@@ -125,7 +138,7 @@ async function main() {
       buildMs: {cold: stats(cold), warm: stats(warm)},
       httpMs: Object.fromEntries(['publicationMs', 'first', 'warm', 'conditional', 'gzip']
         .map(field => [field, stats(rows.map(row => row[field]))])),
-      bytes: {identity: rows[0].identityBytes, gzip: rows[0].gzipBytes},
+      bytes: {identity: rows[0].identityBytes, gzip: rows[0].gzipBytes, metadata: metadataBytes},
       browser,
     }, null, 2));
   } finally {
