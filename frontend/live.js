@@ -15,12 +15,19 @@ const MAX_PRICE_RATIO = 2;
 
 function currentQuote(leg, now) {
   const fresh = stamp => Number.isFinite(stamp) && now - stamp >= -1000 && now - stamp <= QUOTE_MAX_AGE;
+  if (leg.quoteSource === 'ws' || leg.quoteSource === 'rest') {
+    return Number.isFinite(leg.confirmedAt) && Number.isFinite(leg.validUntil) &&
+      now >= leg.confirmedAt - 1000 && now <= leg.validUntil;
+  }
   return fresh(leg.receivedAt) && (leg.sourceAt === null || fresh(leg.sourceAt));
 }
 
 function spreadQuality(long, short, now) {
   if (!currentQuote(long, now) || !currentQuote(short, now)) return 'stale';
   if (!(long.ask > 0 && short.bid > 0 && long.bid > 0 && short.ask > 0)) return 'missing';
+  if (Number.isFinite(long.confirmedAt) && Number.isFinite(short.confirmedAt)) {
+    return 'receipt';
+  }
   if (long.sourceAt !== null && short.sourceAt !== null) {
     return Math.abs(long.sourceAt - short.sourceAt) <= 1500 ? 'timed' : 'skew';
   }
@@ -74,7 +81,10 @@ function makePair(coin, long, short, now, onPriceAnomaly) {
     entry: comparable ? openSpread(long.ask, short.bid) : null,
     exit: comparable ? closeSpread(long.bid, short.ask) : null,
     funding, apr: funding === null ? null : funding * 1095, delta: delta(1), delta3: delta(3), delta7: delta(7),
-    quality, verified, cap: valuation?.cap ?? null, fdv: valuation?.fdv ?? null,
+    quality, timestampSuspect: Boolean(long.suspect || short.suspect ||
+      Number.isFinite(long.changedAt) && Number.isFinite(short.changedAt) &&
+      Math.abs(long.changedAt - short.changedAt) > 1500),
+    verified, cap: valuation?.cap ?? null, fdv: valuation?.fdv ?? null,
     valuationAt: valuation?.updatedAt ?? null,
   };
 }
@@ -209,7 +219,7 @@ function refreshQuotePairs(now = Date.now()) {
       if (!event.legs.every(leg => ids.has(leg.id))) continue;
       const [a, b] = event.legs.map(leg => enrichLeg(leg, now));
       updates.push(...[makePair(event.coin, a, b, now), makePair(event.coin, b, a, now)]
-        .filter(pair => pair?.quality === 'timed'));
+        .filter(pair => pair?.quality === 'timed' || pair?.quality === 'receipt'));
       live.nextDataChange = Math.min(live.nextDataChange, event.expiresAt);
     }
   }

@@ -20,7 +20,7 @@ from market_monitor.classification import valid_market
 from market_monitor.contract_details import INDEX_VENUES, contract_index
 from market_monitor.funding_fields import funding_fields
 from market_monitor.funding_history import DAY, cadence_stats, fetch_history, window_stats
-from market_monitor.futures_ws import FUTURES_WS_VENUES, FuturesBookFeed, PILOT_CONTRACTS, PILOT_VENUES, QUOTE_AGE
+from market_monitor.futures_ws import FUTURES_WS_VENUES, FuturesBookFeed, PILOT_CONTRACTS, PILOT_VENUES
 from market_monitor.history import History, eligible_legs
 from market_monitor.http_server import create_app as create_http_app
 from market_monitor.market import Registry, fresh, now_ms, numeric
@@ -40,6 +40,8 @@ EARLY_BINANCE_SOURCES = (('binanceusdm', 'swap'), ('kucoinfutures', 'swap'))
 EARLY_QUOTE_MAX_AGE = 3000
 FUTURES_WS_LIMIT = 30
 FUTURES_WS_REFRESH = 180_000
+FUTURES_REST_CHECK_INTERVAL = 30_000
+FUTURES_REST_CHECKS_PER_VENUE = 2
 PYBOBO_DEPTH_KEYS = ('kucoinfutures.swap.PYBOBO.USDT', 'mexc.swap.PYBOBO.USDT')
 LOG = logging.getLogger(__name__)
 
@@ -138,6 +140,7 @@ class Monitor:
         self.futures_symbols = {}
         self.futures_refresh_at = 0
         self.futures_update = None
+        self.futures_rest_checked = {}
         self.closing = False
         self.futures_feeds = {
             venue: FuturesBookFeed(venue, self.clear_futures_pairs, clock=self.clocks[venue],
@@ -229,6 +232,39 @@ class Monitor:
                 if source.kind == 'swap' and source.venue in self.futures_feeds and leg['quote'] == 'USDT':
                     yield leg, source.venue, market['id']
 
+    async def check_quiet_futures_symbols(self, now):
+        """Recheck a small rotating set of quiet Binance/Gate WS symbols over REST."""
+        checks = []
+        for venue, feed in self.futures_feeds.items():
+            source = self.sources.get((venue, 'swap'))
+            if source is None:
+                continue
+            checked = self.futures_rest_checked.setdefault(venue, {})
+            eligible = [symbol for symbol in feed.quiet_symbols(now)
+                        if now - checked.get(symbol, 0) >= FUTURES_REST_CHECK_INTERVAL]
+            for symbol in eligible[:FUTURES_REST_CHECKS_PER_VENUE]:
+                market = next((item for item in source.client.markets.values() if item.get('id') == symbol), None)
+                if market is None:
+                    continue
+                checked[symbol] = now
+                checks.append((venue, symbol, feed, source, market, feed.rest_token(symbol)))
+
+        async def check(item):
+            venue, symbol, feed, source, market, token = item
+            try:
+                raw = await source.public_book(market)
+                received = now_ms()
+                book = normalized_book(raw, market['contractSize'], received, clock=self.clocks.get(venue))
+                if not book['bids'] or not book['asks']:
+                    return
+                feed.confirm_rest(symbol, token, book['bids'][0][0], book['asks'][0][0], received,
+                                  changed_at=book['sourceAt'])
+            except Exception as exc:
+                LOG.debug('%s quiet-symbol REST check failed for %s: %s', venue, symbol, exc)
+
+        if checks:
+            await asyncio.gather(*(check(item) for item in checks))
+
     def select_futures_symbols(self, markets):
         candidates = defaultdict(set)
         for group in markets.values():
@@ -255,11 +291,13 @@ class Monitor:
             for (a, first), (b, second) in combinations(quoted, 2):
                 if a['exchange'] == b['exchange'] or not compatible_assets(a, b):
                     continue
-                if abs(first['sourceAt'] - second['sourceAt']) > 1500:
-                    continue
-                expires_at = min(first['sourceAt'], first['receivedAt'], second['sourceAt'], second['receivedAt']) + QUOTE_AGE
+                expires_at = min(first['validUntil'], second['validUntil'])
                 if expires_at > now:
-                    pairs.append(dict(coin=coin, expiresAt=expires_at, legs=[dict(a, **first), dict(b, **second)]))
+                    changed_a, changed_b = first.get('changedAt'), second.get('changedAt')
+                    suspect = (changed_a is not None and changed_b is not None
+                               and abs(changed_a - changed_b) > 1500)
+                    pairs.append(dict(coin=coin, expiresAt=expires_at, timestampSuspect=suspect,
+                                      legs=[dict(a, **first), dict(b, **second)]))
         if pairs != self.futures_pairs:
             self.futures_pairs = pairs
             self.notify_quotes_changed()
@@ -617,6 +655,7 @@ class Monitor:
             ready = {venue for venue in self.futures_feeds
                      if statuses[f'{VENUES[venue]} · swap'].get('state') == 'ok'}
             await self.refresh_futures_feeds(session, markets, now, refresh=bool(ready), ready_venues=ready)
+            await self.check_quiet_futures_symbols(now_ms())
             now = now_ms()
         next_snapshot = dict(
             state='ready' if all(s.get('state') == 'ok' for s in statuses.values()) else 'partial',

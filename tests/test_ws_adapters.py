@@ -6,7 +6,7 @@ import aiohttp
 from aiohttp import web
 from aiohttp.test_utils import TestServer
 
-from market_monitor.futures_ws import FuturesBookFeed
+from market_monitor.futures_ws import CONNECTION_ACTIVITY_AGE, QUIET_SYMBOL_AGE, QUOTE_CONFIRMATION_AGE, FuturesBookFeed
 from market_monitor.futures_ws_protocols import PROTOCOLS
 from market_monitor.market import now_ms
 
@@ -44,31 +44,41 @@ class PublicBookAdapterTests(unittest.TestCase):
                 feed.consume(frame(venue, STAMP), STAMP + 5)
                 self.assertIsNone(feed.quote(symbol, STAMP + 5))
                 feed.symbols = frozenset({symbol})
+                feed.mark_connected()
                 feed.consume(frame(venue, STAMP * 1_000), STAMP + 5)
                 self.assertIsNone(feed.quote(symbol, STAMP + 5))
-                feed.consume(frame(venue, STAMP), STAMP + 5)
-                self.assertEqual(feed.quote(symbol, STAMP + 5), dict(
-                    bid=100, ask=101, sourceAt=STAMP, receivedAt=STAMP + 5, quoteSource='ws',
+                feed.consume(frame(venue, STAMP - 3070), STAMP)
+                self.assertEqual(feed.quote(symbol, STAMP), dict(
+                    bid=100, ask=101, changedAt=STAMP - 3070, sourceAt=STAMP - 3070,
+                    receivedAt=STAMP, confirmedAt=STAMP, quoteSource='ws',
+                    validUntil=STAMP + CONNECTION_ACTIVITY_AGE,
                 ))
-                feed.consume(frame(venue, STAMP - 1, size='0', sequence=9007199254740998), STAMP + 5)
+                feed.consume(frame(venue, STAMP - 3071, size='0', sequence=9007199254740998), STAMP + 5)
                 self.assertIsNotNone(feed.quote(symbol, STAMP + 5))
-                self.assertIsNone(feed.quote(symbol, STAMP + 3001))
-                feed.consume(frame(venue, STAMP + 1, size='0', sequence=9007199254740998), STAMP + 5)
+                self.assertIsNotNone(feed.quote(symbol, STAMP + 3001))
+                self.assertIsNone(feed.quote(symbol, STAMP + 6 + CONNECTION_ACTIVITY_AGE))
+                feed.consume(frame(venue, STAMP - 3069, size='0', sequence=9007199254740998), STAMP + 5)
                 self.assertIsNone(feed.quote(symbol, STAMP + 5))
 
     def test_snapshot_can_renew_and_bybit_engine_restart_can_reset_sequence(self):
         feed = FuturesBookFeed('bybit', lambda: None)
         feed.symbols = frozenset({'BTCUSDT'})
+        feed.mark_connected()
         feed.consume(frame('bybit', STAMP), STAMP)
-        feed.consume(frame('bybit', STAMP + 1), STAMP + 1)
-        self.assertEqual(feed.quote('BTCUSDT', STAMP + 1)['sourceAt'], STAMP + 1)
-        feed.consume(frame('bybit', STAMP + 2, sequence=1), STAMP + 2)
-        self.assertEqual(feed.quote('BTCUSDT', STAMP + 2)['sourceAt'], STAMP + 2)
+        feed.consume(frame('bybit', STAMP), STAMP + 3000)
+        quote = feed.quote('BTCUSDT', STAMP + 3000)
+        self.assertEqual((quote['changedAt'], quote['confirmedAt']), (STAMP, STAMP + 3000))
+        reset = frame('bybit', STAMP + 2, sequence=1)
+        reset['data']['a'][0][0] = '102'
+        feed.consume(reset, STAMP + 3001)
+        quote = feed.quote('BTCUSDT', STAMP + 3001)
+        self.assertEqual((quote['ask'], quote['changedAt']), (102, STAMP + 2))
 
     def test_binance_excludes_coin_m_and_bitget_excludes_other_products(self):
         for venue in ('binanceusdm', 'bitget'):
             feed = FuturesBookFeed(venue, lambda: None)
             feed.symbols = frozenset({'BTCUSDT'})
+            feed.mark_connected()
             message = frame(venue, STAMP)
             if venue == 'binanceusdm':
                 message['st'] = 2
@@ -77,22 +87,26 @@ class PublicBookAdapterTests(unittest.TestCase):
             feed.consume(message, STAMP)
             self.assertIsNone(feed.quote('BTCUSDT', STAMP))
 
-    def test_calibration_changes_freshness_without_changing_exchange_order(self):
+    def test_calibration_changes_diagnostic_timestamp_without_changing_exchange_order(self):
         clock = Mock(correct=lambda stamp: stamp + 5000)
         feed = FuturesBookFeed('binanceusdm', lambda: None, clock=clock)
         feed.symbols = frozenset({'BTCUSDT'})
+        feed.mark_connected()
         feed.consume(frame('binanceusdm', STAMP), STAMP + 5000)
         quote = feed.quote('BTCUSDT', STAMP + 5000)
         self.assertEqual(quote['sourceAt'], STAMP + 5000)
         self.assertEqual(quote['sourceAtRaw'], STAMP)
+        self.assertEqual(quote['changedAt'], STAMP + 5000)
+        self.assertEqual(quote['changedAtRaw'], STAMP)
         clock.correct = lambda stamp: stamp + 5500
         feed.consume(frame('binanceusdm', STAMP - 1, sequence=9007199254740998), STAMP + 5500)
-        self.assertEqual(feed.quote('BTCUSDT', STAMP + 5500), quote)
+        self.assertEqual(feed.quote('BTCUSDT', STAMP + 5500)['confirmedAt'], quote['confirmedAt'])
 
     def test_only_accepted_update_and_removal_notify(self):
         callback = Mock()
         feed = FuturesBookFeed('binanceusdm', lambda: None, on_update=callback)
         feed.symbols = frozenset({'BTCUSDT'})
+        feed.mark_connected()
         feed.consume(frame('binanceusdm', STAMP, sequence=10), STAMP)
         callback.assert_called_once()
         feed.consume(frame('binanceusdm', STAMP, sequence=10), STAMP)
@@ -101,6 +115,59 @@ class PublicBookAdapterTests(unittest.TestCase):
         feed.consume(frame('binanceusdm', STAMP + 1, size='0', sequence=11), STAMP + 1)
         feed.consume(frame('binanceusdm', STAMP + 2, size='0', sequence=12), STAMP + 2)
         self.assertEqual(callback.call_count, 2)
+
+    def test_transport_heartbeat_does_not_renew_confirmation_for_symbol(self):
+        symbol = SYMBOLS['binanceusdm']
+        feed = FuturesBookFeed('binanceusdm', lambda: None)
+        feed.symbols = frozenset({symbol})
+        feed.mark_connected()
+        feed.consume(frame('binanceusdm', STAMP), STAMP)
+        after_transport_expiry = STAMP + CONNECTION_ACTIVITY_AGE + 1
+        self.assertIsNone(feed.quote(symbol, after_transport_expiry))
+        feed.heartbeat_received(after_transport_expiry)
+        self.assertEqual(feed.quote(symbol, after_transport_expiry)['confirmedAt'], STAMP)
+        after_confirmation_expiry = STAMP + QUOTE_CONFIRMATION_AGE + 1
+        feed.heartbeat_received(after_confirmation_expiry)
+        self.assertIsNone(feed.quote(symbol, after_confirmation_expiry))
+
+    def test_rest_initial_and_fallback_require_current_subscription_and_observation(self):
+        for venue, ack in {
+            'binanceusdm': dict(id=1, result=None),
+            'gate': dict(channel='futures.book_ticker', event='subscribe', result=dict(status='success')),
+        }.items():
+            with self.subTest(venue=venue):
+                symbol = SYMBOLS[venue]
+                feed = FuturesBookFeed(venue, lambda: None)
+                feed.symbols = frozenset({symbol})
+                feed.mark_connected()
+                due = STAMP + QUIET_SYMBOL_AGE
+                feed.heartbeat_received(STAMP)
+                self.assertEqual(feed.quiet_symbols(due), [])
+                self.assertIsNone(feed.confirm_rest(symbol, feed.rest_token(symbol), 100, 101, due))
+                feed.consume(ack, STAMP)
+                self.assertEqual(feed.quiet_symbols(due), [symbol])
+                initial = feed.rest_token(symbol)
+                self.assertFalse(feed.confirm_rest(symbol, initial, 100, 101, due, changed_at=STAMP))
+                self.assertEqual(feed.quote(symbol, due)['quoteSource'], 'rest')
+                self.assertNotIn('suspect', feed.quote(symbol, due))
+
+                feed.consume(frame(venue, STAMP, sequence=1), due + 1)
+                self.assertIsNone(feed.confirm_rest(symbol, initial, 100, 101, due + 2))
+                self.assertEqual(feed.quote(symbol, due + 1)['quoteSource'], 'ws')
+                token = feed.rest_token(symbol)
+                self.assertTrue(feed.confirm_rest(symbol, token, 100, 101, due + 2))
+                self.assertEqual(feed.quote(symbol, due + 2)['confirmedAt'], due + 2)
+                self.assertEqual(feed.quote(symbol, due + 2)['receivedAt'], due + 1)
+                self.assertIsNone(feed.confirm_rest(symbol, token, 99, 100, due + 3))
+
+                token = feed.rest_token(symbol)
+                self.assertFalse(feed.confirm_rest(symbol, token, 99, 100, due + 3))
+                quote = feed.quote(symbol, due + 3)
+                self.assertEqual((quote['bid'], quote['quoteSource'], quote['suspect']), (99, 'rest', True))
+                old_session = feed.rest_token(symbol)
+                feed.mark_connected()
+                feed.consume(ack, due + 4)
+                self.assertIsNone(feed.confirm_rest(symbol, old_session, 99, 100, due + 4))
 
     def test_subscription_shapes_and_urls(self):
         for venue, expected in {
@@ -131,15 +198,20 @@ class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
     async def check_wire(self, venue, symbol):
         protocol = PROTOCOLS[venue]
         captured = []
+        transport_pong = asyncio.Event()
 
         async def stream(request):
-            socket = web.WebSocketResponse()
+            socket = web.WebSocketResponse(autoping=False)
             await socket.prepare(request)
             subscription = await socket.receive_json()
             captured.append((subscription, request.headers.get('X-Gate-Size-Decimal')))
             await socket.send_json(frame(venue, now_ms()))
+            await socket.ping(b'probe')
             async for message in socket:
-                if message.data == 'ping':
+                if message.type == aiohttp.WSMsgType.PONG:
+                    if message.data == b'probe':
+                        transport_pong.set()
+                elif message.data == 'ping':
                     captured.append(message.data)
                     await socket.send_str('pong')
                 else:
@@ -156,7 +228,8 @@ class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
                 try:
                     feed.start(session, {symbol})
                     async with asyncio.timeout(2):
-                        while feed.quote(symbol, now_ms()) is None or len(captured) < (3 if protocol.ping else 1):
+                        while (feed.quote(symbol, now_ms()) is None or not transport_pong.is_set()
+                               or len(captured) < (3 if protocol.ping else 1)):
                             await asyncio.sleep(.01)
                     self.assertTrue(feed.connected)
                     self.assertEqual(captured[0][1], '1' if venue == 'gate' else None)

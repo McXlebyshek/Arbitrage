@@ -8,11 +8,38 @@ import aiohttp
 from aiohttp import web
 from aiohttp.test_utils import TestServer
 
-from market_monitor.futures_ws import FuturesBookFeed
+from market_monitor.futures_ws import CONNECTION_ACTIVITY_AGE, FuturesBookFeed
 from market_monitor.market import now_ms
 from market_monitor.sources import Source
 from market_monitor.whitebit import WhitebitBookTicker
 from monitor import Monitor
+
+
+class FuturesPairStateTests(unittest.TestCase):
+    def test_locally_confirmed_quotes_survive_exchange_time_skew(self):
+        monitor = object.__new__(Monitor)
+        now = 1_800_000_000_000
+        monitor.instruments = {}
+        monitor.futures_feeds = {}
+        monitor.futures_pairs = []
+        monitor.notify_quotes_changed = Mock()
+        legs = []
+        for venue, symbol, exchange, changed_at, bid in (
+            ('binanceusdm', 'BTCUSDT', 'Binance', now - 4000, 99),
+            ('gate', 'BTC_USDT', 'Gate.io', now - 20_000, 101),
+        ):
+            key = f'{venue}.swap.BTC.USDT'
+            monitor.instruments[key] = (SimpleNamespace(kind='swap', venue=venue), {'id': symbol})
+            legs.append(dict(id=key, exchange=exchange, type='swap', quote='USDT', asset='btc', volume=10))
+            monitor.futures_feeds[venue] = SimpleNamespace(quote=lambda _symbol, _now, stamp=changed_at,
+                price=bid: dict(bid=price, ask=price + 1, changedAt=stamp, sourceAt=stamp,
+                                receivedAt=now - 100, confirmedAt=now - 100,
+                                validUntil=now + 44_900, quoteSource='ws'))
+
+        monitor.update_futures_pairs({'BTC': legs}, now)
+        self.assertEqual(len(monitor.futures_pairs), 1)
+        self.assertTrue(monitor.futures_pairs[0]['timestampSuspect'])
+        self.assertEqual(monitor.futures_pairs[0]['expiresAt'], now + 44_900)
 
 
 class RecoveryTests(unittest.IsolatedAsyncioTestCase):
@@ -246,7 +273,7 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
                     self.assertIs(feed.reader, reader)
                     self.assertEqual(feed.reconnects, 2)
                     self.assertEqual(consumed[3:], [None, 101])
-                    self.assertIsNone(feed.quote(symbol, now_ms() + 3001))
+                    self.assertIsNone(feed.quote(symbol, now_ms() + CONNECTION_ACTIVITY_AGE + 1))
                     self.assertEqual(disconnects, [0, 0])
                     self.assertEqual(connections, 3)
                     self.assertEqual(len(subscriptions), 2)

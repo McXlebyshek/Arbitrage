@@ -54,6 +54,18 @@ test('blocks incompatible and stale prices, while preserving unknown funding as 
   assert.equal(makePair('BTC', long, {...short, rate: null}, now).funding, null);
 });
 
+test('keeps locally confirmed quiet WebSocket quotes despite old or skewed exchange timestamps', () => {
+  const local = {...long, quoteSource: 'ws', confirmedAt: now, receivedAt: now, validUntil: now + 90000,
+    changedAt: now - 4000, sourceAt: now - 4000};
+  const peer = {...short, quoteSource: 'ws', confirmedAt: now - 4000, receivedAt: now - 4000,
+    validUntil: now + 90000, changedAt: now - 10000, sourceAt: now - 10000};
+  const pair = makePair('BTC', local, peer, now);
+  assert.equal(pair.quality, 'receipt');
+  assert.equal(pair.entry, 200 / 201);
+  assert.equal(pair.timestampSuspect, true);
+  assert.equal(makePair('BTC', {...local, validUntil: now - 1}, peer, now).entry, null);
+});
+
 test('compares scaled prices only in the same verified quote unit', () => {
   const scaledLong = {...long, priceUnits: 1000};
   const scaledShort = {...short, priceUnits: 1000};
@@ -128,7 +140,7 @@ test('futures stream changes only its two directions and drops them on expiry or
   const third = {...legs[0], id: 'c', exchange: 'C'};
   const snapshot = {generatedAt: at, markets: {BTC: [legs[0], {...legs[1], sourceAt: at - 2000}, third]}};
   updateLive(snapshot);
-  const quotes = legs.map(leg => ({...leg, quoteSource: 'ws'}));
+  const quotes = legs.map(leg => ({...leg, quoteSource: 'ws', confirmedAt: at, validUntil: at + 3000}));
   const pair = {coin: 'BTC', expiresAt: at + 3000, legs: quotes};
   assert.equal(setFuturesQuotes({baseAt: at, pairs: [pair]}), true);
   rebuildPairs();

@@ -20,6 +20,7 @@ function quotes(snapshot, count = 30, at = NOW) {
   return {baseAt: snapshot.generatedAt, pairs: Object.entries(snapshot.markets).slice(0, count)
     .map(([coin, legs]) => ({coin, expiresAt: at + 3000,
       legs: legs.slice(0, 2).map((leg, i) => ({...leg, bid: 101 + i, ask: 102 + i,
-        sourceAt: at, receivedAt: at, quoteSource: 'ws'}))}))};
+        sourceAt: at, changedAt: at, receivedAt: at, confirmedAt: at, validUntil: at + 3000,
+        quoteSource: 'ws'}))}))};
 }
 module.exports = {NOW, snapshot, quotes};

@@ -25,6 +25,7 @@ class BookProtocol:
     ping_interval: int = 20
     decimal_sizes: bool = False
     repeated_snapshots: bool = False
+    subscription_ack: Callable[[dict], bool] | None = None
 
 
 def integer(value):
@@ -128,7 +129,8 @@ PROTOCOLS = {
     'binanceusdm': BookProtocol(
         'wss://fstream.binance.com/public/ws',
         lambda symbols: (dict(method='SUBSCRIBE', params=[f'{symbol.lower()}@bookTicker' for symbol in symbols], id=1),),
-        binance_updates,
+        binance_updates, subscription_ack=lambda message: message.get('id') == 1
+        and 'result' in message and message['result'] is None,
     ),
     'bybit': BookProtocol(
         'wss://stream.bybit.com/v5/public/linear',
@@ -144,6 +146,9 @@ PROTOCOLS = {
         'wss://fx-ws.gateio.ws/v4/ws/usdt',
         lambda symbols: (dict(time=now_ms() // 1000, channel='futures.book_ticker', event='subscribe', payload=symbols),),
         gate_updates, decimal_sizes=True,
+        subscription_ack=lambda message: message.get('channel') == 'futures.book_ticker'
+        and message.get('event') == 'subscribe' and isinstance(message.get('result'), dict)
+        and message['result'].get('status') == 'success',
     ),
     'bitget': BookProtocol(
         'wss://ws.bitget.com/v3/ws/public',

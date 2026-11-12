@@ -249,7 +249,7 @@ function row([pair, more]) {
     <td class="metric apr">${pct(apr)}</td>
     <td class="metric apr">${pct(aprAfterFees(pair, state))}</td>
     <td class="metric"><span class="metric-chip ${tones(funding)}">${pct(funding)}</span></td>
-    <td class="metric"><span class="metric-chip ${tones(entry)}" title="${isDemo ? '' : liveQuality[pair.quality] + (pair.verified ? ' · реестр' : ' · совпадение тикеров')}">${!isDemo && Number.isFinite(entry) && (!pair.verified || pair.quality === 'receipt') ? '≈ ' : ''}${pct(entry)}</span></td>
+    <td class="metric"><span class="metric-chip ${tones(entry)}" title="${isDemo ? '' : liveQuality[pair.quality] + (pair.timestampSuspect ? ' · биржевые метки расходятся' : '') + (pair.verified ? ' · реестр' : ' · совпадение тикеров')}">${!isDemo && Number.isFinite(entry) && (!pair.verified || pair.quality === 'receipt' || pair.timestampSuspect) ? '≈ ' : ''}${pct(entry)}</span></td>
     ${executableCell(id)}
     <td>${status(long, id, 0)}${status(short, id, 1)}</td>
     <td class="metric muted dash">${depthCell(pair, false)}${isDemo ? '' : button('Стакан', 'depth', 'plain depth-request', `data-pair="${id}"`)}</td>
@@ -445,7 +445,7 @@ function renderDetail(pair) {
       <div class="detail-summary"><strong>Спред фандинга <b>${pct(pair.funding, 3)}</b></strong>
       <span>Вход <b>${entry}</b></span><span>Выход <b>${exit}</b></span></div>
     </div>
-    ${isDemo ? '' : `<p class="muted pair-quality">${liveQuality[pair.quality]} · ${pair.verified ? 'Идентичность подтверждена реестром' : 'Идентичность по тикеру предварительная'}</p>`}
+    ${isDemo ? '' : `<p class="muted pair-quality">${liveQuality[pair.quality]}${pair.timestampSuspect ? ' · биржевые метки расходятся, требуется осторожность' : ''} · ${pair.verified ? 'Идентичность подтверждена реестром' : 'Идентичность по тикеру предварительная'}</p>`}
     <div class="venue-grid">${venueCard(pair, true)}${venueCard(pair, false)}</div>
     ${isDemo ? '' : `<div class="detail-actions">${button('Проверить стаканы', 'depth', 'control', `data-pair="${pair.id}"`)}
       ${pair.verified ? button('Оценить издержки', 'estimate', 'control') : ''}
