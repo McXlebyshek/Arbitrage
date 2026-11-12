@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Локальный скринер межбиржевого арбитража">
+  <title>Арбитраж · Монитор</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="demo.js"></script>
+  <script defer src="live.js"></script>
+  <script defer src="live-ui.js"></script>
+  <script defer src="loader.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#/arbitrage"><img src="logo.svg" alt="" width="34" height="34">Арбитраж Монитор</a>
+      <nav id="navigation" aria-label="Разделы"></nav>
+      <div id="header-actions" class="header-actions"></div>
+    </div>
+  </header>
+  <main id="app" class="shell" tabindex="-1"></main>
+  <footer class="shell site-footer">
+    <div><a href="#/arbitrage">Арбитраж Монитор</a><span>·</span><button data-action="help" class="plain">Справка</button></div>
+    <span id="data-source"></span>
+  </footer>
+  <dialog id="dialog" aria-labelledby="dialog-title"></dialog>
+  <div id="toast" role="status"></div>
+</body>
+</html>

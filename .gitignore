@@ -1,4 +1,9 @@
-.venv/
+/.venv/
+/data/
+/.playwright-mcp/
 __pycache__/
-*.egg-info/
-data/
+/.pytest_cache/
+/node_modules/
+/test-results/
+/playwright-report/
+/docs/evidence/*.jsonl

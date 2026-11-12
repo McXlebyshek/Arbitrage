@@ -1,0 +1,5204 @@
+{
+  "version": "2026-11-11-zest-v15",
+  "coingecko_ids": {
+    "aave": "aave",
+    "aerodrome-finance": "aerodrome-finance",
+    "akedo": "akedo",
+    "alaya-ai": "alaya-ai",
+    "aptos": "aptos",
+    "arbitrum": "arbitrum",
+    "aria-ai": "aria-ai",
+    "aster-2": "aster-2",
+    "avalanche": "avalanche-2",
+    "axelar": "axelar",
+    "axis-robotics": "axis-robotics",
+    "beam-2": "beam-2",
+    "bitcoin": "bitcoin",
+    "bitcoin-cash": "bitcoin-cash",
+    "bittensor": "bittensor",
+    "bitway-btw": "bitway",
+    "blockstack": "blockstack",
+    "blur": "blur",
+    "bnb": "binancecoin",
+    "bulla-3": "bulla-3",
+    "capybobo": "capybobo",
+    "cardano": "cardano",
+    "cat-in-a-dogs-world": "cat-in-a-dogs-world",
+    "chainlink": "chainlink",
+    "chainopera-ai": "chainopera-ai",
+    "chip-2": "chip-2",
+    "compound-governance-token": "compound-governance-token",
+    "cosmos": "cosmos",
+    "curve-dao-token": "curve-dao-token",
+    "cyberconnect": "cyberconnect",
+    "dappos": "dappos",
+    "dash": "dash",
+    "dogecoin": "dogecoin",
+    "dolphin-2": "dolphin-2",
+    "ethena": "ethena",
+    "ethereum": "ethereum",
+    "fetch-ai": "fetch-ai",
+    "filecoin": "filecoin",
+    "gensyn": "gensyn",
+    "hajimi": "hakimi",
+    "harmony": "harmony",
+    "hedera": "hedera-hashgraph",
+    "huma-finance": "huma-finance",
+    "hyperliquid": "hyperliquid",
+    "initia": "initia",
+    "injective": "injective-protocol",
+    "internet-computer": "internet-computer",
+    "janction": "janction",
+    "jelly-my-jelly": "jelly-my-jelly",
+    "jupiter-exchange-solana": "jupiter-exchange-solana",
+    "layerzero": "layerzero",
+    "lighter": "lighter",
+    "litecoin": "litecoin",
+    "meet48": "meet48",
+    "megaeth": "megaeth",
+    "merlin-chain": "merlin-chain",
+    "midnight-3": "midnight-3",
+    "monad": "monad",
+    "near-protocol": "near",
+    "nexus-4": "nexus-4",
+    "nomina": "nomina",
+    "official-trump": "official-trump",
+    "ondo-finance": "ondo-finance",
+    "optimism": "optimism",
+    "pepe": "pepe",
+    "plasma": "plasma",
+    "polkadot": "polkadot",
+    "pons": "pons",
+    "power-protocol": "power-protocol",
+    "pump-fun": "pump-fun",
+    "quack-ai": "quack-ai",
+    "render-token": "render-token",
+    "reserve-rights-token": "reserve-rights-token",
+    "safe1": "safe",
+    "sei": "sei-network",
+    "shiba-inu": "shiba-inu",
+    "simon-s-cat": "simon-s-cat",
+    "solana": "solana",
+    "starknet": "starknet",
+    "stellar": "stellar",
+    "sui": "sui",
+    "superfortune": "superfortune",
+    "the-open-network": "the-open-network",
+    "tria": "tria",
+    "tron": "tron",
+    "uniswap": "uniswap",
+    "unitas": "unitas",
+    "usd-coin": "usd-coin",
+    "venice-token": "venice-token",
+    "world-liberty-financial": "world-liberty-financial",
+    "worldcoin-wld": "worldcoin-wld",
+    "xrp": "ripple",
+    "yooldo-games": "yooldo-games",
+    "zcash": "zcash",
+    "zerebro": "zerebro",
+    "zest-protocol": "zest-protocol"
+  },
+  "bindings": [
+    {
+      "exchange": "binanceusdm",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "BTC-USDT-SWAP",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "okx",
+      "id": "ETH-USDT-SWAP",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "okx",
+      "id": "SOL-USDT-SWAP",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "DOGE-USDT-SWAP",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1000.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "XRP-USDT-SWAP",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "ADA-USDT-SWAP",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "AVAX-USDT-SWAP",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "DOT-USDT-SWAP",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "LINK-USDT-SWAP",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "LTC-USDT-SWAP",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "DOTUSDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "ADA_USDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "AVAX_USDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "BTC_USDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.0001"
+    },
+    {
+      "exchange": "gate",
+      "id": "DOGE_USDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "DOT_USDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "ETH_USDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "gate",
+      "id": "LINK_USDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "LTC_USDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "gate",
+      "id": "SOL_USDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "XRP_USDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "BTC_USDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "price_units": "1",
+      "contract_size": "0.0001"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ETH_USDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "SOL_USDT",
+      "asset": "solana",
+      "base": "SOL",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "XRP_USDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "LINK_USDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "DOGE_USDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ADA_USDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "AVAX_USDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "DOT_USDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "LTC_USDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "BNBUSDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "BCHUSDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "TRXUSDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ATOMUSDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "NEARUSDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "UNIUSDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "AAVEUSDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "SUIUSDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ARBUSDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "OPUSDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "BNBUSDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "BCHUSDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "TRXUSDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ATOMUSDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "NEARUSDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "UNIUSDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "AAVEUSDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "SUIUSDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ARBUSDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "OPUSDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "BNB-USDT-SWAP",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "okx",
+      "id": "BCH-USDT-SWAP",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "okx",
+      "id": "TRX-USDT-SWAP",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "1000.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "ATOM-USDT-SWAP",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "NEAR-USDT-SWAP",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "UNI-USDT-SWAP",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "AAVE-USDT-SWAP",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "okx",
+      "id": "SUI-USDT-SWAP",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "ARB-USDT-SWAP",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "OP-USDT-SWAP",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "BNBUSDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "BCHUSDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "TRXUSDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ATOMUSDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "NEARUSDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "UNIUSDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "AAVEUSDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "SUIUSDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ARBUSDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "OPUSDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "BNB_USDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "0.001"
+    },
+    {
+      "exchange": "gate",
+      "id": "BCH_USDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "gate",
+      "id": "TRX_USDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "ATOM_USDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "NEAR_USDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "UNI_USDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "AAVE_USDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "gate",
+      "id": "SUI_USDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "ARB_USDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "id": "OP_USDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "BNB_USDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "BCH_USDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "TRX_USDT",
+      "asset": "tron",
+      "base": "TRX",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ATOM_USDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "NEAR_USDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "UNI_USDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "mexc",
+      "id": "AAVE_USDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "mexc",
+      "id": "SUI_USDT",
+      "asset": "sui",
+      "base": "SUI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "ARB_USDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "id": "OP_USDT",
+      "asset": "optimism",
+      "base": "OP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "AKEUSDT",
+      "asset": "akedo",
+      "base": "AKE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "AKEUSDT",
+      "asset": "akedo",
+      "base": "AKE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "AKE-USDT-SWAP",
+      "asset": "akedo",
+      "base": "AKE",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "AKEUSDT",
+      "asset": "akedo",
+      "base": "AKE",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "AKE_USDT",
+      "asset": "akedo",
+      "base": "AKE",
+      "price_units": "1",
+      "contract_size": "1000.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "BTWUSDT",
+      "asset": "bitway-btw",
+      "base": "BTW",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "BTWUSDT",
+      "asset": "bitway-btw",
+      "base": "BTW",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "BTW-USDT-SWAP",
+      "asset": "bitway-btw",
+      "base": "BTW",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "BTWUSDT",
+      "asset": "bitway-btw",
+      "base": "BTW",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "BTW_USDT",
+      "asset": "bitway-btw",
+      "base": "BTW",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "SAFEUSDT",
+      "asset": "safe1",
+      "base": "SAFE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "SAFEUSDT",
+      "asset": "safe1",
+      "base": "SAFE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "SAFEUSDT",
+      "asset": "safe1",
+      "base": "SAFE",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "SAFE_USDT",
+      "asset": "safe1",
+      "base": "SAFE",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "APTUSDT",
+      "asset": "aptos",
+      "base": "APT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "APTUSDT",
+      "asset": "aptos",
+      "base": "APT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "APT-USDT-SWAP",
+      "asset": "aptos",
+      "base": "APT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "APTUSDT",
+      "asset": "aptos",
+      "base": "APT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "APT_USDT",
+      "asset": "aptos",
+      "base": "APT",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "ICPUSDT",
+      "asset": "internet-computer",
+      "base": "ICP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "ICPUSDT",
+      "asset": "internet-computer",
+      "base": "ICP",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "ICP-USDT-SWAP",
+      "asset": "internet-computer",
+      "base": "ICP",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "bitget",
+      "id": "ICPUSDT",
+      "asset": "internet-computer",
+      "base": "ICP",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "ICP_USDT",
+      "asset": "internet-computer",
+      "base": "ICP",
+      "price_units": "1",
+      "contract_size": "0.001"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "INJUSDT",
+      "asset": "injective",
+      "base": "INJ",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "INJUSDT",
+      "asset": "injective",
+      "base": "INJ",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "INJ-USDT-SWAP",
+      "asset": "injective",
+      "base": "INJ",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "INJUSDT",
+      "asset": "injective",
+      "base": "INJ",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "INJ_USDT",
+      "asset": "injective",
+      "base": "INJ",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "FILUSDT",
+      "asset": "filecoin",
+      "base": "FIL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "FILUSDT",
+      "asset": "filecoin",
+      "base": "FIL",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "FIL-USDT-SWAP",
+      "asset": "filecoin",
+      "base": "FIL",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "bitget",
+      "id": "FILUSDT",
+      "asset": "filecoin",
+      "base": "FIL",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "FIL_USDT",
+      "asset": "filecoin",
+      "base": "FIL",
+      "price_units": "1",
+      "contract_size": "0.01"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "XLMUSDT",
+      "asset": "stellar",
+      "base": "XLM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "XLMUSDT",
+      "asset": "stellar",
+      "base": "XLM",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "XLM-USDT-SWAP",
+      "asset": "stellar",
+      "base": "XLM",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "XLMUSDT",
+      "asset": "stellar",
+      "base": "XLM",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "XLM_USDT",
+      "asset": "stellar",
+      "base": "XLM",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "HBARUSDT",
+      "asset": "hedera",
+      "base": "HBAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "HBARUSDT",
+      "asset": "hedera",
+      "base": "HBAR",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "HBAR-USDT-SWAP",
+      "asset": "hedera",
+      "base": "HBAR",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "HBARUSDT",
+      "asset": "hedera",
+      "base": "HBAR",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "HBAR_USDT",
+      "asset": "hedera",
+      "base": "HBAR",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "id": "SEIUSDT",
+      "asset": "sei",
+      "base": "SEI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "id": "SEIUSDT",
+      "asset": "sei",
+      "base": "SEI",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "id": "SEI-USDT-SWAP",
+      "asset": "sei",
+      "base": "SEI",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "bitget",
+      "id": "SEIUSDT",
+      "asset": "sei",
+      "base": "SEI",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "id": "SEI_USDT",
+      "asset": "sei",
+      "base": "SEI",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "AAVEUSDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ARBUSDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "BNBUSDC",
+      "asset": "bnb",
+      "base": "BNB",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "BNBUSDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "BTCUSDC",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ENAUSDT",
+      "asset": "ethena",
+      "base": "ENA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ETHUSDC",
+      "asset": "ethereum",
+      "base": "ETH",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "FETUSDT",
+      "asset": "fetch-ai",
+      "base": "FET",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "FILUSDT",
+      "asset": "filecoin",
+      "base": "FIL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "GRAMUSDT",
+      "asset": "the-open-network",
+      "base": "GRAM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "HYPEUSDT",
+      "asset": "hyperliquid",
+      "base": "HYPE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ICPUSDT",
+      "asset": "internet-computer",
+      "base": "ICP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "INJUSDT",
+      "asset": "injective",
+      "base": "INJ",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "NEARUSDC",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "NEARUSDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ONDOUSDT",
+      "asset": "ondo-finance",
+      "base": "ONDO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ONEUSDT",
+      "asset": "harmony",
+      "base": "ONE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "PEPEUSDT",
+      "asset": "pepe",
+      "base": "PEPE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "PUMPUSDT",
+      "asset": "pump-fun",
+      "base": "PUMP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "SOLUSDC",
+      "asset": "solana",
+      "base": "SOL",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "SUIUSDT",
+      "asset": "sui",
+      "base": "SUI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "TAOUSDT",
+      "asset": "bittensor",
+      "base": "TAO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "TRUMPUSDT",
+      "asset": "official-trump",
+      "base": "TRUMP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "TRXUSDT",
+      "asset": "tron",
+      "base": "TRX",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "UNIUSDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "USDCUSDT",
+      "asset": "usd-coin",
+      "base": "USDC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "WLDUSDT",
+      "asset": "worldcoin-wld",
+      "base": "WLD",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "XLMUSDT",
+      "asset": "stellar",
+      "base": "XLM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "XRPUSDC",
+      "asset": "xrp",
+      "base": "XRP",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ZECUSDC",
+      "asset": "zcash",
+      "base": "ZEC",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "ZECUSDT",
+      "asset": "zcash",
+      "base": "ZEC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "AAVEUSDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ADAUSDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ARBUSDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ASTERUSDT",
+      "asset": "aster-2",
+      "base": "ASTER",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ATOMUSDT",
+      "asset": "cosmos",
+      "base": "ATOM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "AVAXUSDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "BCHUSDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "BNBUSDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "BTCUSDC",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "BTCUSDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "CRVUSDT",
+      "asset": "curve-dao-token",
+      "base": "CRV",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "DOGEUSDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ENAUSDT",
+      "asset": "ethena",
+      "base": "ENA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ETHUSDC",
+      "asset": "ethereum",
+      "base": "ETH",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ETHUSDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "GRAMUSDC",
+      "asset": "the-open-network",
+      "base": "GRAM",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "GRAMUSDT",
+      "asset": "the-open-network",
+      "base": "GRAM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "HBARUSDT",
+      "asset": "hedera",
+      "base": "HBAR",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "HYPEUSDT",
+      "asset": "hyperliquid",
+      "base": "HYPE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ICPUSDT",
+      "asset": "internet-computer",
+      "base": "ICP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "INJUSDT",
+      "asset": "injective",
+      "base": "INJ",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "JUPUSDT",
+      "asset": "jupiter-exchange-solana",
+      "base": "JUP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "LINKUSDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "LITUSDT",
+      "asset": "lighter",
+      "base": "LIT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "LTCUSDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "MEGAUSDT",
+      "asset": "megaeth",
+      "base": "MEGA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "MERLUSDT",
+      "asset": "merlin-chain",
+      "base": "MERL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "MONUSDT",
+      "asset": "monad",
+      "base": "MON",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "NEARUSDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "NIGHTUSDT",
+      "asset": "midnight-3",
+      "base": "NIGHT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ONDOUSDT",
+      "asset": "ondo-finance",
+      "base": "ONDO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "PEPEUSDT",
+      "asset": "pepe",
+      "base": "PEPE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "PONSUSDT",
+      "asset": "pons",
+      "base": "PONS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "PUMPUSDT",
+      "asset": "pump-fun",
+      "base": "PUMP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "RENDERUSDT",
+      "asset": "render-token",
+      "base": "RENDER",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "SHIBUSDT",
+      "asset": "shiba-inu",
+      "base": "SHIB",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "SOLUSDC",
+      "asset": "solana",
+      "base": "SOL",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "SOLUSDT",
+      "asset": "solana",
+      "base": "SOL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "STRKUSDT",
+      "asset": "starknet",
+      "base": "STRK",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "SUIUSDT",
+      "asset": "sui",
+      "base": "SUI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "TRUMPUSDT",
+      "asset": "official-trump",
+      "base": "TRUMP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "TRXUSDT",
+      "asset": "tron",
+      "base": "TRX",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "UNIUSDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "USDCUSDT",
+      "asset": "usd-coin",
+      "base": "USDC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "VVVUSDT",
+      "asset": "venice-token",
+      "base": "VVV",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "WLDUSDT",
+      "asset": "worldcoin-wld",
+      "base": "WLD",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "WLFIUSDT",
+      "asset": "world-liberty-financial",
+      "base": "WLFI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "XLMUSDT",
+      "asset": "stellar",
+      "base": "XLM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "XPLUSDT",
+      "asset": "plasma",
+      "base": "XPL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "XRPUSDC",
+      "asset": "xrp",
+      "base": "XRP",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "XRPUSDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ZROUSDT",
+      "asset": "layerzero",
+      "base": "ZRO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "AAVE-USDT",
+      "asset": "aave",
+      "base": "AAVE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ADA-USDT",
+      "asset": "cardano",
+      "base": "ADA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "APT-USDT",
+      "asset": "aptos",
+      "base": "APT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ARB-USDT",
+      "asset": "arbitrum",
+      "base": "ARB",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ASTER-USDT",
+      "asset": "aster-2",
+      "base": "ASTER",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "AVAX-USDT",
+      "asset": "avalanche",
+      "base": "AVAX",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "BCH-USDT",
+      "asset": "bitcoin-cash",
+      "base": "BCH",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "BNB-USDT",
+      "asset": "bnb",
+      "base": "BNB",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "BTC-USDC",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "BTC-USDT",
+      "asset": "bitcoin",
+      "base": "BTC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "CRV-USDT",
+      "asset": "curve-dao-token",
+      "base": "CRV",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "DOGE-USDT",
+      "asset": "dogecoin",
+      "base": "DOGE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "DOT-USDT",
+      "asset": "polkadot",
+      "base": "DOT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ENA-USDT",
+      "asset": "ethena",
+      "base": "ENA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ETH-USDC",
+      "asset": "ethereum",
+      "base": "ETH",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ETH-USDT",
+      "asset": "ethereum",
+      "base": "ETH",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "FET-USDT",
+      "asset": "fetch-ai",
+      "base": "FET",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "FIL-USDT",
+      "asset": "filecoin",
+      "base": "FIL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "GRAM-USDT",
+      "asset": "the-open-network",
+      "base": "GRAM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "HBAR-USDT",
+      "asset": "hedera",
+      "base": "HBAR",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "HYPE-USDC",
+      "asset": "hyperliquid",
+      "base": "HYPE",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "HYPE-USDT",
+      "asset": "hyperliquid",
+      "base": "HYPE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ICP-USDT",
+      "asset": "internet-computer",
+      "base": "ICP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "INJ-USDT",
+      "asset": "injective",
+      "base": "INJ",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "JUP-USDT",
+      "asset": "jupiter-exchange-solana",
+      "base": "JUP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "LINK-USDC",
+      "asset": "chainlink",
+      "base": "LINK",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "LINK-USDT",
+      "asset": "chainlink",
+      "base": "LINK",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "LIT-USDC",
+      "asset": "lighter",
+      "base": "LIT",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "LIT-USDT",
+      "asset": "lighter",
+      "base": "LIT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "LTC-USDT",
+      "asset": "litecoin",
+      "base": "LTC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "MEGA-USDT",
+      "asset": "megaeth",
+      "base": "MEGA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "MERL-USDT",
+      "asset": "merlin-chain",
+      "base": "MERL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "MON-USDT",
+      "asset": "monad",
+      "base": "MON",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "NEAR-USDC",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "NEAR-USDT",
+      "asset": "near-protocol",
+      "base": "NEAR",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "NIGHT-USDT",
+      "asset": "midnight-3",
+      "base": "NIGHT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ONDO-USDT",
+      "asset": "ondo-finance",
+      "base": "ONDO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ONE-USDT",
+      "asset": "harmony",
+      "base": "ONE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "OP-USDT",
+      "asset": "optimism",
+      "base": "OP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "PEPE-USDC",
+      "asset": "pepe",
+      "base": "PEPE",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "PEPE-USDT",
+      "asset": "pepe",
+      "base": "PEPE",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "PONS-USDT",
+      "asset": "pons",
+      "base": "PONS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "PUMP-USDC",
+      "asset": "pump-fun",
+      "base": "PUMP",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "PUMP-USDT",
+      "asset": "pump-fun",
+      "base": "PUMP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "RENDER-USDT",
+      "asset": "render-token",
+      "base": "RENDER",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "SHIB-USDT",
+      "asset": "shiba-inu",
+      "base": "SHIB",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "SOL-USDC",
+      "asset": "solana",
+      "base": "SOL",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "SOL-USDT",
+      "asset": "solana",
+      "base": "SOL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "STRK-USDT",
+      "asset": "starknet",
+      "base": "STRK",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "SUI-USDT",
+      "asset": "sui",
+      "base": "SUI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "TAO-USDT",
+      "asset": "bittensor",
+      "base": "TAO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "TRUMP-USDT",
+      "asset": "official-trump",
+      "base": "TRUMP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "TRX-USDT",
+      "asset": "tron",
+      "base": "TRX",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "UNI-USDT",
+      "asset": "uniswap",
+      "base": "UNI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "USDC-USDT",
+      "asset": "usd-coin",
+      "base": "USDC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "VVV-USDT",
+      "asset": "venice-token",
+      "base": "VVV",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "WLD-USDT",
+      "asset": "worldcoin-wld",
+      "base": "WLD",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "WLFI-USDT",
+      "asset": "world-liberty-financial",
+      "base": "WLFI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "XLM-USDT",
+      "asset": "stellar",
+      "base": "XLM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "XPL-USDT",
+      "asset": "plasma",
+      "base": "XPL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "XRP-USDC",
+      "asset": "xrp",
+      "base": "XRP",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "XRP-USDT",
+      "asset": "xrp",
+      "base": "XRP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ZEC-USDC",
+      "asset": "zcash",
+      "base": "ZEC",
+      "quote": "USDC"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ZEC-USDT",
+      "asset": "zcash",
+      "base": "ZEC",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "ZRO-USDT",
+      "asset": "layerzero",
+      "base": "ZRO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "ASTER-USDT-SWAP",
+      "asset": "aster-2",
+      "base": "ASTER",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "ASTER-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "CRV-USDT-SWAP",
+      "asset": "curve-dao-token",
+      "base": "CRV",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "CRV-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "ENA-USDT-SWAP",
+      "asset": "ethena",
+      "base": "ENA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "ENA-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "FET-USDT-SWAP",
+      "asset": "fetch-ai",
+      "base": "FET",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "FET-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "GRAM-USDT-SWAP",
+      "asset": "the-open-network",
+      "base": "GRAM",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "GRAM-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "HYPE-USDT-SWAP",
+      "asset": "hyperliquid",
+      "base": "HYPE",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "0.1",
+      "underlying": "HYPE-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "JUP-USDT-SWAP",
+      "asset": "jupiter-exchange-solana",
+      "base": "JUP",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "JUP-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "LIT-USDT-SWAP",
+      "asset": "lighter",
+      "base": "LIT",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "LIT-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "MEGA-USDT-SWAP",
+      "asset": "megaeth",
+      "base": "MEGA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "MEGA-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "MERL-USDT-SWAP",
+      "asset": "merlin-chain",
+      "base": "MERL",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "MERL-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "MON-USDT-SWAP",
+      "asset": "monad",
+      "base": "MON",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "MON-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "NIGHT-USDT-SWAP",
+      "asset": "midnight-3",
+      "base": "NIGHT",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100",
+      "underlying": "NIGHT-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "ONDO-USDT-SWAP",
+      "asset": "ondo-finance",
+      "base": "ONDO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "ONDO-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "ONE-USDT-SWAP",
+      "asset": "harmony",
+      "base": "ONE",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100",
+      "underlying": "ONE-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "PEPE-USDT-SWAP",
+      "asset": "pepe",
+      "base": "PEPE",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10000000",
+      "underlying": "PEPE-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "PONS-USDT-SWAP",
+      "asset": "pons",
+      "base": "PONS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "PONS-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "PUMP-USDT-SWAP",
+      "asset": "pump-fun",
+      "base": "PUMP",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1000",
+      "underlying": "PUMP-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "RENDER-USDT-SWAP",
+      "asset": "render-token",
+      "base": "RENDER",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "RENDER-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "SHIB-USDT-SWAP",
+      "asset": "shiba-inu",
+      "base": "SHIB",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1000000",
+      "underlying": "SHIB-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "STRK-USDT-SWAP",
+      "asset": "starknet",
+      "base": "STRK",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "STRK-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "TAO-USDT-SWAP",
+      "asset": "bittensor",
+      "base": "TAO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "0.01",
+      "underlying": "TAO-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "TRUMP-USDT-SWAP",
+      "asset": "official-trump",
+      "base": "TRUMP",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "0.1",
+      "underlying": "TRUMP-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "USDC-USDT-SWAP",
+      "asset": "usd-coin",
+      "base": "USDC",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "USDC-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "VVV-USDT-SWAP",
+      "asset": "venice-token",
+      "base": "VVV",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "0.1",
+      "underlying": "VVV-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "WLD-USDT-SWAP",
+      "asset": "worldcoin-wld",
+      "base": "WLD",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "WLD-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "WLFI-USDT-SWAP",
+      "asset": "world-liberty-financial",
+      "base": "WLFI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "WLFI-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "XPL-USDT-SWAP",
+      "asset": "plasma",
+      "base": "XPL",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10",
+      "underlying": "XPL-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "ZEC-USDT-SWAP",
+      "asset": "zcash",
+      "base": "ZEC",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "0.01",
+      "underlying": "ZEC-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "ZRO-USDT-SWAP",
+      "asset": "layerzero",
+      "base": "ZRO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1",
+      "underlying": "ZRO-USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "INIT_USDT",
+      "asset": "initia",
+      "base": "INIT",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "INITUSDT",
+      "asset": "initia",
+      "base": "INIT",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "INITUSDT",
+      "asset": "initia",
+      "base": "INIT",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "INIT_USDT",
+      "asset": "initia",
+      "base": "INIT",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "INITUSDT",
+      "asset": "initia",
+      "base": "INIT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "ARIA_USDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "ARIAUSDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "ARIAUSDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "ARIAUSDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "ARIAUSDTM",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "ARIA_USDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "ARIA-USDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "spot",
+      "id": "ARIAUSDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "AGT_USDT",
+      "asset": "alaya-ai",
+      "base": "AGT",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "AGT_USDT",
+      "asset": "alaya-ai",
+      "base": "AGT",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "AGTUSDTM",
+      "asset": "alaya-ai",
+      "base": "AGT",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "AGTUSDT",
+      "asset": "alaya-ai",
+      "base": "AGT",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "AGTUSDT",
+      "asset": "alaya-ai",
+      "base": "AGT",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "AGT-USDT",
+      "asset": "alaya-ai",
+      "base": "AGT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "JCT_USDT",
+      "asset": "janction",
+      "base": "JCT",
+      "quote": "USDT",
+      "contract_size": "1000.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "JCTUSDT",
+      "asset": "janction",
+      "base": "JCT",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "JCTUSDT",
+      "asset": "janction",
+      "base": "JCT",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "JCTUSDT",
+      "asset": "janction",
+      "base": "JCT",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "JCTUSDTM",
+      "asset": "janction",
+      "base": "JCT",
+      "quote": "USDT",
+      "contract_size": "1000.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "JCT-USDT",
+      "asset": "janction",
+      "base": "JCT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "spot",
+      "id": "JCTUSDT",
+      "asset": "janction",
+      "base": "JCT",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "AEROUSDT",
+      "asset": "aerodrome-finance",
+      "base": "AERO",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "AEROUSDT",
+      "asset": "aerodrome-finance",
+      "base": "AERO",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "spot",
+      "id": "AEROUSDT",
+      "asset": "aerodrome-finance",
+      "base": "AERO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "DASH_USDT",
+      "asset": "dash",
+      "base": "DASH",
+      "quote": "USDT",
+      "contract_size": "0.01",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "DASHUSDT",
+      "asset": "dash",
+      "base": "DASH",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "DASHUSDT",
+      "asset": "dash",
+      "base": "DASH",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "COMPUSDT",
+      "asset": "compound-governance-token",
+      "base": "COMP",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "COMPUSDT",
+      "asset": "compound-governance-token",
+      "base": "COMP",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "COMPUSDT",
+      "asset": "compound-governance-token",
+      "base": "COMP",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "HUMA-USDT-SWAP",
+      "asset": "huma-finance",
+      "base": "HUMA",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1",
+      "underlying": "HUMA-USDT"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "HUMAUSDT",
+      "asset": "huma-finance",
+      "base": "HUMA",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "HUMA-USDT",
+      "asset": "huma-finance",
+      "base": "HUMA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "BLUR-USDT-SWAP",
+      "asset": "blur",
+      "base": "BLUR",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1",
+      "underlying": "BLUR-USDT"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "BLUR_PERP",
+      "asset": "blur",
+      "base": "BLUR",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "BLUR-USDT",
+      "asset": "blur",
+      "base": "BLUR",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "STX-USDT-SWAP",
+      "asset": "blockstack",
+      "base": "STX",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1",
+      "underlying": "STX-USDT"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "STX_PERP",
+      "asset": "blockstack",
+      "base": "STX",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "STX-USDT",
+      "asset": "blockstack",
+      "base": "STX",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "RENDER_USDT",
+      "asset": "render-token",
+      "base": "RENDER",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "RENDERUSDT",
+      "asset": "render-token",
+      "base": "RENDER",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "RENDERUSDT",
+      "asset": "render-token",
+      "base": "RENDER",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "RENDERUSDT",
+      "asset": "render-token",
+      "base": "RENDER",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "VVV_USDT",
+      "asset": "venice-token",
+      "base": "VVV",
+      "quote": "USDT",
+      "contract_size": "0.1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "PONS_USDT",
+      "asset": "pons",
+      "base": "PONS",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "ONE_USDT",
+      "asset": "harmony",
+      "base": "ONE",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "NIGHTUSDT",
+      "asset": "midnight-3",
+      "base": "NIGHT",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "MERLUSDT",
+      "asset": "merlin-chain",
+      "base": "MERL",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "哈基米USDT",
+      "base": "哈基米",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "1.0",
+      "group": "HAJIMI"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "HAJIMIUSDT",
+      "base": "HAJIMI",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "哈基米USDT",
+      "base": "哈基米",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "1",
+      "group": "HAJIMI"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "哈基米_USDT",
+      "base": "哈基米",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "100.0",
+      "group": "HAJIMI"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "HAJIMIUSDTM",
+      "base": "HAJIMI",
+      "quote": "USDT",
+      "asset": "hajimi",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "UP-USDT-SWAP",
+      "asset": "unitas",
+      "base": "UP",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1",
+      "underlying": "UP-USDT"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "UPUSDT",
+      "asset": "unitas",
+      "base": "UP",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "UP_USDT",
+      "asset": "unitas",
+      "base": "UP",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "UP_USDT",
+      "asset": "unitas",
+      "base": "UP",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "BEAMXUSDT",
+      "asset": "beam-2",
+      "base": "BEAMX",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1",
+      "group": "BEAM"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "BEAMUSDT",
+      "asset": "beam-2",
+      "base": "BEAM",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "BEAM_PERP",
+      "asset": "beam-2",
+      "base": "BEAM",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "BEAMUSDT",
+      "asset": "beam-2",
+      "base": "BEAM",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "BULLAUSDT",
+      "asset": "bulla-3",
+      "base": "BULLA",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "BULLAUSDT",
+      "asset": "bulla-3",
+      "base": "BULLA",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "BULLA_USDT",
+      "asset": "bulla-3",
+      "base": "BULLA",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "BULLA_USDT",
+      "asset": "bulla-3",
+      "base": "BULLA",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "RSRUSDT",
+      "asset": "reserve-rights-token",
+      "base": "RSR",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "RSRUSDT",
+      "asset": "reserve-rights-token",
+      "base": "RSR",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "RSR_PERP",
+      "asset": "reserve-rights-token",
+      "base": "RSR",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "RSR-USDT-SWAP",
+      "asset": "reserve-rights-token",
+      "base": "RSR",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1",
+      "underlying": "RSR-USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "RSR_USDT",
+      "asset": "reserve-rights-token",
+      "base": "RSR",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "RSRUSDT",
+      "asset": "reserve-rights-token",
+      "base": "RSR",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "CYBERUSDT",
+      "asset": "cyberconnect",
+      "base": "CYBER",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "CYBERUSDT",
+      "asset": "cyberconnect",
+      "base": "CYBER",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "CYBERUSDT",
+      "asset": "cyberconnect",
+      "base": "CYBER",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "CYBER_USDT",
+      "asset": "cyberconnect",
+      "base": "CYBER",
+      "quote": "USDT",
+      "contract_size": "0.1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "CYBERUSDT",
+      "asset": "cyberconnect",
+      "base": "CYBER",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "QUSDT",
+      "asset": "quack-ai",
+      "base": "Q",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "Q_USDT",
+      "asset": "quack-ai",
+      "base": "Q",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "QUSDT",
+      "asset": "quack-ai",
+      "base": "Q",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "Q_USDT",
+      "asset": "quack-ai",
+      "base": "Q",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "QUSDT",
+      "asset": "quack-ai",
+      "base": "Q",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "GRAMUSDT",
+      "asset": "the-open-network",
+      "base": "GRAM",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "GRAM_USDT",
+      "asset": "the-open-network",
+      "base": "GRAM",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "GRAMUSDT",
+      "asset": "the-open-network",
+      "base": "GRAM",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "CYBER_PERP",
+      "asset": "cyberconnect",
+      "base": "CYBER",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "POD_USDT",
+      "asset": "dolphin-2",
+      "base": "POD",
+      "quote": "USDT",
+      "contract_size": "10.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "PODUSDT",
+      "asset": "dolphin-2",
+      "base": "POD",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "AXL_PERP",
+      "asset": "axelar",
+      "base": "AXL",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "AXLUSDT",
+      "asset": "axelar",
+      "base": "AXL",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "AXLUSDT",
+      "asset": "axelar",
+      "base": "AXL",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "AXLUSDT",
+      "asset": "axelar",
+      "base": "AXL",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "AXL_USDT",
+      "asset": "axelar",
+      "base": "AXL",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "MEW_PERP",
+      "asset": "cat-in-a-dogs-world",
+      "base": "MEW",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "MEWUSDT",
+      "asset": "cat-in-a-dogs-world",
+      "base": "MEW",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "MEWUSDT",
+      "asset": "cat-in-a-dogs-world",
+      "base": "MEW",
+      "quote": "USDT",
+      "contract_size": "1.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "MEWUSDT",
+      "asset": "cat-in-a-dogs-world",
+      "base": "MEW",
+      "quote": "USDT",
+      "contract_size": "1",
+      "price_units": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "MEW_USDT",
+      "asset": "cat-in-a-dogs-world",
+      "base": "MEW",
+      "quote": "USDT",
+      "contract_size": "1000.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "MEWUSDTM",
+      "asset": "cat-in-a-dogs-world",
+      "base": "MEW",
+      "quote": "USDT",
+      "contract_size": "100.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "NEX_USDT",
+      "asset": "nexus-4",
+      "base": "NEX",
+      "quote": "USDT",
+      "contract_size": "100000.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "NEXUSDTM",
+      "asset": "nexus-4",
+      "base": "NEX",
+      "quote": "USDT",
+      "contract_size": "100000.0",
+      "price_units": "1"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "1000CATUSDT",
+      "asset": "simon-s-cat",
+      "base": "1000CAT",
+      "quote": "USDT",
+      "price_units": "1000",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "1000CATUSDT",
+      "asset": "simon-s-cat",
+      "base": "1000CAT",
+      "quote": "USDT",
+      "price_units": "1000",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "1000CATUSDT",
+      "asset": "simon-s-cat",
+      "base": "1000CAT",
+      "quote": "USDT",
+      "price_units": "1000",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "1000CATUSDT",
+      "asset": "simon-s-cat",
+      "base": "1000CAT",
+      "quote": "USDT",
+      "price_units": "1000",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "AXISUSDT",
+      "asset": "axis-robotics",
+      "base": "AXIS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "AXISUSDT",
+      "asset": "axis-robotics",
+      "base": "AXIS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "AXISUSDT",
+      "asset": "axis-robotics",
+      "base": "AXIS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "AXIS_USDT",
+      "asset": "axis-robotics",
+      "base": "AXIS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "AXISUSDTM",
+      "asset": "axis-robotics",
+      "base": "AXIS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "CHIP_PERP",
+      "asset": "chip-2",
+      "base": "CHIP",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "CHIPUSDT",
+      "asset": "chip-2",
+      "base": "CHIP",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "CHIPUSDT",
+      "asset": "chip-2",
+      "base": "CHIP",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "CHIPUSDT",
+      "asset": "chip-2",
+      "base": "CHIP",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "CHIP_USDT",
+      "asset": "chip-2",
+      "base": "CHIP",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "TRIA_PERP",
+      "asset": "tria",
+      "base": "TRIA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "TRIAUSDT",
+      "asset": "tria",
+      "base": "TRIA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "TRIAUSDT",
+      "asset": "tria",
+      "base": "TRIA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "TRIAUSDT",
+      "asset": "tria",
+      "base": "TRIA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "TRIA_USDT",
+      "asset": "tria",
+      "base": "TRIA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "BLURUSDT",
+      "asset": "blur",
+      "base": "BLUR",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "BLURUSDT",
+      "asset": "blur",
+      "base": "BLUR",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "PYBOBO_USDT",
+      "asset": "capybobo",
+      "base": "PYBOBO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10000.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "PYBOBOUSDTM",
+      "asset": "capybobo",
+      "base": "PYBOBO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1000.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "PYBOBOUSDT",
+      "asset": "capybobo",
+      "base": "PYBOBO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "PYBOBO_USDT",
+      "asset": "capybobo",
+      "base": "PYBOBO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "PYBOBOUSDT",
+      "asset": "capybobo",
+      "base": "PYBOBO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "PYBOBO-USDT",
+      "asset": "capybobo",
+      "base": "PYBOBO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "ESPORTSUSDT",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "ESPORTS_USDT",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "ESPORTS_USDT",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "ESPORTSUSDTM",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "ESPORTSUSDT",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "ESPORTSUSDT",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "ESPORTS_USDT",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "ESPORTSUSDT",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "ESPORTS-USDT",
+      "asset": "yooldo-games",
+      "base": "ESPORTS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "POWER_USDT",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "POWER_USDT",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "POWERUSDTM",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "POWERUSDT",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "POWERUSDT",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "POWERUSDT",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "spot",
+      "id": "POWERUSDT",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "POWER_USDT",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "POWERUSDT",
+      "asset": "power-protocol",
+      "base": "POWER",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "GUAUSDT",
+      "asset": "superfortune",
+      "base": "GUA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "GUA_USDT",
+      "asset": "superfortune",
+      "base": "GUA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "GUA_USDT",
+      "asset": "superfortune",
+      "base": "GUA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "GUAUSDTM",
+      "asset": "superfortune",
+      "base": "GUA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "GUAUSDT",
+      "asset": "superfortune",
+      "base": "GUA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "GUA_USDT",
+      "asset": "superfortune",
+      "base": "GUA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "GUAUSDT",
+      "asset": "superfortune",
+      "base": "GUA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "NOM_USDT",
+      "asset": "nomina",
+      "base": "NOM",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "NOM_USDT",
+      "asset": "nomina",
+      "base": "NOM",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "NOMUSDTM",
+      "asset": "nomina",
+      "base": "NOM",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "NOMUSDT",
+      "asset": "nomina",
+      "base": "NOM",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "NOMUSDT",
+      "asset": "nomina",
+      "base": "NOM",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "NOM_PERP",
+      "asset": "nomina",
+      "base": "NOM",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "NOMUSDT",
+      "asset": "nomina",
+      "base": "NOM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "NOMUSDT",
+      "asset": "nomina",
+      "base": "NOM",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "DOSUSDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "DOSUSDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "DOS-USDT-SWAP",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "DOSUSDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "DOS_USDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "DOSUSDTM",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "DOSUSDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "DOS-USDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "spot",
+      "id": "DOSUSDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "DOS_USDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "DOSUSDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "DOS-USDT",
+      "asset": "dappos",
+      "base": "DOS",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "ZEREBROUSDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "ZEREBROUSDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "ZEREBRO_USDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "ZEREBRO_USDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "ZEREBROUSDTM",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "ZEREBROUSDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "spot",
+      "id": "ZEREBROUSDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "ZEREBRO_USDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "ZEREBROUSDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "ZEREBRO-USDT",
+      "asset": "zerebro",
+      "base": "ZEREBRO",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "IDOLUSDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "IDOLUSDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "IDOL_USDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "IDOL_USDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "IDOLUSDTM",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "IDOLUSDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "spot",
+      "id": "IDOLUSDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "IDOL_USDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "IDOLUSDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "IDOL-USDT",
+      "asset": "meet48",
+      "base": "IDOL",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "COAIUSDT",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "COAIUSDT",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "COAI-USDT-SWAP",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "0.1"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "swap",
+      "id": "COAIUSDT",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "COAI_USDT",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "COAI_USDT",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "COAIUSDTM",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "whitebit",
+      "kind": "swap",
+      "id": "COAI_PERP",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "bitget",
+      "kind": "spot",
+      "id": "COAIUSDT",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "COAI_USDT",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "COAIUSDT",
+      "asset": "chainopera-ai",
+      "base": "COAI",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "aster",
+      "kind": "swap",
+      "id": "ARIAUSDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "ARIAUSDT",
+      "asset": "aria-ai",
+      "base": "ARIA",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "swap",
+      "id": "AI-USDT-SWAP",
+      "asset": "gensyn",
+      "base": "AI",
+      "quote": "USDT",
+      "group": "AIGENSYN",
+      "price_units": "1",
+      "contract_size": "100.0",
+      "underlying": "AI-USDT"
+    },
+    {
+      "exchange": "okx",
+      "kind": "spot",
+      "id": "AI-USDT",
+      "asset": "gensyn",
+      "base": "AI",
+      "quote": "USDT",
+      "group": "AIGENSYN"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "AIGENSYNUSDT",
+      "asset": "gensyn",
+      "base": "AIGENSYN",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "spot",
+      "id": "AIGENSYNUSDT",
+      "asset": "gensyn",
+      "base": "AIGENSYN",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "AIGENSYNUSDTM",
+      "asset": "gensyn",
+      "base": "AIGENSYN",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "AI-USDT",
+      "asset": "gensyn",
+      "base": "AI",
+      "quote": "USDT",
+      "group": "AIGENSYN"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "swap",
+      "id": "AIGENSYN_USDT",
+      "asset": "gensyn",
+      "base": "AIGENSYN",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "mexc",
+      "kind": "spot",
+      "id": "AIUSDT",
+      "asset": "gensyn",
+      "base": "AI",
+      "quote": "USDT",
+      "group": "AIGENSYN"
+    },
+    {
+      "exchange": "bybit",
+      "kind": "swap",
+      "id": "AIGENSYNUSDT",
+      "asset": "gensyn",
+      "base": "AIGENSYN",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "gate",
+      "kind": "swap",
+      "id": "AIGENSYN_USDT",
+      "asset": "gensyn",
+      "base": "AIGENSYN",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "gate",
+      "kind": "spot",
+      "id": "AIGENSYN_USDT",
+      "asset": "gensyn",
+      "base": "AIGENSYN",
+      "quote": "USDT"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "JELLYJELLYUSDT",
+      "asset": "jelly-my-jelly",
+      "base": "JELLYJELLY",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "JELLYJELLYUSDTM",
+      "asset": "jelly-my-jelly",
+      "base": "JELLYJELLY",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "100.0"
+    },
+    {
+      "exchange": "binanceusdm",
+      "kind": "swap",
+      "id": "ZESTUSDT",
+      "asset": "zest-protocol",
+      "base": "ZEST",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "1.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "swap",
+      "id": "ZESTUSDTM",
+      "asset": "zest-protocol",
+      "base": "ZEST",
+      "quote": "USDT",
+      "price_units": "1",
+      "contract_size": "10.0"
+    },
+    {
+      "exchange": "kucoinfutures",
+      "kind": "spot",
+      "id": "ZEST-USDT",
+      "asset": "zest-protocol",
+      "base": "ZEST",
+      "quote": "USDT"
+    }
+  ]
+}

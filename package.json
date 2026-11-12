@@ -1,0 +1,13 @@
+{
+  "name": "arbitrage-monitor-checks",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/live.test.cjs tests/performance.test.cjs tests/preferences.test.cjs",
+    "test:e2e": "playwright test",
+    "lint": "eslint frontend"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "eslint": "10.14.0"
+  }
+}

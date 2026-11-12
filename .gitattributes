@@ -1,0 +1,9 @@
+* text=auto
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.json text
+*.jsonl text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary

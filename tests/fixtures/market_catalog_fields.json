@@ -1,0 +1,25 @@
+{
+  "classificationSource": "docs/evidence/classification-catalog-2026-11-11.json",
+  "classification": [
+    ["aster", "BTC", {"symbolType": 0, "contractType": "PERPETUAL", "underlyingType": "COIN"}, true],
+    ["aster", "XAU", {"symbolType": 1, "contractType": "PERPETUAL", "underlyingType": "COIN"}, false],
+    ["binanceusdm", "BTC", {"contractType": "PERPETUAL", "underlyingType": "COIN"}, true],
+    ["binanceusdm", "XAU", {"contractType": "TRADIFI_PERPETUAL", "underlyingType": "COMMODITY"}, false],
+    ["bitget", "BTC", {"symbolType": "perpetual", "isRwa": "NO"}, true],
+    ["bitget", "XAU", {"symbolType": "perpetual", "isRwa": "YES"}, false],
+    ["bybit", "BTC", {"symbolType": "", "contractType": "LinearPerpetual"}, true],
+    ["bybit", "DELL", {"symbolType": "stock", "contractType": "LinearPerpetual"}, false],
+    ["gate", "BTC", {"type": "direct", "contract_type": ""}, true],
+    ["gate", "DELL", {"type": "direct", "contract_type": "stocks"}, false],
+    ["kucoinfutures", "BTC", {"type": "FFWCSX", "assetClass": "CRYPTO"}, true],
+    ["kucoinfutures", "DELL", {"type": "FFWCSX", "assetClass": "STOCK"}, false],
+    ["okx", "BTC", {"instCategory": "1"}, true],
+    ["okx", "DELL", {"instCategory": "3"}, false],
+    ["whitebit", "BTC", {"type": "futures"}, true]
+  ],
+  "fundingCatalogSource": "docs/evidence/ai-identity-catalog-2026-11-11.json",
+  "fundingCatalog": {
+    "gate": {"funding_interval": 14400, "funding_rate": "0.00005", "funding_next_apply": 1794412800, "funding_rate_limit": "0.02"},
+    "bybit": {"fundingInterval": 240, "upperFundingRate": "0.025", "lowerFundingRate": "-0.025"}
+  }
+}

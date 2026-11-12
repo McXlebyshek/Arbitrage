@@ -17,6 +17,5 @@ pycparser==3.0
 requests==2.34.2
 typing_extensions==4.16.0
 urllib3==2.8.0
-winloop==0.6.3
 yarl==1.25.1
 zlib-ng==1.0.0

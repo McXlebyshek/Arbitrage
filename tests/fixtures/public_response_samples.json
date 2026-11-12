@@ -1,0 +1,125 @@
+{
+  "edgexMetadata": {
+    "coinList": [
+      {
+        "coinId": "1",
+        "coinName": "BTC"
+      },
+      {
+        "coinId": "2",
+        "coinName": "USDC"
+      },
+      {
+        "coinId": "3",
+        "coinName": "TSLA"
+      }
+    ],
+    "contractList": [
+      {
+        "contractId": "9001",
+        "contractName": "BTCUSDC",
+        "baseCoinId": "1",
+        "quoteCoinId": "2",
+        "enableTrade": true
+      },
+      {
+        "contractId": "9002",
+        "contractName": "TSLAUSDC",
+        "baseCoinId": "3",
+        "quoteCoinId": "2",
+        "enableTrade": true,
+        "isStock": true
+      },
+      {
+        "contractId": "9003",
+        "contractName": "BTCUSDT",
+        "baseCoinId": "1",
+        "quoteCoinId": "2",
+        "enableTrade": false
+      }
+    ]
+  },
+  "extended": {
+    "assets": [
+      {
+        "starkexId": "0x123",
+        "isCollateral": true,
+        "l1Id": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    ],
+    "markets": [
+      {
+        "name": "BTC-USD",
+        "assetName": "BTC",
+        "type": "PERPETUAL",
+        "active": true,
+        "category": "Crypto",
+        "isRfq": false,
+        "isOffHours": false,
+        "l2Config": {
+          "collateralId": "0x123"
+        },
+        "marketStats": {
+          "bidPrice": "100.0",
+          "askPrice": "101.0",
+          "lastPrice": "100.5",
+          "dailyVolume": "12345",
+          "indexPrice": "100.4",
+          "fundingRate": "0.0001",
+          "nextFundingRate": 3600000,
+          "openInterest": "5000"
+        }
+      },
+      {
+        "name": "TSLA-USD",
+        "assetName": "TSLA",
+        "type": "PERPETUAL",
+        "active": true,
+        "category": "TradFi",
+        "isRfq": false,
+        "isOffHours": false,
+        "l2Config": {
+          "collateralId": "0x123"
+        },
+        "marketStats": {}
+      }
+    ]
+  },
+  "fundingEvents": [
+    {
+      "timestamp": 0,
+      "rate": "0.0001"
+    },
+    {
+      "timestamp": 3600000,
+      "rate": "0.0001"
+    },
+    {
+      "timestamp": 7200000,
+      "rate": "0.0002"
+    },
+    {
+      "timestamp": 10800000,
+      "rate": "0.0003"
+    }
+  ],
+  "whitebitBookTicker": [
+    1800,
+    1800,
+    "BTC_USDT",
+    3,
+    "100",
+    "2",
+    "101",
+    "2"
+  ],
+  "assetMetrics": [
+    {
+      "id": "bitcoin",
+      "market_cap": 100000000,
+      "fully_diluted_valuation": 120000000,
+      "last_updated": "1970-01-01T00:30:00+00:00"
+    }
+  ],
+  "provenance": "sanitized public response examples for parser tests; not live market data"
+}
