@@ -1,6 +1,8 @@
 """Build a market snapshot from the current catalogs and quotes."""
 
 from collections import defaultdict
+from copy import copy
+from types import SimpleNamespace
 
 from .current_funding import funding_fields
 from .market import compatible_assets, fresh, numeric
@@ -11,12 +13,42 @@ from .sources import CYCLE_FUNDING_VENUES, OPEN_INTEREST_MAX_AGE_MS, VENUES
 class SnapshotBuilder:
     def __init__(self, sources, clocks, registry, detail_for):
         self.sources = sources
+        self.instrument_sources = sources
         self.clocks = clocks
         self.registry = registry
         self.detail_for = detail_for
         self.catalog_descriptors = {}
         self.snapshot_plans = {}
         self.network_descriptors = {}
+
+    def capture(self, details):
+        """Detach mutable collector state before sending a full build to a worker."""
+        worker = copy(self)
+        worker.sources = {
+            key: SimpleNamespace(
+                catalogs=source.catalogs.copy(), catalog_at=source.catalog_at,
+                batches=source.batches.copy(), volume=source.volume.copy(),
+                funding=source.funding, schedule=source.schedule, currencies=source.currencies,
+                open_interest=source.open_interest,
+            )
+            for key, source in self.sources.items()
+        }
+        worker.clocks = {venue: copy(clock) for venue, clock in self.clocks.items()}
+        worker.catalog_descriptors = self.catalog_descriptors.copy()
+        worker.snapshot_plans = self.snapshot_plans.copy()
+        worker.network_descriptors = self.network_descriptors.copy()
+
+        def captured_detail(key, now):
+            item = details.get(key)
+            return item if item is not None and item['refreshAfter'] > now else None
+
+        worker.detail_for = captured_detail
+        return worker
+
+    def adopt_caches(self, worker):
+        self.catalog_descriptors = worker.catalog_descriptors
+        self.snapshot_plans = worker.snapshot_plans
+        self.network_descriptors = worker.network_descriptors
 
     def market_descriptors(self, venue, kind, source):
         catalog = source.catalogs.get(venue)
@@ -63,7 +95,7 @@ class SnapshotBuilder:
         inputs = []
         for venue, kind in keys:
             source = self.sources[venue, kind]
-            inputs.append((source, self.market_descriptors(venue, kind, source)))
+            inputs.append((self.instrument_sources[venue, kind], self.market_descriptors(venue, kind, source)))
         cached = self.snapshot_plans.get(keys)
         if cached is not None and all(
             source is previous_source and entries is previous_entries

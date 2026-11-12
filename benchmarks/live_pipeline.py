@@ -40,13 +40,13 @@ async def probe(venues, seconds, futures_ws):
                                           readySources=sum(v.get('state') == 'ok' for v in current['venues'].values()),
                                           totalSources=len(current['venues']),
                                           oiLegs=sum(leg['oi'] is not None for group in current['markets'].values() for leg in group),
-                                          streamPairs=len(monitor.futures_pairs)))
+                                          streamPairs=len(monitor.futures_pairs), pairedDepth=current.get('pyboboDepth')))
                 next_sample = now + .02
                 await asyncio.sleep(.02)
         finally:
+            final = monitor.health(now_ms())
             collector.cancel()
             await asyncio.gather(collector, return_exceptions=True)
-            final = monitor.health(now_ms())
             await monitor.close()
         drift.sort()
         return dict(snapshots=snapshots, driftSamples=len(drift),

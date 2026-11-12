@@ -1,5 +1,7 @@
 from pathlib import Path
+from types import SimpleNamespace
 import unittest
+from unittest.mock import AsyncMock, patch
 
 from monitor import Monitor
 
@@ -43,3 +45,44 @@ class UnifiedBookTests(unittest.TestCase):
         self.assertEqual(pairs[0]['expiresAt'], NOW + 3000)
         legs[1]['quote'] = 'USDC'
         self.assertEqual(monitor.wide_futures_pairs(markets, NOW), [])
+
+class SnapshotWorkerTests(unittest.IsolatedAsyncioTestCase):
+    async def test_capture_keeps_input_versions_and_returns_original_instruments(self):
+        monitor = Monitor(('okx', 'bybit'), Path('unused.sqlite3'))
+        for venue in ('okx', 'bybit'):
+            source = monitor.sources[venue, 'swap']
+            market = dict(id=venue + '-TEST', symbol='TEST/USDT:USDT', base='TEST', quote='USDT',
+                          settle='USDT', active=True, swap=True, linear=True, contractSize=1)
+            symbol = market['symbol']
+            source.catalogs[venue] = {symbol: market}
+            source.batches[venue] = dict(received_at_ms=NOW, tickers={
+                symbol: dict(symbol=symbol, bid=100, ask=101),
+            })
+        worker = monitor.snapshot_builder.capture({})
+        source = monitor.sources['okx', 'swap']
+        source.catalogs.clear()
+        captured, routes = worker.build(NOW)
+        self.assertEqual(len(captured['TEST']), 2)
+        self.assertIs(routes['okx.swap.TEST.USDT'][0], source)
+        self.assertEqual(await monitor.prepare_markets(NOW), {})
+
+    async def test_configured_pair_prefers_fresh_websocket_before_direct_rest(self):
+        monitor = Monitor(('mexc', 'kucoinfutures'), Path('unused.sqlite3'), futures_ws=True)
+        rule = monitor.registry.depth_recheck
+        legs = []
+        for i, (venue, exchange) in enumerate([('kucoinfutures', 'KuCoin'), ('mexc', 'MEXC')]):
+            key = f'{venue}.swap.{rule["group"]}.USDT'
+            native = f'native-{i}'
+            fetch = AsyncMock()
+            monitor.instruments[key] = SimpleNamespace(venue=venue, public_book=fetch), {'id': native}
+            legs.append(dict(id=key, exchange=exchange, asset=rule['asset'], bid=100, ask=101,
+                             volume=0, sourceAt=NOW - 4000*i))
+            monitor.futures_feeds[venue].quotes[native] = dict(sourceAt=NOW, receivedAt=NOW, bid=100, ask=101)
+
+        markets = {rule['group']: legs}
+        self.assertIn(rule['group'], monitor.select_futures_contracts(markets))
+        with patch('monitor.now_ms', return_value=NOW):
+            status = await monitor.recheck_pybobo(markets)
+        self.assertEqual(status['state'], 'ws_aligned')
+        for source, _ in monitor.instruments.values():
+            source.public_book.assert_not_awaited()

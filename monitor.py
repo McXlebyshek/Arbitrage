@@ -23,7 +23,7 @@ from market_monitor.futures_ws import FuturesBookFeed, PILOT_VENUES, QUOTE_AGE
 from market_monitor.history import History
 from market_monitor.history_selection import WATCH_TTL_MS, history_legs
 from market_monitor.http_api import create_app
-from market_monitor.market import MAX_AGE, Registry, compatible_assets, fresh, now_ms, numeric
+from market_monitor.market import MAX_AGE, Registry, compatible_assets, fresh, now_ms
 from market_monitor.rest_budget import RestBudget
 from market_monitor.snapshot import SnapshotBuilder
 from market_monitor.unified_ws import UnifiedBookFeed, WIDE_VENUES
@@ -157,6 +157,7 @@ class Monitor:
 
     def select_futures_contracts(self, markets):
         ranked = []
+        configured_pair = frozenset((self.registry.depth_recheck or {}).get('markets', ()))
         for coin, group in markets.items():
             by_id = {leg['id']: leg for leg in group}
             ids = [f'{venue}.swap.{coin}.USDT' for venue in PILOT_VENUES]
@@ -166,7 +167,9 @@ class Monitor:
             if not compatible_assets(a, b):
                 continue
             symbols = tuple(self.instruments[key][1]['id'] for key in ids)
-            fixed = self.registry.ws_priority.get(coin) == symbols
+            fixed = self.registry.ws_priority.get(coin) == symbols or (
+                frozenset(ids) == configured_pair and all(leg['asset'] for leg in (a, b))
+            )
             volume = min(a['volume'] or 0, b['volume'] or 0)
             if fixed or volume >= 1:
                 verified = bool(a['asset'] and a['asset'] == b['asset'])
@@ -296,6 +299,13 @@ class Monitor:
             self.instruments = routes.copy()
         return markets
 
+    async def prepare_markets(self, now):
+        worker = self.snapshot_builder.capture(self.details.copy())
+        markets, routes = await asyncio.to_thread(worker.build, now)
+        self.snapshot_builder.adopt_caches(worker)
+        self.instruments = routes.copy()
+        return markets
+
     async def binance_depth_quote(self, key):
         source, market = self.instruments[key]
         try:
@@ -396,6 +406,18 @@ class Monitor:
         bulk_skew = abs(legs[0]['sourceAt'] - legs[1]['sourceAt'])
         if bulk_skew <= 1500:
             return dict(state='bulk_aligned', bulkSkewMs=bulk_skew)
+
+        if self.futures_feeds:
+            now = now_ms()
+            streamed = []
+            for key in keys:
+                source, market = self.instruments[key]
+                feed = self.futures_feeds.get(source.venue)
+                streamed.append(feed.quote(market['id'], now) if feed is not None else None)
+            if all(streamed):
+                skew = abs(streamed[0]['sourceAt'] - streamed[1]['sourceAt'])
+                if skew <= 1500:
+                    return dict(state='ws_aligned', bulkSkewMs=bulk_skew, streamSkewMs=skew)
 
         async def read(key):
             source, market = self.instruments[key]
@@ -501,7 +523,7 @@ class Monitor:
                     statuses[f'{VENUES[venue]} · {kind}'] = status
                 now = now_ms()
                 started_snapshot = monotonic()
-                markets = self.snapshot_markets(now)
+                markets = await self.prepare_markets(now)
                 self.snapshot_markets_ms = round((monotonic() - started_snapshot) * 1000, 1)
                 pybobo_depth = await self.recheck_pybobo(markets)
                 now = now_ms()
