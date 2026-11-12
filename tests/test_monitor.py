@@ -7,7 +7,9 @@ import unittest
 from unittest.mock import AsyncMock, patch
 
 from monitor import (History, Monitor, complete_history, detail_refresh_after,
-                     compatible_assets, funding_fields, normalized_book)
+                     compatible_assets, funding_fields)
+from market_monitor.books import normalized_book
+from market_monitor.early_quotes import EarlyQuotes
 from market_monitor.economics import EconomicBlock, estimate_pair
 from market_monitor.funding_history import fetch_history
 from market_monitor.market_admission import valid_market
@@ -276,7 +278,7 @@ class MonitorTests(unittest.TestCase):
         markets = dict(STAR=star, EDEN=eden, BTC=aligned)
         quote = dict(sourceAt=NOW - 100, receivedAt=NOW, bid=102, ask=103, quoteSource='depth')
         updates = {star[0]['id']: quote, eden[0]['id']: dict(quote, sourceAt=NOW - 2000), aligned[0]['id']: quote}
-        self.assertEqual(Monitor.apply_binance_depth(markets, updates, NOW), 1)
+        self.assertEqual(EarlyQuotes.apply_binance_depth(markets, updates, NOW), 1)
         self.assertEqual((star[0]['bid'], star[0]['ask'], star[0]['sourceAt']), (102, 103, NOW - 100))
         self.assertEqual(eden[0]['bid'], 100)
         self.assertEqual(aligned[0]['bid'], 100)
@@ -356,8 +358,8 @@ class BinanceDepthTests(unittest.IsolatedAsyncioTestCase):
         for coin, (leg, _) in monitor.snapshot['markets'].items():
             monitor.instruments[leg['id']] = (source, dict(symbol=f'{coin}/USDT:USDT', contractSize=1))
         with patch('monitor.now_ms', return_value=NOW):
-            first = await monitor.binance_depth_quotes()
-            second = await monitor.binance_depth_quotes()
+            first = await monitor.early_quotes.binance_depth_quotes()
+            second = await monitor.early_quotes.binance_depth_quotes()
         self.assertEqual(len(first), 4)
         self.assertEqual(fetch.await_count, 8)
         self.assertEqual(fetch.await_args_list[4].args, ('EDEN/USDT:USDT',))
@@ -379,7 +381,7 @@ class EarlyBinanceTests(unittest.IsolatedAsyncioTestCase):
         monitor.snapshot['generatedAt'] = NOW - 15_000
         monitor.snapshot_markets = lambda *_args, **_kw: {'JELLYJELLY': legs}
         key = legs[0]['id']
-        monitor.binance_depth_quote = AsyncMock(return_value=dict(
+        monitor.early_quotes.binance_depth_quote = AsyncMock(return_value=dict(
             bid=102, ask=103, sourceAt=NOW, receivedAt=NOW, quoteSource='depth'))
 
         async def rotate(*, reserved):
@@ -387,11 +389,11 @@ class EarlyBinanceTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(monitor.early_pair['legs'][0]['bid'], 102)
             return {}
 
-        monitor.binance_depth_quotes = AsyncMock(side_effect=rotate)
+        monitor.early_quotes.binance_depth_quotes = AsyncMock(side_effect=rotate)
         event = asyncio.Event()
         event.set()
         with patch('monitor.now_ms', return_value=NOW):
-            quotes = await monitor.binance_cycle_depth({'test': event})
+            quotes = await monitor.early_quotes.binance_cycle_depth({'test': event})
         self.assertEqual(set(quotes), {key})
         self.assertEqual(monitor.early_pair['baseAt'], NOW - 15_000)
         self.assertEqual(monitor.early_pair['expiresAt'], NOW + 2800)
@@ -402,10 +404,10 @@ class EarlyBinanceTests(unittest.IsolatedAsyncioTestCase):
         monitor.snapshot['markets'] = {coin: lagged_binance_market(coin) for coin in ('AAA', 'BBB', 'CCC', 'DDD', 'EEE')}
         for legs in monitor.snapshot['markets'].values():
             monitor.instruments[legs[0]['id']] = None
-        monitor.binance_depth_quote = AsyncMock(return_value=None)
-        await monitor.binance_depth_quotes(reserved='binanceusdm.swap.AAA.USDT')
-        self.assertEqual(monitor.binance_depth_quote.await_count, 3)
-        self.assertNotIn('binanceusdm.swap.AAA.USDT', [call.args[0] for call in monitor.binance_depth_quote.await_args_list])
+        monitor.early_quotes.binance_depth_quote = AsyncMock(return_value=None)
+        await monitor.early_quotes.binance_depth_quotes(reserved='binanceusdm.swap.AAA.USDT')
+        self.assertEqual(monitor.early_quotes.binance_depth_quote.await_count, 3)
+        self.assertNotIn('binanceusdm.swap.AAA.USDT', [call.args[0] for call in monitor.early_quotes.binance_depth_quote.await_args_list])
 
 
 class PyboboDepthTests(unittest.IsolatedAsyncioTestCase):
@@ -428,17 +430,17 @@ class PyboboDepthTests(unittest.IsolatedAsyncioTestCase):
 
         with patch('monitor.now_ms', return_value=NOW):
             stamps['mexc'] = NOW - 3001
-            self.assertEqual((await monitor.recheck_pybobo({'PYBOBO': legs}))['state'], 'unavailable')
+            self.assertEqual((await monitor.early_quotes.recheck_configured_pair({'PYBOBO': legs}))['state'], 'unavailable')
             self.assertEqual(legs, original)
             stamps['mexc'] = NOW - 2100
-            self.assertEqual((await monitor.recheck_pybobo({'PYBOBO': legs}))['state'], 'depth_skew')
+            self.assertEqual((await monitor.early_quotes.recheck_configured_pair({'PYBOBO': legs}))['state'], 'depth_skew')
             self.assertEqual(legs, original)
             stamps['mexc'] = NOW - 100
-            self.assertEqual(await monitor.recheck_pybobo({'PYBOBO': legs}),
+            self.assertEqual(await monitor.early_quotes.recheck_configured_pair({'PYBOBO': legs}),
                              dict(state='applied', bulkSkewMs=4000, depthSkewMs=400))
             self.assertEqual([(leg['bid'], leg['ask'], leg['quoteSource']) for leg in legs],
                              [(0.51, 0.52, 'depth')] * 2)
-            self.assertEqual((await monitor.recheck_pybobo({'PYBOBO': legs}))['state'], 'bulk_aligned')
+            self.assertEqual((await monitor.early_quotes.recheck_configured_pair({'PYBOBO': legs}))['state'], 'bulk_aligned')
         self.assertEqual([fetch.await_count for fetch in reads.values()], [3, 3])
 
 

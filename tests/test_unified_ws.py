@@ -82,7 +82,7 @@ class SnapshotWorkerTests(unittest.IsolatedAsyncioTestCase):
         markets = {rule['group']: legs}
         self.assertIn(rule['group'], monitor.select_futures_contracts(markets))
         with patch('monitor.now_ms', return_value=NOW):
-            status = await monitor.recheck_pybobo(markets)
+            status = await monitor.early_quotes.recheck_configured_pair(markets)
         self.assertEqual(status['state'], 'ws_aligned')
         for source, _ in monitor.instruments.values():
             source.public_book.assert_not_awaited()
