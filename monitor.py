@@ -21,6 +21,7 @@ from market_monitor.exchange_clock import ExchangeClock
 from market_monitor.funding_history import DAY, cadence_stats, fetch_history, window_stats
 from market_monitor.futures_ws import FuturesBookFeed, PILOT_VENUES, QUOTE_AGE
 from market_monitor.history import History
+from market_monitor.history_selection import WATCH_TTL_MS, history_legs
 from market_monitor.http_api import create_app
 from market_monitor.market import MAX_AGE, Registry, compatible_assets, fresh, now_ms, numeric
 from market_monitor.rest_budget import RestBudget
@@ -88,6 +89,8 @@ def binance_depth_candidates(markets):
 class Monitor:
     def __init__(self, venues, path, *, futures_ws=False):
         self.history = History(path)
+        self.watched_history_keys = {}
+        self.watched_history_groups = {}
         self.registry = Registry.load()
         self.asset_metrics = AssetMetrics(self.registry.coingecko_ids)
         self.sources = {}
@@ -336,6 +339,18 @@ class Monitor:
                 LOG.exception('Asset valuation worker failed')
                 await asyncio.sleep(30)
 
+    def watch_history(self, keys, groups, now):
+        self.watched_history_keys = {key: deadline for key, deadline in self.watched_history_keys.items()
+                                     if deadline > now and key in self.instruments}
+        self.watched_history_groups = {group: deadline for group, deadline in self.watched_history_groups.items()
+                                       if deadline > now and group in self.snapshot['markets']}
+        self.watched_history_keys.update((key, now + WATCH_TTL_MS) for key in keys if key in self.instruments)
+        self.watched_history_groups.update((group, now + WATCH_TTL_MS) for group in groups
+                                           if group in self.snapshot['markets'])
+
+    def record_history(self, markets, now, keys, groups):
+        self.history.record(history_legs(markets, now, keys, groups), now)
+
     def health(self, now):
         venues = {}
         for (venue, kind), source in self.sources.items():
@@ -418,7 +433,9 @@ class Monitor:
                 self.details = {key: item for key, item in self.details.items() if item['refreshAfter'] > now}
                 if now // 60_000 != last_slot and markets:
                     try:
-                        await self.history.run(self.history.record, [leg for legs in markets.values() for leg in legs], now)
+                        self.watch_history((), (), now)
+                        await self.history.run(self.record_history, markets, now,
+                                               set(self.watched_history_keys), set(self.watched_history_groups))
                         last_slot = now // 60_000
                     except (sqlite3.Error, OSError):
                         LOG.exception('Unable to store market history')

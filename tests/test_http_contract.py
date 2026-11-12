@@ -36,6 +36,12 @@ class HttpContractTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual((await client.get('/api/markets', headers={'If-None-Match': etag})).status, 304)
             self.assertEqual((await client.get('/api/health?coverage=1')).status, 200)
             self.assertEqual((await client.get('/api/market/absent/book')).status, 404)
+            watched = await client.post('/api/history/watch', json={'markets': ['a', 'absent'], 'coins': []})
+            self.assertEqual(watched.status, 204)
+            self.assertEqual(monitor.watched_history_keys, {'a': NOW + 120_000})
+            self.assertEqual((await client.post('/api/history/watch', json={'markets': {}, 'coins': []})).status, 400)
+            monitor.watch_history((), (), NOW + 120_000)
+            self.assertEqual(monitor.watched_history_keys, {})
 
             detail = await client.get('/api/market/a/detail')
             self.assertEqual(detail.status, 200)

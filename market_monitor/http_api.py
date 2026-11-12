@@ -213,6 +213,19 @@ def create_app(monitor, *, collect=True, open_url=None, clock=now_ms):
         except (ValueError, TypeError, ArithmeticError) as exc:
             raise web.HTTPUnprocessableEntity(text='Проверьте бюджет и ставки комиссий') from exc
 
+    async def history_watch(request):
+        try:
+            payload = await request.json()
+            keys, coins = payload['markets'], payload['coins']
+            if not isinstance(keys, list) or not isinstance(coins, list) or len(keys) > 2 or len(coins) > 10_000:
+                raise ValueError
+            if any(not isinstance(value, str) or len(value) > 100 for value in (*keys, *coins)):
+                raise ValueError
+        except (ValueError, TypeError, KeyError) as exc:
+            raise web.HTTPBadRequest(text='Неверный список наблюдаемых рынков') from exc
+        monitor.watch_history(keys, coins, clock())
+        return web.Response(status=204, headers={'Cache-Control': 'no-store'})
+
     async def index(_request):
         return web.FileResponse(FRONTEND / 'index.html')
 
@@ -220,6 +233,7 @@ def create_app(monitor, *, collect=True, open_url=None, clock=now_ms):
     app.on_shutdown.append(stop_streams)
     app.router.add_get('/api/markets', snapshot)
     app.router.add_get('/api/health', health)
+    app.router.add_post('/api/history/watch', history_watch)
     app.router.add_get('/api/markets/early', early_quotes)
     app.router.add_get('/api/market/{key}/detail', details)
     app.router.add_get('/api/market/{key}/book', book)

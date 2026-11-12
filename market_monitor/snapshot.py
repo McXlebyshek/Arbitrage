@@ -5,7 +5,7 @@ from collections import defaultdict
 from .current_funding import funding_fields
 from .market import compatible_assets, fresh, numeric
 from .market_admission import valid_market
-from .sources import CYCLE_FUNDING_VENUES, VENUES
+from .sources import CYCLE_FUNDING_VENUES, OPEN_INTEREST_MAX_AGE_MS, VENUES
 
 
 class SnapshotBuilder:
@@ -158,6 +158,13 @@ class SnapshotBuilder:
                     for field, value in details_funding.items():
                         if fields[field] is None and value is not None and (field != 'next' or value > now):
                             fields[field] = value
+                oi = numeric(ticker.get('openInterestValue'))
+                if oi is None:
+                    oi = numeric(ticker_info.get('openInterestValue'))
+                if oi is None and venue == 'okx' and kind == 'swap' and current:
+                    observation = source.open_interest.get(market['id'])
+                    if observation and fresh(observation[0], now, OPEN_INTEREST_MAX_AGE_MS):
+                        oi = observation[1]
                 leg = dict(
                     id=key, exchange=identity['exchange'], type=kind, quote=identity['quote'], symbol=symbol,
                     bid=bid, ask=ask, last=numeric(ticker.get('last') or turnover_ticker.get('last')),
@@ -165,7 +172,7 @@ class SnapshotBuilder:
                     sourceAt=stamp, receivedAt=received if current else None,
                     index=numeric(raw.get('indexPrice') or raw_info.get('indexPrice')
                                   or raw_info.get('index_price') or ticker_info.get('indexPrice')),
-                    oi=numeric(ticker.get('openInterestValue') or ticker_info.get('openInterestValue')),
+                    oi=oi,
                     volume=volume / 1_000_000 if volume is not None and volume >= 0 else None,
                     **fields,
                 )

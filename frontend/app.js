@@ -838,6 +838,7 @@ const actions = {
     if (favorites.has(coin)) favorites.delete(coin);
     else favorites.add(coin);
     savePreference('favorites', [...favorites]);
+    if (!isDemo) watchHistory();
     toast(favorites.has(coin) ? 'Монета добавлена в избранное' : 'Монета удалена из избранного');
   },
   regular: () => setLayout('regular'),
@@ -990,6 +991,7 @@ dialog.addEventListener('submit', event => {
     case 'favorites':
       favorites = new Set(data.getAll('coin'));
       savePreference('favorites', [...favorites]);
+      if (!isDemo) watchHistory();
       renderTable();
       break;
     case 'builder': {
@@ -1055,6 +1057,7 @@ if (!isDemo) {
   startEarlyQuotes();
   setInterval(refreshMarkets, 15000);
   setInterval(expireLiveData, 1000);
+  setInterval(watchHistory, 30000);
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) {
       expireLiveData();

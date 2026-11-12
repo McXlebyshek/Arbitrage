@@ -36,6 +36,8 @@ CYCLE_FUNDING_VENUES = frozenset(('okx', 'mexc', 'htx'))
 TURNOVER_VENUES = frozenset(('okx', 'kucoinfutures', 'aster'))
 CATALOG_REFRESH_MS = 30 * 60_000
 CATALOG_MAX_AGE_MS = 2 * 60 * 60_000
+OPEN_INTEREST_REFRESH_MS = 60_000
+OPEN_INTEREST_MAX_AGE_MS = 120_000
 TURNOVER_REFRESH_MS = 180_000
 TURNOVER_MAX_AGE_MS = 600_000
 OKX_BAR_MS = 900_000
@@ -57,6 +59,25 @@ def okx_turnover(candles, end):
             return None
         bars[stamp] = volume
     return numeric(sum(bars.values())) if len(bars) == DAY // OKX_BAR_MS else None
+
+
+def okx_open_interest(response, now, clock):
+    if response.get('code') != '0' or not isinstance(response.get('data'), list):
+        raise ValueError('invalid open interest response')
+    quotes = {}
+    for row in response['data']:
+        if not isinstance(row, dict) or row.get('instType') != 'SWAP':
+            continue
+        native = row.get('instId')
+        value = numeric(row.get('oiUsd'))
+        stamp = clock.correct(numeric(row.get('ts')), now)
+        if not isinstance(native, str) or value is None or value < 0 or not fresh(stamp, now, OPEN_INTEREST_MAX_AGE_MS):
+            continue
+        if native not in quotes or stamp > quotes[native][0]:
+            quotes[native] = (stamp, value)
+    if not quotes:
+        raise ValueError('no current open interest data')
+    return quotes
 
 
 def public_client_config(exchange):
@@ -94,6 +115,9 @@ class Source:
         self.turnover_error = None
         self.turnover_due = 0
         self.turnover_task = None
+        self.open_interest = {}
+        self.open_interest_due = 0
+        self.open_interest_task = None
         self.turnover_client = None
         self.schedule = None
         self.book_ticker = None
@@ -263,6 +287,10 @@ class Source:
             return
         self.start_clock(now)
         if self.kind == 'swap':
+            if venue == 'okx' and now >= self.open_interest_due and self.turnover_client is not None:
+                if self.open_interest_task is None or self.open_interest_task.done():
+                    self.open_interest_due = now + OPEN_INTEREST_REFRESH_MS
+                    self.open_interest_task = asyncio.create_task(self.refresh_open_interest())
             await asyncio.gather(self.collect_swap_tickers(tickers_ready), self.collect_aux(now))
         else:
             try:
@@ -343,7 +371,7 @@ class Source:
         await asyncio.gather(*requests)
 
     async def close(self):
-        tasks = [task for task in (self.catalog_task, self.clock_task, self.turnover_task) if task is not None]
+        tasks = [task for task in (self.catalog_task, self.clock_task, self.turnover_task, self.open_interest_task) if task is not None]
         for task in tasks:
             task.cancel()
         await asyncio.gather(*tasks, return_exceptions=True)
@@ -355,6 +383,14 @@ class Source:
             await self.book_ticker.close()
         if self.venue in self.clients:
             await self.client.close()
+
+    async def refresh_open_interest(self):
+        try:
+            async with asyncio.timeout(10):
+                response = await self.turnover_client.publicGetPublicOpenInterest({'instType': 'SWAP'})
+            self.open_interest = okx_open_interest(response, now_ms(), self.clock)
+        except (aiohttp.ClientError, ccxt.BaseError, TimeoutError, ValueError, TypeError, AttributeError) as exc:
+            LOG.warning('OKX open interest: %s', type(exc).__name__)
 
     def start_turnover(self, now):
         if self.turnover_task is not None:

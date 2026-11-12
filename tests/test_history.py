@@ -6,6 +6,7 @@ import unittest
 
 from market_monitor.exchange_clock import ExchangeClock
 from market_monitor.history import DAY, History, MINUTE
+from market_monitor.history_selection import history_legs
 
 
 class HistoryTests(unittest.IsolatedAsyncioTestCase):
@@ -45,3 +46,16 @@ class ExchangeClockTests(unittest.TestCase):
         clock.offset, clock.checked_at = 800, now
         self.assertEqual(clock.correct(now + 800, now), now)
         self.assertEqual(clock.correct(now + 900_801, now + 900_001), now + 900_801)
+
+
+class HistorySelectionTests(unittest.TestCase):
+    def test_keeps_comparable_legs_and_retains_watched_skewed_markets(self):
+        now = 1_800_000_000_000
+        a = dict(id='a', exchange='A', type='swap', quote='USDT', asset='btc',
+                 bid=100, ask=101, receivedAt=now, sourceAt=now)
+        b = dict(a, id='b', exchange='B', sourceAt=now - 1500)
+        skew = dict(a, id='skew', exchange='C', sourceAt=now - 3100)
+        isolated = dict(a, id='alone', exchange='D', quote='USDC')
+        market = {'BTC': [a, b, skew], 'OTHER': [isolated]}
+        self.assertEqual(history_legs(market, now, set(), set()), [a, b])
+        self.assertEqual(history_legs(market, now, {'skew'}, {'OTHER'}), [a, b, skew, isolated])

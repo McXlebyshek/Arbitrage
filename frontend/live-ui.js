@@ -39,6 +39,7 @@ async function refreshMarkets(queueIfBusy = false) {
       const changed = snapshot.generatedAt !== live.generatedAt || live.error;
       if (changed) {
         updateLive(snapshot);
+        if (!activePair) watchHistory();
         evaluateSignals();
         if (activePair) {
           const current = live.fromId(activePair.id);
@@ -152,7 +153,17 @@ async function getLegDetail(leg) {
   return detailRequests.get(leg.id);
 }
 
+function watchHistory(pair = activePair) {
+  if (isDemo || !live.generatedAt || (!pair && !favorites.size)) return;
+  const markets = pair ? [pair.long.id, pair.short.id] : [];
+  fetch('/api/history/watch', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({markets, coins: [...favorites]}), signal: AbortSignal.timeout(3000),
+  }).catch(() => {});
+}
+
 async function loadPairDetails(pair) {
+  watchHistory(pair);
   const outcomes = await Promise.allSettled([getLegDetail(pair.long), getLegDetail(pair.short)]);
   rebuildPairs();
   if (activePair?.id === pair.id) {
