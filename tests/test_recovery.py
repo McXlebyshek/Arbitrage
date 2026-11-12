@@ -41,6 +41,70 @@ class FuturesPairStateTests(unittest.TestCase):
         self.assertTrue(monitor.futures_pairs[0]['timestampSuspect'])
         self.assertEqual(monitor.futures_pairs[0]['expiresAt'], now + 44_900)
 
+    def test_subscription_selection_keeps_near_cutoff_symbols_and_contracts(self):
+        monitor = object.__new__(Monitor)
+        monitor.instruments = {}
+        monitor.futures_feeds = {venue: object() for venue in ('mexc', 'kucoinfutures')}
+        monitor.futures_symbols = {venue: set() for venue in monitor.futures_feeds}
+        monitor.futures_contracts = {}
+        markets = {}
+        for index, (coin, volume) in enumerate(
+            [(f'OLD{i:02}', 31 - i) for i in range(30)] + [('NEW', 2.05)],
+        ):
+            legs = []
+            symbols = []
+            for venue, suffix in (('mexc', '_USDT'), ('kucoinfutures', 'USDTM')):
+                key = f'{venue}.swap.{coin}.USDT'
+                symbol = f'{coin}{suffix}'
+                monitor.instruments[key] = (SimpleNamespace(kind='swap', venue=venue), {'id': symbol})
+                legs.append(dict(id=key, volume=volume, asset=coin, quote='USDT'))
+                symbols.append(symbol)
+                if coin.startswith('OLD'):
+                    monitor.futures_symbols[venue].add(symbol)
+            markets[coin] = legs
+            if coin.startswith('OLD'):
+                monitor.futures_contracts[coin] = tuple(symbols)
+
+        selected_symbols = monitor.select_futures_symbols(markets)
+        selected_contracts = monitor.select_futures_contracts(markets)
+        self.assertEqual(len(selected_symbols['mexc']), 30)
+        self.assertIn('OLD29_USDT', selected_symbols['mexc'])
+        self.assertNotIn('NEW_USDT', selected_symbols['mexc'])
+        self.assertEqual(len(selected_contracts), 30)
+        self.assertIn('OLD29', selected_contracts)
+        self.assertNotIn('NEW', selected_contracts)
+
+        monitor.futures_symbols = selected_symbols
+        monitor.futures_contracts = selected_contracts
+        for leg in markets['NEW']:
+            leg['volume'] = 3
+        selected_symbols = monitor.select_futures_symbols(markets)
+        selected_contracts = monitor.select_futures_contracts(markets)
+        self.assertIn('NEW_USDT', selected_symbols['mexc'])
+        self.assertNotIn('OLD29_USDT', selected_symbols['mexc'])
+        self.assertIn('NEW', selected_contracts)
+        self.assertNotIn('OLD29', selected_contracts)
+
+    def test_futures_pair_clearing_is_limited_to_affected_venue_and_symbols(self):
+        monitor = object.__new__(Monitor)
+        monitor.instruments = {
+            'binanceusdm.swap.BTC.USDT': (SimpleNamespace(venue='binanceusdm'), {'id': 'BTCUSDT'}),
+            'gate.swap.BTC.USDT': (SimpleNamespace(venue='gate'), {'id': 'BTC_USDT'}),
+            'binanceusdm.swap.SOL.USDT': (SimpleNamespace(venue='binanceusdm'), {'id': 'SOLUSDT'}),
+            'gate.swap.SOL.USDT': (SimpleNamespace(venue='gate'), {'id': 'SOL_USDT'}),
+            'mexc.swap.ETH.USDT': (SimpleNamespace(venue='mexc'), {'id': 'ETH_USDT'}),
+            'kucoinfutures.swap.ETH.USDT': (SimpleNamespace(venue='kucoinfutures'), {'id': 'ETHUSDTM'}),
+        }
+        monitor.futures_pairs = [
+            dict(coin='BTC', legs=[dict(id='binanceusdm.swap.BTC.USDT'), dict(id='gate.swap.BTC.USDT')]),
+            dict(coin='SOL', legs=[dict(id='binanceusdm.swap.SOL.USDT'), dict(id='gate.swap.SOL.USDT')]),
+            dict(coin='ETH', legs=[dict(id='mexc.swap.ETH.USDT'), dict(id='kucoinfutures.swap.ETH.USDT')]),
+        ]
+        monitor.notify_quotes_changed = Mock()
+        monitor.clear_futures_pairs('binanceusdm', {'BTCUSDT'})
+        self.assertEqual([pair['coin'] for pair in monitor.futures_pairs], ['SOL', 'ETH'])
+        monitor.clear_futures_pairs('gate')
+        self.assertEqual([pair['coin'] for pair in monitor.futures_pairs], ['ETH'])
 
 class RecoveryTests(unittest.IsolatedAsyncioTestCase):
     async def test_whitebit_drops_quotes_on_disconnect_and_resubscribes(self):
@@ -158,12 +222,14 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
 
         for feed in monitor.futures_feeds.values():
             feed.close = AsyncMock()
-            feed.start = Mock()
+            feed.start = Mock(side_effect=lambda _session, symbols, feed=feed: setattr(
+                feed, '_subscriptions', {symbol: object() for symbol in symbols},
+            ))
         at = now_ms()
         await monitor.refresh_futures_feeds(None, markets, at)
         for feed in monitor.futures_feeds.values():
-            feed.close.assert_awaited_once()
-            feed.close.reset_mock()
+            feed.start.assert_called_once()
+            feed.close.assert_not_awaited()
         add('NEW', 12)
         await monitor.refresh_futures_feeds(None, markets, at + 15000)
         self.assertNotIn('NEW', monitor.futures_contracts)
@@ -176,7 +242,8 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
         await monitor.refresh_futures_feeds(None, markets, at + 180000)
         self.assertIn('NEW', monitor.futures_contracts)
         for feed in monitor.futures_feeds.values():
-            feed.close.assert_awaited_once()
+            feed.close.assert_not_awaited()
+            self.assertGreaterEqual(feed.start.call_count, 2)
             self.assertEqual(len(feed.symbols), 30)
 
     async def test_futures_books_clear_and_resubscribe_after_failed_reconnect(self):

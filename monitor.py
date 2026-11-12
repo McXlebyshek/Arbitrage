@@ -39,6 +39,7 @@ BINANCE_DEPTH_LIMIT = 4
 EARLY_BINANCE_SOURCES = (('binanceusdm', 'swap'), ('kucoinfutures', 'swap'))
 EARLY_QUOTE_MAX_AGE = 3000
 FUTURES_WS_LIMIT = 30
+FUTURES_WS_HYSTERESIS = 10
 FUTURES_WS_REFRESH = 180_000
 FUTURES_REST_CHECK_INTERVAL = 30_000
 FUTURES_REST_CHECKS_PER_VENUE = 2
@@ -143,14 +144,27 @@ class Monitor:
         self.futures_rest_checked = {}
         self.closing = False
         self.futures_feeds = {
-            venue: FuturesBookFeed(venue, self.clear_futures_pairs, clock=self.clocks[venue],
+            venue: FuturesBookFeed(venue, lambda venue=venue: self.clear_futures_pairs(venue),
+                                   clock=self.clocks[venue],
                                    on_update=self.schedule_futures_update)
             for venue in FUTURES_WS_VENUES if (venue, 'swap') in self.sources
         } if futures_ws else {}
 
-    def clear_futures_pairs(self):
-        if self.futures_pairs:
-            self.futures_pairs = []
+    def clear_futures_pairs(self, venue=None, symbols=None):
+        if venue is None:
+            remaining = []
+        else:
+            symbols = None if symbols is None else set(symbols)
+            def affected(leg):
+                instrument = self.instruments.get(leg['id'])
+                if instrument is None:
+                    return leg['id'].startswith(f'{venue}.swap.') and symbols is None
+                source, market = instrument
+                return source.venue == venue and (symbols is None or market.get('id') in symbols)
+
+            remaining = [pair for pair in self.futures_pairs if not any(affected(leg) for leg in pair['legs'])]
+        if remaining != self.futures_pairs:
+            self.futures_pairs = remaining
             self.notify_quotes_changed()
 
     def schedule_futures_update(self):
@@ -182,6 +196,36 @@ class Monitor:
             self._event_loop_lag_handle.cancel()
             self._event_loop_lag_handle = None
 
+    @staticmethod
+    def stabilize_subscription_rank(ranked, existing, limit, *, key, volume_index):
+        """Keep near-cutoff incumbents unless a new candidate materially outranks them."""
+        if len(ranked) <= limit:
+            return ranked
+        by_key = {key(item): item for item in ranked}
+        selected = list(ranked[:limit])
+        incumbents = set(existing)
+        incoming = [item for item in selected if key(item) not in incumbents]
+        near_cutoff = {key(item) for item in ranked[limit:limit + FUTURES_WS_HYSTERESIS]}
+        outgoing = [by_key[symbol] for symbol in incumbents & near_cutoff]
+        for old in outgoing:
+            if not incoming:
+                break
+            newcomer = max(incoming)
+            old_category = old[:volume_index]
+            new_category = newcomer[:volume_index]
+            old_volume = -old[volume_index]
+            new_volume = -newcomer[volume_index]
+            materially_better = new_category < old_category or (
+                new_category == old_category and new_volume >= old_volume * 1.2
+            )
+            if materially_better:
+                incoming.remove(newcomer)
+                continue
+            selected.remove(newcomer)
+            selected.append(old)
+            incoming.remove(newcomer)
+        return sorted(selected)
+
     def select_futures_contracts(self, markets):
         ranked = []
         for coin, group in markets.items():
@@ -199,7 +243,11 @@ class Monitor:
                 verified = bool(a['asset'] and a['asset'] == b['asset'])
                 ranked.append((not fixed, not verified, -volume, coin, symbols))
         ranked.sort()
-        return {coin: symbols for _, _, _, coin, symbols in ranked[:FUTURES_WS_LIMIT]}
+        ranked = self.stabilize_subscription_rank(
+            ranked, self.futures_contracts, FUTURES_WS_LIMIT,
+            key=lambda item: item[3], volume_index=2,
+        )
+        return {coin: symbols for _, _, _, coin, symbols in ranked}
 
     async def refresh_futures_feeds(self, session, markets, now, *, refresh=True, ready_venues=None):
         if refresh and now >= self.futures_refresh_at:
@@ -219,9 +267,8 @@ class Monitor:
         for venue, feed in self.futures_feeds.items():
             symbols = self.futures_symbols.get(venue, frozenset())
             if feed.symbols != symbols:
-                await feed.close()
-                feed.watermarks = {key: value for key, value in feed.watermarks.items() if key in symbols}
-                feed.symbols = symbols
+                removed = feed.symbols - symbols
+                self.clear_futures_pairs(venue, removed)
             feed.start(session, symbols)
 
     def futures_candidates(self, group):
@@ -276,9 +323,17 @@ class Monitor:
                 candidates[peer].add((tentative, -(b['volume'] or 0), other))
         for i, venue in enumerate(PILOT_VENUES):
             for symbols in self.futures_contracts.values():
-                candidates[venue].add((False, float('-inf'), symbols[i]))
-        return {venue: frozenset(list(dict.fromkeys(symbol for _, _, symbol in sorted(items)))[:FUTURES_WS_LIMIT])
-                for venue, items in candidates.items()}
+                if not any(symbol == symbols[i] for _, _, symbol in candidates[venue]):
+                    candidates[venue].add((False, float('-inf'), symbols[i]))
+        selected = {}
+        for venue, items in candidates.items():
+            ranked = sorted(items)
+            ranked = self.stabilize_subscription_rank(
+                ranked, self.futures_symbols.get(venue, ()), FUTURES_WS_LIMIT,
+                key=lambda item: item[2], volume_index=1,
+            )
+            selected[venue] = frozenset(item[2] for item in ranked)
+        return selected
 
     def update_futures_pairs(self, markets, now):
         pairs = []
@@ -296,8 +351,9 @@ class Monitor:
                     changed_a, changed_b = first.get('changedAt'), second.get('changedAt')
                     suspect = (changed_a is not None and changed_b is not None
                                and abs(changed_a - changed_b) > 1500)
+                    pair_legs = [dict(a, **first), dict(b, **second)]
                     pairs.append(dict(coin=coin, expiresAt=expires_at, timestampSuspect=suspect,
-                                      legs=[dict(a, **first), dict(b, **second)]))
+                                      legs=pair_legs))
         if pairs != self.futures_pairs:
             self.futures_pairs = pairs
             self.notify_quotes_changed()

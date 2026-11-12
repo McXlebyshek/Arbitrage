@@ -16,8 +16,8 @@ SYMBOLS = {'binanceusdm': 'BTCUSDT', 'bybit': 'BTCUSDT', 'okx': 'BTC-USDT-SWAP',
            'gate': 'BTC_USDT', 'bitget': 'BTCUSDT'}
 
 
-def frame(venue, stamp, *, size='0.25', sequence=9007199254740997):
-    symbol = SYMBOLS[venue]
+def frame(venue, stamp, *, size='0.25', sequence=9007199254740997, symbol=None):
+    symbol = symbol or SYMBOLS[venue]
     bids, asks = [['100', size]], [['101', '3']]
     if venue == 'binanceusdm':
         return dict(e='bookTicker', T=stamp, E=stamp + 2, st=1, u=sequence,
@@ -36,6 +36,22 @@ def frame(venue, stamp, *, size='0.25', sequence=9007199254740997):
                 data=[dict(b=bids, a=asks, ts=str(stamp), seq=str(sequence))])
 
 
+def acknowledge(venue, command):
+    if venue == 'binanceusdm':
+        return dict(id=command['id'], result=None)
+    if venue == 'gate':
+        return dict(id=command['id'], channel=command['channel'], event=command['event'],
+                    result=dict(status='success'))
+    return None
+
+
+def simulate_subscription(feed, symbol):
+    with patch.object(feed, 'start_reader'):
+        feed.start(None, {symbol})
+    feed.mark_connected()
+    feed._wire_subscriptions.update(feed._subscriptions)
+
+
 class PublicBookAdapterTests(unittest.TestCase):
     def test_only_valid_native_instrument_quotes_and_millisecond_engine_stamps(self):
         for venue, symbol in SYMBOLS.items():
@@ -43,8 +59,7 @@ class PublicBookAdapterTests(unittest.TestCase):
                 feed = FuturesBookFeed(venue, lambda: None)
                 feed.consume(frame(venue, STAMP), STAMP + 5)
                 self.assertIsNone(feed.quote(symbol, STAMP + 5))
-                feed.symbols = frozenset({symbol})
-                feed.mark_connected()
+                simulate_subscription(feed, symbol)
                 feed.consume(frame(venue, STAMP * 1_000), STAMP + 5)
                 self.assertIsNone(feed.quote(symbol, STAMP + 5))
                 feed.consume(frame(venue, STAMP - 3070), STAMP)
@@ -62,8 +77,7 @@ class PublicBookAdapterTests(unittest.TestCase):
 
     def test_snapshot_can_renew_and_bybit_engine_restart_can_reset_sequence(self):
         feed = FuturesBookFeed('bybit', lambda: None)
-        feed.symbols = frozenset({'BTCUSDT'})
-        feed.mark_connected()
+        simulate_subscription(feed, 'BTCUSDT')
         feed.consume(frame('bybit', STAMP), STAMP)
         feed.consume(frame('bybit', STAMP), STAMP + 3000)
         quote = feed.quote('BTCUSDT', STAMP + 3000)
@@ -77,8 +91,7 @@ class PublicBookAdapterTests(unittest.TestCase):
     def test_binance_excludes_coin_m_and_bitget_excludes_other_products(self):
         for venue in ('binanceusdm', 'bitget'):
             feed = FuturesBookFeed(venue, lambda: None)
-            feed.symbols = frozenset({'BTCUSDT'})
-            feed.mark_connected()
+            simulate_subscription(feed, 'BTCUSDT')
             message = frame(venue, STAMP)
             if venue == 'binanceusdm':
                 message['st'] = 2
@@ -90,8 +103,7 @@ class PublicBookAdapterTests(unittest.TestCase):
     def test_calibration_changes_diagnostic_timestamp_without_changing_exchange_order(self):
         clock = Mock(correct=lambda stamp: stamp + 5000)
         feed = FuturesBookFeed('binanceusdm', lambda: None, clock=clock)
-        feed.symbols = frozenset({'BTCUSDT'})
-        feed.mark_connected()
+        simulate_subscription(feed, 'BTCUSDT')
         feed.consume(frame('binanceusdm', STAMP), STAMP + 5000)
         quote = feed.quote('BTCUSDT', STAMP + 5000)
         self.assertEqual(quote['sourceAt'], STAMP + 5000)
@@ -105,8 +117,7 @@ class PublicBookAdapterTests(unittest.TestCase):
     def test_only_accepted_update_and_removal_notify(self):
         callback = Mock()
         feed = FuturesBookFeed('binanceusdm', lambda: None, on_update=callback)
-        feed.symbols = frozenset({'BTCUSDT'})
-        feed.mark_connected()
+        simulate_subscription(feed, 'BTCUSDT')
         feed.consume(frame('binanceusdm', STAMP, sequence=10), STAMP)
         callback.assert_called_once()
         feed.consume(frame('binanceusdm', STAMP, sequence=10), STAMP)
@@ -119,8 +130,7 @@ class PublicBookAdapterTests(unittest.TestCase):
     def test_transport_heartbeat_does_not_renew_confirmation_for_symbol(self):
         symbol = SYMBOLS['binanceusdm']
         feed = FuturesBookFeed('binanceusdm', lambda: None)
-        feed.symbols = frozenset({symbol})
-        feed.mark_connected()
+        simulate_subscription(feed, symbol)
         feed.consume(frame('binanceusdm', STAMP), STAMP)
         after_transport_expiry = STAMP + CONNECTION_ACTIVITY_AGE + 1
         self.assertIsNone(feed.quote(symbol, after_transport_expiry))
@@ -131,20 +141,16 @@ class PublicBookAdapterTests(unittest.TestCase):
         self.assertIsNone(feed.quote(symbol, after_confirmation_expiry))
 
     def test_rest_initial_and_fallback_require_current_subscription_and_observation(self):
-        for venue, ack in {
-            'binanceusdm': dict(id=1, result=None),
-            'gate': dict(channel='futures.book_ticker', event='subscribe', result=dict(status='success')),
-        }.items():
+        for venue in ('binanceusdm', 'gate'):
             with self.subTest(venue=venue):
                 symbol = SYMBOLS[venue]
                 feed = FuturesBookFeed(venue, lambda: None)
-                feed.symbols = frozenset({symbol})
-                feed.mark_connected()
+                simulate_subscription(feed, symbol)
                 due = STAMP + QUIET_SYMBOL_AGE
                 feed.heartbeat_received(STAMP)
                 self.assertEqual(feed.quiet_symbols(due), [])
                 self.assertIsNone(feed.confirm_rest(symbol, feed.rest_token(symbol), 100, 101, due))
-                feed.consume(ack, STAMP)
+                feed.subscription_ack_at[symbol] = STAMP
                 self.assertEqual(feed.quiet_symbols(due), [symbol])
                 initial = feed.rest_token(symbol)
                 self.assertFalse(feed.confirm_rest(symbol, initial, 100, 101, due, changed_at=STAMP))
@@ -166,13 +172,12 @@ class PublicBookAdapterTests(unittest.TestCase):
                 self.assertEqual((quote['bid'], quote['quoteSource'], quote['suspect']), (99, 'rest', True))
                 old_session = feed.rest_token(symbol)
                 feed.mark_connected()
-                feed.consume(ack, due + 4)
                 self.assertIsNone(feed.confirm_rest(symbol, old_session, 99, 100, due + 4))
 
     def test_subscription_shapes_and_urls(self):
         for venue, expected in {
             'binanceusdm': ('wss://fstream.binance.com/public/ws', dict(method='SUBSCRIBE',
-                            params=['btcusdt@bookTicker'], id=1)),
+                            params=['btcusdt@bookTicker'])),
             'bybit': ('wss://stream.bybit.com/v5/public/linear', dict(op='subscribe', args=['orderbook.1.BTCUSDT'])),
             'okx': ('wss://ws.okx.com/ws/v5/public', dict(op='subscribe', args=[dict(channel='bbo-tbt',
                      instId='BTC-USDT-SWAP')])),
@@ -187,6 +192,24 @@ class PublicBookAdapterTests(unittest.TestCase):
         subscription, = gate.subscribe(['BTC_USDT'])
         self.assertIsInstance(subscription.pop('time'), int)
         self.assertEqual(subscription, dict(channel='futures.book_ticker', event='subscribe', payload=['BTC_USDT']))
+
+    def test_unsubscription_shapes(self):
+        for venue, symbol, expected in (
+            ('mexc', 'BTC_USDT', dict(method='unsub.depth.full', param=dict(symbol='BTC_USDT'))),
+            ('kucoinfutures', 'XBTUSDTM', dict(type='unsubscribe', topic='/contractMarket/tickerV2:XBTUSDTM',
+                                            privateChannel=False, response=True)),
+            ('binanceusdm', 'BTCUSDT', dict(method='UNSUBSCRIBE', params=['btcusdt@bookTicker'])),
+            ('bybit', 'BTCUSDT', dict(op='unsubscribe', args=['orderbook.1.BTCUSDT'])),
+            ('okx', 'BTC-USDT-SWAP', dict(op='unsubscribe', args=[dict(channel='bbo-tbt', instId='BTC-USDT-SWAP')])),
+            ('gate', 'BTC_USDT', dict(channel='futures.book_ticker', event='unsubscribe', payload=['BTC_USDT'])),
+            ('bitget', 'BTCUSDT', dict(op='unsubscribe', args=[dict(instType='usdt-futures', topic='books1',
+                                                                 symbol='BTCUSDT')])),
+        ):
+            with self.subTest(venue=venue):
+                command, = PROTOCOLS[venue].unsubscribe([symbol])
+                if venue == 'gate':
+                    self.assertIsInstance(command.pop('time'), int)
+                self.assertEqual(command, expected)
 
 
 class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
@@ -205,6 +228,9 @@ class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
             await socket.prepare(request)
             subscription = await socket.receive_json()
             captured.append((subscription, request.headers.get('X-Gate-Size-Decimal')))
+            ack = acknowledge(venue, subscription)
+            if ack is not None:
+                await socket.send_json(ack)
             await socket.send_json(frame(venue, now_ms()))
             await socket.ping(b'probe')
             async for message in socket:
@@ -235,5 +261,71 @@ class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
                     self.assertEqual(captured[0][1], '1' if venue == 'gate' else None)
                     if protocol.ping:
                         self.assertEqual(captured[1:], [protocol.ping(), protocol.ping()])
+                finally:
+                    await feed.close()
+
+    async def test_symbol_replacement_keeps_socket_and_ignores_stale_updates_and_acks(self):
+        commands = asyncio.Queue()
+        disconnect = Mock()
+        feed = FuturesBookFeed('binanceusdm', disconnect)
+
+        async def stream(request):
+            socket = web.WebSocketResponse()
+            await socket.prepare(request)
+            async for message in socket:
+                await commands.put((socket, message.json()))
+            return socket
+
+        app = web.Application()
+        app.router.add_get('/ws', stream)
+        async with TestServer(app) as gateway, aiohttp.ClientSession() as session:
+            connection = (str(gateway.make_url('/ws').with_scheme('ws')), {}, 20)
+            with patch.object(feed, 'connection', AsyncMock(return_value=connection)):
+                try:
+                    async with asyncio.timeout(3):
+                        feed.start(session, {'BTCUSDT', 'ETHUSDT'})
+                        reader = feed.reader
+                        socket, initial = await commands.get()
+                        self.assertEqual(initial['params'], ['btcusdt@bookTicker', 'ethusdt@bookTicker'])
+                        await socket.send_json(acknowledge(feed.venue, initial))
+                        stamp = now_ms()
+                        for symbol in ('BTCUSDT', 'ETHUSDT'):
+                            await socket.send_json(frame(feed.venue, stamp, symbol=symbol))
+                        while feed.quote('ETHUSDT', now_ms()) is None:
+                            await asyncio.sleep(.001)
+                        eth_quote = feed.quotes['ETHUSDT']
+                        eth_ack = feed.subscription_ack_at['ETHUSDT']
+                        old_token = feed.rest_token('BTCUSDT')
+                        feed.start(session, {'ETHUSDT', 'SOLUSDT'})
+                        self.assertIsNone(feed.quote('BTCUSDT', now_ms()))
+                        self.assertNotIn('BTCUSDT', feed.watermarks)
+                        same_socket, remove = await commands.get()
+                        self.assertIs(same_socket, socket)
+                        self.assertEqual((remove['method'], remove['params']), ('UNSUBSCRIBE', ['btcusdt@bookTicker']))
+                        await socket.send_json(frame(feed.venue, stamp + 1, symbol='BTCUSDT'))
+                        await socket.send_json(acknowledge(feed.venue, remove))
+                        same_socket, add = await commands.get()
+                        self.assertIs(same_socket, socket)
+                        self.assertEqual((add['method'], add['params']), ('SUBSCRIBE', ['solusdt@bookTicker']))
+                        self.assertEqual(len({initial['id'], remove['id'], add['id']}), 3)
+                        await socket.send_json(acknowledge(feed.venue, remove))
+                        await socket.send_json(frame(feed.venue, stamp + 2, symbol='ETHUSDT', sequence=9007199254740998))
+                        while feed.quotes['ETHUSDT'] is eth_quote:
+                            await asyncio.sleep(.001)
+                        self.assertNotIn('SOLUSDT', feed.subscription_ack_at)
+                        self.assertEqual(feed.subscription_ack_at['ETHUSDT'], eth_ack)
+                        self.assertNotIn('BTCUSDT', feed.quotes)
+                        self.assertIsNone(feed.confirm_rest('BTCUSDT', old_token, 100, 101, now_ms()))
+                        self.assertEqual(feed.quotes['ETHUSDT']['changedAt'], stamp)
+                        await socket.send_json(acknowledge(feed.venue, add))
+                        while 'SOLUSDT' not in feed.subscription_ack_at:
+                            await asyncio.sleep(.001)
+                        self.assertIsNone(feed.quote('SOLUSDT', now_ms()))
+                        await socket.send_json(frame(feed.venue, stamp + 3, symbol='SOLUSDT'))
+                        while feed.quote('SOLUSDT', now_ms()) is None:
+                            await asyncio.sleep(.001)
+                        self.assertTrue(feed.connected)
+                        self.assertIs(feed.reader, reader)
+                        disconnect.assert_not_called()
                 finally:
                     await feed.close()

@@ -19,13 +19,20 @@ class BookUpdate(NamedTuple):
 @dataclass(frozen=True)
 class BookProtocol:
     url: str
-    subscribe: Callable[[list[str]], Iterable[dict]]
+    commands: Callable[[list[str], str], Iterable[dict]]
     updates: Callable[[dict], Iterable[BookUpdate]]
     ping: Callable[[], dict | str] | None = None
     ping_interval: int = 20
     decimal_sizes: bool = False
     repeated_snapshots: bool = False
-    subscription_ack: Callable[[dict], bool] | None = None
+    request_id: Callable[[int], int | str] | None = None
+    subscription_ack: Callable[[dict, str], bool] | None = None
+
+    def subscribe(self, symbols):
+        return self.commands(symbols, 'subscribe')
+
+    def unsubscribe(self, symbols):
+        return self.commands(symbols, 'unsubscribe')
 
 
 def integer(value):
@@ -117,43 +124,47 @@ def bitget_updates(message):
 PROTOCOLS = {
     'mexc': BookProtocol(
         'wss://contract.mexc.com/edge',
-        lambda symbols: (dict(method='sub.depth.full', param=dict(symbol=symbol, limit=5)) for symbol in symbols),
+        lambda symbols, op: (
+            dict(method='sub.depth.full', param=dict(symbol=symbol, limit=5)) if op == 'subscribe'
+            else dict(method='unsub.depth.full', param=dict(symbol=symbol))
+            for symbol in symbols
+        ),
         mexc_updates, ping=lambda: dict(method='ping'), ping_interval=14, repeated_snapshots=True,
     ),
     'kucoinfutures': BookProtocol(
         '',
-        lambda symbols: (dict(id=symbol, type='subscribe', topic=f'/contractMarket/tickerV2:{symbol}',
-                              privateChannel=False, response=True) for symbol in symbols),
-        kucoin_updates, ping=lambda: dict(id=str(now_ms()), type='ping'),
+        lambda symbols, op: (dict(type=op, topic=f'/contractMarket/tickerV2:{symbol}',
+                                  privateChannel=False, response=True) for symbol in symbols),
+        kucoin_updates, ping=lambda: dict(id=str(now_ms()), type='ping'), request_id=str,
     ),
     'binanceusdm': BookProtocol(
         'wss://fstream.binance.com/public/ws',
-        lambda symbols: (dict(method='SUBSCRIBE', params=[f'{symbol.lower()}@bookTicker' for symbol in symbols], id=1),),
-        binance_updates, subscription_ack=lambda message: message.get('id') == 1
-        and 'result' in message and message['result'] is None,
+        lambda symbols, op: (dict(method=op.upper(), params=[f'{symbol.lower()}@bookTicker' for symbol in symbols]),),
+        binance_updates, request_id=int,
+        subscription_ack=lambda message, op: 'result' in message and message['result'] is None,
     ),
     'bybit': BookProtocol(
         'wss://stream.bybit.com/v5/public/linear',
-        lambda symbols: (dict(op='subscribe', args=[f'orderbook.1.{symbol}' for symbol in symbols]),),
+        lambda symbols, op: (dict(op=op, args=[f'orderbook.1.{symbol}' for symbol in symbols]),),
         bybit_updates, ping=lambda: dict(op='ping'), repeated_snapshots=True,
     ),
     'okx': BookProtocol(
         'wss://ws.okx.com/ws/v5/public',
-        lambda symbols: (dict(op='subscribe', args=[dict(channel='bbo-tbt', instId=symbol) for symbol in symbols]),),
+        lambda symbols, op: (dict(op=op, args=[dict(channel='bbo-tbt', instId=symbol) for symbol in symbols]),),
         okx_updates, ping=lambda: 'ping', repeated_snapshots=True,
     ),
     'gate': BookProtocol(
         'wss://fx-ws.gateio.ws/v4/ws/usdt',
-        lambda symbols: (dict(time=now_ms() // 1000, channel='futures.book_ticker', event='subscribe', payload=symbols),),
-        gate_updates, decimal_sizes=True,
-        subscription_ack=lambda message: message.get('channel') == 'futures.book_ticker'
-        and message.get('event') == 'subscribe' and isinstance(message.get('result'), dict)
+        lambda symbols, op: (dict(time=now_ms() // 1000, channel='futures.book_ticker', event=op, payload=symbols),),
+        gate_updates, decimal_sizes=True, request_id=int,
+        subscription_ack=lambda message, op: message.get('channel') == 'futures.book_ticker'
+        and message.get('event') == op and isinstance(message.get('result'), dict)
         and message['result'].get('status') == 'success',
     ),
     'bitget': BookProtocol(
         'wss://ws.bitget.com/v3/ws/public',
-        lambda symbols: (dict(op='subscribe', args=[dict(instType='usdt-futures', topic='books1', symbol=symbol)
-                                                   for symbol in symbols]),),
+        lambda symbols, op: (dict(op=op, args=[dict(instType='usdt-futures', topic='books1', symbol=symbol)
+                                              for symbol in symbols]),),
         bitget_updates, ping=lambda: 'ping', ping_interval=30, repeated_snapshots=True,
     ),
 }

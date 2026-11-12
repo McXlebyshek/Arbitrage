@@ -3,6 +3,7 @@
 import asyncio
 from contextlib import AsyncExitStack
 import gzip
+from itertools import count
 import json
 import logging
 
@@ -40,43 +41,129 @@ class FuturesBookFeed(ReconnectingFeed):
         self.clock = clock
         self.on_disconnect = on_disconnect
         self.on_update = on_update
-        self.symbols = frozenset()
+        self._subscriptions: dict[str, object] = {}
+        self._wire_subscriptions: dict[str, object] = {}
+        self._subscriptions_changed = asyncio.Event()
+        self._pending_ack: tuple[int | str, str, asyncio.Future[int]] | None = None
         self.quotes = {}
         self.watermarks = {}
         self.last_message_at = None
-        self.subscription_ack_at = None
+        self.subscription_ack_at: dict[str, int] = {}
         self.session_number = 0
+
+    @property
+    def symbols(self):
+        return frozenset(self._subscriptions)
 
     def mark_connected(self):
         super().mark_connected()
         self.session_number += 1
         self.last_message_at = None
-        self.subscription_ack_at = None
+        self.subscription_ack_at.clear()
 
     def start(self, session, symbols):
-        if not symbols:
-            self.symbols = frozenset()
-            self.quotes.clear()
-            self.last_message_at = None
-            self.subscription_ack_at = None
-            if self.reader is not None:
-                self.reader.cancel()
-        elif self.reader is None or self.reader.done():
-            self.symbols = frozenset(symbols)
+        symbols = frozenset(symbols)
+        if self._subscriptions.keys() != symbols:
+            removed = self._subscriptions.keys() - symbols
+            for symbol in removed:
+                del self._subscriptions[symbol]
+                self.quotes.pop(symbol, None)
+                self.watermarks.pop(symbol, None)
+                self.subscription_ack_at.pop(symbol, None)
+            for symbol in symbols - self._subscriptions.keys():
+                self._subscriptions[symbol] = object()
+            self._subscriptions_changed.set()
+            if removed and self.on_update is not None:
+                self.on_update()
+        if symbols:
+            if self.reader is not None and not self.reader.done() and self.reader.cancelling():
+                self.reader.add_done_callback(lambda finished: self._resume(finished, session))
+            else:
+                self.start_reader(session)
+        elif not self.connected and self.reader is not None:
+            self.reader.cancel()
+
+    def _resume(self, finished, session):
+        if self.reader is finished and self._subscriptions:
             self.start_reader(session)
+
+    async def close(self):
+        self._subscriptions.clear()
+        await super().close()
+
+    async def sync_subscriptions(self, socket):
+        request_ids = count(1)
+        while True:
+            self._subscriptions_changed.clear()
+            removed = sorted(symbol for symbol, generation in self._wire_subscriptions.items()
+                             if self._subscriptions.get(symbol) is not generation)
+            for symbol in removed:
+                del self._wire_subscriptions[symbol]
+            if removed:
+                await self.send_subscription_commands(socket, removed, 'unsubscribe', request_ids)
+
+            added = {symbol: generation for symbol, generation in self._subscriptions.items()
+                     if symbol not in self._wire_subscriptions}
+            if added:
+                self._wire_subscriptions.update(added)
+                acknowledged = await self.send_subscription_commands(socket, sorted(added), 'subscribe', request_ids)
+                if acknowledged is not None:
+                    for symbol, generation in added.items():
+                        if self._subscriptions.get(symbol) is generation:
+                            self.subscription_ack_at[symbol] = acknowledged
+            await self._subscriptions_changed.wait()
+
+    async def send_subscription_commands(self, socket, symbols, operation, request_ids):
+        acknowledged = None
+        commands = self.protocol.subscribe if operation == 'subscribe' else self.protocol.unsubscribe
+        async with asyncio.timeout(CONNECT_TIMEOUT):
+            for message in commands(symbols):
+                if self.protocol.request_id is not None:
+                    message['id'] = self.protocol.request_id(next(request_ids))
+                if self.protocol.subscription_ack is None:
+                    await socket.send_json(message)
+                    continue
+                confirmation = asyncio.get_running_loop().create_future()
+                self._pending_ack = message['id'], operation, confirmation
+                try:
+                    await socket.send_json(message)
+                    acknowledged = await confirmation
+                finally:
+                    self._pending_ack = None
+        return acknowledged
+
+    async def run_socket(self, socket, interval):
+        tasks = (
+            asyncio.create_task(self.read_quotes(socket, interval)),
+            asyncio.create_task(self.sync_subscriptions(socket)),
+        )
+        try:
+            done, _ = await asyncio.wait(tasks, return_when=asyncio.FIRST_COMPLETED)
+            for task in done:
+                task.result()
+        finally:
+            for task in tasks:
+                task.cancel()
+            await asyncio.gather(*tasks, return_exceptions=True)
 
     def consume(self, message, received):
         if self.connected and isinstance(message, dict):
             self.last_message_at = received
-            if self.protocol.subscription_ack is not None and self.protocol.subscription_ack(message):
-                self.subscription_ack_at = received
+            check_ack = self.protocol.subscription_ack
+            if check_ack is not None and self._pending_ack is not None:
+                request_id, operation, confirmation = self._pending_ack
+                if message.get('id') == request_id and check_ack(message, operation):
+                    if not confirmation.done():
+                        confirmation.set_result(received)
+                    return
             for update in self.protocol.updates(message):
                 self.apply_update(update, received)
 
     def apply_update(self, update, received):
         symbol, stamp, sequence, bid, ask, reset = update
         # Check timestamp units and stream ordering without aging the book by exchange time.
-        if (not isinstance(symbol, str) or symbol not in self.symbols or sequence is None
+        if (not isinstance(symbol, str) or symbol not in self._subscriptions
+                or self._wire_subscriptions.get(symbol) is not self._subscriptions[symbol] or sequence is None
                 or sequence < 0 or stamp is None or not 10**12 <= stamp < 10**13):
             return
         previous = self.watermarks.get(symbol)
@@ -114,7 +201,7 @@ class FuturesBookFeed(ReconnectingFeed):
 
     def quote(self, symbol, now):
         quote = self.quotes.get(symbol)
-        if (quote is not None and symbol in self.symbols and self.active(now)
+        if (quote is not None and symbol in self._subscriptions and self.active(now)
                 and fresh(quote['confirmedAt'], now, QUOTE_CONFIRMATION_AGE)):
             return dict(quote, validUntil=min(
                 quote['confirmedAt'] + QUOTE_CONFIRMATION_AGE,
@@ -126,13 +213,13 @@ class FuturesBookFeed(ReconnectingFeed):
         if self.venue not in QUIET_REST_VENUES or not self.active(now):
             return []
         due = []
-        for symbol in self.symbols:
+        for symbol in self._subscriptions:
             quote = self.quotes.get(symbol)
             if quote is not None:
                 confirmed_at = quote['confirmedAt']
-            elif self.subscription_ack_at is not None:
+            elif symbol in self.subscription_ack_at:
                 watermark = self.watermarks.get(symbol)
-                confirmed_at = self.subscription_ack_at
+                confirmed_at = self.subscription_ack_at[symbol]
                 if watermark is not None and watermark[0] is not None:
                     confirmed_at = watermark[4]
             else:
@@ -142,16 +229,18 @@ class FuturesBookFeed(ReconnectingFeed):
         return [symbol for _, symbol in sorted(due)]
 
     def rest_token(self, symbol):
-        return self.session_number, symbol, self.quotes.get(symbol), self.watermarks.get(symbol)
+        return self.session_number, symbol, self._subscriptions.get(symbol), self.quotes.get(symbol), self.watermarks.get(symbol)
 
     def confirm_rest(self, symbol, token, bid, ask, received, *, changed_at=None):
-        session_number, requested_symbol, expected, watermark = token
-        if (self.venue not in QUIET_REST_VENUES or symbol not in self.symbols or not self.active(received)
-                or session_number != self.session_number or requested_symbol != symbol or self.quotes.get(symbol) is not expected
+        session_number, requested_symbol, generation, expected, watermark = token
+        if (self.venue not in QUIET_REST_VENUES or generation is None or not self.active(received)
+                or session_number != self.session_number or requested_symbol != symbol
+                or self._subscriptions.get(symbol) is not generation or self.quotes.get(symbol) is not expected
                 or self.watermarks.get(symbol) is not watermark or not (bid and ask and 0 < bid <= ask)):
             return None
         if expected is None:
-            if self.subscription_ack_at is None or received < self.subscription_ack_at:
+            acknowledged = self.subscription_ack_at.get(symbol)
+            if acknowledged is None or received < acknowledged:
                 return None
         elif received < expected['confirmedAt']:
             return None
@@ -189,6 +278,8 @@ class FuturesBookFeed(ReconnectingFeed):
         return server['endpoint'], {'token': data['token'], 'connectId': str(now_ms())}, interval
 
     async def read(self, session):
+        if not self._subscriptions:
+            raise asyncio.CancelledError
         try:
             async with AsyncExitStack() as connections:
                 try:
@@ -200,14 +291,13 @@ class FuturesBookFeed(ReconnectingFeed):
                             session.ws_connect(url, params=params, headers=headers, timeout=timeout, heartbeat=25,
                                                autoping=False),
                         )
-                        for message in self.protocol.subscribe(sorted(self.symbols)):
-                            await socket.send_json(message)
                     self.mark_connected()
-                    await self.read_quotes(socket, interval)
+                    await self.run_socket(socket, interval)
                 finally:
                     self.connected = False
                     self.last_message_at = None
-                    self.subscription_ack_at = None
+                    self._wire_subscriptions.clear()
+                    self.subscription_ack_at.clear()
                     self.quotes.clear()
                     # Exchange sequence numbers may restart after reconnection.
                     self.watermarks = {symbol: (None, *previous[1:]) for symbol, previous in self.watermarks.items()}
