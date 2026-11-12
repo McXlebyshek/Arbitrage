@@ -216,6 +216,7 @@ class Monitor:
         self.cycle_ms = None
         self.instruments = {}
         self.catalog_descriptors = {}
+        self.snapshot_plans = {}
         self.network_descriptors = {}
         self.snapshot_markets_ms = None
         self.details, self.pending = {}, {}
@@ -346,22 +347,78 @@ class Monitor:
         self.network_descriptors[key] = currency, networks, status
         return networks, status
 
-    def snapshot_markets(self, now, *, source_keys=None):
+    def snapshot_plan(self, keys):
+        inputs = []
+        for venue, kind in keys:
+            source = self.sources[venue, kind]
+            inputs.append((source, self.market_descriptors(venue, kind, source)))
+        cached = self.snapshot_plans.get(keys)
+        if cached is not None and all(
+            source is previous_source and entries is previous_entries
+            for (source, entries), (previous_source, previous_entries) in zip(inputs, cached[0])
+        ):
+            return cached[1], cached[2]
+
         groups, instruments = defaultdict(list), {}
-        for venue, kind in self.sources if source_keys is None else source_keys:
+        for index, ((venue, kind), (source, entries)) in enumerate(zip(keys, inputs)):
+            for market, binding, group, key in entries:
+                if key in instruments:
+                    # A route must identify exactly one native instrument.
+                    instruments[key] = None
+                    continue
+                instruments[key] = (source, market)
+                identity = dict(id=key, type=kind, exchange=VENUES[venue], quote=market['quote'],
+                                asset=binding['asset'] if binding else None)
+                if group != market['base']:
+                    identity['nativeBase'] = market['base']
+                if kind == 'swap' and binding and binding['price_units'] != 1:
+                    identity['priceUnits'] = binding['price_units']
+                groups[group].append((index, market, identity))
+
+        selected, routes = {}, {}
+        for group, entries in groups.items():
+            unique = [entry for entry in entries if instruments[entry[2]['id']] is not None]
+            usable = []
+            for entry in unique:
+                leg = entry[2]
+                if any(
+                    other is not leg and other['quote'] == leg['quote'] and
+                    (other['type'] == 'swap' or leg['type'] == 'swap') and
+                    (other['exchange'] != leg['exchange'] or other['type'] != leg['type']) and
+                    compatible_assets(leg, other)
+                    for _, _, other in unique
+                ):
+                    usable.append(entry)
+                    routes[leg['id']] = instruments[leg['id']]
+            if usable:
+                selected[group] = usable
+
+        self.snapshot_plans[keys] = inputs, selected, routes
+        return selected, routes
+
+    def snapshot_markets(self, now, *, source_keys=None):
+        keys = tuple(self.sources if source_keys is None else source_keys)
+        selected, routes = self.snapshot_plan(keys)
+        live_sources = []
+        for venue, kind in keys:
             source = self.sources[venue, kind]
             batch = source.batches.get(venue, {})
-            batch_received = batch.get('received_at_ms')
-            tickers = batch.get('tickers', {})
-            for market, binding, group, key in self.market_descriptors(venue, kind, source):
-                symbol = market['symbol']
-                base, quote = market['base'], market['quote']
+            clock = self.clocks.get(venue)
+            offset = clock.estimate(now) if clock is not None else None
+            live_sources.append((source, venue, kind, batch.get('tickers', {}), batch.get('received_at_ms'), offset or 0))
+
+        result = {}
+        for group, entries in selected.items():
+            legs = []
+            for index, market, identity in entries:
+                source, venue, kind, tickers, batch_received, offset = live_sources[index]
+                symbol, key = market['symbol'], identity['id']
+                base = market['base']
                 ticker = tickers.get(symbol, {})
                 received = ticker.get('quote_received_at_ms', batch_received)
                 stamp = numeric(ticker.get('timestamp'))
-                clock = self.clocks.get(venue)
-                if clock is not None:
-                    stamp = clock.correct(stamp, now)
+                if stamp is not None:
+                    stamp -= offset
                 current = ticker.get('symbol') == symbol and ticker.get('native_id', market['id']) == market['id'] and fresh(received, now) and (
                     stamp is None or fresh(stamp, now))
                 if not current:
@@ -369,12 +426,6 @@ class Monitor:
                 bid, ask = numeric(ticker.get('bid')), numeric(ticker.get('ask'))
                 if not (bid and ask and 0 < bid <= ask):
                     bid = ask = None
-                if key in instruments:
-                    # A route must identify exactly one native instrument.
-                    instruments[key] = None
-                    continue
-                instruments[key] = (source, market)
-                asset = binding['asset'] if binding else None
                 raw = source.funding.get(symbol) or ticker
                 raw_info = raw.get('info') or {}
                 ticker_info = ticker.get('info') or {}
@@ -396,8 +447,9 @@ class Monitor:
                         if fields[field] is None and value is not None and (field != 'next' or value > now):
                             fields[field] = value
                 leg = dict(
-                    id=key, exchange=VENUES[venue], type=kind, quote=quote, symbol=symbol,
-                    bid=bid, ask=ask, last=numeric(ticker.get('last') or turnover_ticker.get('last')), asset=asset,
+                    id=key, exchange=identity['exchange'], type=kind, quote=identity['quote'], symbol=symbol,
+                    bid=bid, ask=ask, last=numeric(ticker.get('last') or turnover_ticker.get('last')),
+                    asset=identity['asset'],
                     sourceAt=stamp, receivedAt=received if current else None,
                     index=numeric(raw.get('indexPrice') or raw_info.get('indexPrice')
                                   or raw_info.get('index_price') or ticker_info.get('indexPrice')),
@@ -409,24 +461,14 @@ class Monitor:
                     leg['status'] = network_status
                 if kind == 'swap' and detail.get('totals'):
                     leg['totals'] = detail['totals']
-                if group != base:
-                    leg['nativeBase'] = base
-                if kind == 'swap' and binding and binding['price_units'] != 1:
-                    leg['priceUnits'] = binding['price_units']
-                groups[group].append(leg)
-        result = {}
-        for base, legs in groups.items():
-            unique = [leg for leg in legs if instruments[leg['id']] is not None]
-            usable = [leg for leg in unique if any(
-                other is not leg and other['quote'] == leg['quote'] and
-                (other['type'] == 'swap' or leg['type'] == 'swap') and
-                (other['exchange'] != leg['exchange'] or other['type'] != leg['type']) and
-                compatible_assets(leg, other)
-                for other in unique)]
-            if usable:
-                result[base] = usable
+                if 'nativeBase' in identity:
+                    leg['nativeBase'] = identity['nativeBase']
+                if 'priceUnits' in identity:
+                    leg['priceUnits'] = identity['priceUnits']
+                legs.append(leg)
+            result[group] = legs
         if source_keys is None:
-            self.instruments = {leg['id']: instruments[leg['id']] for legs in result.values() for leg in legs}
+            self.instruments = routes.copy()
         return result
 
     async def binance_depth_quote(self, key):

@@ -138,10 +138,13 @@ ADAPTERS = {
 }
 
 
+FUNDING_INTERVAL = re.compile(r'(\d+(?:\.\d+)?)h')
+
+
 def funding_fields(raw, market, venue, now, schedule=None):
     info = raw.get('info') or {}
     instrument = market.get('info') or {}
-    interval = re.fullmatch(r'(\d+(?:\.\d+)?)h', str(raw.get('interval')))
+    interval = FUNDING_INTERVAL.fullmatch(str(raw.get('interval')))
     hours = float(interval[1]) if interval else None
     rate = numeric(raw.get('fundingRate'))
     stamp = numeric(raw.get('fundingTimestamp'))

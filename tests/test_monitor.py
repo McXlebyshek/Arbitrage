@@ -166,6 +166,44 @@ class MonitorTests(unittest.TestCase):
         legs = monitor.snapshot_markets(NOW)['BTC']
         self.assertEqual([leg['bid'] for leg in legs], [None, 100])
 
+    def test_snapshot_catalog_plan_refreshes_after_replacement_and_keeps_tickers_live(self):
+        venues = ('bybit', 'mexc', 'gate')
+        monitor = Monitor(venues, Path('unused.sqlite3'))
+        symbol = 'TEST/USDT:USDT'
+        for venue in venues:
+            source = monitor.sources[venue, 'swap']
+            market = dict(id=venue, symbol=symbol, base='TEST', quote='USDT', settle='USDT',
+                          active=True, swap=True, linear=True, contractSize=1)
+            source.catalogs[venue] = {symbol: market}
+            source.catalog_at = NOW
+            source.batches[venue] = dict(received_at_ms=NOW, tickers={
+                symbol: dict(symbol=symbol, native_id=venue, bid=100, ask=101),
+            })
+
+        first = monitor.snapshot_markets(NOW)['TEST']
+        self.assertEqual([leg['exchange'] for leg in first], ['Bybit', 'MEXC', 'Gate'])
+        keys = tuple(monitor.sources)
+        plan, _ = monitor.snapshot_plan(keys)
+        bybit = monitor.sources['bybit', 'swap']
+        bybit.batches['bybit']['tickers'][symbol].update(bid=101, ask=102)
+        self.assertEqual(monitor.snapshot_markets(NOW)['TEST'][0]['bid'], 101)
+        self.assertEqual(first[0]['bid'], 100)
+        self.assertIs(monitor.snapshot_plan(keys)[0], plan)
+
+        main_routes = monitor.instruments
+        subset = (('bybit', 'swap'), ('mexc', 'swap'))
+        self.assertEqual(len(monitor.snapshot_markets(NOW, source_keys=subset)['TEST']), 2)
+        self.assertIs(monitor.instruments, main_routes)
+
+        original = bybit.catalogs['bybit'][symbol]
+        bybit.catalogs['bybit'] = {symbol: original, 'duplicate': dict(original, id='another')}
+        self.assertEqual([leg['exchange'] for leg in monitor.snapshot_markets(NOW)['TEST']], ['MEXC', 'Gate'])
+        self.assertNotIn('bybit.swap.TEST.USDT', monitor.instruments)
+        self.assertEqual(monitor.snapshot_markets(NOW, source_keys=subset), {})
+
+        bybit.catalogs['bybit'] = {symbol: original}
+        self.assertEqual(len(monitor.snapshot_markets(NOW)['TEST']), 3)
+
     def test_okx_turnover_requires_all_confirmed_bars_and_uses_quote_volume(self):
         bars = [[str(NOW - i * OKX_BAR_MS), '1', '1', '1', '1', '77', '88', '12500', '1']
                 for i in range(1, 97)]
