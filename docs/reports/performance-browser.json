@@ -1,0 +1,24 @@
+{
+  "synthetic": true,
+  "browser": "157.0.8103.39",
+  "initial": "Связок · 200 · Показать ещё",
+  "statuses": [
+    200,
+    304,
+    304,
+    200
+  ],
+  "geometry": {
+    "x": 81,
+    "y": 225.3125,
+    "width": 1278,
+    "height": 77
+  },
+  "preservedUnchangedPair": true,
+  "sorting": true,
+  "search": true,
+  "card": true,
+  "fundingExpiry": true,
+  "mobileOverflow": false,
+  "errors": []
+}

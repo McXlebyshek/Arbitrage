@@ -1,0 +1,5 @@
+* text=auto
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+/OLD export-ignore
+/docs/evidence export-ignore

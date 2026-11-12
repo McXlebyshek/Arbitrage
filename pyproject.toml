@@ -1,0 +1,6 @@
+[tool.ruff]
+target-version = "py312"
+extend-exclude = ["OLD", "docs/evidence", "node_modules"]
+
+[tool.ruff.lint]
+select = ["E9", "F"]

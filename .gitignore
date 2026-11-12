@@ -1,0 +1,9 @@
+/.venv/
+/data/
+/.playwright-mcp/
+__pycache__/
+/.pytest_cache/
+
+/node_modules/
+/Arbitrage.zip
+/docs/evidence/**/*.jsonl

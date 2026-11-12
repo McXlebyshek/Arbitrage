@@ -1,0 +1,19 @@
+{
+  "synthetic": true,
+  "coins": 1000,
+  "legs": 12000,
+  "pairs": 66000,
+  "wsCoins": 30,
+  "iterations": 15,
+  "baseline": "original",
+  "quoteUpdateMs": {
+    "before": 304.759,
+    "after": 0.547
+  },
+  "groupedSelectionMs": {
+    "before": 89.425,
+    "after": 14.262
+  },
+  "equivalent": true,
+  "includesDOM": false
+}
