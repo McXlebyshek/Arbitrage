@@ -28,6 +28,52 @@ def coverage(snapshot, now):
     return dict(eligiblePairs=eligible, timedPairs=timed, timedShare=timed / eligible if eligible else None)
 
 
+def futures_shadow_coverage(monitor, now):
+    """Record same-subscription REST and pure-WS pair coverage for later comparison."""
+    ws_pairs = {}
+    for pair in monitor.futures_pairs:
+        ids = tuple(sorted(leg['id'] for leg in pair['legs']))
+        if pair['expiresAt'] <= now:
+            continue
+        sources = tuple(leg.get('quoteSource') for leg in pair['legs'])
+        ws_pairs[ids] = dict(pureWs=all(source == 'ws' for source in sources),
+                             wsWithRest=(all(source in ('ws', 'rest') for source in sources)
+                                         and any(source == 'rest' for source in sources)),
+                             sources=sources)
+
+    rows = []
+    for coin, legs in monitor.snapshot['markets'].items():
+        selected = []
+        for leg in legs:
+            venue = leg['id'].split('.', 1)[0]
+            instrument = monitor.instruments.get(leg['id'])
+            if (instrument is not None and leg['type'] == 'swap' and leg['quote'] == 'USDT'
+                    and instrument[1].get('id') in monitor.futures_symbols.get(venue, ())):
+                selected.append(leg)
+        for left, right in combinations(selected, 2):
+            if left['exchange'] == right['exchange'] or not compatible_assets(left, right):
+                continue
+            ids = tuple(sorted((left['id'], right['id'])))
+            ws = ws_pairs.get(ids, {})
+            prices = (left.get('bid'), right.get('bid'))
+            rest_available = (
+                all(price is not None and price > 0 for price in prices)
+                and all(fresh(leg.get('sourceAt'), now) and fresh(leg.get('receivedAt'), now)
+                        for leg in (left, right))
+                and left['sourceAt'] is not None and right['sourceAt'] is not None
+                and abs(left['sourceAt'] - right['sourceAt']) <= 1500
+                and max(prices) / min(prices) <= 2
+            )
+            if not rest_available and not ws.get('pureWs') and not ws.get('wsWithRest'):
+                continue
+            rows.append(dict(coin=coin, pair=list(ids), rest=bool(rest_available),
+                             restSources=[leg.get('quoteSource', 'batch') for leg in (left, right)],
+                             pureWs=ws.get('pureWs', False), wsWithRest=ws.get('wsWithRest', False)))
+    return dict(shadowPairs=rows, shadowRestPairs=sum(row['rest'] for row in rows),
+                shadowPureWsPairs=sum(row['pureWs'] for row in rows),
+                shadowWsWithRestPairs=sum(row['wsWithRest'] for row in rows))
+
+
 def size_on_disk(path):
     return sum(file.stat().st_size for file in (path, path.with_name(path.name + '-wal')) if file.exists())
 
@@ -48,6 +94,7 @@ async def run(args, output):
         output.write(json.dumps(payload, ensure_ascii=False) + '\n')
         output.flush()
 
+    monitor.shadow_observer = emit
     emit(dict(kind='criteria', at=now_ms(), **criteria))
     try:
         site = web.TCPSite(runner, '127.0.0.1', args.port)
@@ -63,7 +110,8 @@ async def run(args, output):
                         health = await response.json()
                     counts = await asyncio.to_thread(coverage, monitor.snapshot, at)
                     disk = size_on_disk(args.history)
-                    emit(dict(kind='sample', at=at, health=health, databaseBytes=disk, **counts))
+                    emit(dict(kind='sample', at=at, health=health, databaseBytes=disk, **counts,
+                              **futures_shadow_coverage(monitor, at)))
                     seen_streams.update(venue for venue, state in health['streams'].items() if state['connected'])
                     if warmed_up:
                         samples += 1

@@ -13,9 +13,50 @@ from market_monitor.market import now_ms
 from market_monitor.sources import Source
 from market_monitor.whitebit import WhitebitBookTicker
 from monitor import Monitor
+from scripts.soak_monitor import futures_shadow_coverage
 
 
 class FuturesPairStateTests(unittest.TestCase):
+    def test_futures_shadow_compares_rest_and_pure_ws_for_the_same_selected_pair(self):
+        now = 1_800_000_000_000
+        left_id, right_id = 'mexc.swap.INIT.USDT', 'kucoinfutures.swap.INIT.USDT'
+        left = dict(id=left_id, exchange='MEXC', type='swap', quote='USDT', asset='init',
+                    bid=100, ask=101, sourceAt=now, receivedAt=now, quoteSource='depth')
+        right = dict(id=right_id, exchange='KuCoin', type='swap', quote='USDT', asset='init',
+                     bid=101, ask=102, sourceAt=now, receivedAt=now, quoteSource='batch')
+        monitor = SimpleNamespace(
+            futures_pairs=[dict(expiresAt=now + 1000, legs=[dict(left, quoteSource='ws'),
+                                                            dict(right, quoteSource='ws')])],
+            snapshot=dict(markets={'INIT': [left, right]}),
+            instruments={left_id: (None, {'id': 'INIT_USDT'}), right_id: (None, {'id': 'INITUSDTM'})},
+            futures_symbols={'mexc': {'INIT_USDT'}, 'kucoinfutures': {'INITUSDTM'}},
+        )
+
+        result = futures_shadow_coverage(monitor, now)
+        self.assertEqual(result['shadowRestPairs'], 1)
+        self.assertEqual(result['shadowPureWsPairs'], 1)
+        self.assertEqual(result['shadowWsWithRestPairs'], 0)
+        self.assertEqual(result['shadowPairs'][0]['restSources'], ['depth', 'batch'])
+
+    def test_futures_shadow_does_not_count_rest_confirmed_quotes_as_pure_ws(self):
+        now = 1_800_000_000_000
+        left_id, right_id = 'mexc.swap.INIT.USDT', 'kucoinfutures.swap.INIT.USDT'
+        legs = [dict(id=left_id, exchange='MEXC', type='swap', quote='USDT', asset='init',
+                     bid=100, ask=101, sourceAt=now - 5000, receivedAt=now, quoteSource='batch'),
+                dict(id=right_id, exchange='KuCoin', type='swap', quote='USDT', asset='init',
+                     bid=101, ask=102, sourceAt=now, receivedAt=now, quoteSource='batch')]
+        monitor = SimpleNamespace(
+            futures_pairs=[dict(expiresAt=now + 1000, legs=[dict(legs[0], quoteSource='rest'),
+                                                            dict(legs[1], quoteSource='ws')])],
+            snapshot=dict(markets={'INIT': legs}),
+            instruments={left_id: (None, {'id': 'INIT_USDT'}), right_id: (None, {'id': 'INITUSDTM'})},
+            futures_symbols={'mexc': {'INIT_USDT'}, 'kucoinfutures': {'INITUSDTM'}},
+        )
+
+        result = futures_shadow_coverage(monitor, now)
+        self.assertEqual(result['shadowPureWsPairs'], 0)
+        self.assertEqual(result['shadowWsWithRestPairs'], 1)
+
     def test_locally_confirmed_quotes_survive_exchange_time_skew(self):
         monitor = object.__new__(Monitor)
         now = 1_800_000_000_000
@@ -41,12 +82,11 @@ class FuturesPairStateTests(unittest.TestCase):
         self.assertTrue(monitor.futures_pairs[0]['timestampSuspect'])
         self.assertEqual(monitor.futures_pairs[0]['expiresAt'], now + 44_900)
 
-    def test_subscription_selection_keeps_near_cutoff_symbols_and_contracts(self):
+    def test_unified_subscription_selection_keeps_near_cutoff_and_pinned_symbols(self):
         monitor = object.__new__(Monitor)
         monitor.instruments = {}
         monitor.futures_feeds = {venue: object() for venue in ('mexc', 'kucoinfutures')}
         monitor.futures_symbols = {venue: set() for venue in monitor.futures_feeds}
-        monitor.futures_contracts = {}
         markets = {}
         for index, (coin, volume) in enumerate(
             [(f'OLD{i:02}', 31 - i) for i in range(30)] + [('NEW', 2.05)],
@@ -62,28 +102,17 @@ class FuturesPairStateTests(unittest.TestCase):
                 if coin.startswith('OLD'):
                     monitor.futures_symbols[venue].add(symbol)
             markets[coin] = legs
-            if coin.startswith('OLD'):
-                monitor.futures_contracts[coin] = tuple(symbols)
-
         selected_symbols = monitor.select_futures_symbols(markets)
-        selected_contracts = monitor.select_futures_contracts(markets)
         self.assertEqual(len(selected_symbols['mexc']), 30)
         self.assertIn('OLD29_USDT', selected_symbols['mexc'])
         self.assertNotIn('NEW_USDT', selected_symbols['mexc'])
-        self.assertEqual(len(selected_contracts), 30)
-        self.assertIn('OLD29', selected_contracts)
-        self.assertNotIn('NEW', selected_contracts)
 
         monitor.futures_symbols = selected_symbols
-        monitor.futures_contracts = selected_contracts
         for leg in markets['NEW']:
             leg['volume'] = 3
         selected_symbols = monitor.select_futures_symbols(markets)
-        selected_contracts = monitor.select_futures_contracts(markets)
         self.assertIn('NEW_USDT', selected_symbols['mexc'])
         self.assertNotIn('OLD29_USDT', selected_symbols['mexc'])
-        self.assertIn('NEW', selected_contracts)
-        self.assertNotIn('OLD29', selected_contracts)
 
     def test_futures_pair_clearing_is_limited_to_affected_venue_and_symbols(self):
         monitor = object.__new__(Monitor)
@@ -213,11 +242,13 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
         for i in range(35):
             add(f'OTHER{i:02}', 5)
 
-        selected = monitor.select_futures_contracts(markets)
-        self.assertEqual(len(selected), 30)
-        self.assertEqual(list(selected)[:3], ['INIT', 'VERIFIED', 'LIQUID'])
-        self.assertNotIn('LOW', selected)
-        self.assertNotIn('COLLISION', selected)
+        selected = monitor.select_futures_symbols(markets)
+        self.assertEqual(len(selected['mexc']), 30)
+        self.assertIn('INIT_USDT', selected['mexc'])
+        self.assertIn('VERIFIED_USDT', selected['mexc'])
+        self.assertIn('LIQUID_USDT', selected['mexc'])
+        self.assertNotIn('LOW_USDT', selected['mexc'])
+        self.assertNotIn('COLLISION_USDT', selected['mexc'])
         self.assertIsNone(markets['LIQUID'][0]['asset'])
 
         for feed in monitor.futures_feeds.values():
@@ -232,15 +263,15 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
             feed.close.assert_not_awaited()
         add('NEW', 12)
         await monitor.refresh_futures_feeds(None, markets, at + 15000)
-        self.assertNotIn('NEW', monitor.futures_contracts)
+        self.assertNotIn('NEW_USDT', monitor.futures_symbols['mexc'])
         for feed in monitor.futures_feeds.values():
             feed.close.assert_not_awaited()
         await monitor.refresh_futures_feeds(None, {}, at + 180000, refresh=False)
-        self.assertEqual(monitor.futures_contracts, selected)
+        self.assertEqual(monitor.futures_symbols, selected)
         for feed in monitor.futures_feeds.values():
             feed.close.assert_not_awaited()
         await monitor.refresh_futures_feeds(None, markets, at + 180000)
-        self.assertIn('NEW', monitor.futures_contracts)
+        self.assertIn('NEW_USDT', monitor.futures_symbols['mexc'])
         for feed in monitor.futures_feeds.values():
             feed.close.assert_not_awaited()
             self.assertGreaterEqual(feed.start.call_count, 2)

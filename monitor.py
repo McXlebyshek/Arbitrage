@@ -20,7 +20,8 @@ from market_monitor.classification import valid_market
 from market_monitor.contract_details import INDEX_VENUES, contract_index
 from market_monitor.funding_fields import funding_fields
 from market_monitor.funding_history import DAY, cadence_stats, fetch_history, window_stats
-from market_monitor.futures_ws import FUTURES_WS_VENUES, FuturesBookFeed, PILOT_CONTRACTS, PILOT_VENUES
+from market_monitor.futures_config import PINNED_FUTURES_SYMBOLS
+from market_monitor.futures_ws import FUTURES_WS_VENUES, FuturesBookFeed
 from market_monitor.history import History, eligible_legs
 from market_monitor.http_server import create_app as create_http_app
 from market_monitor.market import Registry, fresh, now_ms, numeric
@@ -137,8 +138,8 @@ class Monitor:
         self.binance_depth_cursor = self.binance_early_cursor = ''
         self.early_pair = None
         self.early_pair_changed = asyncio.Event()
+        self.shadow_observer = None
         self.futures_pairs = []
-        self.futures_contracts = {}
         self.futures_symbols = {}
         self.futures_refresh_at = 0
         self.futures_update = None
@@ -234,41 +235,14 @@ class Monitor:
             incoming.remove(newcomer)
         return sorted(selected)
 
-    def select_futures_contracts(self, markets):
-        ranked = []
-        for coin, group in markets.items():
-            by_id = {leg['id']: leg for leg in group}
-            ids = [f'{venue}.swap.{coin}.USDT' for venue in PILOT_VENUES]
-            if any(key not in by_id or key not in self.instruments for key in ids):
-                continue
-            a, b = (by_id[key] for key in ids)
-            if not compatible_assets(a, b):
-                continue
-            symbols = tuple(self.instruments[key][1]['id'] for key in ids)
-            fixed = PILOT_CONTRACTS.get(coin) == symbols
-            volume = min(a['volume'] or 0, b['volume'] or 0)
-            if fixed or volume >= 1:
-                verified = bool(a['asset'] and a['asset'] == b['asset'])
-                ranked.append((not fixed, not verified, -volume, coin, symbols))
-        ranked.sort()
-        ranked = self.stabilize_subscription_rank(
-            ranked, self.futures_contracts, FUTURES_WS_LIMIT,
-            key=lambda item: item[3], volume_index=2,
-        )
-        return {coin: symbols for _, _, _, coin, symbols in ranked}
-
     async def refresh_futures_feeds(self, session, markets, now, *, refresh=True, ready_venues=None):
         if refresh and now >= self.futures_refresh_at:
-            ready = set(self.futures_feeds) if ready_venues is None else ready_venues
-            if all(venue in ready for venue in PILOT_VENUES):
-                self.futures_contracts = self.select_futures_contracts(markets)
-            if set(self.futures_feeds) == set(PILOT_VENUES):
-                self.futures_symbols = {venue: frozenset(pair[i] for pair in self.futures_contracts.values())
-                                        for i, venue in enumerate(PILOT_VENUES)}
-            else:
-                selected = self.select_futures_symbols(markets)
-                self.futures_symbols = {venue: selected.get(venue, frozenset()) if venue in ready else
-                                        self.futures_symbols.get(venue, frozenset()) for venue in self.futures_feeds}
+            ready = set(self.futures_feeds) if ready_venues is None else set(ready_venues)
+            selected = self.select_futures_symbols(markets)
+            self.futures_symbols = {
+                venue: selected.get(venue, frozenset()) if venue in ready else self.futures_symbols.get(venue, frozenset())
+                for venue in self.futures_feeds
+            }
             populated = any(len(symbols) >= FUTURES_WS_LIMIT for symbols in self.futures_symbols.values())
             period = FUTURES_WS_REFRESH if populated else INTERVAL * 1000
             self.futures_refresh_at = now + period
@@ -321,26 +295,49 @@ class Monitor:
             await asyncio.gather(*(check(item) for item in checks))
 
     def select_futures_symbols(self, markets):
-        candidates = defaultdict(set)
+        candidates = defaultdict(dict)
+
+        def add(venue, symbol, rank):
+            current = candidates[venue].get(symbol)
+            if current is None or rank < current:
+                candidates[venue][symbol] = rank
+
         for group in markets.values():
             for (a, venue, symbol), (b, peer, other) in combinations(self.futures_candidates(group), 2):
                 if venue == peer or not compatible_assets(a, b) or min(a['volume'] or 0, b['volume'] or 0) < 1:
                     continue
                 tentative = not (a['asset'] and a['asset'] == b['asset'])
-                candidates[venue].add((tentative, -(a['volume'] or 0), symbol))
-                candidates[peer].add((tentative, -(b['volume'] or 0), other))
-        for i, venue in enumerate(PILOT_VENUES):
-            for symbols in self.futures_contracts.values():
-                if not any(symbol == symbols[i] for _, _, symbol in candidates[venue]):
-                    candidates[venue].add((False, float('-inf'), symbols[i]))
+                pair_volume = min(a['volume'] or 0, b['volume'] or 0)
+                add(venue, symbol, (1, tentative, -pair_volume))
+                add(peer, other, (1, tentative, -pair_volume))
+
+        by_coin = {coin: {leg['id']: leg for leg in group} for coin, group in markets.items()}
+        for coin, symbols_by_venue in PINNED_FUTURES_SYMBOLS.items():
+            group = by_coin.get(coin, {})
+            pinned = []
+            for venue, symbol in symbols_by_venue.items():
+                key = f'{venue}.swap.{coin}.USDT'
+                instrument = self.instruments.get(key)
+                leg = group.get(key)
+                if instrument is None or leg is None or instrument[1].get('id') != symbol:
+                    pinned = []
+                    break
+                pinned.append((venue, symbol, leg))
+            if len(pinned) < 2:
+                continue
+            for (venue, symbol, leg), (peer, _other, other_leg) in combinations(pinned, 2):
+                if not compatible_assets(leg, other_leg):
+                    continue
+                rank = (0, not bool(leg['asset'] and leg['asset'] == other_leg['asset']), 0)
+                add(venue, symbol, rank)
         selected = {}
         for venue, items in candidates.items():
-            ranked = sorted(items)
+            ranked = sorted((*rank, symbol) for symbol, rank in items.items())
             ranked = self.stabilize_subscription_rank(
                 ranked, self.futures_symbols.get(venue, ()), FUTURES_WS_LIMIT,
-                key=lambda item: item[2], volume_index=1,
+                key=lambda item: item[3], volume_index=2,
             )
-            selected[venue] = frozenset(item[2] for item in ranked)
+            selected[venue] = frozenset(item[3] for item in ranked)
         return selected
 
     def update_futures_pairs(self, markets, now):
@@ -368,6 +365,25 @@ class Monitor:
 
     def set_early_pair(self, pair):
         self.early_pair = pair
+        if pair is not None and self.shadow_observer is not None:
+            early_legs = sorted(pair['legs'], key=lambda leg: leg['id'])
+            ids = [leg['id'] for leg in early_legs]
+            at = now_ms()
+            quotes = []
+            for key in ids:
+                instrument = self.instruments.get(key)
+                if instrument is None:
+                    break
+                source, market = instrument
+                feed = self.futures_feeds.get(source.venue)
+                quote = feed.quote(market['id'], at) if feed is not None else None
+                if quote is None or quote.get('quoteSource') != 'ws':
+                    break
+                quotes.append(quote)
+            ws_available = (len(quotes) == 2 and max(q['bid'] for q in quotes) / min(q['bid'] for q in quotes) <= 2)
+            self.shadow_observer(dict(kind='futures-shadow-early', at=at, legacyPair=ids,
+                                      legacySources=[leg.get('quoteSource', 'batch') for leg in early_legs],
+                                      pureWsAvailable=ws_available))
         self.notify_quotes_changed()
 
     def notify_quotes_changed(self):

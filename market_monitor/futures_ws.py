@@ -22,14 +22,6 @@ QUIET_SYMBOL_AGE = 30_000
 QUIET_REST_VENUES = frozenset({'binanceusdm', 'gate'})
 LOG = logging.getLogger(__name__)
 
-PILOT_CONTRACTS = {
-    'BTC': ('BTC_USDT', 'XBTUSDTM'),
-    'INIT': ('INIT_USDT', 'INITUSDTM'),
-    'ARIA': ('ARIA_USDT', 'ARIAUSDTM'),
-    'JCT': ('JCT_USDT', 'JCTUSDTM'),
-    'AGT': ('AGT_USDT', 'AGTUSDTM'),
-}
-PILOT_VENUES = ('mexc', 'kucoinfutures')
 FUTURES_WS_VENUES = tuple(PROTOCOLS)
 
 
