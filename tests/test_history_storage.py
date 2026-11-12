@@ -7,7 +7,8 @@ from threading import Event
 import unittest
 from unittest.mock import patch
 
-from market_monitor.history import History, MAINTENANCE_MS, MINUTE_MS, RECENT_MS, RETENTION_MS, eligible_legs
+from market_monitor.history import (COMPACTION_BATCH_MS, History, MAINTENANCE_MS, MINUTE_MS, RECENT_MS,
+                                    RETENTION_MS, eligible_legs)
 
 
 NOW = 1_800_000_000_000
@@ -78,6 +79,7 @@ class HistoryTests(unittest.TestCase):
             history.record([leg('dense', recent)], recent)
             history.record([leg('dense', recent + MINUTE_MS)], recent + MINUTE_MS)
             now = NOW + RECENT_MS + 5 * MINUTE_MS
+            history._compacted_until = NOW
             history.record([], now)
             self.assertEqual([row[0] for row in history.read('dense', now)], [NOW, recent, recent + MINUTE_MS])
             self.assertEqual([row[0] for row in history.read('peer', now)], [NOW])
@@ -104,6 +106,40 @@ class HistoryTests(unittest.TestCase):
 
 
 class AsyncHistoryTests(unittest.IsolatedAsyncioTestCase):
+    async def test_try_write_is_bounded_and_reports_writer_duration(self):
+        with TemporaryDirectory() as directory:
+            history = History(Path(directory) / 'history.sqlite3')
+            started, release = Event(), Event()
+            original_maintain = history._maintain
+
+            def delayed_maintenance(*args):
+                started.set()
+                if not release.wait(3):
+                    raise TimeoutError('test did not release writer')
+                return original_maintain(*args)
+
+            try:
+                with patch.object(history, '_maintain', side_effect=delayed_maintenance):
+                    first = history.try_write([leg('x', NOW)], NOW)
+                    self.assertIsNotNone(first)
+                    self.assertTrue(await asyncio.to_thread(started.wait, 2))
+                    self.assertIsNone(history.try_write([leg('x', NOW + MINUTE_MS)], NOW + MINUTE_MS))
+                    release.set()
+                    await asyncio.to_thread(first.result, 3)
+                second = history.try_write([leg('x', NOW + MINUTE_MS)], NOW + MINUTE_MS)
+                self.assertIsNotNone(second)
+                await asyncio.to_thread(second.result, 3)
+                self.assertIsInstance(history.last_write_ms, int)
+            finally:
+                release.set()
+                await history.aclose()
+
+    def test_startup_compaction_advances_by_at_most_one_hour(self):
+        with TemporaryDirectory() as directory, History(Path(directory) / 'history.sqlite3') as history:
+            history.record([leg('x', NOW)], NOW)
+            cutoff = NOW - RETENTION_MS
+            self.assertEqual(history._compacted_until, cutoff + COMPACTION_BATCH_MS)
+
     async def test_cancellation_closes_after_running_write_and_readers_remain_available(self):
         with TemporaryDirectory() as directory:
             history = History(Path(directory) / 'history.sqlite3')

@@ -130,6 +130,7 @@ class Monitor:
         self.event_loop_lag_max_ms = None
         self._event_loop_lag_handle = None
         self.source_duration_ms = {}
+        self.history_write_skipped = 0
         self.instruments = {}
         self.catalog_descriptors = {}
         self.details, self.pending = {}, {}
@@ -195,6 +196,13 @@ class Monitor:
         if self._event_loop_lag_handle is not None:
             self._event_loop_lag_handle.cancel()
             self._event_loop_lag_handle = None
+
+    @staticmethod
+    def history_write_completed(future):
+        try:
+            future.result()
+        except Exception:
+            LOG.exception('Unable to store market history')
 
     @staticmethod
     def stabilize_subscription_rank(ranked, existing, limit, *, key, volume_index):
@@ -730,7 +738,12 @@ class Monitor:
                         if item[1]['refreshAfter'] > now and self.instruments.get(key) == item[0]}
         if now // 60_000 != last_slot and markets:
             try:
-                await self.history.write(eligible_legs(markets, now, compatible_assets), now)
+                pending = self.history.try_write(eligible_legs(markets, now, compatible_assets), now)
+                if pending is None:
+                    self.history_write_skipped += 1
+                    LOG.info('Skipping market history write because the writer is busy')
+                else:
+                    pending.add_done_callback(self.history_write_completed)
                 last_slot = now // 60_000
             except (sqlite3.Error, OSError):
                 LOG.exception('Unable to store market history')
@@ -764,6 +777,7 @@ class Monitor:
             state=state, generatedAt=self.snapshot['generatedAt'],
             snapshotAgeMs=snapshot_age, cycleDurationMs=self.cycle_duration_ms,
             snapshotBuildMs=self.snapshot_build_ms,
+            historyWriteMs=self.history.last_write_ms, historyWriteSkipped=self.history_write_skipped,
             eventLoopLagMs=self.event_loop_lag_ms, eventLoopLagMaxMs=self.event_loop_lag_max_ms,
             activeCycleMs=(round((monotonic() - self.cycle_started) * 1000)
                            if self.cycle_started is not None else None),
