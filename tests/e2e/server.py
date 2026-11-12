@@ -14,7 +14,6 @@ import monitor as module
 async def main():
     snapshot = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
     now = snapshot['generatedAt']
-    module.now_ms = lambda: now
     monitor = module.Monitor([], Path('unused.sqlite3'))
     await monitor.publish_snapshot(snapshot)
     monitor.detail = AsyncMock(return_value=dict(errors={}, totals={}, events=[], refreshAfter=now + 60000))
@@ -26,7 +25,7 @@ async def main():
                 return_value=dict(timestamp=now, bids=[[100, 10]], asks=[[101, 10]])))
             monitor.instruments[leg['id']] = source, dict(symbol=leg['id'], quote=leg['quote'], contractSize=1)
     monitor.futures_feeds = {'test': SimpleNamespace(close=AsyncMock(), reconnects=0)}
-    app = module.create_app(monitor, collect=False)
+    app = module.create_app(monitor, collect=False, clock=lambda: now)
     stopped = asyncio.Event()
 
     async def quotes(request):

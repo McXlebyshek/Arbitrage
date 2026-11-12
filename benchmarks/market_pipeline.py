@@ -48,10 +48,11 @@ def create_monitor():
 
 def measure_build(monitor, *, cold):
     samples = []
+    builder = getattr(monitor, 'snapshot_builder', monitor)
     for _ in range(WARMUPS + ITERATIONS):
         if cold:
-            monitor.catalog_descriptors.clear()
-            monitor.network_descriptors.clear()
+            builder.catalog_descriptors.clear()
+            builder.network_descriptors.clear()
         start = perf_counter()
         markets = monitor.snapshot_markets(NOW)
         samples.append((perf_counter() - start) * 1000)

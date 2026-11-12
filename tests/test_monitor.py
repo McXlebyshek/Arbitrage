@@ -6,10 +6,11 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import AsyncMock, patch
 
-from monitor import (History, Monitor, complete_history, detail_refresh_after, estimate_pair,
-                     compatible_assets, funding_fields, normalized_book, valid_market)
-from market_monitor.economics import EconomicBlock
+from monitor import (History, Monitor, complete_history, detail_refresh_after,
+                     compatible_assets, funding_fields, normalized_book)
+from market_monitor.economics import EconomicBlock, estimate_pair
 from market_monitor.funding_history import fetch_history
+from market_monitor.market_admission import valid_market
 from market_monitor.sources import OKX_BAR_MS, Source, okx_turnover
 from market_monitor.whitebit import WhitebitBookTicker
 
@@ -183,12 +184,12 @@ class MonitorTests(unittest.TestCase):
         first = monitor.snapshot_markets(NOW)['TEST']
         self.assertEqual([leg['exchange'] for leg in first], ['Bybit', 'MEXC', 'Gate'])
         keys = tuple(monitor.sources)
-        plan, _ = monitor.snapshot_plan(keys)
+        plan, _ = monitor.snapshot_builder.plan(keys)
         bybit = monitor.sources['bybit', 'swap']
         bybit.batches['bybit']['tickers'][symbol].update(bid=101, ask=102)
         self.assertEqual(monitor.snapshot_markets(NOW)['TEST'][0]['bid'], 101)
         self.assertEqual(first[0]['bid'], 100)
-        self.assertIs(monitor.snapshot_plan(keys)[0], plan)
+        self.assertIs(monitor.snapshot_builder.plan(keys)[0], plan)
 
         main_routes = monitor.instruments
         subset = (('bybit', 'swap'), ('mexc', 'swap'))

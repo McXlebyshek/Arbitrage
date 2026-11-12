@@ -133,3 +133,36 @@ class Registry:
 
 def fresh(stamp, now, max_age=MAX_AGE):
     return stamp is not None and -1000 <= now - stamp <= max_age
+
+
+def compatible_assets(left, right):
+    units = left.get('priceUnits', 1)
+    if units != right.get('priceUnits', 1):
+        return False
+    if units != 1 or left.get('nativeBase') or right.get('nativeBase'):
+        return bool(left['asset'] and left['asset'] == right['asset'])
+    return not (left['asset'] and right['asset'] and left['asset'] != right['asset'])
+
+
+def pair_coverage(markets, now):
+    total = usable = 0
+    for legs in markets.values():
+        for long in legs:
+            for short in legs:
+                if (long is short or short['type'] != 'swap' or long['quote'] != short['quote']
+                        or (long['exchange'] == short['exchange'] and long['type'] == short['type'])
+                        or not compatible_assets(long, short)):
+                    continue
+                total += 1
+                if not all(fresh(leg['receivedAt'], now) and
+                           (leg['sourceAt'] is None or fresh(leg['sourceAt'], now)) and
+                           leg['bid'] and leg['ask'] for leg in (long, short)):
+                    continue
+                if max(long['bid'], short['bid']) / min(long['bid'], short['bid']) > 2:
+                    continue
+                a, b = long['sourceAt'], short['sourceAt']
+                if a is not None and b is not None:
+                    usable += abs(a - b) <= 1500
+                else:
+                    usable += abs(long['receivedAt'] - short['receivedAt']) <= 3000
+    return dict(total=total, usable=usable, fraction=usable / total if total else None)

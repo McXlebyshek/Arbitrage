@@ -4,7 +4,7 @@ from pathlib import Path
 from threading import Event
 from types import SimpleNamespace
 import unittest
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, Mock, patch
 
 from aiohttp import web
 import orjson
@@ -31,16 +31,14 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
         self.monitor.instruments = {
             str(i): (source, dict(symbol=str(i), contractSize=1)) for i in range(5)
         }
-        self.app = create_app(self.monitor, collect=False)
+        self.clock = Mock(return_value=NOW)
+        self.app = create_app(self.monitor, collect=False, clock=self.clock)
         self.lifecycle = self.app.cleanup_ctx[0](self.app)
         await anext(self.lifecycle)
-        self.clock = patch('monitor.now_ms', return_value=NOW)
-        self.clock.start()
 
     async def asyncTearDown(self):
         self.release.set()
         await self.lifecycle.aclose()
-        self.clock.stop()
 
     def handler(self, path):
         return next(route.handler for route in self.app.router.routes()
@@ -82,7 +80,7 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_failure_releases_slot_and_allows_retry(self):
         self.fetch.side_effect = ValueError('invalid book')
-        with self.assertLogs('monitor', level='WARNING'):
+        with self.assertLogs('market_monitor.books', level='WARNING'):
             with self.assertRaises(web.HTTPServiceUnavailable):
                 await self.book()
         self.fetch.side_effect = None
@@ -93,7 +91,8 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
     async def test_expired_source_is_not_served_from_cache(self):
         self.release.set()
         await self.book()
-        with patch('monitor.now_ms', return_value=NOW + 3001), self.assertLogs('monitor', level='WARNING'):
+        self.clock.return_value = NOW + 3001
+        with self.assertLogs('market_monitor.books', level='WARNING'):
             with self.assertRaises(web.HTTPServiceUnavailable):
                 await self.book()
         self.assertEqual(self.fetch.await_count, 2)
