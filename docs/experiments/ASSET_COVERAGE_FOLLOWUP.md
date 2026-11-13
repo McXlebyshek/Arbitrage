@@ -1,6 +1,6 @@
 # Повторная сверка капитализации, FDV и спота
 
-11 ноября 2026 года в реестр добавлены 40 бессрочных контрактов и 13 спотовых пар для 16 активов. Число CoinGecko ID выросло с 59 до 69. Все 53 новых рынка получили ожидаемую привязку в живом снимке. В реестре спота появились первые пары Gate, Bitget и KuCoin. [Привязки, нативные размеры и источники](evidence/registry-targeted-2026-11-11.json)
+11 ноября 2026 года в реестр добавлены 40 бессрочных контрактов и 13 спотовых пар для 16 активов. Число CoinGecko ID выросло с 59 до 69. Все 53 новых рынка получили ожидаемую привязку в живом снимке. В реестре спота появились первые пары Gate, Bitget и KuCoin. [Привязки, нативные размеры и источники](../evidence/registry-targeted-2026-11-11.json)
 
 Для INIT Gate называет Initia в карточке `INIT_USDT`, Bybit публикует `fullName=Initia` в каталоге `INITUSDT`. Для ARIA Gate называет AriaAI, а индекс Bitget включает спотовый `ARIA/USDT`, который CoinGecko привязывает к `aria-ai`. Для AGT индекс Gate использует спот KuCoin с CoinGecko ID `alaya-ai`, а MEXC подтверждает название Alaya AI в анонсе конкретного контракта. Нативный размер INIT равен 10 на Gate и 1 на Bybit, размер ARIA равен 100 на Gate и 1 на Bitget. [Gate INIT](https://www.gate.com/en-bs/futures/USDT/INIT_USDT) · [Gate ARIA](https://www.gate.com/futures/USDT/ARIA_USDT) · [Индекс Bitget ARIA](https://api.bitget.com/api/v3/market/index-components?symbol=ARIAUSDT) · [Индекс Gate AGT](https://api.gateio.ws/api/v4/futures/usdt/index_constituents/AGT_USDT) · [Листинг MEXC AGT](https://www.mexc.com/announcements/article/initial-futures-listing-alaya-ai-agt-usdt-m-futures-to-list-on-may-16-2025-09-17827791524131)
 
@@ -10,10 +10,10 @@
 
 | Прогон | Время по Киеву | Разница меток | UAInvest | Локально до → после | Общие токены / направления в топ-50 после |
 | --- | --- | ---: | ---: | ---: | ---: |
-| [Капитализация ≥ 1 млн](evidence/mcap-targeted-2026-11-11.json) | 11:36:19 | 1.285 с | 35 | 29 → 41 | 11 / 4 |
-| [Повтор, капитализация ≥ 1 млн](evidence/mcap-targeted-ui-2026-11-11.json) | 11:38:52 | 4.176 с | 34 | 29 → 44 | 12 / 5 |
-| [FDV ≥ 1 млн](evidence/fdv-targeted-2026-11-11.json) | 11:37:33 | 0.159 с | 34 | 29 → 45 | 13 / 3 |
-| [Спот + шорт · спред](evidence/spot-targeted-2026-11-11.json) | 11:37:01 | 1.284 с | 11 | 54 → 54 | 10 / 8 |
+| [Капитализация ≥ 1 млн](../evidence/mcap-targeted-2026-11-11.json) | 11:36:19 | 1.285 с | 35 | 29 → 41 | 11 / 4 |
+| [Повтор, капитализация ≥ 1 млн](../evidence/mcap-targeted-ui-2026-11-11.json) | 11:38:52 | 4.176 с | 34 | 29 → 44 | 12 / 5 |
+| [FDV ≥ 1 млн](../evidence/fdv-targeted-2026-11-11.json) | 11:37:33 | 0.159 с | 34 | 29 → 45 | 13 / 3 |
+| [Спот + шорт · спред](../evidence/spot-targeted-2026-11-11.json) | 11:37:01 | 1.284 с | 11 | 54 → 54 | 10 / 8 |
 
 В повторном замере с капитализацией до расширения реестра совпадали 2 токена и 0 направлений. После расширения локальный топ включает INIT Gate → Bybit, BLUR WhiteBIT → OKX и другие подтверждённые пары. В первом снимке BLUR WhiteBIT → OKX и HUMA OKX → Bybit прошли проверку идентичности, но у OKX ещё отсутствовал оборот. В повторном снимке обе пары получили оборот и вошли в таблицу.
 

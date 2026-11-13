@@ -48,7 +48,7 @@
 
 В тех же пробах MEXC вернул 842–868 различных меток на 1 112 USDT-контрактов в каждом пакете. Самая свежая метка в каждом из четырёх пакетов была на 588–1 200 мс раньше локального получения, самая ранняя — на 2 737–4 584 мс. KuCoin UTA вернул одну метку на весь пакет, она опережала локальное время получения на 22–85 мс. Эти наблюдения согласуются с различием источников меток. Они не показывают время изменения лучшего Bid или Ask каждого контракта.
 
-[Сырые замеры часов и пакетных меток](evidence/mexc-kucoin-clock-2026-11-11.jsonl) · [Время MEXC Futures](https://mexcdevelop.github.io/apidocs/contract_v1_en/#get-the-server-time) · [Время KuCoin](https://www.kucoin.com/docs-new/api-3470156) · [KuCoin UTA](https://www.kucoin.com/docs-new/3473241e0)
+[Сырые замеры часов и пакетных меток](../evidence/mexc-kucoin-clock-2026-11-11.jsonl) · [Время MEXC Futures](https://mexcdevelop.github.io/apidocs/contract_v1_en/#get-the-server-time) · [Время KuCoin](https://www.kucoin.com/docs-new/api-3470156) · [KuCoin UTA](https://www.kucoin.com/docs-new/3473241e0)
 
 ## Влияние на выдачу
 
@@ -58,4 +58,4 @@ Playwright подтвердил условия локального прогон
 
 Следующий замер должен проверить, как часто WebSocket лучших Bid и Ask для MEXC и KuCoin держит свежие цены до публикации общего снимка. Для контроля можно использовать параллельное чтение прямых стаканов на том же наборе контрактов.
 
-[Журнал ранних и поздних проб](evidence/mexc-kucoin-early-2026-11-11.jsonl) · [Пересчёт](evidence/mexc-kucoin-early-replay-2026-11-11.json) · [Фильтры UAInvest](https://uainvest.com.ua/arbitrage?type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&volume=1&quotes=USDT&category=crypto&group=1&sort_by=open_spread&sort_dir=desc)
+[Журнал ранних и поздних проб](../evidence/mexc-kucoin-early-2026-11-11.jsonl) · [Пересчёт](../evidence/mexc-kucoin-early-replay-2026-11-11.json) · [Фильтры UAInvest](https://uainvest.com.ua/arbitrage?type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&volume=1&quotes=USDT&category=crypto&group=1&sort_by=open_spread&sort_dir=desc)

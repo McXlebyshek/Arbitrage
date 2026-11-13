@@ -12,7 +12,7 @@
 
 ## Сравнение с UAInvest
 
-Три пары снимков сняты в Playwright на общих 12 площадках с теми же фильтрами. Порог капитализации отсутствовал. В каждом локальном снимке базовый список и вариант с WS пересчитаны по одним данным. Из 50 публичных строк на снимок исключены подтверждённые TradFi и ноги в USDC. Например, у SUI был нативный контракт KuCoin SUIUSDC, а у MSTR и NVDA признаки акций подтвердили каталоги. В публичной строке AGT Extended → Aster указаны USDT и оборот выше порога. Проверенный каталог Extended рынка AGT не показал. Эта строка учтена как расхождение. [Публичные фильтры](https://uainvest.com.ua/arbitrage?type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&volume=1&quotes=USDT&category=crypto&group=1&sort_by=open_spread&sort_dir=desc) · [Каталоги](evidence/mexc-kucoin-ws-wide-audit-2026-11-11.json)
+Три пары снимков сняты в Playwright на общих 12 площадках с теми же фильтрами. Порог капитализации отсутствовал. В каждом локальном снимке базовый список и вариант с WS пересчитаны по одним данным. Из 50 публичных строк на снимок исключены подтверждённые TradFi и ноги в USDC. Например, у SUI был нативный контракт KuCoin SUIUSDC, а у MSTR и NVDA признаки акций подтвердили каталоги. В публичной строке AGT Extended → Aster указаны USDT и оборот выше порога. Проверенный каталог Extended рынка AGT не показал. Эта строка учтена как расхождение. [Публичные фильтры](https://uainvest.com.ua/arbitrage?type=spread&exchanges=aster_binance_bitget_bybit_edgex_extended_gate_htx_kucoin_mexc_okx_whitebit&volume=1&quotes=USDT&category=crypto&group=1&sort_by=open_spread&sort_dir=desc) · [Каталоги](../evidence/mexc-kucoin-ws-wide-audit-2026-11-11.json)
 
 | Показатель | 21:11:53 | 21:12:23 | 21:12:51 |
 | --- | ---: | ---: | ---: |
@@ -59,4 +59,4 @@
 
 Прошли 38 тестов Python, 10 тестов Node.js, `compileall` и `pip check`. Изменение подписок и сохранение списка при ошибке пакетного источника проверены управляемым тестом. Длительное поведение 30 подписок при неоднократных обрывах и точные публичные Bid/Ask для INIT в момент этого снимка остаются непроверенными.
 
-[Журнал снимков и Playwright](evidence/mexc-kucoin-ws-wide-2026-11-11.jsonl) · [Пересчёт всех циклов](evidence/mexc-kucoin-ws-wide-replay-2026-11-11.json)
+[Журнал снимков и Playwright](../evidence/mexc-kucoin-ws-wide-2026-11-11.jsonl) · [Пересчёт всех циклов](../evidence/mexc-kucoin-ws-wide-replay-2026-11-11.json)

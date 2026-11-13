@@ -2,11 +2,11 @@
 
 ## Привязки
 
-Подтверждены 16 активных контрактов для CYBER, POD, AXL, MEW и NEX. Реестр вырос с 76 до 80 активов. WhiteBIT называет базовый актив `CYBER-PERP` CyberConnect, а каталог связывает нативный `CYBER_PERP` с `CYBER`. У POD CoinGecko связывает Dolphin с точными рынками Gate и Aster. У AXL и MEW совпали публичные идентификаторы и торговые ссылки, Bybit также публикует полные названия Axelar и cat in a dogs world. [Привязки](evidence/three-filter-followup-registry-2026-11-11.json) · [WhiteBIT CYBER](https://whitebit.com/trade/CYBER-PERP) · [Dolphin](https://www.coingecko.com/en/coins/dolphin-2) · [Axelar](https://www.coingecko.com/en/coins/axelar) · [MEW](https://www.coingecko.com/en/coins/mew)
+Подтверждены 16 активных контрактов для CYBER, POD, AXL, MEW и NEX. Реестр вырос с 76 до 80 активов. WhiteBIT называет базовый актив `CYBER-PERP` CyberConnect, а каталог связывает нативный `CYBER_PERP` с `CYBER`. У POD CoinGecko связывает Dolphin с точными рынками Gate и Aster. У AXL и MEW совпали публичные идентификаторы и торговые ссылки, Bybit также публикует полные названия Axelar и cat in a dogs world. [Привязки](../evidence/three-filter-followup-registry-2026-11-11.json) · [WhiteBIT CYBER](https://whitebit.com/trade/CYBER-PERP) · [Dolphin](https://www.coingecko.com/en/coins/dolphin-2) · [Axelar](https://www.coingecko.com/en/coins/axelar) · [MEW](https://www.coingecko.com/en/coins/mew)
 
 ### 10000NEX
 
-В публичном списке UAInvest осталось направление Bybit → Bitget со спредом 14,2394822%. Bybit вернул `10000NEXUSDT` со статусом `Trading` и Bid/Ask. Bitget вернул `40309 The symbol has been removed` на четырёх маршрутах, включая каталог, тикер и стакан. Исторический листинг Bitget существует. Для пары MEXC → KuCoin подтверждены нативные рынки `NEX_USDT` и `NEXUSDTM` с ценой за один NEX и размером контракта 100 000 NEX. В локальном снимке эта группа получила ранг 57 и капитализацию 34,47 млн USD. Цена Bybit относится к 10 000 NEX. Сравнение цен в разных единицах остаётся за рамками текущей реализации. [Листинг Bitget](https://www.bitget.com/support/articles/12560603884273) · [Рынки Nexus](https://www.coingecko.com/en/coins/nexus-4) · [Ответы API](evidence/three-filter-followup-registry-2026-11-11.json)
+В публичном списке UAInvest осталось направление Bybit → Bitget со спредом 14,2394822%. Bybit вернул `10000NEXUSDT` со статусом `Trading` и Bid/Ask. Bitget вернул `40309 The symbol has been removed` на четырёх маршрутах, включая каталог, тикер и стакан. Исторический листинг Bitget существует. Для пары MEXC → KuCoin подтверждены нативные рынки `NEX_USDT` и `NEXUSDTM` с ценой за один NEX и размером контракта 100 000 NEX. В локальном снимке эта группа получила ранг 57 и капитализацию 34,47 млн USD. Цена Bybit относится к 10 000 NEX. Сравнение цен в разных единицах остаётся за рамками текущей реализации. [Листинг Bitget](https://www.bitget.com/support/articles/12560603884273) · [Рынки Nexus](https://www.coingecko.com/en/coins/nexus-4) · [Ответы API](../evidence/three-filter-followup-registry-2026-11-11.json)
 
 ## Повтор Playwright
 
@@ -19,11 +19,11 @@
 | До расширения | 53 | 14 | 5 |
 | После расширения | 57 | 17 | 8 |
 
-До группировки прошли 12 точных публичных направлений. Медиана абсолютной разницы спреда составила 0.057 п.п. Из новых привязок POD Gate → Aster, AXL WhiteBIT → Bybit и CYBER WhiteBIT → Bybit дали совпадение направлений в топ-50. У MEW публичная WhiteBIT → Binance прошла фильтры, а в локальной группе выбрана WhiteBIT → MEXC с более высоким спредом. [Снимок Playwright](evidence/three-filter-followup-snapshot-2026-11-11.json)
+До группировки прошли 12 точных публичных направлений. Медиана абсолютной разницы спреда составила 0.057 п.п. Из новых привязок POD Gate → Aster, AXL WhiteBIT → Bybit и CYBER WhiteBIT → Bybit дали совпадение направлений в топ-50. У MEW публичная WhiteBIT → Binance прошла фильтры, а в локальной группе выбрана WhiteBIT → MEXC с более высоким спредом. [Снимок Playwright](../evidence/three-filter-followup-snapshot-2026-11-11.json)
 
 ## POD в прямых стаканах
 
-Gate Ask 0,4205 и Aster Bid 0,4306 совпали с ценами публичной карточки до и после запроса. Биржевые метки двух локальных стаканов различались на 100 мс. Open Spread 2,37339913% совпал с публичным списком до точности ответа и дал 2,373% в карточке. В публичном DOM отдельные биржевые метки не опубликованы. [Карточка POD](https://uainvest.com.ua/arbitrage/pod-aster-swap-gate-swap) · [Снимки стаканов](evidence/three-filter-followup-pod-books-2026-11-11.json)
+Gate Ask 0,4205 и Aster Bid 0,4306 совпали с ценами публичной карточки до и после запроса. Биржевые метки двух локальных стаканов различались на 100 мс. Open Spread 2,37339913% совпал с публичным списком до точности ответа и дал 2,373% в карточке. В публичном DOM отдельные биржевые метки не опубликованы. [Карточка POD](https://uainvest.com.ua/arbitrage/pod-aster-swap-gate-swap) · [Снимки стаканов](../evidence/three-filter-followup-pod-books-2026-11-11.json)
 
 ## Причины расхождений
 
@@ -72,4 +72,4 @@ Gate Ask 0,4205 и Aster Bid 0,4306 совпали с ценами публич�
 | DNA | EdgeX → Aster | Отсутствует | EdgeX в локальном каталоге использует USDC |
 | CTR | Gate → Binance | Отсутствует | нет привязки обеих ног |
 
-[Ответы каталогов по строкам снимка](evidence/three-filter-followup-audit-2026-11-11.json)
+[Ответы каталогов по строкам снимка](../evidence/three-filter-followup-audit-2026-11-11.json)

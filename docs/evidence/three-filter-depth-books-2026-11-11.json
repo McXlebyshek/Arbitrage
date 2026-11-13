@@ -1,29 +1,3 @@
-{
-  "url": "https://uainvest.com.ua/arbitrage/zerebro-kucoin-swap-gate-swap",
-  "before": {
-    "at": 1794398423692,
-    "entry": null,
-    "sides": [],
-    "title": "-ZEREBRO-Kucoin(short)Gate(long)"
-  },
-  "books": [
-    {
-      "venue": "gate",
-      "status": 200,
-      "ask": 0.024303,
-      "bid": 0.024192,
-      "sourceAt": 1794398424000,
-      "receivedAt": 1794398424224
-    },
-    {
-      "venue": "kucoinfutures",
-      "status": 503
-    }
-  ],
-  "after": {
-    "at": 1794398424650,
-    "entry": null,
-    "sides": [],
-    "title": "-ZEREBRO-Kucoin(short)Gate(long)"
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:cf8c6a84ca3b86da59914083a3991ca569f9dbe68bdfa512c264930430d02ed0
+size 585

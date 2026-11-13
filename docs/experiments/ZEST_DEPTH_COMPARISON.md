@@ -4,7 +4,7 @@
 
 Обе биржи называют базовым активом бессрочных контрактов Zest Protocol. В публичных каталогах Binance `ZESTUSDT` и KuCoin `ZESTUSDTM` активны, линейны и рассчитываются в USDT. Один контракт соответствует 1 ZEST на Binance и 10 ZEST на KuCoin. Обе биржи публикуют цену за 1 ZEST. [Binance Futures](https://www.binance.com/en/support/announcement/detail/61e41ce0e4b74dc7a794cc6bf9c57d38) · [KuCoin Futures](https://www.kucoin.com/announcement/th-kucoin-futures-new-listing-zestusdt-perpetual-contract-with-up-to-10x-leverage)
 
-У CoinGecko идентификатор `zest-protocol` и адреса BNB Chain, Ethereum, Base и Stacks совпали с документацией проекта. CoinGecko указал активную пару KuCoin `ZEST-USDT` со ссылкой на тот же рынок, который вернул каталог KuCoin Spot. В проверенном каталоге Binance Spot рынок ZEST отсутствовал. Добавлены два фьючерса и спот KuCoin. Всего в реестре 96 активов и 207 спотовых привязок. [Документация Zest Protocol](https://docs.zestprotocol.com/zest-token) · [Каталоги и CoinGecko](evidence/zest-identity-2026-11-11.json)
+У CoinGecko идентификатор `zest-protocol` и адреса BNB Chain, Ethereum, Base и Stacks совпали с документацией проекта. CoinGecko указал активную пару KuCoin `ZEST-USDT` со ссылкой на тот же рынок, который вернул каталог KuCoin Spot. В проверенном каталоге Binance Spot рынок ZEST отсутствовал. Добавлены два фьючерса и спот KuCoin. Всего в реестре 96 активов и 207 спотовых привязок. [Документация Zest Protocol](https://docs.zestprotocol.com/zest-token) · [Каталоги и CoinGecko](../evidence/zest-identity-2026-11-11.json)
 
 ## Прямой стакан
 
@@ -34,7 +34,7 @@
 - Локальная строка Binance → KuCoin прошла фильтры Crypto, USDT, оборот от 1 млн на обеих ногах, капитализацию и FDV от 1 млн. В «Спот + шорт · фандинг» прошла KuCoin Spot → Binance с капитализацией 16,089 млн и FDV 110,200 млн USD. Добавление порога оборота убрало эту строку. У спота KuCoin оборот составил 0,174 млн USDT.
 - Целевая публичная выдача UAInvest по ZEST на Binance и KuCoin показала Binance → KuCoin со спредом −0,154% при обороте от 1 млн, Crypto и USDT. Ближайший сохранённый локальный снимок опубликован на 4,540 с раньше. В нём разница биржевых меток составила 8,396 с, поэтому локальный спред отсутствовал. Публичные цены входа и их временные метки в ответе списка отсутствовали. Сверка общего топа и влияние на ранги в этом двухбиржевом прогоне не измерялись. [Публичная выдача ZEST](https://uainvest.com.ua/arbitrage?type=spread&exchanges=binance_kucoin&volume=1&quotes=USDT&category=crypto&group=1&sort_by=open_spread&sort_dir=desc&coin=ZEST)
 
-[Журнал живых циклов и Playwright](evidence/zest-depth-2026-11-11.jsonl)
+[Журнал живых циклов и Playwright](../evidence/zest-depth-2026-11-11.jsonl)
 
 ## Автоматические проверки
 
