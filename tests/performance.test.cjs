@@ -127,7 +127,7 @@ test('incremental updates create only affected directions', () => {
 });
 
 test('prepared filters preserve all modes, aliases, thresholds, favorites and sorting', () => {
-  const appCode = readFileSync('frontend/app.js', 'utf8');
+  const appCode = readFileSync('frontend/app.mjs', 'utf8');
   const optimized = appCode.slice(appCode.indexOf('function createMatcher()'), appCode.indexOf('function status('));
   for (const demoMode of [false, true]) {
     const fast = model(demoMode), old = model(demoMode), data = snapshot(12);
@@ -158,7 +158,7 @@ test('prepared filters preserve all modes, aliases, thresholds, favorites and so
 });
 
 test('APR after fees supports filtering and sorting and rejects missing assumptions', () => {
-  const appCode = readFileSync('frontend/app.js', 'utf8');
+  const appCode = readFileSync('frontend/app.mjs', 'utf8');
   const optimized = appCode.slice(appCode.indexOf('function createMatcher()'), appCode.indexOf('function status('));
   const api = model();
   api.updateLive(snapshot(2));

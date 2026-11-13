@@ -1,3 +1,10 @@
+import {
+  activePair, app, chartOffset, chartOptions, chartTab, countdown, dialog, executablePending, executableSpreads,
+  interval, liquidity, nominal, renderDetail, renderRoute, renderTable, route, savePreference,
+  setDetailError, setExecutablePending, showDialog, shownRows, signalRules, state, toast, visiblePairs,
+} from './app.mjs';
+import {button, esc, icon, money, options, pct, price, signed} from './presentation.mjs';
+
 function updateFeedLabel() {
   const label = document.querySelector('#feed-state');
   const timer = document.querySelector('#countdown');
@@ -18,6 +25,7 @@ let marketEtag = null;
 let marketMetadata = null;
 let lastSnapshotNotice = 0;
 let snapshotInterval = 15000;
+let refreshing = false;
 
 function refreshMarketsFallback() {
   if (!live.generatedAt || live.error || Date.now() - lastSnapshotNotice >= 2 * snapshotInterval) {
@@ -177,7 +185,7 @@ async function loadPairDetails(pair) {
     if (!current) return;
     const failed = outcomes.some(result => result.status === 'rejected');
     const errors = outcomes.flatMap(result => result.status === 'fulfilled' ? Object.keys(result.value.errors) : []);
-    detailError = failed || errors.length ? 'Часть данных карточки недоступна у публичных источников.' : '';
+    setDetailError(failed || errors.length ? 'Часть данных карточки недоступна у публичных источников.' : '');
     const focusId = document.activeElement?.id;
     renderDetail(current);
     if (focusId) document.getElementById(focusId)?.focus({preventScroll: true});
@@ -203,7 +211,7 @@ async function loadExecutableSpreads() {
     toast('Для оценки глубины нужны видимые связки из двух подтверждённых контрактов.');
     return;
   }
-  executablePending = true;
+  setExecutablePending(true);
   try {
     const query = new URLSearchParams(pairs.map(pair => ['pair', pair.id]));
     const response = await fetch('/api/executable-spreads?' + query, {signal: AbortSignal.timeout(10000)});
@@ -220,7 +228,7 @@ async function loadExecutableSpreads() {
   } catch (error) {
     toast(error.message);
   } finally {
-    executablePending = false;
+    setExecutablePending(false);
   }
 }
 
@@ -552,3 +560,9 @@ function renderLiveChart(panel) {
   ${isSpread ? `<p class="chart-history-link">${button('История фандинга', 'history', 'control', `data-pair="${pair.id}"`)}</p>` : ''}
   ${chartTab === 'index' ? indexComposition(pair) : ''}`;
 }
+
+export {
+  calculateEstimate, expireLiveData, loadExecutableSpreads, loadPairDetails, refreshMarkets,
+  refreshMarketsFallback, renderLiveChart, requestDepth, showEstimate, showLiveHistory,
+  showPresets, showSignals, startEarlyQuotes, updateDepthSummary, updateFeedLabel,
+};

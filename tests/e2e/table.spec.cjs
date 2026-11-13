@@ -1,9 +1,9 @@
 const {expect, test} = require('@playwright/test');
 
-function largeSnapshot() {
+function largeSnapshot(count = 160) {
   const now = Date.now();
   const markets = {};
-  for (let index = 0; index < 160; index++) {
+  for (let index = 0; index < count; index++) {
     const coin = `TEST${String(index).padStart(3, '0')}`;
     markets[coin] = ['Binance', 'Bybit'].map((exchange, leg) => ({
       id: `${exchange}.swap.${coin}.USDT`, exchange, type: 'swap', quote: 'USDT',
@@ -80,6 +80,62 @@ test('virtualizes rows and retains a focused row when the page scrolls', async (
   await expect.poll(async () => Number(await rows.last().getAttribute('data-index'))).toBeGreaterThan(140);
   expect(await rows.count()).toBeLessThan(40);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('measures a twenty-thousand-pair snapshot in the browser', async ({page}) => {
+  test.setTimeout(120000);
+  const snapshot = largeSnapshot(20000);
+  const body = JSON.stringify(snapshot);
+  await page.addInitScript(() => {
+    window.longTasks = [];
+    new PerformanceObserver(list => {
+      for (const entry of list.getEntries()) window.longTasks.push({duration: entry.duration, startTime: entry.startTime});
+    }).observe({type: 'longtask', buffered: true});
+  });
+  await page.route('**/api/markets?compact=1', route => route.fulfill({
+    status: 200,
+    headers: {'Content-Type': 'application/json', 'Content-Length': String(Buffer.byteLength(body))},
+    body,
+  }));
+  const apiResponse = page.waitForResponse(response => response.url().includes('/api/markets?compact=1'));
+  await page.goto('/');
+  const response = await apiResponse;
+  expect(response.status()).toBe(200);
+  await expect(page.locator('#result-count')).toContainText('20000', {timeout: 30000});
+  const startup = await page.evaluate(() => ({
+    longTaskCount: window.longTasks.length,
+    longTaskTotalMs: Number(window.longTasks.reduce((total, task) => total + task.duration, 0).toFixed(1)),
+    longestTaskMs: Number(Math.max(0, ...window.longTasks.map(task => task.duration)).toFixed(1)),
+  }));
+  const render = await page.evaluate(async () => {
+    window.longTasks.length = 0;
+    performance.mark('large-list-render-start');
+    const mode = document.querySelector('#mode');
+    mode.value = 'spread';
+    mode.dispatchEvent(new Event('change', {bubbles: true}));
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    performance.mark('large-list-render-end');
+    const duration = performance.measure('large-list-render', 'large-list-render-start', 'large-list-render-end').duration;
+    return {
+      durationMs: Number(duration.toFixed(1)),
+      longTaskCount: window.longTasks.length,
+      longestTaskMs: Number(Math.max(0, ...window.longTasks.map(task => task.duration)).toFixed(1)),
+    };
+  });
+  const metrics = await page.evaluate(({payloadBytes, render, startup}) => {
+    const resource = performance.getEntriesByType('resource').find(entry => entry.name.includes('/api/markets?compact=1'));
+    return {
+      startup,
+      apiEncodedBytes: resource?.encodedBodySize ?? null,
+      apiTransferBytes: resource?.transferSize ?? null,
+      domRows: document.querySelectorAll('#market-table tbody tr[data-index]').length,
+      payloadBytes,
+      rerender: render,
+    };
+  }, {payloadBytes: Buffer.byteLength(body), render, startup});
+  expect(metrics.domRows).toBeLessThan(40);
+  console.log('20k pair Playwright metrics:', JSON.stringify(metrics));
+  await test.info().attach('20k-pair-performance.json', {body: JSON.stringify(metrics, null, 2), contentType: 'application/json'});
 });
 
 test('opens a concrete demo fallback from file protocol', async ({page}) => {

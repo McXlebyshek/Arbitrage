@@ -1,35 +1,17 @@
+import {listSettings as decodeListSettings} from './state.mjs';
+import {readPreference, savePreference} from './preferences.mjs';
+import {updateRows, visibleRange} from './table.mjs';
+import {button, esc, icon, menu, money, options, pct, price, signed, tones} from './presentation.mjs';
+import {createDialogs} from './dialogs.mjs';
+import {
+  calculateEstimate, expireLiveData, loadExecutableSpreads, loadPairDetails, refreshMarkets,
+  refreshMarketsFallback, renderLiveChart, requestDepth, showEstimate,
+  showLiveHistory, showPresets, showSignals, startEarlyQuotes, updateDepthSummary, updateFeedLabel,
+} from './live-ui.mjs';
+
 const app = document.querySelector('#app');
 const dialog = document.querySelector('#dialog');
-const {readPreference, savePreference, listSettings: decodeListSettings, updateRows, visibleRange} = globalThis.monitorModules;
-const icons = {
-  search: '<circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/>',
-  link: '<path d="m10 8 2-2a4 4 0 0 1 6 6l-2 2m-2 2-2 2a4 4 0 0 1-6-6l2-2m1 5 6-6"/>',
-  filters: '<path d="M4 6h16M4 12h16M4 18h16M9 3v6m6 0v6m-6 0v6"/>',
-  heart: '<path d="M12 20 4 12a4.5 4.5 0 0 1 8-4 4.5 4.5 0 0 1 8 4z"/>',
-  grid: '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>',
-  moon: '<path d="M20 15A8.5 8.5 0 0 1 9 4a8.5 8.5 0 1 0 11 11Z"/>',
-  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2"/>',
-  clock: '<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>',
-  chevron: '<path d="m6 9 6 6 6-6"/>',
-  send: '<path d="m3 10 18-7-5 18-5-7-8-4Zm8 4 10-11"/>',
-  arrow: '<path d="M19 12H5m6-6-6 6 6 6"/>',
-  close: '<path d="m6 6 12 12M18 6 6 18"/>',
-  chart: '<path d="M4 4v16h16M7 15l4-5 4 3 5-7"/>',
-  bars: '<path d="M5 20v-7m5 7V9m5 11V5m5 15V2"/>',
-  settings: '<circle cx="12" cy="12" r="3"/><path d="m9 4 1-2h4l1 2 2 1 2 .2 2 3-1 2v3l1 2-2 3-2 .2-2 1-1 2h-4l-1-2-2-1-2-.2-2-3 1-2v-3l-1-2 2-3L7 5Z"/>',
-};
-function icon(name) {
-  return `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]}</svg>`;
-}
-const esc = value => String(value).replace(/[&<>"']/g, character => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-}[character]));
 const dataSource = isDemo ? demo : live;
-const pct = (n, decimals = 2) => Number.isFinite(n) ? `${n.toFixed(decimals)}%` : '—';
-const price = n => Number.isFinite(n) ? Number(n.toPrecision(8)).toLocaleString('ru', {maximumFractionDigits: 14}) : '—';
-const money = n => Number.isFinite(n) ? n.toLocaleString('ru', {maximumFractionDigits: 2}) : '—';
-const signed = (n, decimals = 2) => (n > 0 ? '+' : '') + pct(n, decimals);
-const tones = n => n > 0.05 ? 'positive' : n < -0.15 ? 'negative' : 'neutral';
 const defaults = {mode: 'funding', sort: isDemo ? 'entry' : 'funding', direction: 'desc', group: true, categories: ['crypto']};
 const modes = {
   funding: 'Лонг + шорт · фандинг',
@@ -74,7 +56,6 @@ let presets = readPreference('presets', []);
 let signalRules = readPreference('signal-rules', []);
 let signalLog = readPreference('signal-log', []);
 const signalStates = new Map();
-let refreshing = false;
 let detailError = '';
 const executableSpreads = new Map();
 let executablePending = false;
@@ -124,16 +105,6 @@ function applyList(patch, tableOnly = false) {
   else renderScreener();
 }
 
-function menu(label, content, classes = '') {
-  return `<details class="menu ${classes}"><summary>${label}${icon('chevron')}</summary><div class="menu-panel">${content}</div></details>`;
-}
-function button(label, action, classes = '', extra = '') {
-  return `<button type="button" class="${classes}" data-action="${action}" ${extra}>${label}</button>`;
-}
-function options(items, selected) {
-  return Object.entries(items).map(([value, label]) =>
-    `<option value="${esc(value)}"${String(selected) === value ? ' selected' : ''}>${esc(label)}</option>`).join('');
-}
 function toast(message) {
   const element = document.querySelector('#toast');
   element.textContent = message;
@@ -602,123 +573,17 @@ function renderRoute() {
     <a class="control back" href="#/arbitrage">${icon('arrow')} К арбитражу</a>`;
 }
 
-const check = (name, value, label, checked) => `<label class="check"><input type="checkbox" name="${name}" value="${value}"${checked ? ' checked' : ''}>${label}</label>`;
-const checkboxGroup = (legend, content) => `<fieldset><legend>${legend}</legend><div class="check-grid">${content}</div></fieldset>`;
-
-function showFilters(filters = state) {
-  const fields = Object.entries(numericFilters).map(([key, label]) => {
-    const disabled = isDemo && ['delta3', 'delta7'].includes(key);
-    const input = `<input type="number" step="any" name="${key}" value="${esc(filters[key] ?? '')}"
-      placeholder="${disabled ? 'Нет источника' : 'Любое значение'}"${disabled ? ' disabled' : ''}>`;
-    return `<label class="field"><span>${label}</span>${key === 'spread' ? `<span class="field-row">
-      <select name="operator" aria-label="Условие спреда">${options({gte: '≥', lte: '≤'}, filters.operator ?? 'gte')}</select>${input}</span>` : input}</label>`;
-  }).join('');
-  showDialog('Фильтры', `<div class="form-grid">${fields}</div>
-    <p class="muted">APR после комиссий использует указанные ставки для каждой связки, четыре taker-комиссии и одинаковый номинал ног. База — суммарный номинал обеих ног. Ставки фандинга считаются постоянными на выбранный срок.</p>
-    <div class="form-grid">${[['longFee', 'Taker лонга, %', 0], ['shortFee', 'Taker шорта, %', 0], ['holdDays', 'Срок удержания, дней', 0.001]].map(([key, label, min]) =>
-      `<label class="field">${label}<input type="number" name="${key}" value="${esc(filters[key] ?? '')}" min="${min}" ${key === 'holdDays' ? '' : 'max="1"'} step="any"></label>`).join('')}</div>
-    <p id="filters-error" class="unavailable" role="alert"></p>
-    ${isDemo ? '' : '<p class="muted">Капитализация и FDV из CoinGecko доступны для связок с двумя сверенными контрактами. При заданном пороге связки без значения исключаются.</p>'}
-    ${checkboxGroup('Валюта котировки', quotes.map(quote => check('quotes', quote, quote, filters.quotes.includes(quote))).join(''))}
-    ${checkboxGroup('Категории', Object.entries(categories).map(([key, label]) => check('categories', key, label, filters.categories.includes(key))).join(''))}
-    ${check('group', '1', 'Группировать по монете', filters.group)}`,
-  button('Сбросить', 'clear-filter-draft', 'control') + cancel() + submit('Применить'), 'filters');
-}
-function showExchanges() {
-  showDialog('Биржи', `<input id="exchange-search" placeholder="Поиск биржи" aria-label="Поиск биржи" autocomplete="off">
-    <div class="form-actions">${button('Выбрать все', 'all-exchanges', 'control')}${button('Очистить', 'no-exchanges', 'control')}</div>
-    <div class="check-grid" id="exchange-list">${exchanges.map(exchange =>
-      check('exchanges', exchange, badge(exchange) + exchange, state.exchanges.includes(exchange))).join('')}</div>`,
-  cancel() + submit('Применить'), 'exchanges');
-}
-function showFavorites() {
-  showDialog('Избранные монеты', `<p>Отметьте монеты, которые хотите отслеживать на этом устройстве.</p>
-    <div class="check-grid">${[...new Set([...favorites, ...Object.keys(dataSource.markets)])].sort().map(coin => check('coin', coin, coin, favorites.has(coin))).join('')}</div>`,
-  cancel() + submit('Сохранить'), 'favorites');
-}
-const builderKey = (leg, index) => leg.id ?? String(index);
-
-function builderOptions(legs, pair) {
-  const choices = legs.map((leg, index) => [
-    builderKey(leg, index), leg.exchange + ' · ' + (leg.type === 'spot' ? 'спот' : 'фьючерс') + ' · ' + leg.quote,
-  ]);
-  const shortChoices = choices.filter((_, index) => legs[index].type !== 'spot');
-  const key = leg => builderKey(leg, legs.indexOf(leg));
-  return `<div class="field"><label for="builder-long">Лонг</label>
-      <select id="builder-long" name="long">${options(Object.fromEntries(choices), key(pair.long))}</select></div>
-    <div class="field"><label for="builder-short">Шорт</label>
-      <select id="builder-short" name="short">${options(Object.fromEntries(shortChoices), key(pair.short))}</select></div>`;
-}
-function showBuilder() {
-  const coins = Object.keys(dataSource.markets).sort();
-  const coin = activePair?.coin ?? coins.find(key => key === state.query.toUpperCase()) ??
-    (coins.includes(isDemo ? 'CLAUDIA' : 'BTC') ? isDemo ? 'CLAUDIA' : 'BTC' : coins[0]);
-  if (!coin) return toast('Каталог рынков пока недоступен');
-  const legs = dataSource.markets[coin].legs;
-  const initial = activePair ?? dataSource.pairs.find(pair => pair.coin === coin);
-  showDialog('Конструктор связки', `<p>Выберите монету и две ноги в одной валюте котировки.</p>
-    <div class="field"><label for="builder-coin">Монета</label>
-      <select name="coin" id="builder-coin">${options(Object.fromEntries(coins.map(key => [key, key])), coin)}</select></div>
-    <div class="form-grid" id="builder-legs">${builderOptions(legs, initial)}</div><p id="builder-error" class="unavailable" role="alert"></p>`,
-  cancel() + submit('Открыть связку'), 'builder');
-}
-function showHistory(pair, leg = '', days = 1) {
-  if (!isDemo) {
-    showLiveHistory(pair, leg, days);
-    return;
-  }
-  const comparison = leg === '';
-  const selection = comparison ? null : Number(leg) === 1 ? pair.short : pair.long;
-  const [longTotal, shortTotal] = fundingTotals(pair);
-  const rows = Array.from({length: 6}, (_, index) => {
-    const [l, s] = [longTotal / 6, shortTotal / 6];
-    const rate = Number(leg) === 1 ? s : l;
-    return `<tr><td>${String(20 - index * 4).padStart(2, '0')}:00</td>
-      ${comparison ? `<td>${signed(l, 4)}</td><td>${signed(s, 4)}</td><td>${signed((s - l) * (index + 1), 4)}</td>`
-      : `<td>${signed(rate, 4)}</td><td>${signed(rate * (index + 1), 4)}</td>`}</tr>`;
-  }).join('');
-  showDialog('История фандинга · ' + pair.coin, `<div class="chart-tabs">
-    ${[['', 'Сравнение'], ['0', pair.long.exchange], ['1', pair.short.exchange]].map(([key, label]) =>
-      button(label, 'history', '', `data-pair="${pair.id}" data-leg="${key}" aria-pressed="${key === leg}" aria-selected="${key === leg}"`)).join('')}</div>
-    <p>Условные начисления за последние 24 часа.</p>
-    <table class="mini-table"><thead><tr><th>Время</th>${comparison ?
-      `<th>${pair.long.exchange}</th><th>${pair.short.exchange}</th><th>Накопленная разница</th>` :
-      `<th>Ставка · ${selection.exchange}</th><th>Накопление</th>`}</tr></thead><tbody>${rows}</tbody></table>`,
-  button('Закрыть', 'close', 'control'));
-}
-function showStatus(pair, leg) {
-  if (!isDemo) {
-    const state = value => value === true ? 'Доступен' : value === false ? 'Приостановлен' : '—';
-    showDialog(`${pair.coin} · ${leg.exchange}`, leg.networks.length ?
-      `<table class="mini-table"><thead><tr><th>Сеть</th><th>Ввод</th><th>Вывод</th></tr></thead><tbody>${leg.networks.map(network =>
-        `<tr><td>${esc(network.name)}</td><td>${state(network.deposit)}</td><td>${state(network.withdraw)}</td></tr>`).join('')}</tbody></table>` :
-      '<p>Публичный источник не вернул сетевые статусы для этого актива.</p>');
-    return;
-  }
-  showDialog(`${pair.coin} · ${leg.exchange}`, leg.status.length ?
-    `<p>Демонстрационный статус актива</p><dl class="status-description">
-    <dt>Сеть</dt><dd>${pair.coin === 'CLAUDIA' ? 'Solana (SOL)' : 'Условная сеть'}</dd>
-    <dt>Ввод</dt><dd class="${leg.status[0] ? 'available' : 'unavailable'}">${leg.status[0] ? 'Доступен' : 'Приостановлен'}</dd>
-    <dt>Вывод</dt><dd class="${leg.status[1] ? 'available' : 'unavailable'}">${leg.status[1] ? 'Доступен' : 'Приостановлен'}</dd></dl>` :
-    '<p>Данные о вводе и выводе отсутствуют.</p>');
-}
-function showChartSettings() {
-  showDialog('Настройки графика', `<p>Настройки сохраняются на этом устройстве.</p>
-    <label class="field">Высота графика, пиксели<input type="number" name="height" min="160" max="420" required value="${Number(chartOptions.height)}"></label>
-    ${check('labels', '1', 'Подписи спреда', chartOptions.labels)}
-    ${check('areas', '1', 'Заливка области фандинга', chartOptions.areas)}
-    ${check('tooltip', '1', 'Подсказка при наведении', chartOptions.tooltip)}`,
-  cancel() + submit('Сохранить'), 'chart');
-}
-async function share() {
-  try {
-    await navigator.clipboard.writeText(location.href);
-    toast('Ссылка скопирована');
-  } catch {
-    showDialog('Ссылка на экран', `<label class="field">Скопируйте адрес<input readonly value="${esc(location.href)}"></label>`);
-    dialog.querySelector('input').select();
-  }
-}
+const dialogs = createDialogs({
+  get state() { return state; },
+  get favorites() { return favorites; },
+  get activePair() { return activePair; },
+  get chartOptions() { return chartOptions; },
+  get dialog() { return dialog; },
+  numericFilters, isDemo, esc, options, showDialog, button, quotes, categories, cancel, submit,
+  exchanges, badge, dataSource, toast, showLiveHistory, fundingTotals, signed,
+});
+const {showFilters, showExchanges, showFavorites, showBuilder, showHistory, showStatus,
+  showChartSettings, share, builderOptions} = dialogs;
 
 const actions = {
   close: () => dialog.close(),
@@ -975,7 +840,8 @@ window.addEventListener('hashchange', () => {
   window.scrollTo(0, 0);
 });
 renderRoute();
-if (!isDemo) {
+function startLiveUpdates() {
+  if (isDemo) return;
   refreshMarkets();
   startEarlyQuotes();
   setInterval(refreshMarketsFallback, 15000);
@@ -987,3 +853,14 @@ if (!isDemo) {
     }
   });
 }
+startLiveUpdates();
+
+export {
+  activePair, app, chartOptions, chartOffset, chartTab, countdown, dialog, detailError,
+  executablePending, executableSpreads, interval, liquidity, nominal, renderDetail, renderRoute, renderTable,
+  route, savePreference, setDetailError, setExecutablePending, showDialog, shownRows, signalRules,
+  state, toast, visiblePairs,
+};
+
+function setDetailError(value) { detailError = value; }
+function setExecutablePending(value) { executablePending = value; }
