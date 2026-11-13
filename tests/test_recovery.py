@@ -8,6 +8,7 @@ import aiohttp
 from aiohttp import web
 from aiohttp.test_utils import TestServer
 
+from market_monitor.futures_config import PINNED_FUTURES_SYMBOLS
 from market_monitor.futures_ws import CONNECTION_ACTIVITY_AGE, FuturesBookFeed
 from market_monitor.market import now_ms
 from market_monitor.sources import Source
@@ -17,6 +18,26 @@ from scripts.soak_monitor import futures_shadow_coverage
 
 
 class FuturesPairStateTests(unittest.TestCase):
+    def test_selector_keeps_symbols_from_real_pinned_configuration(self):
+        monitor = object.__new__(Monitor)
+        monitor.instruments = {}
+        monitor.futures_feeds = {venue: object() for venue in ('mexc', 'kucoinfutures')}
+        monitor.futures_symbols = {venue: set() for venue in monitor.futures_feeds}
+        markets = {}
+        expected = {venue: set() for venue in monitor.futures_feeds}
+        for coin, symbols_by_venue in PINNED_FUTURES_SYMBOLS.items():
+            legs = []
+            for venue, symbol in symbols_by_venue.items():
+                key = f'{venue}.swap.{coin}.USDT'
+                monitor.instruments[key] = (SimpleNamespace(kind='swap', venue=venue), {'id': symbol})
+                legs.append(dict(id=key, quote='USDT', volume=0.1, asset=None))
+                expected[venue].add(symbol)
+            markets[coin] = legs
+
+        selected = monitor.select_futures_symbols(markets)
+
+        self.assertEqual(selected, {venue: frozenset(symbols) for venue, symbols in expected.items()})
+
     def test_futures_shadow_compares_rest_and_pure_ws_for_the_same_selected_pair(self):
         now = 1_800_000_000_000
         left_id, right_id = 'mexc.swap.INIT.USDT', 'kucoinfutures.swap.INIT.USDT'
@@ -88,9 +109,7 @@ class FuturesPairStateTests(unittest.TestCase):
         monitor.futures_feeds = {venue: object() for venue in ('mexc', 'kucoinfutures')}
         monitor.futures_symbols = {venue: set() for venue in monitor.futures_feeds}
         markets = {}
-        for coin, volume in (
-            [(f'OLD{i:02}', 31 - i) for i in range(30)] + [('NEW', 2.05)],
-        ):
+        for coin, volume in [(f'OLD{i:02}', 31 - i) for i in range(30)] + [('NEW', 2.05)]:
             legs = []
             symbols = []
             for venue, suffix in (('mexc', '_USDT'), ('kucoinfutures', 'USDTM')):

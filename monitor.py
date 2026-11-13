@@ -335,11 +335,12 @@ class Monitor:
                 pinned.append((venue, symbol, leg))
             if len(pinned) < 2:
                 continue
-            for (venue, symbol, leg), (_, _other, other_leg) in combinations(pinned, 2):
+            for (venue, symbol, leg), (other_venue, other_symbol, other_leg) in combinations(pinned, 2):
                 if not compatible_assets(leg, other_leg):
                     continue
                 rank = (0, not bool(leg['asset'] and leg['asset'] == other_leg['asset']), 0)
                 add(venue, symbol, rank)
+                add(other_venue, other_symbol, rank)
         selected = {}
         for venue, items in candidates.items():
             ranked = sorted((*rank, symbol) for symbol, rank in items.items())
