@@ -88,6 +88,7 @@ async def run(args, output):
     expected_streams = set(monitor.futures_feeds)
     seen_streams = set()
     last_publication = None
+    bulk_match_totals = {}
     criteria = dict(seconds=args.seconds, interval=args.interval, warmup=args.warmup,
                     maxSnapshotAgeMs=90000, p95CycleMs=15000, maxDatabaseBytes=1_500_000_000)
 
@@ -95,7 +96,16 @@ async def run(args, output):
         output.write(json.dumps(payload, ensure_ascii=False) + '\n')
         output.flush()
 
-    monitor.shadow_observer = emit
+    def observe_shadow(payload):
+        if payload.get('kind') == 'bulk-ws-shadow':
+            for venue, counts in payload['venues'].items():
+                total = bulk_match_totals.setdefault(venue, dict(compared=0, matches=0,
+                                                                  bidMatches=0, askMatches=0))
+                for field in total:
+                    total[field] += counts[field]
+        emit(payload)
+
+    monitor.shadow_observer = observe_shadow
     emit(dict(kind='criteria', at=now_ms(), **criteria))
     try:
         site = web.TCPSite(runner, '127.0.0.1', args.port)
@@ -136,7 +146,9 @@ async def run(args, output):
     passed = (samples > 0 and failures == 0 and p95 is not None and p95 <= criteria['p95CycleMs']
               and not missing_streams)
     summary = dict(kind='summary', at=now_ms(), passed=passed, sampled=samples, failed=failures,
-                   p95CycleMs=p95, missingStreams=missing_streams, databaseBytes=size_on_disk(args.history))
+                   p95CycleMs=p95, missingStreams=missing_streams, databaseBytes=size_on_disk(args.history),
+                   bulkWsMatch={venue: dict(counts, matchRate=counts['matches'] / counts['compared'])
+                                for venue, counts in sorted(bulk_match_totals.items())})
     emit(summary)
     print(json.dumps(summary), flush=True)
     return 0 if passed else 1

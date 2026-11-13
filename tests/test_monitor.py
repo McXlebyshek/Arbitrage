@@ -33,6 +33,62 @@ def lagged_binance_market(coin):
 
 
 class MonitorTests(unittest.TestCase):
+    def test_snapshot_source_views_detach_mutable_source_mappings(self):
+        ticker = {'bid': 100, 'ask': 101}
+        catalog = {'BTC': {'id': 'BTC'}}
+        funding = {'BTC': {'rate': 0.01}}
+        volume = {'BTC': {'quoteVolume': 10}}
+        currencies = {'BTC': {'networks': {'ERC20': {'deposit': True}}}}
+        source = SimpleNamespace(
+            catalogs={'binanceusdm': catalog}, batches={'binanceusdm': {
+                'received_at_ms': NOW, 'tickers': {'BTC/USDT': ticker},
+            }},
+            funding=funding, volume=volume, currencies=currencies, schedule=None,
+        )
+        monitor = Monitor((), Path('unused.sqlite3'))
+        monitor.sources = {('binanceusdm', 'swap'): source}
+
+        views = monitor.snapshot_source_views()
+
+        source.batches['binanceusdm']['tickers'].update({'ETH/USDT': {'bid': 10}})
+        ticker['bid'] = 99
+        catalog['ETH'] = {'id': 'ETH'}
+        catalog['BTC']['id'] = 'changed'
+        funding['ETH'] = {'rate': 0.02}
+        funding['BTC']['rate'] = 0.99
+        volume['ETH'] = {'quoteVolume': 20}
+        volume['BTC']['quoteVolume'] = 99
+        currencies['BTC']['networks']['TRC20'] = {'deposit': True}
+        currencies['BTC']['networks']['ERC20']['deposit'] = False
+
+        view = views['binanceusdm', 'swap']
+        self.assertEqual(set(view.batches['binanceusdm']['tickers']), {'BTC/USDT'})
+        self.assertEqual(view.batches['binanceusdm']['tickers']['BTC/USDT']['bid'], 100)
+        self.assertEqual(set(view.catalogs['binanceusdm']), {'BTC'})
+        self.assertEqual(view.catalogs['binanceusdm']['BTC']['id'], 'BTC')
+        self.assertEqual(set(view.funding), {'BTC'})
+        self.assertEqual(view.funding['BTC']['rate'], 0.01)
+        self.assertEqual(set(view.volume), {'BTC'})
+        self.assertEqual(view.volume['BTC']['quoteVolume'], 10)
+        self.assertEqual(view.currencies['BTC']['networks']['ERC20']['deposit'], True)
+
+    def test_bulk_receipt_confirmation_is_limited_to_empirically_confirmed_venues(self):
+        monitor = Monitor((), Path('unused.sqlite3'))
+        for venue in ('binanceusdm', 'bybit'):
+            market = dict(id='BTCUSDT', symbol='BTC/USDT:USDT', base='BTC', quote='USDT', settle='USDT',
+                          swap=True, linear=True, active=True, contractSize=1)
+            ticker = dict(symbol=market['symbol'], native_id=market['id'], bid='100', ask='101')
+            monitor.sources[venue, 'swap'] = SimpleNamespace(
+                catalogs={venue: {'BTCUSDT': market}}, currencies={}, funding={}, volume={}, schedule=None,
+                batches={venue: dict(received_at_ms=NOW, tickers={market['symbol']: ticker})},
+            )
+
+        with patch('monitor.BULK_RECEIPT_CONFIRMED_VENUES', frozenset({'binanceusdm'})):
+            legs = monitor.snapshot_markets(NOW)['BTC']
+
+        confirmed = {leg['id'].split('.')[0]: leg.get('confirmedAt') for leg in legs}
+        self.assertEqual(confirmed, {'binanceusdm': NOW, 'bybit': None})
+
     def test_bybit_funding_zero_is_valid(self):
         result = funding_fields({'info': {'fundingRate': '0', 'nextFundingTime': NOW + 1000}},
                                 {'info': {'fundingInterval': '240'}}, 'bybit', NOW)

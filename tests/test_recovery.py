@@ -154,7 +154,125 @@ class FuturesPairStateTests(unittest.TestCase):
         monitor.clear_futures_pairs('gate')
         self.assertEqual([pair['coin'] for pair in monitor.futures_pairs], ['ETH'])
 
+    def test_quiet_futures_symbols_use_the_cycle_bulk_ticker_before_rest(self):
+        market = {'id': 'BTCUSDT', 'symbol': 'BTC/USDT:USDT', 'contractSize': 1}
+        token = object()
+        feed = SimpleNamespace(
+            quiet_symbols=lambda _now: ['BTCUSDT'], rest_token=Mock(return_value=token),
+            confirm_bulk=Mock(return_value=True), confirm_rest=Mock(),
+        )
+        source = SimpleNamespace(
+            client=SimpleNamespace(markets={'btc': market}),
+            batches={'binanceusdm': dict(
+                received_at_ms=10_100,
+                tickers={'BTC/USDT:USDT': {'bid': 100, 'ask': 101}},
+            )},
+            public_book=AsyncMock(),
+        )
+        monitor = object.__new__(Monitor)
+        monitor.futures_feeds = {'binanceusdm': feed}
+        monitor.sources = {('binanceusdm', 'swap'): source}
+        monitor.futures_rest_checked = {}
+        monitor._futures_cycle_tokens = {'binanceusdm': {'BTCUSDT': token}}
+
+        self.assertEqual(monitor.quiet_futures_rest_checks(10_200), [])
+
+        feed.confirm_bulk.assert_called_once_with('BTCUSDT', token, 100, 101, 10_100, changed_at=None)
+        source.public_book.assert_not_awaited()
+
+    def test_bulk_ws_shadow_counts_only_unchanged_ws_quotes_at_batch_receipt(self):
+        market = {'id': 'BTCUSDT', 'symbol': 'BTC/USDT:USDT'}
+        gate_market = {'id': 'BTC_USDT', 'symbol': 'BTC/USDT:USDT'}
+        expected = dict(bid=100, ask=101, quoteSource='ws', confirmedAt=10_050)
+        watermark = object()
+        token = (1, 'BTCUSDT', object(), expected, watermark)
+        gate_expected = dict(bid=200, ask=201, quoteSource='ws', confirmedAt=10_060)
+        gate_watermark = object()
+        gate_token = (1, 'BTC_USDT', object(), gate_expected, gate_watermark)
+        changed_quote = dict(expected, bid=99, confirmedAt=10_150)
+        feed = SimpleNamespace(
+            symbols={'BTCUSDT', 'ETHUSDT'},
+            quotes={'BTCUSDT': expected, 'ETHUSDT': changed_quote},
+            watermarks={'BTCUSDT': watermark, 'ETHUSDT': object()},
+        )
+        gate_feed = SimpleNamespace(
+            symbols={'BTC_USDT'}, quotes={'BTC_USDT': gate_expected},
+            watermarks={'BTC_USDT': gate_watermark},
+        )
+        source = SimpleNamespace(
+            client=SimpleNamespace(markets={'btc': market}),
+            batches={'binanceusdm': dict(received_at_ms=10_100, tickers={
+                'BTC/USDT:USDT': {'bid': 100, 'ask': 101},
+            })},
+        )
+        gate_source = SimpleNamespace(
+            client=SimpleNamespace(markets={'btc': gate_market}),
+            batches={'gate': dict(received_at_ms=10_120, tickers={
+                'BTC/USDT:USDT': {'bid': 200, 'ask': 201},
+            })},
+        )
+        monitor = object.__new__(Monitor)
+        monitor.futures_feeds = {'binanceusdm': feed, 'gate': gate_feed}
+        monitor.sources = {('binanceusdm', 'swap'): source, ('gate', 'swap'): gate_source}
+        monitor._futures_cycle_tokens = {
+            'binanceusdm': {'BTCUSDT': token,
+                            'ETHUSDT': (1, 'ETHUSDT', object(), expected, watermark)},
+            'gate': {'BTC_USDT': gate_token},
+        }
+
+        event = monitor.bulk_ws_shadow()
+
+        self.assertEqual(event['venues']['binanceusdm'], dict(
+            compared=1, matches=1, bidMatches=1, askMatches=1,
+        ))
+        self.assertEqual(event['venues']['gate'], dict(compared=1, matches=1,
+                                                       bidMatches=1, askMatches=1))
+        self.assertEqual(event['at'], 10_120)
+
+    def test_quiet_futures_rest_fallback_rotates_within_per_cycle_limit(self):
+        symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT']
+        markets = {symbol: {'id': symbol, 'symbol': f'{symbol}/USDT:USDT'} for symbol in symbols}
+        feed = SimpleNamespace(quiet_symbols=lambda _now: symbols, rest_token=lambda symbol: symbol)
+        source = SimpleNamespace(client=SimpleNamespace(markets=markets), batches={})
+        monitor = object.__new__(Monitor)
+        monitor.futures_feeds = {'binanceusdm': feed}
+        monitor.sources = {('binanceusdm', 'swap'): source}
+        monitor.futures_rest_checked = {}
+        monitor._futures_cycle_tokens = {}
+
+        checks = monitor.quiet_futures_rest_checks(100_000)
+
+        self.assertEqual([item[1] for item in checks], symbols[:2])
+        self.assertEqual(set(monitor.futures_rest_checked['binanceusdm']), set(symbols[:2]))
+
 class RecoveryTests(unittest.IsolatedAsyncioTestCase):
+    async def test_quiet_futures_rest_check_has_a_short_local_timeout(self):
+        market = {'id': 'BTCUSDT', 'symbol': 'BTC/USDT:USDT', 'contractSize': 1}
+
+        async def blocked_book(_market):
+            await asyncio.sleep(10)
+
+        feed = SimpleNamespace(
+            quiet_symbols=lambda _now: ['BTCUSDT'], rest_token=lambda _symbol: object(),
+            confirm_rest=Mock(),
+        )
+        source = SimpleNamespace(
+            client=SimpleNamespace(markets={'btc': market}),
+            batches={},
+            public_book=AsyncMock(side_effect=blocked_book),
+        )
+        monitor = object.__new__(Monitor)
+        monitor.futures_feeds = {'binanceusdm': feed}
+        monitor.sources = {('binanceusdm', 'swap'): source}
+        monitor.futures_rest_checked = {}
+        monitor.clocks = {}
+
+        with patch('monitor.FUTURES_REST_CHECK_TIMEOUT', 0.01):
+            await monitor.check_quiet_futures_symbols(100_000)
+
+        source.public_book.assert_awaited_once_with(market)
+        feed.confirm_rest.assert_not_called()
+
     async def test_whitebit_drops_quotes_on_disconnect_and_resubscribes(self):
         close_first = asyncio.Event()
         retry_started = asyncio.Event()
@@ -241,6 +359,7 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_futures_selection_prioritizes_verified_pairs_and_reuses_subscriptions(self):
         monitor = Monitor(('mexc', 'kucoinfutures'), Path('unused.sqlite3'), futures_ws=True)
+        self.addAsyncCleanup(monitor.close)
         markets = {}
 
         def add(coin, volume, assets=(None, None)):
@@ -250,7 +369,7 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
             ):
                 key = f'{venue}.swap.{coin}.USDT'
                 monitor.instruments[key] = (monitor.sources[venue, 'swap'], {'id': native})
-                legs.append(dict(id=key, volume=volume, asset=asset))
+                legs.append(dict(id=key, quote='USDT', volume=volume, asset=asset))
             markets[coin] = legs
 
         add('INIT', .5)

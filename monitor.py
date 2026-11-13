@@ -8,6 +8,7 @@ from collections import defaultdict
 from itertools import combinations
 from pathlib import Path
 from time import monotonic
+from types import SimpleNamespace
 from uuid import uuid4
 
 import aiohttp
@@ -21,7 +22,7 @@ from market_monitor.contract_details import INDEX_VENUES, contract_index
 from market_monitor.funding_fields import funding_fields
 from market_monitor.funding_history import DAY, cadence_stats, fetch_history, window_stats
 from market_monitor.futures_config import PINNED_FUTURES_SYMBOLS
-from market_monitor.futures_ws import FUTURES_WS_VENUES, FuturesBookFeed
+from market_monitor.futures_ws import FUTURES_WS_VENUES, QUIET_REST_VENUES, FuturesBookFeed
 from market_monitor.history import History, eligible_legs
 from market_monitor.http_server import create_app as create_http_app
 from market_monitor.market import Registry, fresh, now_ms, numeric
@@ -32,6 +33,7 @@ from market_monitor.snapshot_wire import encode_compact
 from market_monitor.sources import CYCLE_FUNDING_VENUES, SPOT_CLIENTS, VENUES, Source
 from market_monitor.thresholds import (
     BOOK_MAX_AGE_MS,
+    BULK_RECEIPT_CONFIRMED_VENUES,
     EARLY_QUOTE_MAX_AGE_MS,
     PUBLIC_CONFIG,
     RECEIPT_TIME_SKEW_MS,
@@ -46,6 +48,7 @@ DETAIL_RETRY_MS = 15_000
 BINANCE_DEPTH_LIMIT = 4
 EARLY_BINANCE_SOURCES = (('binanceusdm', 'swap'), ('kucoinfutures', 'swap'))
 FUTURES_WS_LIMIT = 30
+FUTURES_REST_CHECK_TIMEOUT = 4
 FUTURES_WS_HYSTERESIS = 10
 FUTURES_WS_REFRESH = 180_000
 FUTURES_REST_CHECK_INTERVAL = 30_000
@@ -271,27 +274,53 @@ class Monitor:
                 if source.kind == 'swap' and source.venue in self.futures_feeds and leg['quote'] == 'USDT':
                     yield leg, source.venue, market['id']
 
-    async def check_quiet_futures_symbols(self, now):
-        """Recheck a small rotating set of quiet Binance/Gate WS symbols over REST."""
+    def quiet_futures_rest_checks(self, now):
+        """Confirm from this cycle's bulk tickers and select bounded REST fallbacks."""
         checks = []
+        bulk_tokens = getattr(self, '_futures_cycle_tokens', {})
         for venue, feed in self.futures_feeds.items():
             source = self.sources.get((venue, 'swap'))
             if source is None:
                 continue
             checked = self.futures_rest_checked.setdefault(venue, {})
-            eligible = [symbol for symbol in feed.quiet_symbols(now)
-                        if now - checked.get(symbol, 0) >= FUTURES_REST_CHECK_INTERVAL]
-            for symbol in eligible[:FUTURES_REST_CHECKS_PER_VENUE]:
+            eligible = feed.quiet_symbols(now)
+            batch = source.batches.get(venue, {})
+            tickers = batch.get('tickers', {})
+            batch_received = batch.get('received_at_ms')
+            rest_eligible = []
+            for symbol in eligible:
                 market = next((item for item in source.client.markets.values() if item.get('id') == symbol), None)
                 if market is None:
                     continue
+                token = bulk_tokens.get(venue, {}).get(symbol)
+                ticker = tickers.get(market['symbol'])
+                bid = numeric(ticker.get('bid')) if isinstance(ticker, dict) else None
+                ask = numeric(ticker.get('ask')) if isinstance(ticker, dict) else None
+                if token is not None and batch_received is not None and bid and ask:
+                    stamp = numeric(ticker.get('timestamp'))
+                    changed_at = source.correct_timestamp(stamp) if stamp is not None else None
+                    result = feed.confirm_bulk(symbol, token, bid, ask, batch_received, changed_at=changed_at)
+                    if result is not None:
+                        continue
+                if venue not in QUIET_REST_VENUES:
+                    continue
+                if now - checked.get(symbol, 0) < FUTURES_REST_CHECK_INTERVAL:
+                    continue
+                rest_eligible.append((venue, symbol, feed, source, market))
+            selected = rest_eligible[:FUTURES_REST_CHECKS_PER_VENUE]
+            for venue, symbol, feed, source, market in selected:
                 checked[symbol] = now
                 checks.append((venue, symbol, feed, source, market, feed.rest_token(symbol)))
+        return checks
+
+    async def check_quiet_futures_symbols(self, now):
+        checks = self.quiet_futures_rest_checks(now)
 
         async def check(item):
             venue, symbol, feed, source, market, token = item
             try:
-                raw = await source.public_book(market)
+                async with asyncio.timeout(FUTURES_REST_CHECK_TIMEOUT):
+                    raw = await source.public_book(market)
                 received = now_ms()
                 book = normalized_book(raw, market['contractSize'], received, clock=self.clocks.get(venue))
                 if not book['bids'] or not book['asks']:
@@ -303,6 +332,54 @@ class Monitor:
 
         if checks:
             await asyncio.gather(*(check(item) for item in checks))
+
+    def futures_quote_tokens(self):
+        """Capture quote generations before each cycle's bulk ticker requests start."""
+        return {
+            venue: {symbol: feed.rest_token(symbol) for symbol in feed.symbols}
+            for venue, feed in self.futures_feeds.items()
+        }
+
+    def bulk_ws_shadow(self):
+        """Compare bulk tickers with unchanged WS quotes at bulk response time."""
+        venues = {}
+        venue_received = {}
+        tokens_by_venue = getattr(self, '_futures_cycle_tokens', {})
+        for venue, feed in self.futures_feeds.items():
+            source = self.sources.get((venue, 'swap'))
+            if source is None:
+                continue
+            batch = source.batches.get(venue, {})
+            received = batch.get('received_at_ms')
+            tickers = batch.get('tickers', {})
+            if received is None:
+                continue
+            markets = {market.get('id'): market for market in source.client.markets.values()}
+            compared = matches = bid_matches = ask_matches = 0
+            for symbol, token in tokens_by_venue.get(venue, {}).items():
+                expected = token[3]
+                if (expected is None or expected.get('quoteSource') != 'ws'
+                        or expected['confirmedAt'] > received or feed.quotes.get(symbol) is not expected
+                        or feed.watermarks.get(symbol) is not token[4]):
+                    continue
+                market = markets.get(symbol)
+                ticker = tickers.get(market.get('symbol')) if market is not None else None
+                bid = numeric(ticker.get('bid')) if isinstance(ticker, dict) else None
+                ask = numeric(ticker.get('ask')) if isinstance(ticker, dict) else None
+                if not (bid and ask and bid > 0 and ask >= bid):
+                    continue
+                bid_match, ask_match = bid == expected['bid'], ask == expected['ask']
+                compared += 1
+                bid_matches += bid_match
+                ask_matches += ask_match
+                matches += bid_match and ask_match
+            if compared:
+                venues[venue] = dict(compared=compared, matches=matches,
+                                     bidMatches=bid_matches, askMatches=ask_matches)
+                venue_received[venue] = received
+        if not venues:
+            return None
+        return dict(kind='bulk-ws-shadow', at=max(venue_received.values()), venues=venues)
 
     def select_futures_symbols(self, markets):
         candidates = defaultdict(dict)
@@ -425,12 +502,13 @@ class Monitor:
         self.snapshot = snapshot
         self.notify_quotes_changed()
 
-    def market_descriptors(self, venue, kind, source):
+    def market_descriptors(self, venue, kind, source, *, sources=None):
         catalog = source.catalogs.get(venue)
         if catalog is None:
-            self.catalog_descriptors.pop((venue, kind), None)
+            if sources is None:
+                self.catalog_descriptors.pop((venue, kind), None)
             return ()
-        currency_source = self.sources.get((venue, 'spot'))
+        currency_source = (self.sources if sources is None else sources).get((venue, 'spot'))
         currencies = currency_source.currencies if currency_source else None
         cached = self.catalog_descriptors.get((venue, kind))
         if cached and cached[0] is catalog and cached[1] is currencies:
@@ -453,16 +531,28 @@ class Monitor:
             self.catalog_descriptors[venue, kind] = catalog, currencies, descriptors
         return descriptors
 
-    def snapshot_markets(self, now, *, source_keys=None):
+    def snapshot_markets(self, now, *, source_keys=None, source_views=None, details=None,
+                         clock_offsets=None, update_instruments=None):
         started = monotonic()
         try:
-            return self._build_snapshot_markets(now, source_keys=source_keys)
+            return self._build_snapshot_markets(now, source_keys=source_keys, source_views=source_views,
+                                                details=details, clock_offsets=clock_offsets,
+                                                update_instruments=update_instruments)
         finally:
             duration = round((monotonic() - started) * 1000)
             self.snapshot_build_ms = max(self.snapshot_build_ms or 0, duration)
 
     async def snapshot_markets_async(self, now, *, source_keys=None):
-        worker = asyncio.create_task(asyncio.to_thread(self.snapshot_markets, now, source_keys=source_keys))
+        started = monotonic()
+        update_instruments = source_keys is None
+        source_keys = tuple(self.sources) if source_keys is None else tuple(source_keys)
+        source_views = self.snapshot_source_views()
+        details = dict(self.details)
+        clock_offsets = {venue: clock.offset() for venue, clock in self.clocks.items()}
+        worker = asyncio.create_task(asyncio.to_thread(
+            self.snapshot_markets, now, source_keys=source_keys, source_views=source_views,
+            details=details, clock_offsets=clock_offsets, update_instruments=update_instruments,
+        ))
         try:
             return await asyncio.shield(worker)
         except asyncio.CancelledError:
@@ -471,17 +561,68 @@ class Monitor:
             except Exception:
                 LOG.exception('Snapshot worker failed while cancellation was pending')
             raise
+        finally:
+            duration = round((monotonic() - started) * 1000)
+            self.snapshot_build_ms = max(self.snapshot_build_ms or 0, duration)
 
-    def _build_snapshot_markets(self, now, *, source_keys=None):
+    def snapshot_source_views(self):
+        """Copy event-loop-owned source maps before the snapshot worker reads them."""
+        views = {}
+        for key, source in self.sources.items():
+            batches = {}
+            for venue, batch in source.batches.items():
+                copied = dict(batch)
+                tickers = batch.get('tickers')
+                if isinstance(tickers, dict):
+                    copied['tickers'] = {
+                        symbol: dict(ticker) if isinstance(ticker, dict) else ticker
+                        for symbol, ticker in tickers.items()
+                    }
+                batches[venue] = copied
+            catalogs = {
+                venue: {key: dict(market) if isinstance(market, dict) else market
+                        for key, market in catalog.items()}
+                for venue, catalog in source.catalogs.items()
+            }
+            currencies = {
+                asset: dict(details, networks={
+                    network: dict(config) if isinstance(config, dict) else config
+                    for network, config in (details.get('networks') or {}).items()
+                })
+                if isinstance(details, dict) else details
+                for asset, details in (getattr(source, 'currencies', {}) or {}).items()
+            }
+            views[key] = SimpleNamespace(
+                catalogs=catalogs, currencies=currencies, batches=batches,
+                funding={symbol: dict(row) if isinstance(row, dict) else row
+                         for symbol, row in (getattr(source, 'funding', {}) or {}).items()},
+                volume={symbol: dict(row) if isinstance(row, dict) else row
+                        for symbol, row in (getattr(source, 'volume', {}) or {}).items()},
+                schedule=(dict(source.schedule) if isinstance(getattr(source, 'schedule', None), dict)
+                          else getattr(source, 'schedule', None)),
+            )
+        return views
+
+    def _build_snapshot_markets(self, now, *, source_keys=None, source_views=None, details=None,
+                                clock_offsets=None, update_instruments=None):
         groups, instruments = defaultdict(list), {}
+        source_views = self.sources if source_views is None else source_views
+        detail_cache = self.details if details is None else details
+        if update_instruments is None:
+            update_instruments = source_keys is None
         for venue, kind in self.sources if source_keys is None else source_keys:
-            source = self.sources[venue, kind]
+            source = source_views[venue, kind]
+            live_source = self.sources[venue, kind]
             batch = source.batches.get(venue, {})
             batch_received = batch.get('received_at_ms')
             tickers = batch.get('tickers', {})
-            clock = self.clocks.get(venue)
-            offset = clock.offset() if clock is not None else None
-            for market, binding, group, key, networks in self.market_descriptors(venue, kind, source):
+            if clock_offsets is not None:
+                offset = clock_offsets.get(venue)
+            else:
+                clock = self.clocks.get(venue)
+                offset = clock.offset() if clock is not None else None
+            for market, binding, group, key, networks in self.market_descriptors(
+                    venue, kind, source, sources=source_views):
                 symbol = market['symbol']
                 base, quote = market['base'], market['quote']
                 ticker = tickers.get(symbol, {})
@@ -501,7 +642,8 @@ class Monitor:
                     # A route must identify exactly one native instrument.
                     instruments[key] = None
                     continue
-                instruments[key] = (source, market)
+                instrument = (live_source, market)
+                instruments[key] = instrument
                 asset = binding['asset'] if binding else None
                 raw = source.funding.get(symbol) or ticker
                 raw_info = raw.get('info') or {}
@@ -513,7 +655,9 @@ class Monitor:
                 volume = numeric(ticker.get('quoteVolume'))
                 if volume is None:
                     volume = numeric(turnover_ticker.get('quoteVolume'))
-                detail = self.cached_detail(key, now, (source, market)) or {}
+                cached_detail = detail_cache.get(key)
+                detail = (cached_detail[1] if cached_detail and cached_detail[0] == instrument
+                          and now < cached_detail[1]['refreshAfter'] else {})
                 fields = (funding_fields(raw, market, venue, now, source.schedule) if kind == 'swap'
                           else dict(rate=0, hours=None, next=None))
                 if kind == 'swap':
@@ -535,6 +679,8 @@ class Monitor:
                     totals=detail.get('totals', {}) if kind == 'swap' else {'1': 0, '3': 0, '7': 0},
                     networks=networks, **fields,
                 )
+                if current and venue in BULK_RECEIPT_CONFIRMED_VENUES:
+                    leg['confirmedAt'] = received
                 if group != base:
                     leg['nativeBase'] = base
                 if current and raw_stamp != stamp:
@@ -553,7 +699,7 @@ class Monitor:
                 for other in unique)]
             if usable:
                 result[base] = usable
-        if source_keys is None:
+        if update_instruments:
             self.instruments = {leg['id']: instruments[leg['id']] for legs in result.values() for leg in legs}
         return result
 
@@ -717,6 +863,7 @@ class Monitor:
 
     async def _collect_cycle(self, session, started, last_slot):
         source_durations = {}
+        self._futures_cycle_tokens = self.futures_quote_tokens() if self.futures_feeds else {}
         tickers_ready = ({key: asyncio.Event() for key in EARLY_BINANCE_SOURCES}
                          if self.snapshot['generatedAt'] and all(key in self.sources for key in EARLY_BINANCE_SOURCES)
                          else {})
@@ -731,6 +878,10 @@ class Monitor:
         *outcomes, quotes = await asyncio.gather(
             *(collect_source(key, source) for key, source in self.sources.items()),
             self.binance_cycle_depth(tickers_ready), return_exceptions=True)
+        if self.shadow_observer is not None:
+            shadow = self.bulk_ws_shadow()
+            if shadow is not None:
+                self.shadow_observer(shadow)
         statuses = {}
         for ((venue, kind), source), outcome in zip(self.sources.items(), outcomes, strict=True):
             status = source.status()

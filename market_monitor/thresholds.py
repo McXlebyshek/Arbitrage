@@ -8,6 +8,8 @@ EARLY_QUOTE_MAX_AGE_MS = 3_000
 FUTURES_QUOTE_CONFIRMATION_AGE_MS = 90_000
 MAX_PRICE_RATIO = 2
 FUTURE_CLOCK_TOLERANCE_MS = 1_000
+# Populated only after a sufficiently large bulk-vs-WS shadow sample confirms receipt-time alignment.
+BULK_RECEIPT_CONFIRMED_VENUES = frozenset()
 
 PUBLIC_CONFIG = {
     'quoteMaxAgeMs': QUOTE_MAX_AGE_MS,

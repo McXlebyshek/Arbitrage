@@ -30,11 +30,11 @@ class LocalHttpTests(unittest.IsolatedAsyncioTestCase):
         async with TestClient(TestServer(create_app(monitor, collect=False))) as client:
             async with client.get('/api/markets/early') as stream:
                 async with asyncio.timeout(2):
-                    self.assertIn(b'"baseAt": null', await stream.content.readline())
+                    self.assertIn(b'"baseAt":null', await stream.content.readline())
                     self.assertEqual(await stream.content.readline(), b'\n')
                     await monitor.publish_snapshot(dict(monitor.snapshot, generatedAt=1234))
                     self.assertEqual(await stream.content.readline(), b'event: snapshot-ready\n')
-                    self.assertIn(b'"generatedAt": 1234', await stream.content.readline())
+                    self.assertIn(b'"generatedAt":1234', await stream.content.readline())
 
     async def test_host_validation_and_headers_on_http_and_sse(self):
         monitor = Monitor((), Path('unused.sqlite3'))

@@ -26,6 +26,7 @@
 
 ## WebSocket, задержки и переподключения
 
+- [Пяти минутный shadow-прогон REST и WebSocket](REST_WS_SHADOW_2026-11-13.md)
 - [Переход Binance между источниками котировок](BINANCE_DEPTH_CROSSOVER.md)
 - [Ранние стаканы Binance](BINANCE_DEPTH_EARLY.md)
 - [Циклы приоритетных запросов Binance](BINANCE_DEPTH_PRIORITY_CYCLE.md)

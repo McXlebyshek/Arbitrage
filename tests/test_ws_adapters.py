@@ -174,6 +174,24 @@ class PublicBookAdapterTests(unittest.TestCase):
                 feed.mark_connected()
                 self.assertIsNone(feed.confirm_rest(symbol, old_session, 99, 100, due + 4))
 
+    def test_bulk_tickers_confirm_quiet_binance_gate_and_kucoin_symbols(self):
+        for venue, symbol in (('binanceusdm', 'BTCUSDT'), ('gate', 'BTC_USDT'),
+                              ('kucoinfutures', 'XBTUSDTM')):
+            with self.subTest(venue=venue):
+                feed = FuturesBookFeed(venue, lambda: None)
+                simulate_subscription(feed, symbol)
+                feed.subscription_ack_at[symbol] = STAMP
+                feed.heartbeat_received(STAMP)
+                due = STAMP + QUIET_SYMBOL_AGE
+                self.assertEqual(feed.quiet_symbols(due), [symbol])
+
+                token = feed.rest_token(symbol)
+                result = feed.confirm_bulk(symbol, token, 100, 101, due, changed_at=STAMP)
+
+                self.assertFalse(result)
+                self.assertEqual(feed.quote(symbol, due)['quoteSource'], 'bulk')
+                self.assertNotIn('suspect', feed.quote(symbol, due))
+
     def test_subscription_shapes_and_urls(self):
         for venue, expected in {
             'binanceusdm': ('wss://fstream.binance.com/public/ws', dict(method='SUBSCRIBE',

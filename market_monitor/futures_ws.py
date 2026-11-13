@@ -19,6 +19,7 @@ KUCOIN_TOKEN_URL = 'https://api-futures.kucoin.com/api/v1/bullet-public'
 CONNECTION_ACTIVITY_AGE = 45_000
 QUIET_SYMBOL_AGE = 30_000
 QUIET_REST_VENUES = frozenset({'binanceusdm', 'gate'})
+QUIET_BULK_VENUES = frozenset({'binanceusdm', 'gate', 'kucoinfutures'})
 LOG = logging.getLogger(__name__)
 
 FUTURES_WS_VENUES = tuple(PROTOCOLS)
@@ -201,7 +202,7 @@ class FuturesBookFeed(ReconnectingFeed):
         return None
 
     def quiet_symbols(self, now):
-        if self.venue not in QUIET_REST_VENUES or not self.active(now):
+        if self.venue not in QUIET_BULK_VENUES or not self.active(now):
             return []
         due = []
         for symbol in self._subscriptions:
@@ -224,8 +225,16 @@ class FuturesBookFeed(ReconnectingFeed):
                 self.watermarks.get(symbol))
 
     def confirm_rest(self, symbol, token, bid, ask, received, *, changed_at=None):
+        return self._confirm_external(symbol, token, bid, ask, received, changed_at=changed_at,
+                                      quote_source='rest')
+
+    def confirm_bulk(self, symbol, token, bid, ask, received, *, changed_at=None):
+        return self._confirm_external(symbol, token, bid, ask, received, changed_at=changed_at,
+                                      quote_source='bulk')
+
+    def _confirm_external(self, symbol, token, bid, ask, received, *, changed_at, quote_source):
         session_number, requested_symbol, generation, expected, watermark = token
-        if (self.venue not in QUIET_REST_VENUES or generation is None or not self.active(received)
+        if (self.venue not in QUIET_BULK_VENUES or generation is None or not self.active(received)
                 or session_number != self.session_number or requested_symbol != symbol
                 or self._subscriptions.get(symbol) is not generation or self.quotes.get(symbol) is not expected
                 or self.watermarks.get(symbol) is not watermark or not (bid and ask and 0 < bid <= ask)):
@@ -243,7 +252,7 @@ class FuturesBookFeed(ReconnectingFeed):
                 quote['receivedAt'] = received
         else:
             quote = dict(bid=bid, ask=ask, changedAt=changed_at, sourceAt=changed_at,
-                         receivedAt=received, confirmedAt=received, quoteSource='rest')
+                         receivedAt=received, confirmedAt=received, quoteSource=quote_source)
             if expected is not None:
                 quote['suspect'] = True
         self.quotes[symbol] = quote
