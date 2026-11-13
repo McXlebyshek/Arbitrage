@@ -1,16 +1,16 @@
 """Public funding events and coverage of settlement windows."""
 
 import asyncio
+from itertools import pairwise
 
 from .market import decimal
-
 
 DAY = 86400000
 
 
 def cadence_stats(context, tolerance_ms=1000):
     """Observed cadence only; raw event timestamps and boundaries stay intact."""
-    gaps = [b['timestamp']-a['timestamp'] for a,b in zip(context, context[1:])]
+    gaps = [b['timestamp'] - a['timestamp'] for a, b in pairwise(context)]
     nominal = round(gaps[0]/60000)*60000 if gaps else None
     deviation = max(abs(gap-nominal) for gap in gaps) if gaps else None
     regular = bool(gaps) and 60000 <= nominal <= DAY and deviation <= tolerance_ms

@@ -1,7 +1,7 @@
 import asyncio
+import unittest
 from pathlib import Path
 from types import SimpleNamespace
-import unittest
 from unittest.mock import AsyncMock, Mock, patch
 
 import aiohttp
@@ -88,7 +88,7 @@ class FuturesPairStateTests(unittest.TestCase):
         monitor.futures_feeds = {venue: object() for venue in ('mexc', 'kucoinfutures')}
         monitor.futures_symbols = {venue: set() for venue in monitor.futures_feeds}
         markets = {}
-        for index, (coin, volume) in enumerate(
+        for coin, volume in (
             [(f'OLD{i:02}', 31 - i) for i in range(30)] + [('NEW', 2.05)],
         ):
             legs = []
@@ -180,7 +180,7 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
 
         async def wait_for_quote():
             async with asyncio.timeout(3):
-                while not source.book_ticker.quotes:
+                while not source.book_ticker.quotes:  # noqa: ASYNC110 - producer has no awaitable state signal
                     await asyncio.sleep(.01)
 
         def quote():
@@ -227,7 +227,7 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
         def add(coin, volume, assets=(None, None)):
             legs = []
             for venue, native, asset in zip(
-                ('mexc', 'kucoinfutures'), (coin + '_USDT', coin + 'USDTM'), assets,
+                ('mexc', 'kucoinfutures'), (coin + '_USDT', coin + 'USDTM'), assets, strict=True,
             ):
                 key = f'{venue}.swap.{coin}.USDT'
                 monitor.instruments[key] = (monitor.sources[venue, 'swap'], {'id': native})
@@ -345,7 +345,7 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
 
         async def wait_for_bid(bid):
             async with asyncio.timeout(3):
-                while (feed.quote(symbol, now_ms()) or {}).get('bid') != bid:
+                while (feed.quote(symbol, now_ms()) or {}).get('bid') != bid:  # noqa: ASYNC110
                     await asyncio.sleep(.01)
 
         async with TestServer(app) as gateway, aiohttp.ClientSession() as session:
@@ -357,7 +357,7 @@ class RecoveryTests(unittest.IsolatedAsyncioTestCase):
                     reader = feed.reader
                     await wait_for_bid(100)
                     async with asyncio.timeout(3):
-                        while len(consumed) < 3:
+                        while len(consumed) < 3:  # noqa: ASYNC110
                             await asyncio.sleep(.01)
                     self.assertEqual(consumed, [100, 100, 100])
                     close_first.set()

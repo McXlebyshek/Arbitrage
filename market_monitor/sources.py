@@ -2,6 +2,7 @@
 
 import asyncio
 import logging
+from collections import Counter
 
 import aiohttp
 import ccxt.async_support as ccxt
@@ -12,7 +13,6 @@ from .rest_budget import guard
 from .thresholds import QUOTE_MAX_AGE_MS
 from .usdc import EXTENDED_INFO, EdgeXPublic, ExtendedPublic
 from .whitebit import WhitebitBookTicker
-
 
 VENUES = {
     'binanceusdm': 'Binance', 'bybit': 'Bybit', 'okx': 'OKX',
@@ -89,6 +89,7 @@ class Source:
         self.turnover_task = None
         self.turnover_client = None
         self.turnover_error = None
+        self.error_counts: Counter[str] = Counter()
         self.schedule = None
         self.book_ticker = None
 
@@ -128,6 +129,12 @@ class Source:
     def correct_timestamp(self, stamp):
         return self.clock.correct(stamp) if self.clock is not None else stamp
 
+    def record_failure(self, operation: str, error: Exception) -> None:
+        name = type(error).__name__
+        self.error_counts[name] += 1
+        LOG.debug('%s %s request failed: %s', self.venue, operation, name,
+                  exc_info=(type(error), error, error.__traceback__))
+
     async def catalog(self):
         try:
             async with asyncio.timeout(60):
@@ -136,6 +143,7 @@ class Source:
                 raise ValueError('empty market catalog')
             contracts = sum(is_target(market) for market in markets.values())
         except Exception as exc:
+            self.record_failure('catalog', exc)
             return None, 0, now_ms(), f'{type(exc).__name__}: {exc}'[:300]
         return markets, contracts, now_ms(), None
 
@@ -177,7 +185,8 @@ class Source:
             status = dict(status, state='error', contracts=0, error=status.get('error') or 'market catalog expired')
         self.catalog_status[venue] = status or dict(state='loading', contracts=0)
         interval = CATALOG_REFRESH_MS if venue in self.catalogs and status.get('state') != 'stale' else QUOTE_MAX_AGE_MS
-        if self.catalog_client is not None and self.catalog_task is None and (not self.updated or now - self.updated >= interval):
+        if (self.catalog_client is not None and self.catalog_task is None
+                and (not self.updated or now - self.updated >= interval)):
             self.catalog_task = asyncio.create_task(self.catalog())
 
     def status(self):
@@ -234,6 +243,7 @@ class Source:
             if venue == 'kucoinfutures':
                 self.ticker_status[venue]['feed'] = feed
         except Exception as exc:
+            self.record_failure('tickers', exc)
             self.batches.pop(venue, None)
             self.ticker_status[venue] = dict(
                 state='error', received_at_ms=now_ms(), returned=0, error=f'{type(exc).__name__}: {exc}'[:500],
@@ -449,7 +459,9 @@ class Source:
                         raise ValueError('invalid candle response')
                     value = okx_turnover(rows, end)
                     if value is not None and self.has_market(market):
-                        self.volume[market['symbol']] = dict(quoteVolume=value, native_id=market['id'], expiresAt=expires)
+                        self.volume[market['symbol']] = dict(
+                            quoteVolume=value, native_id=market['id'], expiresAt=expires,
+                        )
                 except (aiohttp.ClientError, ccxt.NetworkError, TimeoutError) as exc:
                     if batch is markets:
                         retry.append(market)
@@ -541,7 +553,10 @@ class Source:
         markets = self.catalogs[self.venue].values()
         rows = await self.public_data(f'{EDGEX_PUBLIC}/funding/getLatestFundingRate',
                                       contractId=[market['id'] for market in markets])
-        by_id = {row['contractId']: row for row in rows if fresh(numeric(row.get('fundingTimestamp')), now_ms(), 180000)}
+        by_id = {
+            row['contractId']: row for row in rows
+            if fresh(numeric(row.get('fundingTimestamp')), now_ms(), 180000)
+        }
         return {market['symbol']: {'info': by_id[market['id']], 'indexPrice': by_id[market['id']].get('indexPrice')}
                 for market in markets if market['id'] in by_id}
 
@@ -567,7 +582,9 @@ class Source:
         start = now - 8 * DAY
         events = {}
         if self.venue == 'extended':
-            rows = await self.public_data(f'{EXTENDED_INFO}/{market_id}/funding', startTime=start, endTime=now, limit=250)
+            rows = await self.public_data(
+                f'{EXTENDED_INFO}/{market_id}/funding', startTime=start, endTime=now, limit=250,
+            )
             records = ((row['m'], row['T'], row['f']) for row in rows)
         else:
             records = []

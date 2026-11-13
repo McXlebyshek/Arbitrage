@@ -1,15 +1,14 @@
 """WhiteBIT's public best-bid/ask snapshots for spot markets."""
 
 import asyncio
-from contextlib import AsyncExitStack
 import logging
+from contextlib import AsyncExitStack
 from time import monotonic
 
 import aiohttp
 
 from .market import fresh, now_ms, numeric
 from .ws_reconnect import CONNECT_TIMEOUT, ReconnectingFeed
-
 
 BOOK_TICKER_URL = 'wss://api.whitebit.com/ws'
 LOG = logging.getLogger(__name__)
@@ -50,7 +49,8 @@ class WhitebitBookTicker(ReconnectingFeed):
             item = self.quotes.get(market['id'])
             if item:
                 quote = item[1]
-                if quote['bid'] is not None and fresh(quote['timestamp'], now) and fresh(quote['quote_received_at_ms'], now):
+                if (quote['bid'] is not None and fresh(quote['timestamp'], now)
+                        and fresh(quote['quote_received_at_ms'], now)):
                     result[market['symbol']] = dict(quote, symbol=market['symbol'])
         return result
 

@@ -1,5 +1,5 @@
-from decimal import Decimal
 import unittest
+from decimal import Decimal
 
 from market_monitor.economics import EconomicBlock, check_limits, fill
 

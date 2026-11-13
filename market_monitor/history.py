@@ -1,17 +1,16 @@
 """Local market observations with a single SQLite writer and short readers."""
 
 import asyncio
+import sqlite3
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import closing, contextmanager
 from pathlib import Path
-import sqlite3
 from threading import Lock
 from time import monotonic
 
 from .funding_history import DAY
 from .market import fresh
 from .thresholds import MAX_PRICE_RATIO
-
 
 MINUTE_MS = 60_000
 RETENTION_MS = 2 * DAY
@@ -38,7 +37,8 @@ def eligible_legs(markets, now, compatible_assets):
                 if not compatible_assets(left, right):
                     continue
                 prices = [leg.get('bid') if leg.get('bid') is not None else leg.get('last') for leg in (left, right)]
-                if all(price is not None and price > 0 for price in prices) and max(prices) / min(prices) > MAX_PRICE_RATIO:
+                if (all(price is not None and price > 0 for price in prices)
+                        and max(prices) / min(prices) > MAX_PRICE_RATIO):
                     continue
                 selected.update((left['id'], right['id']))
                 break

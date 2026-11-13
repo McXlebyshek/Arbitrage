@@ -145,7 +145,8 @@ class ExtendedPublic:
                 tickers[symbol] = dict(symbol=symbol, native_id=market['id'], bid=stats.get('bidPrice'),
                                        ask=stats.get('askPrice'), timestamp=None, last=stats.get('lastPrice'),
                                        quoteVolume=stats.get('dailyVolume'), indexPrice=stats.get('indexPrice'),
-                                       fundingRate=stats.get('fundingRate'), fundingTimestamp=stats.get('nextFundingRate'),
+                                       fundingRate=stats.get('fundingRate'),
+                                       fundingTimestamp=stats.get('nextFundingRate'),
                                        openInterestValue=stats.get('openInterest'), interval='1h')
         return tickers
 

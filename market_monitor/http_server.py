@@ -1,20 +1,19 @@
 """Local HTTP, streaming, and bounded depth handlers for the public monitor."""
 
 import asyncio
-from decimal import Decimal
 import logging
 import webbrowser
+from decimal import Decimal
 
 import aiohttp
-from aiohttp import web
 import ccxt.async_support as ccxt
 import orjson
+from aiohttp import web
 
 from .contract_details import contract_limits
 from .market import decimal, fresh, positive
 from .pair_economics import estimate_pair, normalized_book
 from .thresholds import BOOK_MAX_AGE_MS
-
 
 LOG = logging.getLogger(__name__)
 FUTURES_QUOTE_FIELDS = (
@@ -246,7 +245,7 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
         if len(keys) != 2 or keys[0] == keys[1] or any(key not in monitor.instruments for key in keys):
             raise web.HTTPBadRequest(text='Выберите два разных рынка')
         instruments = [monitor.instruments[key] for key in keys]
-        sources, markets = zip(*instruments)
+        sources, markets = zip(*instruments, strict=True)
         bindings = [monitor.registry.match(source.venue, source.kind, market)
                     for source, market in instruments]
         if (any(source.kind != 'swap' for source in sources)
@@ -265,7 +264,8 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
             if budget > 1_000_000 or any(not 0 <= fee <= Decimal('.01') for fee in fees):
                 raise ValueError('Бюджет до 1 000 000, комиссии от 0 до 1%')
             books = await asyncio.gather(*(get_book(key) for key in keys))
-            if not all(monitor.current_instrument(key, expected) for key, expected in zip(keys, instruments)):
+            if not all(monitor.current_instrument(key, expected)
+                       for key, expected in zip(keys, instruments, strict=True)):
                 raise web.HTTPServiceUnavailable(text='Каталог инструмента обновляется')
             return payload(estimate_pair(instruments, books, budget, fees, now_ms()))
         except ValueError as exc:
@@ -282,19 +282,23 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
             try:
                 instruments = estimate_instruments(keys)
                 books = await asyncio.gather(*(get_book(key) for key in keys))
-                if not all(monitor.current_instrument(key, item) for key, item in zip(keys, instruments)):
+                if not all(monitor.current_instrument(key, item)
+                           for key, item in zip(keys, instruments, strict=True)):
                     raise web.HTTPServiceUnavailable(text='Каталог инструмента обновляется')
                 estimate = estimate_pair(instruments, books, budget, (Decimal(0), Decimal(0)), now_ms(),
                                          require_full_entry=True)
                 long_ask, short_bid = estimate['entry']
-                expires_at = min(book[field] for book in books for field in ('sourceAt', 'receivedAt')) + BOOK_MAX_AGE_MS
+                expires_at = min(
+                    book[field] for book in books for field in ('sourceAt', 'receivedAt')
+                ) + BOOK_MAX_AGE_MS
                 return dict(spread=200 * (short_bid - long_ask) / (short_bid + long_ask), expiresAt=expires_at)
             except web.HTTPException as exc:
                 return dict(error=exc.text)
             except ValueError as exc:
                 return dict(error=str(exc))
 
-        return payload(dict(nominal=int(budget), pairs=dict(zip(pairs, await asyncio.gather(*(spread(pair) for pair in pairs))))))
+        estimates = await asyncio.gather(*(spread(pair) for pair in pairs))
+        return payload(dict(nominal=int(budget), pairs=dict(zip(pairs, estimates, strict=True))))
 
     async def index(_request):
         return web.FileResponse(frontend / 'index.html')

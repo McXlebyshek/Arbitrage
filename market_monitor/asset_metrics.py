@@ -1,14 +1,13 @@
 """Market capitalization and FDV for assets with explicit CoinGecko IDs."""
 
 import asyncio
-from datetime import datetime
 import logging
 import os
+from datetime import datetime
 
 import aiohttp
 
 from .market import fresh, now_ms, numeric
-
 
 URL = 'https://api.coingecko.com/api/v3/coins/markets'
 REFRESH_SECONDS = 600

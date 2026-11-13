@@ -5,7 +5,6 @@ from contextlib import suppress
 from random import uniform
 from time import monotonic
 
-
 MAX_BACKOFF = 30.0
 HEALTHY_SESSION = 30.0
 CONNECT_TIMEOUT = 15.0

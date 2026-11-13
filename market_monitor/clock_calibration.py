@@ -7,7 +7,6 @@ from time import monotonic
 
 from .market import now_ms
 
-
 REFRESH_SECONDS = 300
 RETRY_SECONDS = 60
 CONFIRM_SECONDS = 15

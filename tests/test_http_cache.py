@@ -1,17 +1,16 @@
 import asyncio
 import json
+import unittest
 from pathlib import Path
 from types import SimpleNamespace
-import unittest
 from unittest.mock import AsyncMock, patch
 
-from aiohttp import web
 import orjson
+from aiohttp import web
 
 from market_monitor.http_server import compact_futures_quotes
-from monitor import Monitor, create_app
 from market_monitor.thresholds import PUBLIC_CONFIG
-
+from monitor import Monitor, create_app
 
 NOW = 1_800_000_000_000
 
@@ -94,7 +93,8 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
     async def test_expired_source_is_not_served_from_cache(self):
         self.release.set()
         await self.book()
-        with patch('monitor.now_ms', return_value=NOW + 3001), self.assertLogs('market_monitor.http_server', level='WARNING'):
+        with (patch('monitor.now_ms', return_value=NOW + 3001),
+              self.assertLogs('market_monitor.http_server', level='WARNING')):
             with self.assertRaises(web.HTTPServiceUnavailable):
                 await self.book()
         self.assertEqual(self.fetch.await_count, 2)

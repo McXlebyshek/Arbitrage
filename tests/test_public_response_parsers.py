@@ -1,12 +1,11 @@
 import json
-from pathlib import Path
 import unittest
+from pathlib import Path
 
+from market_monitor.asset_metrics import parse_valuations
 from market_monitor.funding_history import window_stats
 from market_monitor.usdc import ExtendedPublic, parse_edgex_markets
-from market_monitor.asset_metrics import parse_valuations
 from market_monitor.whitebit import WhitebitBookTicker
-
 
 FIXTURES = json.loads((Path(__file__).parent / 'fixtures/public_response_samples.json').read_text(encoding='utf-8'))
 

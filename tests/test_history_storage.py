@@ -1,15 +1,21 @@
 import asyncio
+import sqlite3
+import unittest
 from contextlib import closing
 from pathlib import Path
-import sqlite3
 from tempfile import TemporaryDirectory
 from threading import Event
-import unittest
 from unittest.mock import patch
 
-from market_monitor.history import (COMPACTION_BATCH_MS, History, MAINTENANCE_MS, MINUTE_MS, RECENT_MS,
-                                    RETENTION_MS, eligible_legs)
-
+from market_monitor.history import (
+    COMPACTION_BATCH_MS,
+    MAINTENANCE_MS,
+    MINUTE_MS,
+    RECENT_MS,
+    RETENTION_MS,
+    History,
+    eligible_legs,
+)
 
 NOW = 1_800_000_000_000
 

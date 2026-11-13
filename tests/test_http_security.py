@@ -1,6 +1,6 @@
 import asyncio
-from pathlib import Path
 import unittest
+from pathlib import Path
 from unittest.mock import AsyncMock
 
 from aiohttp.test_utils import TestClient, TestServer
@@ -56,6 +56,7 @@ class LocalHttpTests(unittest.IsolatedAsyncioTestCase):
         source = monitor.sources['bybit', 'swap']
         source.budget.requests = 12
         source.budget.rate_limits = 2
+        source.error_counts['RateLimitExceeded'] = 3
         source.batches['bybit'] = {'received_at_ms': 1000}
         monitor.snapshot['generatedAt'] = 1050
         monitor.cycle_duration_ms = 200
@@ -75,5 +76,6 @@ class LocalHttpTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(health['eventLoopLagMaxMs'], 19)
         self.assertEqual(health['sources']['Bybit · swap']['batchAgeMs'], 100)
         self.assertEqual(health['sources']['Bybit · swap']['durationMs'], 150)
+        self.assertEqual(health['sources']['Bybit · swap']['errorCounts'], {'RateLimitExceeded': 3})
         self.assertIsNone(health['sources']['Bybit · spot']['batchAgeMs'])
         self.assertEqual(health['rest'], {'bybit': {'requests': 12, 'rateLimits': 2}})

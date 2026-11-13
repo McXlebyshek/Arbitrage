@@ -1,18 +1,26 @@
 import asyncio
+import unittest
 from decimal import Decimal
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from types import SimpleNamespace
-import unittest
 from unittest.mock import AsyncMock, Mock, patch
 
-from monitor import (History, Monitor, complete_history, detail_refresh_after, estimate_pair,
-                     compatible_assets, funding_fields, normalized_book, valid_market)
 from market_monitor.economics import EconomicBlock
 from market_monitor.funding_history import fetch_history
 from market_monitor.sources import OKX_BAR_MS, Source, okx_turnover
 from market_monitor.whitebit import WhitebitBookTicker
-
+from monitor import (
+    History,
+    Monitor,
+    compatible_assets,
+    complete_history,
+    detail_refresh_after,
+    estimate_pair,
+    funding_fields,
+    normalized_book,
+    valid_market,
+)
 
 NOW = 1_800_000_000_000
 
@@ -112,7 +120,8 @@ class MonitorTests(unittest.TestCase):
         self.assertFalse(compatible_assets(scaled, dict(asset=None, priceUnits=1000)))
         market = dict(id='1000CATUSDT', base='1000CAT', quote='USDT', settle='USDT',
                       swap=True, linear=True, active=True, contractSize=1)
-        self.assertEqual(Monitor((), Path('unused.sqlite3')).registry.match('bybit', 'swap', market)['price_units'], 1000)
+        match = Monitor((), Path('unused.sqlite3')).registry.match('bybit', 'swap', market)
+        self.assertEqual(match['price_units'], 1000)
 
     def test_registered_alias_preserves_native_symbol_and_requires_confirmed_peer(self):
         monitor = Monitor((), Path('unused.sqlite3'))
@@ -350,7 +359,8 @@ class KuCoinTickerTests(unittest.IsolatedAsyncioTestCase):
         ])
         fallback = {symbol: dict(symbol=symbol, bid=98, ask=99, timestamp=NOW - 1000)}
         source.clients[source.venue] = SimpleNamespace(
-            fetch=AsyncMock(return_value=dict(code='200000', data=data)), fetch_tickers=AsyncMock(return_value=fallback),
+            fetch=AsyncMock(return_value=dict(code='200000', data=data)),
+            fetch_tickers=AsyncMock(return_value=fallback),
         )
         with patch('market_monitor.sources.now_ms', return_value=NOW):
             await source.tickers(source.venue)
@@ -427,13 +437,16 @@ class EarlyBinanceTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_reserved_slot_counts_even_if_priority_request_fails(self):
         monitor = Monitor((), Path('unused.sqlite3'))
-        monitor.snapshot['markets'] = {coin: lagged_binance_market(coin) for coin in ('AAA', 'BBB', 'CCC', 'DDD', 'EEE')}
+        monitor.snapshot['markets'] = {
+            coin: lagged_binance_market(coin) for coin in ('AAA', 'BBB', 'CCC', 'DDD', 'EEE')
+        }
         for legs in monitor.snapshot['markets'].values():
             monitor.instruments[legs[0]['id']] = None
         monitor.binance_depth_quote = AsyncMock(return_value=None)
         await monitor.binance_depth_quotes(reserved='binanceusdm.swap.AAA.USDT')
         self.assertEqual(monitor.binance_depth_quote.await_count, 3)
-        self.assertNotIn('binanceusdm.swap.AAA.USDT', [call.args[0] for call in monitor.binance_depth_quote.await_args_list])
+        requested = [call.args[0] for call in monitor.binance_depth_quote.await_args_list]
+        self.assertNotIn('binanceusdm.swap.AAA.USDT', requested)
 
 
 class PyboboDepthTests(unittest.IsolatedAsyncioTestCase):
@@ -447,7 +460,7 @@ class PyboboDepthTests(unittest.IsolatedAsyncioTestCase):
                                         ('mexc', 'MEXC', NOW - 4200)]:
             key = f'{venue}.swap.PYBOBO.USDT'
             book = dict(symbol=symbol, bids=[[0.51, 2]], asks=[[0.52, 2]])
-            fetch = AsyncMock(side_effect=lambda market, v=venue: dict(book, timestamp=stamps[v]))
+            fetch = AsyncMock(side_effect=lambda market, v=venue, value=book: dict(value, timestamp=stamps[v]))
             reads[venue] = fetch
             monitor.instruments[key] = (SimpleNamespace(public_book=fetch), dict(symbol=symbol, contractSize=1))
             legs.append(dict(id=key, exchange=exchange, asset='capybobo', bid=0.50, ask=0.51,

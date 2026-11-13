@@ -7,8 +7,8 @@ from market_monitor.snapshot_wire import encode_compact
 from market_monitor.thresholds import (
     BOOK_MAX_AGE_MS,
     EARLY_QUOTE_MAX_AGE_MS,
-    FUTURES_QUOTE_CONFIRMATION_AGE_MS,
     FUTURE_CLOCK_TOLERANCE_MS,
+    FUTURES_QUOTE_CONFIRMATION_AGE_MS,
     MAX_PRICE_RATIO,
     PUBLIC_CONFIG,
     QUOTE_MAX_AGE_MS,

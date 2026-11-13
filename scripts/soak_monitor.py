@@ -10,8 +10,8 @@ from time import monotonic
 
 from aiohttp import ClientError, ClientSession, ClientTimeout, web
 
-from monitor import Monitor, VENUES, compatible_assets, create_app, fresh, now_ms
 from market_monitor.thresholds import MAX_PRICE_RATIO, SOURCE_TIME_SKEW_MS
+from monitor import VENUES, Monitor, compatible_assets, create_app, fresh, now_ms
 
 
 def coverage(snapshot, now):

@@ -2,21 +2,21 @@
 
 import argparse
 import asyncio
+import logging
+import sqlite3
 from collections import defaultdict
 from itertools import combinations
-import logging
 from pathlib import Path
-import sqlite3
 from time import monotonic
 from uuid import uuid4
 
 import aiohttp
-from aiohttp import web
 import ccxt.async_support as ccxt
+from aiohttp import web
 
 from market_monitor.asset_metrics import AssetMetrics
-from market_monitor.clock_calibration import ClockCalibration
 from market_monitor.classification import valid_market
+from market_monitor.clock_calibration import ClockCalibration
 from market_monitor.contract_details import INDEX_VENUES, contract_index
 from market_monitor.funding_fields import funding_fields
 from market_monitor.funding_history import DAY, cadence_stats, fetch_history, window_stats
@@ -25,13 +25,18 @@ from market_monitor.futures_ws import FUTURES_WS_VENUES, FuturesBookFeed
 from market_monitor.history import History, eligible_legs
 from market_monitor.http_server import create_app as create_http_app
 from market_monitor.market import Registry, fresh, now_ms, numeric
-from market_monitor.pair_economics import estimate_pair as estimate_pair, normalized_book
+from market_monitor.pair_economics import estimate_pair as estimate_pair
+from market_monitor.pair_economics import normalized_book
 from market_monitor.rest_budget import RestBudget
 from market_monitor.snapshot_wire import encode_compact
 from market_monitor.sources import CYCLE_FUNDING_VENUES, SPOT_CLIENTS, VENUES, Source
-from market_monitor.thresholds import (BOOK_MAX_AGE_MS, EARLY_QUOTE_MAX_AGE_MS, PUBLIC_CONFIG,
-                                       RECEIPT_TIME_SKEW_MS, SOURCE_TIME_SKEW_MS)
-
+from market_monitor.thresholds import (
+    BOOK_MAX_AGE_MS,
+    EARLY_QUOTE_MAX_AGE_MS,
+    PUBLIC_CONFIG,
+    RECEIPT_TIME_SKEW_MS,
+    SOURCE_TIME_SKEW_MS,
+)
 
 ROOT = Path(__file__).resolve().parent
 FRONTEND = ROOT / 'frontend'
@@ -244,7 +249,8 @@ class Monitor:
             ready = set(self.futures_feeds) if ready_venues is None else set(ready_venues)
             selected = self.select_futures_symbols(markets)
             self.futures_symbols = {
-                venue: selected.get(venue, frozenset()) if venue in ready else self.futures_symbols.get(venue, frozenset())
+                venue: (selected.get(venue, frozenset()) if venue in ready
+                        else self.futures_symbols.get(venue, frozenset()))
                 for venue in self.futures_feeds
             }
             populated = any(len(symbols) >= FUTURES_WS_LIMIT for symbols in self.futures_symbols.values())
@@ -329,7 +335,7 @@ class Monitor:
                 pinned.append((venue, symbol, leg))
             if len(pinned) < 2:
                 continue
-            for (venue, symbol, leg), (peer, _other, other_leg) in combinations(pinned, 2):
+            for (venue, symbol, leg), (_, _other, other_leg) in combinations(pinned, 2):
                 if not compatible_assets(leg, other_leg):
                     continue
                 rank = (0, not bool(leg['asset'] and leg['asset'] == other_leg['asset']), 0)
@@ -481,8 +487,10 @@ class Monitor:
                 received = ticker.get('quote_received_at_ms', batch_received)
                 raw_stamp = numeric(ticker.get('timestamp'))
                 stamp = raw_stamp - offset if raw_stamp is not None and offset is not None else raw_stamp
-                current = ticker.get('symbol') == symbol and ticker.get('native_id', market['id']) == market['id'] and fresh(received, now) and (
-                    stamp is None or fresh(stamp, now))
+                current = (
+                    ticker.get('symbol') == symbol and ticker.get('native_id', market['id']) == market['id']
+                    and fresh(received, now) and (stamp is None or fresh(stamp, now))
+                )
                 if not current:
                     ticker, stamp = {}, None
                 bid, ask = numeric(ticker.get('bid')), numeric(ticker.get('ask'))
@@ -505,7 +513,8 @@ class Monitor:
                 if volume is None:
                     volume = numeric(turnover_ticker.get('quoteVolume'))
                 detail = self.cached_detail(key, now, (source, market)) or {}
-                fields = funding_fields(raw, market, venue, now, source.schedule) if kind == 'swap' else dict(rate=0, hours=None, next=None)
+                fields = (funding_fields(raw, market, venue, now, source.schedule) if kind == 'swap'
+                          else dict(rate=0, hours=None, next=None))
                 if kind == 'swap':
                     details_funding = detail.get('funding', {})
                     if venue in CYCLE_FUNDING_VENUES and (details_funding.get('next') or 0) <= now:
@@ -575,7 +584,7 @@ class Monitor:
             return {}
         self.binance_depth_cursor = keys[-1]
         quotes = await asyncio.gather(*(self.binance_depth_quote(key) for key in keys))
-        return {key: quote for key, quote in zip(keys, quotes) if quote is not None}
+        return {key: quote for key, quote in zip(keys, quotes, strict=True) if quote is not None}
 
     async def binance_cycle_depth(self, tickers_ready):
         if not tickers_ready:
@@ -593,11 +602,11 @@ class Monitor:
             key = leg['id']
             peer = peers[0]
             if (leg['quote'] != 'USDT' or not leg['asset'] or leg['asset'] != peer['asset']
-                    or any(l['id'] not in self.instruments for l in (leg, peer))
+                    or any(candidate['id'] not in self.instruments for candidate in (leg, peer))
                     or not fresh(peer['sourceAt'], ready, EARLY_QUOTE_MAX_AGE_MS)):
                 continue
             if any(source.catalogs.get(source.venue, {}).get(market['symbol'], {}).get('id') != market['id']
-                   for source, market in (self.instruments[l['id']] for l in (leg, peer))):
+                   for source, market in (self.instruments[candidate['id']] for candidate in (leg, peer))):
                 continue
             candidates[key] = (leg, peer)
         if not candidates:
@@ -669,7 +678,7 @@ class Monitor:
         depth_skew = abs(books[0]['sourceAt'] - books[1]['sourceAt'])
         if depth_skew > SOURCE_TIME_SKEW_MS:
             return dict(state='depth_skew', bulkSkewMs=bulk_skew, depthSkewMs=depth_skew)
-        for leg, book in zip(legs, books):
+        for leg, book in zip(legs, books, strict=True):
             leg.update(bid=book['bids'][0][0], ask=book['asks'][0][0], sourceAt=book['sourceAt'],
                        receivedAt=book['receivedAt'], quoteSource='depth')
         return dict(state='applied', bulkSkewMs=bulk_skew, depthSkewMs=depth_skew)
@@ -677,7 +686,8 @@ class Monitor:
     async def run(self):
         last_slot = None
         retry_delay = 1
-        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=15)) as session, asyncio.TaskGroup() as tasks:
+        timeout = aiohttp.ClientTimeout(total=15)
+        async with aiohttp.ClientSession(timeout=timeout) as session, asyncio.TaskGroup() as tasks:
             tasks.create_task(self.asset_metrics.run(session))
             for source in self.sources.values():
                 source.open(session)
@@ -721,7 +731,7 @@ class Monitor:
             *(collect_source(key, source) for key, source in self.sources.items()),
             self.binance_cycle_depth(tickers_ready), return_exceptions=True)
         statuses = {}
-        for ((venue, kind), source), outcome in zip(self.sources.items(), outcomes):
+        for ((venue, kind), source), outcome in zip(self.sources.items(), outcomes, strict=True):
             status = source.status()
             status['batchReceivedAt'] = source.batches.get(venue, {}).get('received_at_ms')
             if isinstance(outcome, Exception):
@@ -784,6 +794,7 @@ class Monitor:
                 state=self.snapshot['venues'].get(label, {}).get('state', 'starting'),
                 durationMs=self.source_duration_ms.get((venue, kind)),
                 batchAgeMs=age(batch.get('received_at_ms')),
+                errorCounts=dict(source.error_counts),
             )
             budget = source.budget
             rest[venue] = dict(requests=budget.requests, rateLimits=budget.rate_limits)
@@ -818,7 +829,8 @@ class Monitor:
             try:
                 async with asyncio.timeout(10):
                     return await method(*args, **kwargs)
-            except (aiohttp.ClientError, ccxt.BaseError, TimeoutError, ValueError, AttributeError, KeyError, TypeError) as exc:
+            except (aiohttp.ClientError, ccxt.BaseError, TimeoutError, ValueError,
+                    AttributeError, KeyError, TypeError) as exc:
                 result['errors'][name] = str(exc)[:250] or type(exc).__name__
                 return None
 
@@ -885,8 +897,9 @@ class Monitor:
                 result.update(index)
             else:
                 result = await self.load_detail(source, market)
+            retry_incomplete = source.kind == 'swap' and source.venue in CYCLE_FUNDING_VENUES
             result['refreshAfter'] = detail_refresh_after(
-                result, started, next_at, retry_incomplete=source.kind == 'swap' and source.venue in CYCLE_FUNDING_VENUES,
+                result, started, next_at, retry_incomplete=retry_incomplete,
             )
             if not self.current_instrument(key, instrument):
                 raise web.HTTPServiceUnavailable(text='Каталог инструмента обновляется')
@@ -900,7 +913,8 @@ class Monitor:
             async with asyncio.timeout(6):
                 catalog_at = source.catalog_status.get(source.venue, {}).get('lastSuccessAt')
                 return {'indexComposition': await contract_index(source.venue, source.client, market, catalog_at)}
-        except (aiohttp.ClientError, ccxt.BaseError, TimeoutError, ValueError, AttributeError, KeyError, TypeError) as exc:
+        except (aiohttp.ClientError, ccxt.BaseError, TimeoutError, ValueError,
+                AttributeError, KeyError, TypeError) as exc:
             LOG.warning('Index %s %s: %s', source.venue, market['id'], str(exc)[:180] or type(exc).__name__)
             return {'indexComposition': None, 'indexUnavailable': True}
 

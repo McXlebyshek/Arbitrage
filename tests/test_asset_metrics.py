@@ -1,17 +1,16 @@
-from datetime import datetime, timezone
 import unittest
+from datetime import UTC, datetime, timezone
 from unittest.mock import AsyncMock, MagicMock, patch
 
-from market_monitor.asset_metrics import AssetMetrics, MAX_AGE_MS, parse_valuations
+from market_monitor.asset_metrics import MAX_AGE_MS, AssetMetrics, parse_valuations
 from market_monitor.market import Registry
-
 
 NOW = 1_800_000_000_000
 IDS = {'bitcoin': 'btc'}
 
 
 def row(stamp=NOW, **fields):
-    updated = datetime.fromtimestamp(stamp / 1000, timezone.utc).isoformat()
+    updated = datetime.fromtimestamp(stamp / 1000, UTC).isoformat()
     return {'id': 'bitcoin', 'last_updated': updated, 'market_cap': 12_000_000, **fields}
 
 

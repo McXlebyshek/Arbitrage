@@ -20,11 +20,25 @@ python -m venv .venv
 
 ## Проверки
 
+Установите инструменты разработки в `.venv`:
+
+```powershell
+.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+```
+
 ```powershell
 .venv\Scripts\python.exe -m unittest discover -s tests
 node --test tests/*.test.cjs
 npm run lint
+.venv\Scripts\ruff.exe check .
+.venv\Scripts\pyright.exe
 npm run test:e2e
+```
+
+Для строкового покрытия ключевых модулей без дополнительной зависимости используйте `trace`:
+
+```powershell
+.venv\Scripts\python.exe -m trace --module --count --summary --missing --coverdir "$env:TEMP\arbitrage-coverage" unittest tests.test_monitor.MonitorTests tests.test_market_adapters tests.test_economics tests.test_public_response_parsers tests.test_ws_adapters.PublicBookAdapterTests tests.test_source_errors
 ```
 
 ## Документы

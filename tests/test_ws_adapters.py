@@ -11,7 +11,6 @@ from market_monitor.futures_ws_protocols import PROTOCOLS
 from market_monitor.market import now_ms
 from market_monitor.thresholds import FUTURES_QUOTE_CONFIRMATION_AGE_MS
 
-
 STAMP = 1_796_370_000_000
 SYMBOLS = {'binanceusdm': 'BTCUSDT', 'bybit': 'BTCUSDT', 'okx': 'BTC-USDT-SWAP',
            'gate': 'BTC_USDT', 'bitget': 'BTCUSDT'}
@@ -255,8 +254,10 @@ class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
                 try:
                     feed.start(session, {symbol})
                     async with asyncio.timeout(2):
-                        while (feed.quote(symbol, now_ms()) is None or not transport_pong.is_set()
-                               or len(captured) < (3 if protocol.ping else 1)):
+                        while (  # noqa: ASYNC110 - reader exposes no awaitable state notification
+                                feed.quote(symbol, now_ms()) is None or not transport_pong.is_set()
+                                or len(captured) < (3 if protocol.ping else 1)):
+                            # State is updated by the WebSocket reader and has no waitable notification.
                             await asyncio.sleep(.01)
                     self.assertTrue(feed.connected)
                     self.assertEqual(captured[0][1], '1' if venue == 'gate' else None)
@@ -292,7 +293,7 @@ class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
                         stamp = now_ms()
                         for symbol in ('BTCUSDT', 'ETHUSDT'):
                             await socket.send_json(frame(feed.venue, stamp, symbol=symbol))
-                        while feed.quote('ETHUSDT', now_ms()) is None:
+                        while feed.quote('ETHUSDT', now_ms()) is None:  # noqa: ASYNC110
                             await asyncio.sleep(.001)
                         eth_quote = feed.quotes['ETHUSDT']
                         eth_ack = feed.subscription_ack_at['ETHUSDT']
@@ -310,8 +311,10 @@ class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
                         self.assertEqual((add['method'], add['params']), ('SUBSCRIBE', ['solusdt@bookTicker']))
                         self.assertEqual(len({initial['id'], remove['id'], add['id']}), 3)
                         await socket.send_json(acknowledge(feed.venue, remove))
-                        await socket.send_json(frame(feed.venue, stamp + 2, symbol='ETHUSDT', sequence=9007199254740998))
-                        while feed.quotes['ETHUSDT'] is eth_quote:
+                        await socket.send_json(frame(
+                            feed.venue, stamp + 2, symbol='ETHUSDT', sequence=9007199254740998,
+                        ))
+                        while feed.quotes['ETHUSDT'] is eth_quote:  # noqa: ASYNC110
                             await asyncio.sleep(.001)
                         self.assertNotIn('SOLUSDT', feed.subscription_ack_at)
                         self.assertEqual(feed.subscription_ack_at['ETHUSDT'], eth_ack)
@@ -319,11 +322,11 @@ class PublicBookWireTests(unittest.IsolatedAsyncioTestCase):
                         self.assertIsNone(feed.confirm_rest('BTCUSDT', old_token, 100, 101, now_ms()))
                         self.assertEqual(feed.quotes['ETHUSDT']['changedAt'], stamp)
                         await socket.send_json(acknowledge(feed.venue, add))
-                        while 'SOLUSDT' not in feed.subscription_ack_at:
+                        while 'SOLUSDT' not in feed.subscription_ack_at:  # noqa: ASYNC110
                             await asyncio.sleep(.001)
                         self.assertIsNone(feed.quote('SOLUSDT', now_ms()))
                         await socket.send_json(frame(feed.venue, stamp + 3, symbol='SOLUSDT'))
-                        while feed.quote('SOLUSDT', now_ms()) is None:
+                        while feed.quote('SOLUSDT', now_ms()) is None:  # noqa: ASYNC110
                             await asyncio.sleep(.001)
                         self.assertTrue(feed.connected)
                         self.assertIs(feed.reader, reader)

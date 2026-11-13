@@ -1,16 +1,18 @@
 import asyncio
-from types import SimpleNamespace
 import unittest
+from types import SimpleNamespace
 from unittest.mock import AsyncMock, patch
 
 import ccxt.async_support as ccxt
 
 from market_monitor.clock_calibration import (
-    CONFIRM_SECONDS, MAX_AGE_SECONDS, REFRESH_SECONDS, ClockCalibration,
+    CONFIRM_SECONDS,
+    MAX_AGE_SECONDS,
+    REFRESH_SECONDS,
+    ClockCalibration,
 )
 from market_monitor.market import fresh
 from market_monitor.sources import Source
-
 
 NOW = 1_800_000_000_000
 
@@ -107,7 +109,8 @@ class ClockTests(unittest.IsolatedAsyncioTestCase):
         client = timeline.exchange(clock, offset=800)
         await self.confirm(timeline, clock, client)
         timeline.advance(REFRESH_SECONDS * 1000)
-        await self.probe(clock, SimpleNamespace(has={'fetchTime': True}, fetch_time=AsyncMock(side_effect=TimeoutError)))
+        client = SimpleNamespace(has={'fetchTime': True}, fetch_time=AsyncMock(side_effect=TimeoutError))
+        await self.probe(clock, client)
         self.assertEqual(clock.status()['lastError'], 'timeout')
         self.assertEqual(clock.offset(), 800)
         timeline.advance(MAX_AGE_SECONDS * 1000)

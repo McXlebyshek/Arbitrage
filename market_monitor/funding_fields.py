@@ -1,14 +1,13 @@
 """Normalize upcoming funding terms from public exchange responses."""
 
+import re
 from collections.abc import Callable, Mapping
 from dataclasses import dataclass
-import re
 from typing import Any, TypedDict
 
 from .funding_history import DAY
 from .market import numeric
 from .sources import CYCLE_FUNDING_VENUES
-
 
 HOUR_MS = 3_600_000
 INTERVAL = re.compile(r'(\d+(?:\.\d+)?)h')

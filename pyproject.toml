@@ -3,7 +3,17 @@ testpaths = ["tests"]
 
 [tool.ruff]
 target-version = "py312"
+line-length = 120
 extend-exclude = ["OLD", ".codex"]
 
 [tool.ruff.lint]
-select = ["E9", "F"]
+select = ["E", "W", "I", "B", "UP", "ASYNC", "RUF"]
+
+[tool.pyright]
+include = [
+  "market_monitor/market.py",
+  "market_monitor/pair_economics.py",
+  "market_monitor/funding_fields.py",
+  "market_monitor/futures_ws_protocols.py",
+]
+typeCheckingMode = "basic"

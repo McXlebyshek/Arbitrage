@@ -56,10 +56,12 @@ class RestBudget:
                 changed = asyncio.create_task(event.wait())
                 try:
                     await asyncio.wait((timer, changed), return_when=asyncio.FIRST_COMPLETED)
-                    if timer.done(): timer.result()
+                    if timer.done():
+                        timer.result()
                 finally:
                     for task in (timer, changed):
-                        if not task.done(): task.cancel()
+                        if not task.done():
+                            task.cancel()
                     await asyncio.gather(timer, changed, return_exceptions=True)
         finally:
             if not granted:

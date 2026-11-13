@@ -1,12 +1,11 @@
 """Market admission based on linear contract metadata and public TradFi markers."""
 
-from collections.abc import Callable, Mapping
 import logging
 import re
+from collections.abc import Callable, Mapping
 from typing import Any
 
 from .market import is_target, numeric
-
 
 LOG = logging.getLogger(__name__)
 TICKER = re.compile(r'[A-Z0-9]{1,30}')

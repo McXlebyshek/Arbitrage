@@ -2,7 +2,6 @@
 
 from .market import fresh, now_ms, numeric
 
-
 INDEX_MAX_AGE = 300_000
 INDEX_VENUES = ('binanceusdm', 'bybit', 'okx', 'mexc')
 

@@ -1,11 +1,10 @@
 import json
-from pathlib import Path
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 from market_monitor import classification
 from market_monitor.funding_fields import funding_fields
-
 
 FIXTURES = json.loads((Path(__file__).parent / 'fixtures/market_catalog_fields.json').read_text(encoding='utf-8'))
 HOUR = 3_600_000
@@ -89,6 +88,7 @@ class TradfiTests(unittest.TestCase):
              patch.object(classification, 'MAX_CLASS_NOTICES', 2), \
              self.assertLogs('market_monitor.classification', level='WARNING') as logs:
             for value in ('NEW_TYPE', 'NEW_TYPE', 'SECOND_TYPE', 'THIRD_TYPE'):
-                self.assertTrue(classification.valid_market(self.swap('TEST', {'symbolType': value}), 'swap', venue='bybit'))
+                market = self.swap('TEST', {'symbolType': value})
+                self.assertTrue(classification.valid_market(market, 'swap', venue='bybit'))
         self.assertEqual(len(logs.output), 2)
         self.assertIn("symbolType='NEW_TYPE'", logs.output[0])

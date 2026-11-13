@@ -1,20 +1,21 @@
 """Numeric validation and the local market identity registry."""
 
-from decimal import Decimal, InvalidOperation
 import json
 import math
-from pathlib import Path
 import re
 import time
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
+from typing import Any
 
 from .thresholds import FUTURE_CLOCK_TOLERANCE_MS, QUOTE_MAX_AGE_MS
 
 
-def now_ms():
+def now_ms() -> int:
     return int(time.time()*1000)
 
 
-def numeric(value):
+def numeric(value: Any) -> float | None:
     if value is None or isinstance(value, bool):
         return None
     try:
@@ -24,13 +25,13 @@ def numeric(value):
     return value if math.isfinite(value) else None
 
 
-def is_target(market, currency='USDT'):
+def is_target(market: dict[str, Any], currency: str = 'USDT') -> bool:
     return (market.get("swap") is True and market.get("linear") is True
             and market.get("quote") == currency and market.get("settle") == currency
             and market.get("active") is True)
 
 
-def decimal(value):
+def decimal(value: Any) -> Decimal:
     try:
         result = Decimal(str(value))
     except (InvalidOperation, ValueError):
@@ -40,7 +41,7 @@ def decimal(value):
     return result
 
 
-def positive(value):
+def positive(value: Any) -> Decimal:
     result = decimal(value)
     if result <= 0:
         raise ValueError("Expected a positive number")
@@ -48,14 +49,15 @@ def positive(value):
 
 
 class Registry:
-    def __init__(self, document):
+    def __init__(self, document: Any) -> None:
         if not isinstance(document, dict) or not isinstance(document.get("bindings"), list):
             raise ValueError("Registry must be an object with a bindings list")
-        self.version = document["version"]
-        if not isinstance(self.version, str) or not self.version:
+        version = document["version"]
+        if not isinstance(version, str) or not version:
             raise ValueError("Registry version must be a nonempty string")
-        self.bindings = {}
-        assets_by_market = set()
+        self.version = version
+        self.bindings: dict[tuple[str, str, str], dict[str, Any]] = {}
+        assets_by_market: set[tuple[str, str, str, str]] = set()
         for entry in document["bindings"]:
             if not isinstance(entry, dict):
                 raise ValueError("Registry binding must be an object")
@@ -73,25 +75,30 @@ class Registry:
             group = entry.get("group")
             if group is not None and (not isinstance(group, str) or not re.fullmatch(r"[A-Z0-9]{1,30}", group)):
                 raise ValueError("Registry market group must be an ASCII ticker")
-            binding = dict(entry, kind=kind, quote=quote)
+            binding: dict[str, Any] = dict(entry, kind=kind, quote=quote)
             if kind == "swap":
                 units = positive(entry["price_units"])
                 if units != units.to_integral_value() or units > 2**53 - 1:
                     raise ValueError("Registry price units must be a safe positive integer")
-                binding.update(price_units=int(units), contract_size=positive(entry["contract_size"]))
+                binding['price_units'] = int(units)
+                binding['contract_size'] = positive(entry['contract_size'])
             self.bindings[key] = binding
             assets_by_market.add(asset_key)
 
         assets = {asset for _, _, _, asset in assets_by_market}
-        self.coingecko_ids = document.get("coingecko_ids", {})
-        if not isinstance(self.coingecko_ids, dict) or any(
+        coingecko_ids = document.get("coingecko_ids", {})
+        if not isinstance(coingecko_ids, dict) or any(
             asset not in assets or not isinstance(provider_id, str) or not re.fullmatch(r"[a-z0-9-]+", provider_id)
-            for asset, provider_id in self.coingecko_ids.items()
-        ) or len(set(self.coingecko_ids.values())) != len(self.coingecko_ids):
+            for asset, provider_id in coingecko_ids.items()
+        ) or len(set(coingecko_ids.values())) != len(coingecko_ids):
             raise ValueError("CoinGecko IDs must uniquely identify assets in the registry")
+        self.coingecko_ids: dict[str, str] = coingecko_ids
 
-    def match(self, exchange, kind, market):
-        binding = self.bindings.get((exchange, kind, market.get("id")))
+    def match(self, exchange: str, kind: str, market: dict[str, Any]) -> dict[str, Any] | None:
+        market_id = market.get('id')
+        if not isinstance(market_id, str):
+            return None
+        binding = self.bindings.get((exchange, kind, market_id))
         if (not binding or market.get(kind) is not True or market.get("active") is not True
                 or binding["base"] != market.get("base") or binding["quote"] != market.get("quote")):
             return None
@@ -108,9 +115,10 @@ class Registry:
         return binding
 
     @classmethod
-    def load(cls, path=None):
+    def load(cls, path: Path | None = None) -> 'Registry':
         return cls(json.loads((path or Path(__file__).with_name("instruments.json")).read_text(encoding="utf-8")))
 
 
-def fresh(stamp, now, max_age=QUOTE_MAX_AGE_MS):
+def fresh(stamp: int | float | None, now: int | float,
+          max_age: int | float = QUOTE_MAX_AGE_MS) -> bool:
     return stamp is not None and -FUTURE_CLOCK_TOLERANCE_MS <= now - stamp <= max_age

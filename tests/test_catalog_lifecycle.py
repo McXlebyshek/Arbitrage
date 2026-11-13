@@ -1,14 +1,13 @@
 import asyncio
-from types import SimpleNamespace
 import unittest
+from types import SimpleNamespace
 from unittest.mock import AsyncMock, Mock, patch
 
 import ccxt.async_support as ccxt
 
-from market_monitor.asset_metrics import AssetMetrics, REFRESH_SECONDS, RETRY_SECONDS
-from market_monitor.thresholds import QUOTE_MAX_AGE_MS
+from market_monitor.asset_metrics import REFRESH_SECONDS, RETRY_SECONDS, AssetMetrics
 from market_monitor.sources import CATALOG_MAX_AGE_MS, CATALOG_REFRESH_MS, Source, public_client_config
-
+from market_monitor.thresholds import QUOTE_MAX_AGE_MS
 
 NOW = 1_800_000_000_000
 SYMBOL = 'BTC/USDT:USDT'
@@ -23,7 +22,9 @@ class CatalogLifecycleTests(unittest.IsolatedAsyncioTestCase):
             fetch_tickers=AsyncMock(return_value={SYMBOL: dict(symbol=SYMBOL, bid=100, ask=101)}),
             set_markets_from_exchange=Mock(), close=AsyncMock(),
         )
-        source.catalog_client = SimpleNamespace(load_markets=AsyncMock(return_value={SYMBOL: MARKET}), close=AsyncMock())
+        source.catalog_client = SimpleNamespace(
+            load_markets=AsyncMock(return_value={SYMBOL: MARKET}), close=AsyncMock(),
+        )
         self.addAsyncCleanup(source.close)
         return source
 

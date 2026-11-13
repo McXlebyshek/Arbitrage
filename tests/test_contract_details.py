@@ -1,9 +1,8 @@
-from types import SimpleNamespace
 import unittest
+from types import SimpleNamespace
 from unittest.mock import AsyncMock, patch
 
 from market_monitor.contract_details import INDEX_MAX_AGE, contract_index, contract_limits
-
 
 NOW = 1_800_000_000_000
 

@@ -1,11 +1,11 @@
 """Bounded, reconnecting public futures best-bid/ask streams."""
 
 import asyncio
-from contextlib import AsyncExitStack
 import gzip
-from itertools import count
 import json
 import logging
+from contextlib import AsyncExitStack
+from itertools import count
 
 import aiohttp
 
@@ -13,7 +13,6 @@ from .futures_ws_protocols import PROTOCOLS
 from .market import fresh, now_ms
 from .thresholds import FUTURES_QUOTE_CONFIRMATION_AGE_MS
 from .ws_reconnect import CONNECT_TIMEOUT, ReconnectingFeed
-
 
 MEXC_URL = PROTOCOLS['mexc'].url
 KUCOIN_TOKEN_URL = 'https://api-futures.kucoin.com/api/v1/bullet-public'
@@ -167,7 +166,7 @@ class FuturesBookFeed(ReconnectingFeed):
             if version is not None:
                 if sequence < version and not (reset and stamp > timestamp):
                     return
-                if sequence == version and not (repeated or self.protocol.repeated_snapshots and stamp > timestamp):
+                if sequence == version and not (repeated or (self.protocol.repeated_snapshots and stamp > timestamp)):
                     return
         self.watermarks[symbol] = sequence, stamp, bid, ask, received
         if not (bid and ask and 0 < bid <= ask):
@@ -221,7 +220,8 @@ class FuturesBookFeed(ReconnectingFeed):
         return [symbol for _, symbol in sorted(due)]
 
     def rest_token(self, symbol):
-        return self.session_number, symbol, self._subscriptions.get(symbol), self.quotes.get(symbol), self.watermarks.get(symbol)
+        return (self.session_number, symbol, self._subscriptions.get(symbol), self.quotes.get(symbol),
+                self.watermarks.get(symbol))
 
     def confirm_rest(self, symbol, token, bid, ask, received, *, changed_at=None):
         session_number, requested_symbol, generation, expected, watermark = token
@@ -294,7 +294,8 @@ class FuturesBookFeed(ReconnectingFeed):
                     # Exchange sequence numbers may restart after reconnection.
                     self.watermarks = {symbol: (None, *previous[1:]) for symbol, previous in self.watermarks.items()}
                     self.on_disconnect()
-        except (aiohttp.ClientError, TimeoutError, OSError, RuntimeError, KeyError, IndexError, TypeError, ValueError) as exc:
+        except (aiohttp.ClientError, TimeoutError, OSError, RuntimeError,
+                KeyError, IndexError, TypeError, ValueError) as exc:
             # Avoid logging the KuCoin public connection token from a failed handshake URL.
             LOG.warning('%s Futures WebSocket: %s', self.venue, type(exc).__name__)
 
@@ -351,8 +352,9 @@ class FuturesBookFeed(ReconnectingFeed):
             if any(data.get(field) == 'pong' for field in ('channel', 'type', 'op', 'ret_msg')):
                 pong_due = None
                 self.heartbeat_received(received)
-            elif (data.get('channel') == 'rs.error' or data.get('type') == 'error' or data.get('event') == 'error'
-                  or data.get('success') is False or data.get('error') is not None or ('code' in data and 'msg' in data)):
+            elif (data.get('channel') == 'rs.error' or data.get('type') == 'error'
+                  or data.get('event') == 'error' or data.get('success') is False
+                  or data.get('error') is not None or ('code' in data and 'msg' in data)):
                 raise ValueError('public subscription rejected')
             else:
                 self.consume(data, received)
