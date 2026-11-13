@@ -159,7 +159,8 @@ test('futures stream changes only its two directions and drops them on expiry or
   const third = {...legs[0], id: 'c', exchange: 'C'};
   const snapshot = {generatedAt: at, markets: {BTC: [legs[0], {...legs[1], sourceAt: at - 2000}, third]}};
   updateLive(snapshot);
-  const quotes = legs.map(leg => ({...leg, quoteSource: 'ws', confirmedAt: at, validUntil: at + 3000}));
+  const quotes = legs.map(leg => ({id: leg.id, bid: leg.bid, ask: leg.ask, sourceAt: at, receivedAt: at,
+    quoteSource: 'ws', confirmedAt: at, validUntil: at + 3000}));
   const pair = {coin: 'BTC', expiresAt: at + 3000, legs: quotes};
   assert.equal(setFuturesQuotes({baseAt: at, pairs: [pair]}), true);
   rebuildPairs();

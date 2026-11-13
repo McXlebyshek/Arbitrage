@@ -8,6 +8,7 @@ from unittest.mock import AsyncMock, patch
 from aiohttp import web
 import orjson
 
+from market_monitor.http_server import compact_futures_quotes
 from monitor import Monitor, create_app
 from market_monitor.thresholds import PUBLIC_CONFIG
 
@@ -175,3 +176,23 @@ class HttpCacheTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual((await publish(bid=101))['metaVersion'], version)
         self.assertNotEqual((await publish(exchange='Other'))['metaVersion'], version)
         self.assertEqual((await meta(SimpleNamespace(query={'version': version}))).status, 200)
+
+
+class FuturesQuoteWireTests(unittest.TestCase):
+    def test_futures_quote_event_contains_only_ids_and_dynamic_fields(self):
+        static = dict(exchange='Fixture', type='swap', quote='USDT', symbol='BTC/USDT:USDT', asset='btc',
+                      size=1, networks=[dict(network='Ethereum', deposit=True, withdraw=True)],
+                      nativeBase=False, priceUnits=1, totals={'1': .01, '3': .03, '7': .07},
+                      volume=1000000)
+        quote = dict(bid=100, ask=101, sourceAt=NOW, receivedAt=NOW, quoteSource='ws',
+                     confirmedAt=NOW, validUntil=NOW + 45000, changedAt=NOW - 5000, suspect=True)
+        pair = dict(coin='BTC', expiresAt=NOW + 45000, timestampSuspect=True,
+                    legs=[dict(static, id='venue-a.swap.BTC.USDT', **quote),
+                          dict(static, exchange='Other', id='venue-b.swap.BTC.USDT', **quote)])
+
+        event = compact_futures_quotes(NOW, [pair])
+        compact_legs = event['pairs'][0]['legs']
+        self.assertEqual([leg['id'] for leg in compact_legs], [leg['id'] for leg in pair['legs']])
+        self.assertEqual(set(compact_legs[0]), {'id', 'bid', 'ask', 'sourceAt', 'receivedAt', 'quoteSource',
+                                                'confirmedAt', 'validUntil', 'changedAt', 'suspect'})
+        self.assertLess(len(orjson.dumps(event)), len(orjson.dumps(dict(baseAt=NOW, pairs=[pair]))))

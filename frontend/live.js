@@ -223,7 +223,8 @@ function refreshQuotePairs(now = Date.now()) {
       if (!Number.isFinite(event.expiresAt) || event.expiresAt <= now || event.legs?.length !== 2) continue;
       const ids = new Set(live.markets[event.coin]?.legs.map(leg => leg.id));
       if (!event.legs.every(leg => ids.has(leg.id))) continue;
-      const [a, b] = event.legs.map(leg => enrichLeg(leg, now));
+      const descriptions = new Map((live.rawMarkets?.[event.coin] ?? []).map(leg => [leg.id, leg]));
+      const [a, b] = event.legs.map(leg => enrichLeg({...descriptions.get(leg.id), ...leg}, now));
       updates.push(...[makePair(event.coin, a, b, now), makePair(event.coin, b, a, now)]
         .filter(pair => pair?.quality === 'timed' || pair?.quality === 'receipt'));
       live.nextDataChange = Math.min(live.nextDataChange, event.expiresAt);

@@ -2,7 +2,6 @@
 
 import asyncio
 from decimal import Decimal
-import json
 import logging
 import webbrowser
 
@@ -18,6 +17,19 @@ from .thresholds import BOOK_MAX_AGE_MS
 
 
 LOG = logging.getLogger(__name__)
+FUTURES_QUOTE_FIELDS = (
+    'id', 'bid', 'ask', 'sourceAt', 'receivedAt', 'quoteSource', 'confirmedAt',
+    'validUntil', 'changedAt', 'suspect',
+)
+
+
+def compact_futures_quotes(base_at, pairs):
+    """Keep the SSE quote event dynamic; instrument descriptions come from /api/meta."""
+    return dict(baseAt=base_at, pairs=[
+        dict(coin=pair['coin'], expiresAt=pair['expiresAt'], timestampSuspect=pair['timestampSuspect'],
+             legs=[{key: leg[key] for key in FUTURES_QUOTE_FIELDS if key in leg} for leg in pair['legs']])
+        for pair in pairs
+    ])
 
 
 def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=None):
@@ -132,20 +144,26 @@ def create_app(monitor, *, frontend, now_ms, interval, collect=True, open_url=No
                 pair = monitor.early_pair
                 message = (pair if pair is not None and pair['expiresAt'] > now_ms()
                            else dict(baseAt=monitor.snapshot['generatedAt'], legs=None))
-                frames = ''
+                frames = bytearray()
                 publication = monitor.snapshot['generatedAt']
                 if publication is not None and last_publication != monitor.snapshot_revision:
                     notice = dict(generatedAt=publication, intervalMs=interval * 1000)
-                    frames = f'event: snapshot-ready\ndata: {json.dumps(notice)}\n\n'
+                    frames.extend(b'event: snapshot-ready\ndata: ')
+                    frames.extend(orjson.dumps(notice))
+                    frames.extend(b'\n\n')
                     last_publication = monitor.snapshot_revision
-                frames += f'data: {json.dumps(message)}\n\n'
+                frames.extend(b'data: ')
+                frames.extend(orjson.dumps(message))
+                frames.extend(b'\n\n')
                 if monitor.futures_feeds:
                     now = now_ms()
-                    event = dict(baseAt=monitor.snapshot['generatedAt'],
-                                 pairs=[pair for pair in monitor.futures_pairs if pair['expiresAt'] > now])
-                    frames += f'event: futures-quotes\ndata: {json.dumps(event)}\n\n'
+                    pairs = [pair for pair in monitor.futures_pairs if pair['expiresAt'] > now]
+                    event = compact_futures_quotes(monitor.snapshot['generatedAt'], pairs)
+                    frames.extend(b'event: futures-quotes\ndata: ')
+                    frames.extend(orjson.dumps(event))
+                    frames.extend(b'\n\n')
                 async with asyncio.timeout(3):
-                    await response.write(frames.encode())
+                    await response.write(bytes(frames))
                 try:
                     async with asyncio.timeout(10):
                         await changed.wait()
