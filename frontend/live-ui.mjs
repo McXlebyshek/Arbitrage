@@ -1,5 +1,6 @@
 import {
-  activePair, app, chartOffset, chartOptions, chartTab, countdown, dialog, executablePending, executableSpreads,
+  activePair, app, chartOffset, chartOptions, chartTab, chartTabs, countdown, dialog, executablePending, executableSpreads,
+  intervals,
   interval, liquidity, nominal, renderDetail, renderRoute, renderTable, route, savePreference,
   setDetailError, setExecutablePending, showDialog, shownRows, signalRules, state, toast, visiblePairs,
 } from './app.mjs';

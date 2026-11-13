@@ -856,7 +856,7 @@ function startLiveUpdates() {
 startLiveUpdates();
 
 export {
-  activePair, app, chartOptions, chartOffset, chartTab, countdown, dialog, detailError,
+  activePair, app, chartOptions, chartOffset, chartTab, chartTabs, intervals, countdown, dialog, detailError,
   executablePending, executableSpreads, interval, liquidity, nominal, renderDetail, renderRoute, renderTable,
   route, savePreference, setDetailError, setExecutablePending, showDialog, shownRows, signalRules,
   state, toast, visiblePairs,

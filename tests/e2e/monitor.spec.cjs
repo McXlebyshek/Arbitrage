@@ -34,4 +34,6 @@ test('sorts, searches and opens a card on a narrow viewport', async ({page, requ
   await rows.first().getByRole('link', {name: 'BTC'}).click();
   await expect(page.getByRole('heading', {name: 'BTC'})).toBeVisible();
   await expect(page.getByRole('tab', {name: 'Открытый интерес'})).toHaveCount(0);
+  await expect(page.locator('#chart-frame')).toBeVisible();
+  await expect(page.locator('#chart-panel')).toContainText('История накапливается');
 });
