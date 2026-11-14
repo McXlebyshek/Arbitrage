@@ -947,6 +947,8 @@ class Monitor:
                 durationMs=self.source_duration_ms.get((venue, kind)),
                 batchAgeMs=age(batch.get('received_at_ms')),
                 errorCounts=dict(source.error_counts),
+                lastError=(getattr(source, 'ticker_status', {}).get(venue, {}).get('error')
+                           or getattr(source, 'catalog_status', {}).get(venue, {}).get('error')),
             )
             budget = source.budget
             rest[venue] = dict(requests=budget.requests, rateLimits=budget.rate_limits)

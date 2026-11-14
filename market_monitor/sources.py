@@ -347,8 +347,16 @@ class Source:
             self.batches[venue] = dict(tickers=tickers, received_at_ms=received)
             self.ticker_status[venue] = status
         except (aiohttp.ClientError, ccxt.BaseError, TimeoutError, ValueError) as exc:
-            self.batches.pop(venue, None)
-            self.ticker_status[venue] = dict(state='error', error=str(exc)[:300])
+            self.record_spot_ticker_failure(venue, exc)
+
+    def record_spot_ticker_failure(self, venue, error):
+        self.record_failure('spot tickers', error)
+        LOG.warning('%s Spot tickers failed: %s: %s', venue, type(error).__name__,
+                    str(error)[:300], exc_info=(type(error), error, error.__traceback__))
+        self.batches.pop(venue, None)
+        self.ticker_status[venue] = dict(
+            state='error', error=f'{type(error).__name__}: {error}'[:300],
+        )
 
     def start_aux(self, tasks, venue):
         if venue == 'htx':
